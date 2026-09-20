@@ -167,6 +167,35 @@
             text-shadow: none !important; 
         }
 
+        img[src^="pic"] {
+            box-sizing: border-box;
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 20px auto;
+            padding: 12px;
+            background: #fdf5e6;
+            border: 5px double #8c7355;     
+            outline: 1px solid #4a3e2e;     
+            outline-offset: -4px;
+            box-shadow: 
+                inset 0 0 10px rgba(74, 62, 46, 0.3),
+                2px 2px 5px rgba(0, 0, 0, 0.4),
+                4px 4px 0px rgba(74, 62, 46, 0.15);
+            filter: sepia(0.15) contrast(1.1);
+            transition: all 0.4s ease-in-out;
+        }
+
+        img[src^="pic"]:hover {
+            border-color: #aa8b66;
+            box-shadow: 
+                inset 0 0 12px rgba(74, 62, 46, 0.4),
+                3px 6px 12px rgba(0, 0, 0, 0.5),
+                5px 5px 0px rgba(140, 115, 85, 0.2);
+            filter: sepia(0) contrast(1.15);
+            transform: translateY(-2px);
+        }
+
 
     </style>
 </head>
