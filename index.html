@@ -43,15 +43,41 @@
         }
 
         
-        .content {
-            flex-grow: 1;
-            max-width: 580px;
-            background: #36ad78 !important; 
-            border: 3px solid #EE82EE; 
-            padding: 40px;
-            
-            box-shadow: 0 0 20px rgba(0, 255, 0, 0.5), inset 0 0 15px rgba(0, 255, 0, 0.3);
-        }
+
+.content {
+    flex-grow: 1;
+    max-width: 580px;
+    background: rgba(54, 173, 120, 0.82) !important; /* Добавили прозрачность */
+    border: 3px solid #EE82EE; 
+    padding: 40px;
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.5), inset 0 0 15px rgba(0, 255, 0, 0.3);
+    
+    /* Навороты Веб 1.0 */
+    position: relative;
+    overflow: hidden; 
+    scrollbar-color: #EE82EE rgba(0, 0, 0, 0.5); 
+    scrollbar-width: thin;
+}
+
+/* Тонкий неоновый скроллбар */
+.content::-webkit-scrollbar { width: 6px; }
+.content::-webkit-scrollbar-track { background: rgba(0,0,0,0.4); }
+.content::-webkit-scrollbar-thumb { background: #EE82EE; border-radius: 10px; }
+
+/* Холст для будущей магии шума под текстом */
+#web1-canvas {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    z-index: 0;
+    pointer-events: none; 
+    opacity: 0.18; 
+}
+
+/* Поднимаем посты над шумом */
+.content > * {
+    position: relative;
+    z-index: 1;
+}
 
         
         .sidebar-right {
@@ -661,6 +687,57 @@
         }
       });
     }
+  });
+</script>
+
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const contentBar = document.querySelector('.content');
+    if (!contentBar) return;
+
+    
+    const canvas = document.createElement('canvas');
+    canvas.id = 'web1-canvas';
+    contentBar.insertBefore(canvas, contentBar.firstChild);
+
+    const ctx = canvas.getContext('2d');
+    function resize() {
+      canvas.width = contentBar.clientWidth;
+      canvas.height = contentBar.clientHeight;
+    }
+    resize();
+    window.addEventListener('resize', resize);
+    new ResizeObserver(() => resize()).observe(contentBar);
+
+    let mouse = { x: -1000, y: -1000 };
+    contentBar.addEventListener('mousemove', (e) => {
+      const rect = contentBar.getBoundingClientRect();
+      mouse.x = e.clientX - rect.left;
+      mouse.y = e.clientY - rect.top;
+    });
+    contentBar.addEventListener('mouseleave', () => { mouse.x = -1000; mouse.y = -1000; });
+
+    function drawNoise() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = '#00FF00'; 
+      const step = 6; 
+
+      for (let x = 0; x < canvas.width; x += step) {
+        for (let y = 0; y < canvas.height; y += step) {
+          const dx = x - mouse.x;
+          const dy = y - mouse.y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          
+          let rand = Math.random();
+          if (dist < 90) { rand += (1 - dist / 90) * 0.5; } 
+          
+          if (rand > 0.95) { ctx.fillRect(x, y, 2, 2); }
+        }
+      }
+      requestAnimationFrame(drawNoise);
+    }
+    drawNoise();
   });
 </script>
 
