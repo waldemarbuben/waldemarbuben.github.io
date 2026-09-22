@@ -4,22 +4,30 @@
     <meta charset="UTF-8">
     <title>Вальдемар Бубен</title>
     <style>
+        @font-face {
+    font-family: 'B52_Custom';
+    src: url('B52.ttf') format('truetype'); 
+    font-weight: normal;
+    font-style: normal;
+}
+
         body {
-            
             background-image: url('IMG_9799.jpg');
             background-attachment: fixed; 
             background-position: center;
             background-size: cover; 
             
             color: #111111; 
-            font-family: 'Times', Georgia, serif;
+            
+            
+            font-family: 'B52_Custom', 'Courier New', monospace; 
+            font-size: 18px; 
+            
             max-width: 1250px; 
             margin: 60px auto;
             padding: 0 20px;
             line-height: 1.7;
             letter-spacing: 0.02em;
-            
-            
             
             text-shadow: 0px 0px 2px #000000; 
         }
@@ -47,24 +55,24 @@
 .content {
     flex-grow: 1;
     max-width: 580px;
-    background: rgba(54, 173, 120, 0.82) !important; /* Добавили прозрачность */
+    background: rgba(54, 173, 120, 0.82) !important; 
     border: 3px solid #EE82EE; 
     padding: 40px;
     box-shadow: 0 0 20px rgba(0, 255, 0, 0.5), inset 0 0 15px rgba(0, 255, 0, 0.3);
     
-    /* Навороты Веб 1.0 */
+    
     position: relative;
     overflow: hidden; 
     scrollbar-color: #EE82EE rgba(0, 0, 0, 0.5); 
     scrollbar-width: thin;
 }
 
-/* Тонкий неоновый скроллбар */
+
 .content::-webkit-scrollbar { width: 6px; }
 .content::-webkit-scrollbar-track { background: rgba(0,0,0,0.4); }
 .content::-webkit-scrollbar-thumb { background: #EE82EE; border-radius: 10px; }
 
-/* Холст для будущей магии шума под текстом */
+
 #web1-canvas {
     position: absolute;
     top: 0; left: 0; width: 100%; height: 100%;
@@ -73,7 +81,7 @@
     opacity: 0.18; 
 }
 
-/* Поднимаем посты над шумом */
+
 .content > * {
     position: relative;
     z-index: 1;
