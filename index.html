@@ -731,7 +731,7 @@
             ночи в тягостях земного дня.
             <div style="margin-top: 25px; border-top: 1px dashed #dda0dd; padding-top: 15px; text-align:center;"></div>
         </div>
-        <img src="Lautor.png" alt="manifestation" width="228" height="300">
+       <img src="Cvetok2.PNG" alt="manifestation" width="200" height="200"> <img src="Lautor.png" alt="manifestation" width="228" height="300"> <img src="Cvetok3.PNG" alt="manifestation" width="300" height="300">
     </div>
 
     <script>
@@ -852,7 +852,48 @@
         }
       });
     </script>
+    
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const flowerIcons = [
+          '🌸', '🌺', '🌹', '🌷', '🌼', '🪷', '💐', '🥀', 
+          '<span style="color:#FFB6C1;">❀</span>', 
+          '<span style="color:#EE82EE;">✿</span>', 
+          '<span style="color:#FF1493;">❁</span>'
+        ];
 
+        const maxFlowers = 38;
+
+        function createFlower() {
+          const flower = document.createElement('div');
+          flower.className = 'falling-flower';
+          flower.innerHTML = flowerIcons[Math.floor(Math.random() * flowerIcons.length)];
+          
+          const startLeft = Math.random() * 98;
+          const duration = 6 + Math.random() * 8;
+          const size = 16 + Math.random() * 24;
+          const delay = Math.random() * 5;
+
+          flower.style.left = startLeft + 'vw';
+          flower.style.fontSize = size + 'px';
+          flower.style.animationDuration = duration + 's';
+          flower.style.animationDelay = delay + 's';
+          flower.style.opacity = (0.6 + Math.random() * 0.4).toString();
+
+          document.body.appendChild(flower);
+
+          setTimeout(() => {
+            flower.remove();
+            createFlower();
+          }, (duration + delay) * 1000);
+        }
+
+        for (let i = 0; i < maxFlowers; i++) {
+          setTimeout(createFlower, i * 200);
+        }
+      });
+    </script>
+    
     <script>
       document.assets = true;
     </script>
