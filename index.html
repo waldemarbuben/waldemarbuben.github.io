@@ -35,46 +35,39 @@
             border: 4px ridge #FF00FF; 
             padding: 20px;
             box-shadow: -6px 6px 0px #550055;
+            position: relative;
         }
 
-        
+        .content {
+            flex-grow: 1;
+            max-width: 580px;
+            background: rgba(54, 173, 120, 0.82) !important; 
+            border: 3px solid #EE82EE; 
+            padding: 40px;
+            box-shadow: 0 0 20px rgba(0, 255, 0, 0.5), inset 0 0 15px rgba(0, 255, 0, 0.3);
+            position: relative;
+            overflow: hidden; 
+            scrollbar-color: #EE82EE rgba(0, 0, 0, 0.5); 
+            scrollbar-width: thin;
+        }
 
-.content {
-    flex-grow: 1;
-    max-width: 580px;
-    background: rgba(54, 173, 120, 0.82) !important; 
-    border: 3px solid #EE82EE; 
-    padding: 40px;
-    box-shadow: 0 0 20px rgba(0, 255, 0, 0.5), inset 0 0 15px rgba(0, 255, 0, 0.3);
-    
-    
-    position: relative;
-    overflow: hidden; 
-    scrollbar-color: #EE82EE rgba(0, 0, 0, 0.5); 
-    scrollbar-width: thin;
-}
+        .content::-webkit-scrollbar { width: 6px; }
+        .content::-webkit-scrollbar-track { background: rgba(0,0,0,0.4); }
+        .content::-webkit-scrollbar-thumb { background: #EE82EE; border-radius: 10px; }
 
+        #web1-canvas {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            z-index: 0;
+            pointer-events: none; 
+            opacity: 0.18; 
+        }
 
-.content::-webkit-scrollbar { width: 6px; }
-.content::-webkit-scrollbar-track { background: rgba(0,0,0,0.4); }
-.content::-webkit-scrollbar-thumb { background: #EE82EE; border-radius: 10px; }
+        .content > * {
+            position: relative;
+            z-index: 1;
+        }
 
-
-#web1-canvas {
-    position: absolute;
-    top: 0; left: 0; width: 100%; height: 100%;
-    z-index: 0;
-    pointer-events: none; 
-    opacity: 0.18; 
-}
-
-
-.content > * {
-    position: relative;
-    z-index: 1;
-}
-
-        
         .sidebar-right {
             width: 340px;
             background: #000000;
@@ -82,45 +75,38 @@
             padding: 15px;
             text-align: center;
             box-shadow: 6px 6px 0px #005555;
+            position: relative;
         }
 
         .divine-image {
             width: 100%;
             height: auto;
             border: 2px solid #FF00FF;
-            
             filter: contrast(1.4) brightness(1.0); 
         }
 
-       
+        .play-btn {
+            background: #000000;             
+            color: #FFFDD0 !important;       
+            border: 4px ridge #ff8000;       
+            padding: 8px 20px;
+            font-size: 1em;
+            font-family: 'Times', Georgia, serif;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 10px;
+            display: inline-block;
+            letter-spacing: 0.1em;
+            text-shadow: 0px 0px 2px #000000;
+            box-shadow: -6px 6px 0px #550055; 
+            transition: all 0.2s ease;
+        }
 
-
-.play-btn {
-    background: #000000;             
-    color: #FFFDD0 !important;       
-    border: 4px ridge #ff8000;       
-    padding: 8px 20px;
-    font-size: 1em;
-    font-family: 'Times', Georgia, serif;
-    font-weight: bold;
-    cursor: pointer;
-    margin-top: 10px;
-    display: inline-block;
-    letter-spacing: 0.1em;
-    text-shadow: 0px 0px 2px #000000;
-    box-shadow: -6px 6px 0px #550055; 
-    transition: all 0.2s ease;
-}
-
-
-.play-btn:hover {
-    color: #00FFFF !important;      
-    border-color: #00FFFF;           
-    box-shadow: -6px 6px 0px #005555; 
-}
-
-
-
+        .play-btn:hover {
+            color: #00FFFF !important;      
+            border-color: #00FFFF;           
+            box-shadow: -6px 6px 0px #005555; 
+        }
 
         .audio-item {
             margin-bottom: 30px;
@@ -128,7 +114,6 @@
             padding-bottom: 15px;
         }
 
-        
         .track-title {
             color: #00FFFF !important; 
             font-size: 1.1em;
@@ -149,7 +134,6 @@
             margin-bottom: 25px;
         }
 
-        
         a {
             color: #00FFFF; 
             text-decoration: underline;
@@ -169,7 +153,6 @@
             font-size: 1.1em;
         }
 
-        
         @media (max-width: 950px) {
             body {
                 margin: 20px auto; 
@@ -180,17 +163,16 @@
                 background-attachment: scroll; 
             }
         }
+
         .alchemy-manifest {
             margin-top: 30px;
             background: #000000;
-            
             border: 2px solid #8c7355; 
             padding: 20px;
             text-align: left;
             box-shadow: inset 0 0 15px rgba(140, 115, 85, 0.2), 4px 4px 0px #111111;
         }
 
-        /
         .alchemy-title {
             color: #8c7355 !important; 
             font-size: 0.9em !important;
@@ -202,7 +184,6 @@
             padding-bottom: 5px;
         }
 
-        
         .alchemy-text {
             color: #8a8a8a !important; 
             font-size: 0.9em !important;
@@ -240,16 +221,83 @@
             transform: translateY(-2px);
         }
 
+        /* 1. БОКОВЫЕ ЛИАНЫ И ГИРЛЯНДЫ ИЗ ЦВЕТОВ (ПО БОКАМ ЭКРАНА) */
+        .floral-vines-left, .floral-curtain-right {
+            position: fixed;
+            top: 0;
+            width: 180px;
+            height: 100vh;
+            pointer-events: none;
+            z-index: 999;
+            background-repeat: repeat-y;
+            opacity: 0.88;
+            filter: drop-shadow(0 0 8px rgba(238, 130, 238, 0.6));
+        }
 
+        .floral-vines-left {
+            left: 0;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='600' viewBox='0 0 180 600'%3E%3Cpath d='M30,0 Q60,150 20,300 T40,600' stroke='%23228B22' stroke-width='4' fill='none'/%3E%3Cpath d='M10,0 Q40,200 15,400 T30,600' stroke='%23006400' stroke-width='3' fill='none'/%3E%3Cg transform='translate(20,80)'%3E%3Ccircle cx='0' cy='0' r='18' fill='%23FF69B4' opacity='0.9'/%3E%3Ccircle cx='-10' cy='-10' r='12' fill='%23FFB6C1'/%3E%3Ccircle cx='10' cy='-10' r='12' fill='%23FFB6C1'/%3E%3Ccircle cx='0' cy='10' r='12' fill='%23FFB6C1'/%3E%3Ccircle cx='0' cy='0' r='6' fill='%23FFFF00'/%3E%3C/g%3E%3Cg transform='translate(50,220) scale(1.3)'%3E%3Ccircle cx='0' cy='0' r='16' fill='%23EE82EE'/%3E%3Cpath d='M-15,0 Q0,-25 15,0 Q0,25 -15,0' fill='%23DA70D6' opacity='0.8'/%3E%3Ccircle cx='0' cy='0' r='5' fill='%23FFF'/%3E%3C/g%3E%3Cg transform='translate(25,380)'%3E%3Ccircle cx='0' cy='0' r='20' fill='%23C71585'/%3E%3Ccircle cx='-12' cy='-12' r='14' fill='%23FF1493'/%3E%3Ccircle cx='12' cy='-12' r='14' fill='%23FF1493'/%3E%3Ccircle cx='0' cy='12' r='14' fill='%23FF1493'/%3E%3Ccircle cx='0' cy='0' r='7' fill='%23FFD700'/%3E%3C/g%3E%3Cg transform='translate(45,510) scale(0.9)'%3E%3Ccircle cx='0' cy='0' r='15' fill='%23E6E6FA'/%3E%3Ccircle cx='-10' cy='-10' r='10' fill='%23FFF'/%3E%3Ccircle cx='10' cy='-10' r='10' fill='%23FFF'/%3E%3Ccircle cx='0' cy='10' r='10' fill='%23FFF'/%3E%3Ccircle cx='0' cy='0' r='5' fill='%23FFD700'/%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        .floral-curtain-right {
+            right: 0;
+            transform: scaleX(-1);
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='600' viewBox='0 0 180 600'%3E%3Cpath d='M30,0 Q60,150 20,300 T40,600' stroke='%23228B22' stroke-width='4' fill='none'/%3E%3Cpath d='M10,0 Q40,200 15,400 T30,600' stroke='%23006400' stroke-width='3' fill='none'/%3E%3Cg transform='translate(20,80)'%3E%3Ccircle cx='0' cy='0' r='18' fill='%23FF69B4' opacity='0.9'/%3E%3Ccircle cx='-10' cy='-10' r='12' fill='%23FFB6C1'/%3E%3Ccircle cx='10' cy='-10' r='12' fill='%23FFB6C1'/%3E%3Ccircle cx='0' cy='10' r='12' fill='%23FFB6C1'/%3E%3Ccircle cx='0' cy='0' r='6' fill='%23FFFF00'/%3E%3C/g%3E%3Cg transform='translate(50,220) scale(1.3)'%3E%3Ccircle cx='0' cy='0' r='16' fill='%23EE82EE'/%3E%3Cpath d='M-15,0 Q0,-25 15,0 Q0,25 -15,0' fill='%23DA70D6' opacity='0.8'/%3E%3Ccircle cx='0' cy='0' r='5' fill='%23FFF'/%3E%3C/g%3E%3Cg transform='translate(25,380)'%3E%3Ccircle cx='0' cy='0' r='20' fill='%23C71585'/%3E%3Ccircle cx='-12' cy='-12' r='14' fill='%23FF1493'/%3E%3Ccircle cx='12' cy='-12' r='14' fill='%23FF1493'/%3E%3Ccircle cx='0' cy='12' r='14' fill='%23FF1493'/%3E%3Ccircle cx='0' cy='0' r='7' fill='%23FFD700'/%3E%3C/g%3E%3Cg transform='translate(45,510) scale(0.9)'%3E%3Ccircle cx='0' cy='0' r='15' fill='%23E6E6FA'/%3E%3Ccircle cx='-10' cy='-10' r='10' fill='%23FFF'/%3E%3Ccircle cx='10' cy='-10' r='10' fill='%23FFF'/%3E%3Ccircle cx='0' cy='10' r='10' fill='%23FFF'/%3E%3Ccircle cx='0' cy='0' r='5' fill='%23FFD700'/%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        /* 2. ОПЛЕТЕНИЕ ЦЕНТРАЛЬНОГО КОНТЕНТА И САЙДБАРОВ ЛИАНАМИ */
+        .content::before, .sidebar-left::before, .sidebar-right::before {
+            content: "🐚🌸 🌹🌻 🌺 🍂🌷🪷 🌼 💐 🌸 🌹🌘 🌺 🌷";
+            position: absolute;
+            top: -18px;
+            left: 0;
+            width: 100%;
+            font-size: 16px;
+            letter-spacing: 8px;
+            text-align: center;
+            pointer-events: none;
+            z-index: 10;
+            text-shadow: 0 0 6px #FF00FF, 0 0 12px #00FF00;
+            opacity: 0.9;
+        }
+
+        /* 3. АНИМАЦИЯ ПАДАЮЩИХ ЦВЕТОВ */
+        .falling-flower {
+            position: fixed;
+            top: -50px;
+            pointer-events: none;
+            z-index: 1000;
+            user-select: none;
+            animation: fallAndSway linear infinite;
+            filter: drop-shadow(0 0 6px rgba(255, 105, 180, 0.8));
+        }
+
+        @keyframes fallAndSway {
+            0% {
+                transform: translateY(0vh) rotate(0deg) translateX(0px);
+                opacity: 1;
+            }
+            50% {
+                transform: translateY(50vh) rotate(180deg) translateX(25px);
+                opacity: 0.85;
+            }
+            100% {
+                transform: translateY(105vh) rotate(360deg) translateX(-20px);
+                opacity: 0.2;
+            }
+        }
     </style>
 </head>
 <body>
 
-       <div style="text-align: center; margin: 40px 0 20px 0; padding: 20px; background: #191970; border: 4px double #00FF00; box-shadow: 0 0 25px rgba(0, 255, 0, 0.6);">
-  
-  <div style="color: #ff8000; font-size: 1.2em; font-weight: bold; margin-bottom: 15px; letter-spacing: 0.15em; text-transform: uppercase; text-shadow: 0 0 10px #00FF00;">
-     <img src="IMG_0371.webp" alt="manifestation" width="20" height="20"> Храм памяти моей валькирии  <img src="IMG_0371.webp" alt="manifestation" width="20" height="20">
-  </div>
+    <!-- ЭЛЕМЕНТЫ ЛИАН ПО БОКАМ -->
+    <div class="floral-vines-left"></div>
+    <div class="floral-curtain-right"></div>
+
+    <div style="text-align: center; margin: 40px 0 20px 0; padding: 20px; background: #191970; border: 4px double #00FF00; box-shadow: 0 0 25px rgba(0, 255, 0, 0.6);">
+        <div style="color: #ff8000; font-size: 1.2em; font-weight: bold; margin-bottom: 15px; letter-spacing: 0.15em; text-transform: uppercase; text-shadow: 0 0 10px #00FF00;">
+             <img src="IMG_0371.webp" alt="manifestation" width="20" height="20"> Храм памяти моей валькирии  <img src="IMG_0371.webp" alt="manifestation" width="20" height="20">
+        </div>
 
         <h1 style="font-size: 3.5em; font-weight: 900; color: #8B0000; margin: 0; letter-spacing: 0.15em; text-shadow: 0 0 15px #FF00FF, 3px 3px 0px #000000;">
             <img src="Monada2.png" alt="manifestation" width="40" height="40">Вальдѣмаръ Бубѣнъ<img src="Monada.png" alt="manifestation" width="40" height="40">
@@ -258,11 +306,9 @@
             ==ТОТ, КТО ИДЕТ ПРОТИВ ДНЯ, НЕ ДОЛЖЕН БОЯТЬСЯ НОЧИ==
             
             <div class="audio-item">
-    <audio class="my-audio" src="tot1.mp3"></audio> 
-    <button class="play-btn">Интерлюдия</button>
-
-</div>
-
+                <audio class="my-audio" src="tot1.mp3"></audio> 
+                <button class="play-btn">Интерлюдия</button>
+            </div>
         </div>
     </div>
    
@@ -272,175 +318,163 @@
 
     <div class="main-container">
 
-        
         <div class="sidebar-left">
-                
-        <div style="margin-bottom: 35px; border-bottom: 3px double #FFA500; padding-bottom: 20px; text-align: center;">
-            <div class="track-title" style="color: #FF1493 !important; font-size: 1.1em; font-weight: 900; margin-bottom: 10px;">Литѣратура по бѣспроволочному</div>
-            <div style="color: #ffffff; font-size: 0.8em; margin-bottom: 15px;"></div>
-            
-            <a href="http://195.91.237.50:8000/ices128" target="_blank" style="display: inline-block; background: #000000; color: #F0E68C; border: 2px solid #00FF00; padding: 8px 15px; font-weight: bold; text-decoration: none; box-shadow: 4px 4px 0px #8b0000;">
-                 Вѣли́тѣ Заиграть 
-            </a>
-        </div>
+            <div style="margin-bottom: 35px; border-bottom: 3px double #FFA500; padding-bottom: 20px; text-align: center;">
+                <div class="track-title" style="color: #FF1493 !important; font-size: 1.1em; font-weight: 900; margin-bottom: 10px;">Литѣратура по бѣспроволочному</div>
+                <a href="http://195.91.237.50:8000/ices128" target="_blank" style="display: inline-block; background: #000000; color: #F0E68C; border: 2px solid #00FF00; padding: 8px 15px; font-weight: bold; text-decoration: none; box-shadow: 4px 4px 0px #8b0000;">
+                     Вѣли́тѣ Заиграть 
+                </a>
+            </div>
 
             <div style="margin-bottom: 35px; border-bottom: 3px double #777777; padding-bottom: 20px; text-align: center;">
-            <div class="track-title" style="color: #666666 !important; font-size: 1.1em; font-weight: 900; margin-bottom: 10px;">Мѣлодiи по бѣспроволочному</div>
-            <div style="color: #ffffff; font-size: 0.8em; margin-bottom: 15px;"></div>
-            
-            <a href="http://195.91.237.50:8000/music128" target="_blank" style="display: inline-block; background: #000000; color: #F0E68C; border: 2px solid #00FF00; padding: 8px 15px; font-weight: bold; text-decoration: none; box-shadow: 4px 4px 0px #8b0000;">
-                 Вѣли́тѣ Заиграть   
-            </a>
-        </div>
+                <div class="track-title" style="color: #666666 !important; font-size: 1.1em; font-weight: 900; margin-bottom: 10px;">Мѣлодiи по бѣспроволочному</div>
+                <a href="http://195.91.237.50:8000/music128" target="_blank" style="display: inline-block; background: #000000; color: #F0E68C; border: 2px solid #00FF00; padding: 8px 15px; font-weight: bold; text-decoration: none; box-shadow: 4px 4px 0px #8b0000;">
+                     Вѣли́тѣ Заиграть   
+                </a>
+            </div>
 
-
-       
- <div class="audio-item">
-    <audio class="my-audio" src="Москва1984.mp3"></audio>
-    <button class="play-btn">Москва 1984</button>
-</div>
-             <div class="audio-item">
-    <audio class="my-audio" src="Нарцисс.mp3"></audio>
-    <button class="play-btn">Нарцисс</button>
-</div>
-             <div class="audio-item">
-    <audio class="my-audio" src="228SOR.mp3"></audio>
-    <button class="play-btn">Сирень</button>
-</div>
-             <div class="audio-item">
-    <audio class="my-audio" src="Гарпия.mp3"></audio>
-    <button class="play-btn">Гарпия</button>
-</div>
-            <img src="golova.jpg" alt="manifestation" class="divine-image">
-             <div class="audio-item">
-    <audio class="my-audio" src="В розовом стакане.mp3"></audio>
-    <button class="play-btn">В розовом стакане</button>
-</div>
-             <div class="audio-item">
-    <audio class="my-audio" src="Аннабель.mp3"></audio>
-    <button class="play-btn">Аннабель</button>
-</div>
-             <div class="audio-item">
-    <audio class="my-audio" src="Агасфер.mp3"></audio>
-    <button class="play-btn">Агасфер</button>
-</div>
-             <div class="audio-item">
-    <audio class="my-audio" src="GDETO.mp3"></audio>
-    <button class="play-btn">Где-то...</button>
-</div>
-    <div class="audio-item">
-    <audio class="my-audio" src="audio1.mp3"></audio>
-    <button class="play-btn">Лещенко: Скажите, почему?</button>
-</div>
- <div class="audio-item">
-    <audio class="my-audio" src="pampas.mp3"></audio>
-    <button class="play-btn">Где среди пампасов</button>
-</div>
-<div class="audio-item">
-    <audio class="my-audio" src="audio2.mp3"></audio>
-    <button class="play-btn">Отчего луна так светит...</button>
-</div>
-<div class="audio-item">
-    <audio class="my-audio" src="audio3.mp3"></audio>
-    <button class="play-btn">Гелиополис</button>
- </div>
-    <div class="audio-item">
-    <audio class="my-audio" src="audio4.mp3"></audio>
-    <button class="play-btn">Ах, зачем эта ночь</button>
-</div>
-<img src="ugadai.jpg" alt="manifestation" class="divine-image">
-    <div class="audio-item">
-    <audio class="my-audio" src="audio5.mp3"></audio>
-    <button class="play-btn">Blues My Naughty</button>
-        </div>
-    <div class="audio-item">
-    <audio class="my-audio" src="audio6.mp3"></audio>
-    <button class="play-btn">To Many Tears</button>
-        </div>
-    <div class="audio-item">
-    <audio class="my-audio" src="audio7.mp3"></audio>
-    <button class="play-btn">Зачем унылой думой</button>
-        </div>
-    <div class="audio-item">
-    <audio class="my-audio" src="audio8.mp3"></audio>
-    <button class="play-btn">Иду Домой</button>
-         </div>
-    <div class="audio-item">
-    <audio class="my-audio" src="audio9.mp3"></audio>
-    <button class="play-btn">Листики Календаря</button>
-    </div> 
-        <img src="IMG_0108.JPG" alt="manifestation" class="divine-image">
-    <div class="audio-item">
-    <audio class="my-audio" src="audio10.mp3"></audio>
-    <button class="play-btn">Malkhas Akhber</button>
-</div> 
-<div class="audio-item">
-    <audio class="my-audio" src="audio11.mp3"></audio>
-    <button class="play-btn">Меня не греет шаль</button>
-</div> 
-<div class="audio-item">
-    <audio class="my-audio" src="audio12.mp3"></audio>
-    <button class="play-btn">Где тропа за рекой запорошена..</button>
-</div> 
-                <div class="audio-item">
-    <audio class="my-audio" src="VETER.mp3"></audio>
-    <button class="play-btn">То не ветер ветку клонит...</button>
-</div>
-            <img src="IMG_0413.jpeg" alt="manifestation" class="divine-image">
-<div class="audio-item">
-    <audio class="my-audio" src="audio13.mp3"></audio>
-    <button class="play-btn">Кармен</button>
-</div> 
-<img src="IMG_0356.jpeg" alt="manifestation" class="divine-image">
-<div class="audio-item">
-    <audio class="my-audio" src="audio14.mp3"></audio>
-    <button class="play-btn">Иностранка</button>
- </div> 
-            <img src="IMG_0438.jpeg" alt="manifestation" class="divine-image">
-    <div class="audio-item">
-    <audio class="my-audio" src="audio15.mp3"></audio>
-    <button class="play-btn">Мауна Лоа</button>
- </div> 
-             <img src="3BB97EFB-274A-49B1-9386-F3CFD26D9F90.jpeg" alt="manifestation" class="divine-image">
-    <div class="audio-item">
-    <audio class="my-audio" src="audio17.mp3"></audio>
-    <button class="play-btn">Былые увлеченья</button>
-
-<iframe width="200" height="200" src="https://www.youtube.com/embed/joKnt76mjsY?si=zfBiLu7XP55Q1uwg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-        
- </div> 
-    <div class="audio-item">
-    <audio class="my-audio" src="audio18.mp3"></audio>
-    <button class="play-btn">Спускалась ночная прохлада</button>
- </div> 
-            <img src="IMG_0510.jpeg" alt="manifestation" class="divine-image">
-    <div class="audio-item">
-    <audio class="my-audio" src="audioDEVi.mp3"></audio>
-    <button class="play-btn">Звездочка</button>
-</div> 
-    <div class="audio-item">
-    <audio class="my-audio" src="audioDV.mp3"></audio>
-    <button class="play-btn">Ночь темна темнешенька</button>
-        </div> 
-        <img src="1D2C4C56-310A-428E-9D24-9F619114DA15.jpeg" alt="manifestation" class="divine-image">
             <div class="audio-item">
-    <audio class="my-audio" src="audioYU.mp3"></audio>
-    <button class="play-btn">Утопленник</button>
-</div>
-
+                <audio class="my-audio" src="Москва1984.mp3"></audio>
+                <button class="play-btn">Москва 1984</button>
+            </div>
+            <div class="audio-item">
+                <audio class="my-audio" src="Нарцисс.mp3"></audio>
+                <button class="play-btn">Нарцисс</button>
+            </div>
+            <div class="audio-item">
+                <audio class="my-audio" src="228SOR.mp3"></audio>
+                <button class="play-btn">Сирень</button>
+            </div>
+            <div class="audio-item">
+                <audio class="my-audio" src="Гарпия.mp3"></audio>
+                <button class="play-btn">Гарпия</button>
+            </div>
+            <img src="golova.jpg" alt="manifestation" class="divine-image">
+            <div class="audio-item">
+                <audio class="my-audio" src="В розовом стакане.mp3"></audio>
+                <button class="play-btn">В розовом стакане</button>
+            </div>
+            <div class="audio-item">
+                <audio class="my-audio" src="Аннабель.mp3"></audio>
+                <button class="play-btn">Аннабель</button>
+            </div>
+            <div class="audio-item">
+                <audio class="my-audio" src="Агасфер.mp3"></audio>
+                <button class="play-btn">Агасфер</button>
+            </div>
+            <div class="audio-item">
+                <audio class="my-audio" src="GDETO.mp3"></audio>
+                <button class="play-btn">Где-то...</button>
+            </div>
+            <div class="audio-item">
+                <audio class="my-audio" src="audio1.mp3"></audio>
+                <button class="play-btn">Лещенко: Скажите, почему?</button>
+            </div>
+            <div class="audio-item">
+                <audio class="my-audio" src="pampas.mp3"></audio>
+                <button class="play-btn">Где среди пампасов</button>
+            </div>
+            <div class="audio-item">
+                <audio class="my-audio" src="audio2.mp3"></audio>
+                <button class="play-btn">Отчего луна так светит...</button>
+            </div>
+            <div class="audio-item">
+                <audio class="my-audio" src="audio3.mp3"></audio>
+                <button class="play-btn">Гелиополис</button>
+            </div>
+            <div class="audio-item">
+                <audio class="my-audio" src="audio4.mp3"></audio>
+                <button class="play-btn">Ах, зачем эта ночь</button>
+            </div>
+            <img src="ugadai.jpg" alt="manifestation" class="divine-image">
+            <div class="audio-item">
+                <audio class="my-audio" src="audio5.mp3"></audio>
+                <button class="play-btn">Blues My Naughty</button>
+            </div>
+            <div class="audio-item">
+                <audio class="my-audio" src="audio6.mp3"></audio>
+                <button class="play-btn">To Many Tears</button>
+            </div>
+            <div class="audio-item">
+                <audio class="my-audio" src="audio7.mp3"></audio>
+                <button class="play-btn">Зачем унылой думой</button>
+            </div>
+            <div class="audio-item">
+                <audio class="my-audio" src="audio8.mp3"></audio>
+                <button class="play-btn">Иду Домой</button>
+            </div>
+            <div class="audio-item">
+                <audio class="my-audio" src="audio9.mp3"></audio>
+                <button class="play-btn">Листики Календаря</button>
+            </div> 
+            <img src="IMG_0108.JPG" alt="manifestation" class="divine-image">
+            <div class="audio-item">
+                <audio class="my-audio" src="audio10.mp3"></audio>
+                <button class="play-btn">Malkhas Akhber</button>
+            </div> 
+            <div class="audio-item">
+                <audio class="my-audio" src="audio11.mp3"></audio>
+                <button class="play-btn">Меня не греет шаль</button>
+            </div> 
+            <div class="audio-item">
+                <audio class="my-audio" src="audio12.mp3"></audio>
+                <button class="play-btn">Где тропа за рекой запорошена..</button>
+            </div> 
+            <div class="audio-item">
+                <audio class="my-audio" src="VETER.mp3"></audio>
+                <button class="play-btn">То не ветер ветку клонит...</button>
+            </div>
+            <img src="IMG_0413.jpeg" alt="manifestation" class="divine-image">
+            <div class="audio-item">
+                <audio class="my-audio" src="audio13.mp3"></audio>
+                <button class="play-btn">Кармен</button>
+            </div> 
+            <img src="IMG_0356.jpeg" alt="manifestation" class="divine-image">
+            <div class="audio-item">
+                <audio class="my-audio" src="audio14.mp3"></audio>
+                <button class="play-btn">Иностранка</button>
+            </div> 
+            <img src="IMG_0438.jpeg" alt="manifestation" class="divine-image">
+            <div class="audio-item">
+                <audio class="my-audio" src="audio15.mp3"></audio>
+                <button class="play-btn">Мауна Лоа</button>
+            </div> 
+            <img src="3BB97EFB-274A-49B1-9386-F3CFD26D9F90.jpeg" alt="manifestation" class="divine-image">
+            <div class="audio-item">
+                <audio class="my-audio" src="audio17.mp3"></audio>
+                <button class="play-btn">Былые увлеченья</button>
+                <iframe width="200" height="200" src="https://www.youtube.com/embed/joKnt76mjsY?si=zfBiLu7XP55Q1uwg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div> 
+            <div class="audio-item">
+                <audio class="my-audio" src="audio18.mp3"></audio>
+                <button class="play-btn">Спускалась ночная прохлада</button>
+            </div> 
+            <img src="IMG_0510.jpeg" alt="manifestation" class="divine-image">
+            <div class="audio-item">
+                <audio class="my-audio" src="audioDEVi.mp3"></audio>
+                <button class="play-btn">Звездочка</button>
+            </div> 
+            <div class="audio-item">
+                <audio class="my-audio" src="audioDV.mp3"></audio>
+                <button class="play-btn">Ночь темна темнешенька</button>
+            </div> 
+            <img src="1D2C4C56-310A-428E-9D24-9F619114DA15.jpeg" alt="manifestation" class="divine-image">
+            <div class="audio-item">
+                <audio class="my-audio" src="audioYU.mp3"></audio>
+                <button class="play-btn">Утопленник</button>
+            </div>
         </div>
 
-        
         <div class="content">
 
-                   <div class="post">
-        <div class="date">2 Июня 1916</div>
-        <p>В стихии воздуха есть покрывающая шлейф-пленка. Скорее всего, это было известно и древним, но одна такая интуиция многое проясняет. Пленка эта заточена, как лезвие, и вместе с тем прозрачна, чуть мутновата два ее конца смыкаются в пупе земли. Метафорой здесь может послужить-с завязанное декольте посреди двух сферических чаш, которые, впрочем, зовутся ракушками, спиралевидные наутилусы, да и весь лунарный комплекс. Если вдруг птица, ласточка или воробей вьет гнездо под крышей, прямо над вашей головой, остерегайтесь полной луны, если вы не вполне готовы. Тонкость векторной направленности стрелы Амура эфирна а это, в свою очередь, говорит о птичьих яйцах, которые суть три столпа и подпорки всего проявленного, а именно не привычного сущего, т.е того, что не меняет своей твердости в связи со спекуляциями. В лучшем случае на вас готовится охота они, менады луны, закрутят вас в пленку, и от боли в ногах, не переставая танцевать, вы скользнете и расотождествитесь с собою, прогоняя себя от себя по оси двух нитей, уходящих в узел пупа земли. После вы, при должном усердии и с их помощью, возгоните свой пепел, оставшийся от вас и от души, и от тела, и от двойничьего, в сферу огня, то есть в ту сферу, где изначально и было ваше подлинное пребывание, устраняя тем самым дуализм влажного пути а после трансформации превратитесь в конденсат. Тогда, поймав себя в этих ухищрениях, вы увидите точку сечения, то есть вечного возвращения.</p>
-            <div class="audio-item unique-loop-player">
-    <audio class="my-audio" src="audio16.mp3" loop></audio>
-    <button class="play-btn">Аудио-Сопровождение</button>
-</div>       
-    </div>
+            <div class="post">
+                <div class="date">2 Июня 1916</div>
+                <p>В стихии воздуха есть покрывающая шлейф-пленка. Скорее всего, это было известно и древним, но одна такая интуиция многое проясняет. Пленка эта заточена, как лезвие, и вместе с тем прозрачна, чуть мутновата два ее конца смыкаются в пупе земли. Метафорой здесь может послужить-с завязанное декольте посреди двух сферических чаш, которые, впрочем, зовутся ракушками, спиралевидные наутилусы, да и весь лунарный комплекс. Если вдруг птица, ласточка или воробей вьет гнездо под крышей, прямо над вашей головой, остерегайтесь полной луны, если вы не вполне готовы. Тонкость векторной направленности стрелы Амура эфирна а это, в свою очередь, говорит о птичьих яйцах, которые суть три столпа и подпорки всего проявленного, а именно не привычного сущего, т.е того, что не меняет своей твердости в связи со спекуляциями. В лучшем случае на вас готовится охота они, менады луны, закрутят вас в пленку, и от боли в ногах, не переставая танцевать, вы скользнете и расотождествитесь с собою, прогоняя себя от себя по оси двух нитей, уходящих в узел пупа земли. После вы, при должном усердии и с их помощью, возгоните свой пепел, оставшийся от вас и от души, и от тела, и от двойничьего, в сферу огня, то есть в ту сферу, где изначально и было ваше подлинное пребывание, устраняя тем самым дуализм влажного пути а после трансформации превратитесь в конденсат. Тогда, поймав себя в этих ухищрениях, вы увидите точку сечения, то есть вечного возвращения.</p>
+                <div class="audio-item unique-loop-player">
+                    <audio class="my-audio" src="audio16.mp3" loop></audio>
+                    <button class="play-btn">Аудио-Сопровождение</button>
+                </div>       
+            </div>
             
             <div class="post">
                 <div class="date">5 Сентября 1916</div>
@@ -448,200 +482,159 @@
                 <img src="vera.jpg" alt="" style="border: 3px solid #00FF00; max-width: 100%; height: auto; margin-top: 20px; filter: grayscale(1) contrast(1.5);">
             </div> 
             
-        
             <div class="post">
-        <div class="date">11 Сентября 1916</div>
-        <p>Женское тело воздействует магически, золото притягивает безумие, а солнце сжигает дураков. Смерть кощея бессмертного спрятана на конце иглы, которая находится в яйце, яйцо - в утке, утка - в зайце, заяц закован в железный сундук, а сам сундук висит на ветвях векового дуба, растущего в тридевятом царстве, в тридесятом государстве, за тридевять земель на море на окияне, на острове Буяне. Хвосты, они же вывернутые электрические провода на столбах, внушительно убивают голубей. Это те птицы, отличные от ворон или чаек от долгого сидения на проводах голуби больше не могут садиться на здания для них все становится хвостом. Оттого они клюют именно в пол, и переезжают их из-за того, что они думают, будто этот электрический хвост их ветка и внизу. А хвост устроен по принципу циклов, которые в урбанистическом пространстве нарушены. Голуби чувствуют канализацию внизу, посему полагают (и верно) что там их дом, но машина переезжает их быстрее. Вороны гораздо умнее, а чайки или воробьи чаще под крышей, я их редкенько слышу там уже два яйца. Одного социального взаимодействия, сквознякового пролета меж мирами людей, достаточно на год уединения, дабы вновь нарастить скорлупу, ведь турбуленция мышц сжигает холодцовые спазмы. </p>
-               <div class="audio-item unique-loop-player">
-    <audio class="my-audio" src="katya.mp3" loop></audio>
-    <button class="play-btn">Катя</button>
-</div>  
-    </div>
-               <div class="post">
-        <div class="date">16 Сентября 1916</div>
-        <p>Полное признание превосходства изначальной пелазгической космической ночи, сновидений, беспредельно-безбрежного, интуиции над рациональным во всех его проявлениях. Абсолютная власть космоцентризма и вечного возвращения. Тортола Валенсия, Belle Époque эпоха испанского декаданса, к сожалению, неизвестна сейчас. По сравнению с тем, что известно (а это по преимуществу кабинетные, безопасные, гнусавые лектора, работающие на статус-кво) испанская прекрасная эпоха совершенно не переведена на русский и никак не освещена. Так, по сравнению с ней, хотя французский сплин имеет свое место, и было бы ошибочно просто сравнивать сообразно тому что лучше не говоря о том, что танцовщиц таких уже нет разве что предпринимательницы, а потенциальные поклонники сакрального служения «оперились» в прагматичных, рациональных…… к слову, не буду о вязком. Горячая кровь испанцев и испанок наиболее сорванно прошелестела хворостинкой. Трудно себе представить вообще возможность того, кто способен то ли застрелиться, то ли разориться. Это неразумно, наваждённо, глупо, нецелесообразно, неэкономно… да и вообще незаконно. Мир признаёт функционально-внешнее, наиболее узколобое проявление чего бы то ни было все тонкие миры отвергаются, тонкость вообще молниеносно купируется «трезвым» взглядом самого смотрящего. /- Ни разу еще не встречал я женщины, от которой хотел бы иметь детей, кроме той женщины, которую я люблю: ибо я люблю тебя, о Вечность!
+                <div class="date">11 Сентября 1916</div>
+                <p>Женское тело воздействует магически, золото притягивает безумие, а солнце сжигает дураков. Смерть кощея бессмертного спрятана на конце иглы, которая находится в яйце, яйцо - в утке, утка - в зайце, заяц закован в железный сундук, а сам сундук висит на ветвях векового дуба, растущего в тридевятом царстве, в тридесятом государстве, за тридевять земель на море на окияне, на острове Буяне. Хвосты, они же вывернутые электрические провода на столбах, внушительно убивают голубей. Это те птицы, отличные от ворон или чаек от долгого сидения на проводах голуби больше не могут садиться на здания для них все становится хвостом. Оттого они клюют именно в пол, и переезжают их из-за того, что они думают, будто этот электрический хвост их ветка и внизу. А хвост устроен по принципу циклов, которые в урбанистическом пространстве нарушены. Голуби чувствуют канализацию внизу, посему полагают (и верно) что там их дом, но машина переезжает их быстрее. Вороны гораздо умнее, а чайки или воробьи чаще под крышей, я их редкенько слышу там уже два яйца. Одного социального взаимодействия, сквознякового пролета меж мирами людей, достаточно на год уединения, дабы вновь нарастить скорлупу, ведь турбуленция мышц сжигает холодцовые спазмы. </p>
+                <div class="audio-item unique-loop-player">
+                    <audio class="my-audio" src="katya.mp3" loop></audio>
+                    <button class="play-btn">Катя</button>
+                </div>  
+            </div>
 
+            <div class="post">
+                <div class="date">16 Сентября 1916</div>
+                <p>Полное признание превосходства изначальной пелазгической космической ночи, сновидений, беспредельно-безбрежного, интуиции над рациональным во всех его проявлениях. Абсолютная власть космоцентризма и вечного возвращения. Тортола Валенсия, Belle Époque эпоха испанского декаданса, к сожалению, неизвестна сейчас. По сравнению с тем, что известно (а это по преимуществу кабинетные, безопасные, гнусавые лектора, работающие на статус-кво) испанская прекрасная эпоха совершенно не переведена на русский и никак не освещена. Так, по сравнению с ней, хотя французский сплин имеет свое место, и было бы ошибочно просто сравнивать сообразно тому что лучше не говоря о том, что танцовщиц таких уже нет разве что предпринимательницы, а потенциальные поклонники сакрального служения «оперились» в прагматичных, рациональных…… к слову, не буду о вязком. Горячая кровь испанцев и испанок наиболее сорванно прошелестела хворостинкой. Трудно себе представить вообще возможность того, кто способен то ли застрелиться, то ли разориться. Это неразумно, наваждённо, глупо, нецелесообразно, неэкономно… да и вообще незаконно. Мир признаёт функционально-внешнее, наиболее узколобое проявление чего бы то ни было все тонкие миры отвергаются, тонкость вообще молниеносно купируется «трезвым» взглядом самого смотрящего. /- Ни разу еще не встречал я женщины, от которой хотел бы иметь детей, кроме той женщины, которую я люблю: ибо я люблю тебя, о Вечность!
 
 Ибо я люблю тебя, о Вечность!-/ </p>
-                                  <video controls width="300">
-                            <source src="IMG_0005.MP4" type="video/mp4">
-                        </video>
-                   <p>В их волосах - оливковых - разорванные нити,
+                <video controls width="300">
+                    <source src="IMG_0005.MP4" type="video/mp4">
+                </video>
+                <p>В их волосах - оливковых - разорванные нити,
 В них пепел прерий, яд и терпкость темной соли. 
 Смуглянками зовут их дети лисьи.
 Они ведут сквозь анфилады суеверий
 К триумфу высшей, запредельной боли.</p>
-</div> 
-                   <div class="post">
-        <div class="date">19 Сентября 1916</div>
-        <p></p> 
-                       <img src="IMG_9022.jpeg" alt="" style="border: 1px solid #8B4513; max-width: 100%; height: auto; margin-top: 20px;">
-</div>
+            </div> 
+
+            <div class="post">
+                <div class="date">19 Сентября 1916</div>
+                <p></p> 
+                <img src="IMG_9022.jpeg" alt="" style="border: 1px solid #8B4513; max-width: 100%; height: auto; margin-top: 20px;">
+            </div>
             
             <div class="post">
-        <div class="date">20 Сентября 1916</div>
-        <p>В ленивой сонливости из обезвоженных кондиционеров плюются каплями голодного пота из резво вращающихся в полуденном салатово-резком зное страдающие вентиля. Они жадненько наползают друг на дружку, ревниво уворачиваясь обступая ветра, грохаются стеклянной дробью на алюминиевые головы карнизов, стремясь со-слоиться. Солнце, неразборчивое в своей щекотке, кажется <…им…> нависшей мельтешащей лампочкой; посмаркиваются ушами втулчатых труб, поэтому, когда я говорю в изморось, она же, оседая на разжиженной земле, эфирно вбирает в себя мои смыслы. Или снег таким образом можно заговорить, а потом он летит своей дорогой это более интенсивный контакт, у людей слишком много своего.
+                <div class="date">20 Сентября 1916</div>
+                <p>В ленивой сонливости из обезвоженных кондиционеров плюются каплями голодного пота из резво вращающихся в полуденном салатово-резком зное страдающие вентиля. Они жадненько наползают друг на дружку, ревниво уворачиваясь обступая ветра, грохаются стеклянной дробью на алюминиевые головы карнизов, стремясь со-слоиться. Солнце, неразборчивое в своей щекотке, кажется &lt;…им…&gt; нависшей мельтешащей лампочкой; посмаркиваются ушами втулчатых труб, поэтому, когда я говорю в изморось, она же, оседая на разжиженной земле, эфирно вбирает в себя мои смыслы. Или снег таким образом можно заговорить, а потом он летит своей дорогой это более интенсивный контакт, у людей слишком много своего.
 Ноооет... Нооооет... Ноет бело-черствое покрывало на полевых лбах. Сними свои шпильно-красные туфли! Окинь бирюзовым ногтем окружающий мир за класс первый, а вот когда ты, деточка, увидишь гангрену знамен, завопи не стесняясь - 
 «Я ЛЮБЛЮ СОВ, ЖУРАВЛЕЙ И ВОРОН!!!»</p> 
-<img src="IMG_9722.jpeg" alt="" style="border: 0px solid #00FF00; max-width: 100%; height: auto; margin-top: 20px;">
-</div>
+                <img src="IMG_9722.jpeg" alt="" style="border: 0px solid #00FF00; max-width: 100%; height: auto; margin-top: 20px;">
+            </div>
             
             <div class="post">
-        <div class="date">21 Сентября 1916</div>
-        <p>Чувствую добронравный надрыв Якоба Бёме есть в нем что-то притягательно-симпатическое. Если настолько глубоко, как я прожить те улицы, которых никогда не видел, но по которым мы с ним ходили, тот запах именно того несравнимого события времени, который именно там было, и парадоксальная отрешённость, и при этом всем защита дидактикой, при всём пучеглазый взгляд от разверзающегося нечто, что за неимением концептуального аппарата он не мог описать, а с виду на этой игре резких однотонных градиентов ремесленника, отца и дитя своего времени - Зоркоокай UNGRUND. Тот, кто по-настоящему идет влажным путем, не ищет результата трансформации, ни свидетельствующего духа самодовольно пологающимся на сухом пути, ведь свидетельствовать некому, да и незачем.. Само скольжение в ночи и есть единственная, если можно так выразиться актуальность целиком, без остатка и без страховки. Здесь требуеться оговорится, точнее... подчеркнуть, мир современных мужчин - уродливый и мелкий диктат гипертрофированного солнечного титанизма, посему, идя в ночи, требуется насколько возможно свести контакты с внешним миром (как сеткой смвслов к 0) а как с горизонтальной поверхностью - к зоологическому минимому.. 
+                <div class="date">21 Сентября 1916</div>
+                <p>Чувствую добронравный надрыв Якоба Бёме есть в нем что-то притягательно-симпатическое. Если настолько глубоко, как я прожить те улицы, которых никогда не видел, но по которым мы с ним ходили, тот запах именно того несравнимого события времени, который именно там было, и парадоксальная отрешённость, и при этом всем защита дидактикой, при всём пучеглазый взгляд от разверзающегося нечто, что за неимением концептуального аппарата он не мог описать, а с виду на этой игре резких однотонных градиентов ремесленника, отца и дитя своего времени - Зоркоокай UNGRUND. Тот, кто по-настоящему идет влажным путем, не ищет результата трансформации, ни свидетельствующего духа самодовольно пологающимся на сухом пути, ведь свидетельствовать некому, да и незачем.. Само скольжение в ночи и есть единственная, если можно так выразиться актуальность целиком, без остатка и без страховки. Здесь требуеться оговорится, точнее... подчеркнуть, мир современных мужчин - уродливый и мелкий диктат гипертрофированного солнечного титанизма, посему, идя в ночи, требуется насколько возможно свести контакты с внешним миром (как сеткой смвслов к 0) а как с горизонтальной поверхностью - к зоологическому минимому.. 
 </p>
-<img src="IMG_0273.jpeg" alt="" style="border: 3px solid #FAEBD7; max-width: 100%; height: auto; margin-top: 20px; filter: grayscale(1) contrast(1.5);">
- 
-</div>
+                <img src="IMG_0273.jpeg" alt="" style="border: 3px solid #FAEBD7; max-width: 100%; height: auto; margin-top: 20px; filter: grayscale(1) contrast(1.5);">
+            </div>
             
             <div class="post">
-        <div class="date">22 Сентября 1916</div>
-        <p>Виделся мне дух вооруженной жрицы, идущей с вестями, какими-то кольцами; блистательные отпечатки на песке багровели опадающим внутренним ознобом, вот-вот маясь припасть обратно, а знойные дубы, хирея, склонили свои кроны…</p>
+                <div class="date">22 Сентября 1916</div>
+                <p>Виделся мне дух вооруженной жрицы, идущей с вестями, какими-то кольцами; блистательные отпечатки на песке багровели опадающим внутренним ознобом, вот-вот маясь припасть обратно, а знойные дубы, хирея, склонили свои кроны…</p>
                 <img src="IMG_4182.JPG" alt="" style="border: 1px solid #8B0000; max-width: 100%; height: auto; margin-top: 20px;">
-                  <div class="audio-item unique-loop-player">
-    <audio class="my-audio" src="Hans.mp3" loop></audio>
-    <button class="play-btn">Танго СА</button>
-</div>  
-</div>
-                <div class="post">
-        <div class="date">24 Сентября 1916</div>
-        <p>Для содержательной герметической гигиены свой онтологический статус  - статус себя - требуется хранить в тайне. Обнаружение оного для самого себя, его узнавание - уже внушительная честность. Но вот нераспространение его любому, каждому, всякому (близкому, далекому, родному, безродному) - внушительная доля
-            // Имея характерную черту самостоятельно, непринужденно, кажется даже случайно, хрупко доводить себя самого до исступления, меланхоличной крайности, глубочайшего уничижения без упоения этим, дает интересную возможность быть неподвластным похожим влияниям извне, то есть в каком-то роде - определять, а значит - присваивать ценность.
-        </p>
-</div>
+                <div class="audio-item unique-loop-player">
+                    <audio class="my-audio" src="Hans.mp3" loop></audio>
+                    <button class="play-btn">Танго СА</button>
+                </div>  
+            </div>
+
+            <div class="post">
+                <div class="date">24 Сентября 1916</div>
+                <p>Для содержательной герметической гигиены свой онтологический статус  - статус себя - требуется хранить в тайне. Обнаружение оного для самого себя, его узнавание - уже внушительная честность. Но вот нераспространение его любому, каждому, всякому (близкому, далекому, родному, безродному) - внушительная доля
+                    // Имея характерную черту самостоятельно, непринужденно, кажется даже случайно, хрупко доводить себя самого до исступления, меланхоличной крайности, глубочайшего уничижения без упоения этим, дает интересную возможность быть неподвластным похожим влияниям извне, то есть в каком-то роде - определять, а значит - присваивать ценность.
+                </p>
+            </div>
                     
             <div class="post">
-        <div class="date">25 Сентября 1916</div>
-        <p>Если всё обладает одинаковым онтологическим статусом, то им не обладает ничто. Точнее, начинает доминировать низшая из констант - животный страх исчезновения, сковывающий anima caelestis и anima mundi. Без души нет жизни как таковой, значит, здесь совершенно нечего делать - ни «здесь», ни «там», - но и не делать тоже нечего. Начиная с Гоббса и Спинозы, европейская мысль онтологизирует эго, превращая его в сущность человека. Если для Гоббса концепт исчерпывается чистым выживанием, то у Спинозы эго якобы подчинено активному разумному началу. На деле этот разум лишь функциональная заглушка, не несущая в себе никакого нового качества.
+                <div class="date">25 Сентября 1916</div>
+                <p>Если всё обладает одинаковым онтологическим статусом, то им не обладает ничто. Точнее, начинает доминировать низшая из констант - животный страх исчезновения, сковывающий anima caelestis и anima mundi. Без души нет жизни как таковой, значит, здесь совершенно нечего делать - ни «здесь», ни «там», - но и не делать тоже нечего. Начиная с Гоббса и Спинозы, европейская мысль онтологизирует эго, превращая его в сущность человека. Если для Гоббса концепт исчерпывается чистым выживанием, то у Спинозы эго якобы подчинено активному разумному началу. На деле этот разум лишь функциональная заглушка, не несущая в себе никакого нового качества.
 Вся нынешняя «радикальная» мысль держится на безопасном, чисто теоретическом хипстерском восторге. Это философия сытости, взращённая в условиях невиданного комфорта, защищённая правовым государством и медициной. Без признания качественной иерархии бытия и уникальности духа эта радикал-философия неизбежно капитулирует перед банальным страхом смерти. Именно этот страх последние века два инфицирует культуру смерть мыслится как абсолютный рок, фатум, за которым следует ничто. И здесь закономерно включается локковская идея pursuit of happiness - культ индивидуального счастья, примитивного желание, пришедшего на смену подлинному, божественному энтузиазму (en theos), отражения макрокосма в микрокосме, к слову доступному и сейчас, но их выбор, пасовать… Оттого и тень от столба, что знает о столбе только как о тени на асфальте, не беря во внимание переливы его фонаря, окантовку и вертикаль знает о столбе ограничено как о препятствии для света, но слепо упускает о переливах фонаря, о самой природе излучения, эссенции, энергии и цвете. Всякий желающий счастья - материалист до мозга костей и живота. Даже если его убеждения и отличны, они в конечном итоге видятся для него в качестве счастья, точнее - его количестве индивидуального благополучия, состоятельности, успешности в калькуляции и сортировки который неотрывен от идеи прогресса, так как она в свою очередь фундаментальная онтологическая константа без которой счастья, экономики в ее современном понимании, образа жизни, мысли, отношений, взаимосвязей, планов на эфемерное будущее - нет. Противоположное количеству - состояние абсолютной безобъектности, чистое, беспричинное самоизлучение или же - Аллах, Уджуд (وجود). Но есть интересный нюанс, моя интуиция верна, следовательно она на что-то натолкнулась, не шла ли она по фракталу, точнее неоплатонической сфере, где жилы клена сумрачно напоминают свои корни? Посему исключительно поэзия в широком смысле слова, и занимает свое главенствующее место в области гносеологии.</p>
-
-             </div>
+            </div>
                 
-                    <div class="post">
-        <div class="date">26 Сентября 1916</div>
-        <p>Общение с людьми обыкновенными, приносит лишь глухое, тоскливое вязкое страдание. Их умы совершенно чужды ласке вдохновенного взгляда, глазам пронзительных губ, буранам чёрных страстей, заснувшим поперёк горла наваждениям, спонтанным проискам. Но попытка сблизиться с творцами художниками, музыкантами или поэтами оборачивается ещё более жестоким разочарованием. Вторые слишком деспотичны и безраздельно заняты собой. Они, точно так же как я, ревниво прячутся в собственных тихих омутах, из-за чего любая близость с ними превращается в обоюдную, мучительную несвободу, ощущение, что вот-вот что-то надломится, куда-то вспорхнёт и, разуверенное в своих силах, поникнет, раскатится, счешет нос о лужу!</p>
- <div class="audio-item unique-loop-player">
-    <audio class="my-audio" src="trip.mp3" loop></audio>
-    <button class="play-btn">Триптих - Башлачев</button>
-</div>  
+            <div class="post">
+                <div class="date">26 Сентября 1916</div>
+                <p>Общение с людьми обыкновенными, приносит лишь глухое, тоскливое вязкое страдание. Их умы совершенно чужды ласке вдохновенного взгляда, глазам пронзительных губ, буранам чёрных страстей, заснувшим поперёк горла наваждениям, спонтанным проискам. Но попытка сблизиться с творцами художниками, музыкантами или поэтами оборачивается ещё более жестоким разочарованием. Вторые слишком деспотичны и безраздельно заняты собой. Они, точно так же как я, ревниво прячутся в собственных тихих омутах, из-за чего любая близость с ними превращается в обоюдную, мучительную несвободу, ощущение, что вот-вот что-то надломится, куда-то вспорхнёт и, разуверенное в своих силах, поникнет, раскатится, счешет нос о лужу!</p>
+                <div class="audio-item unique-loop-player">
+                    <audio class="my-audio" src="trip.mp3" loop></audio>
+                    <button class="play-btn">Триптих - Башлачев</button>
+                </div>  
+            </div>
 
-<div class="post">
-        <div class="date">28 Сентября 1916</div>
-        <p>Разъедай! Разъедай! - вдохновленное тело. 
+            <div class="post">
+                <div class="date">28 Сентября 1916</div>
+                <p>Разъедай! Разъедай! - вдохновленное тело. 
 Разъедай до излишков волос,
 Убегая коснись панцирями бело-саженцев опухающих Роз!
 На брусчатке мощенной грибами, на пруду - заволоченном рвами
 Отпускала Цирцея зубо-скаленных Львов!</p>
-                </div>  
+            </div>  
 
-<div class="post">
-        <div class="date">30 Сентября 1916</div>
-        <p></p>
+            <div class="post">
+                <div class="date">30 Сентября 1916</div>
+                <p></p>
+            </div>  
+                        
+            <div class="post">
+                <div class="date">1 Октября 1916</div>
+                <p>Заметил, что драма неординарных эзотерических, но всё-таки мировых, а значит, обобщающих доктрин (например, кашмирского шиваизма) в том, что либо из-за незнания языка и отсутствия упоительного погружения в культуру они не раскрываются полно, либо происходит и то, и другое. Это другое является в виде усреднения до общего знаменателя для всех интересующихся. Меня терзает, что пропадает само жало из за разных росписях на страницах учебников, монографий и тому подобного оттого-то и важен личный миф, и его завороженное созидание</p>
+            </div>  
+                        
+            <div class="post">
+                <div class="date">5 Октября 1916</div>
+                <p>Душа согласно неоплатонизму - это цыганка, душа это - танцовщица, Кармен, ОНА - длинноногая чужестранка. Душа - это сапоги скороходы, душа - это ковер самолет! Душа - скатерть-самобранка, разглаженная на кипящих борщах, ждущая, что бедная Лиза схватит ее и пойдет смачивать своими слезами, обхватив двумя порозовевшими бедрами, краснеющими на послеобеденном солнце сквозь вой тонкой мухи садящийся на искры побелки пастозно сосульчато свисающий подокойнник!</p>
+                <img src="IMG_0397.jpeg" alt="" style="border: 1px solid #8B0000; max-width: 100%; height: auto; margin-top: 20px;">
+            </div>  
 
-                          </div>  
-                        
-                        
-                        <div class="post">
-        <div class="date">1 Октября 1916</div>
-        <p>Заметил, что драма неординарных эзотерических, но всё-таки мировых, а значит, обобщающих доктрин (например, кашмирского шиваизма) в том, что либо из-за незнания языка и отсутствия упоительного погружения в культуру они не раскрываются полно, либо происходит и то, и другое. Это другое является в виде усреднения до общего знаменателя для всех интересующихся. Меня терзает, что пропадает само жало из за разных росписях на страницах учебников, монографий и тому подобного оттого-то и важен личный миф, и его завороженное созидание</p>
-    </div>  
-                        
-                         <div class="post">
-        <div class="date">5 Октября 1916</div>
-        <p>Душа согласно неоплатонизму - это цыганка, душа это - танцовщица, Кармен, ОНА - длинноногая чужестранка. Душа - это сапоги скороходы, душа - это ковер самолет! Душа - скатерть-самобранка, разглаженная на кипящих борщах, ждущая, что бедная Лиза схватит ее и пойдет смачивать своими слезами, обхватив двумя порозовевшими бедрами, краснеющими на послеобеденном солнце сквозь вой тонкой мухи садящийся на искры побелки пастозно сосульчато свисающий подокойнник!</p>
-                             <img src="IMG_0397.jpeg" alt="" style="border: 1px solid #8B0000; max-width: 100%; height: auto; margin-top: 20px;">
-    </div>  
-                        <div class="post">
-        <div class="date"> 12:22 Октября 1916</div>
-        <p>Вместе с желанием кому-то что-то доказать пропало смежное, в симбиозе с первым, перманентно-фоновое состояние ожесточённой гневливости, наконец 4-летнее не менее мягко говоря, ожесточённое затяжное Нигредо прошло.</p>
-    </div>           
-                        
-    </div>
-            
-
-
+            <div class="post">
+                <div class="date">12:22 Октября 1916</div>
+                <p>Вместе с желанием кому-то что-то доказать пропало смежное, в симбиозе с первым, перманентно-фоновое состояние ожесточённой гневливости, наконец 4-летнее не менее мягко говоря, ожесточённое затяжное Нигредо прошло.</p>
+            </div>           
             
             <div class="post" style="margin-bottom: 0; padding-bottom: 0; border-bottom: none;">
-               <img src="IMG_0346.JPG" alt="" style="border: 7px solid #000000; max-width: 100%; height: auto; margin-top: 20px;">    
-                
-                 <img src="IMG_0371.webp" alt="manifestation" width="100" height="100">
-             <p style="color: #ff0000; font-weight: bold;"> ЭТИ КАРТИНЫ НЕЛЬЗЯ СКАЧИВАТЬ ДЛЯ РАСПРОСТРАНЕНИЯ, ПЕРЕСЫЛАТЬ ИЛИ ДАВАТЬ СМОТРЕТЬ ВСЕМ ЛЮБОПЫТСТВУЮЩИМ
+                <img src="IMG_0346.JPG" alt="" style="border: 7px solid #000000; max-width: 100%; height: auto; margin-top: 20px;">    
+                <img src="IMG_0371.webp" alt="manifestation" width="100" height="100">
+                <p style="color: #ff0000; font-weight: bold;"> ЭТИ КАРТИНЫ НЕЛЬЗЯ СКАЧИВАТЬ ДЛЯ РАСПРОСТРАНЕНИЯ, ПЕРЕСЫЛАТЬ ИЛИ ДАВАТЬ СМОТРЕТЬ ВСЕМ ЛЮБОПЫТСТВУЮЩИМ
 ОНИ ПРЕДНАЗНАЦЕНА ТОЛЬКО ДЛЯ ******* ****. КТО НЕ ПОСКУПИЛСЯ НА УВАЖЕНИЕ И ПОЧИТАНИЕ ПУСТЬ СМОТРИТ. КТО ПОЛУЧИЛ ИХ
 НИЧЕГО НЕ ЗАТРАТИВ, ПУСТЬ ЗАКРОЕТ ЭТОТ САЙТ. ИБО ЗАПЕЧАТАНА ОН СЛОВАМИ АДЕПТОВ. И ЛЮБОГО КОСНЕТСЯ ПРОКЛЯТИЕ, КТО ОСЛУШАЕТСЯ ЭТОГО ПРЕДУПРЕЖДЕНИЯ.</p>
-  <img src="IMG_0519.png" alt="manifestation" width="250" height="250">
+                <img src="IMG_0519.png" alt="manifestation" width="250" height="250">
     
                 <div style="display: flex; flex-direction: column; gap: 25px; margin-top: 25px;">
-
                     <img src="picGODD.JPG" alt="" style="border: 1px solid #1a1a1a; max-width: 100%; height: auto; margin-top: 20px;">
-
                     <img src="pic0312.jpg" alt="" style="border: 1px solid #1a1a1a; max-width: 100%; height: auto; margin-top: 20px;">
-
                     <img src="pichora.JPG" alt="12" style="width: 100%; height: auto; border: 1px solid #1a1a1a; filter: brightness(0.9);">
-                        
-                        <img src="picCAM.JPG" alt="12" style="width: 100%; height: auto; border: 1px solid #1a1a1a; filter: brightness(0.9);">
-                   
+                    <img src="picCAM.JPG" alt="12" style="width: 100%; height: auto; border: 1px solid #1a1a1a; filter: brightness(0.9);">
                     <img src="pic1.jpg" alt="1" style="width: 100%; height: auto; border: 1px solid #1a1a1a; filter: brightness(0.9);">
-                    
-                    
                     <img src="pic2.jpg" alt="2" style="width: 100%; height: auto; border: 1px solid #1a1a1a; filter: brightness(0.9);">
-                    
-                    
                     <img src="pic3.jpg" alt="3" style="width: 100%; height: auto; border: 1px solid #1a1a1a; filter: brightness(0.9);">
-                    
-
                     <img src="pic4.jpg" alt="4" style="width: 100%; height: auto; border: 1px solid #1a1a1a; filter: brightness(0.9);">
-                    
-                    
                     <img src="pic5.jpg" alt="5" style="width: 100%; height: auto; border: 1px solid #1a1a1a; filter: brightness(0.9);">
-                    
-                    
                     <img src="pic6.jpg" alt="6" style="width: 100%; height: auto; border: 1px solid #1a1a1a; filter: brightness(0.9);">
-
-                    
                     <img src="pic7.jpg" alt="7" style="width: 100%; height: auto; border: 1px solid #1a1a1a; filter: brightness(0.9);">
-                    
-                    
                     <img src="pic8.jpg" alt="8" style="width: 100%; height: auto; border: 1px solid #1a1a1a; filter: brightness(0.9);">
-                    
-                    
                     <img src="pic9.jpg" alt="9" style="width: 100%; height: auto; border: 1px solid #1a1a1a; filter: brightness(0.9);">
-                    
-
                     <img src="pic10.jpg" alt="10" style="width: 100%; height: auto; border: 1px solid #1a1a1a; filter: brightness(0.9);">
-                    
-                    
                     <img src="pic11.JPG" alt="11" style="width: 100%; height: auto; border: 1px solid #1a1a1a; filter: brightness(0.9);">
-                    
-                    
                     <img src="pic12.JPG" alt="12" style="width: 100%; height: auto; border: 1px solid #1a1a1a; filter: brightness(0.9);">
-
                     <img src="pic9996.PNG" alt="12" style="width: 100%; height: auto; border: 1px solid #1a1a1a; filter: brightness(0.9);">
-                    
-                    <!-- 000 -->
                 </div>
             </div>
-
         </div>
 
-        
         <div class="sidebar-right">
-            
             <img src="IMG_0100.jpg" alt="manifestation" class="divine-image">
             <p style="font-size: 0.9em; color: #00FFFF; margin-top: 15px; font-weight: 900;"></p>
                 
-        <div style="margin-bottom: 35px; border-bottom: 4px ridge #00FFFF; padding-bottom: 25px; text-align: center;">
-            <div class="track-title" style="color: #00FFFF !important; font-size: 1.2em; font-weight: 900; margin-bottom: 12px; letter-spacing: 0.05em;">
-                Венера В Мехах
+            <div style="margin-bottom: 35px; border-bottom: 4px ridge #00FFFF; padding-bottom: 25px; text-align: center;">
+                <div class="track-title" style="color: #00FFFF !important; font-size: 1.2em; font-weight: 900; margin-bottom: 12px; letter-spacing: 0.05em;">
+                    Венера В Мехах
+                </div>
+                <a href="mazox.txt" target="_blank" style="display: inline-block; background: #000000; color: #00FFFF; border: 2px solid #FF00FF; padding: 10px 20px; font-weight: bold; text-decoration: none; box-shadow: 4px 4px 0px #550055; margin-bottom: 10px;">
+                    Читать книгу
+                </a>
+                <br>
+                <a href="mazox.txt" download style="color: #FFFFFF; font-size: 0.85em; text-decoration: underline;">
+                    Скачать 
+                </a>
             </div>
-            
-            <a href="mazox.txt" target="_blank" style="display: inline-block; background: #000000; color: #00FFFF; border: 2px solid #FF00FF; padding: 10px 20px; font-weight: bold; text-decoration: none; box-shadow: 4px 4px 0px #550055; margin-bottom: 10px;">
-                Читать книгу
-            </a>
-            <br>
-            <a href="mazox.txt" download style="color: #FFFFFF; font-size: 0.85em; text-decoration: underline;">
-                Скачать 
-            </a>
-        </div>
 
             <div class="alchemy-manifest">
                 <div class="alchemy-title">~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</div>
@@ -649,210 +642,216 @@
                     Да, я живу въ 1916 году, мнѣ 19 лѣтъ, я 1897 года рождѣнiя…
                     ----------------------------------------------
                     <video controls width="199">
-                            <source src="golovakamen.MP4" type="video/mp4">
-                        </video>
-                    </div>
-
-                </div>
-                    
-                    <div style="margin-bottom: 35px; border-bottom: 3px double #E2007A; padding-bottom: 20px; text-align: center;">
-            <div class="track-title" style="color: #E2007A !important; font-size: 1.1em; font-weight: 900; margin-bottom: 10px;">Purpurnaya Substantia</div>
-            <div style="color: #E2007A; font-size: 0.8em; margin-bottom: 15px;"></div>
-            
-            <a href="https://paideuma.tv//videos/golovin-purpur.mp4" target="_blank" style="display: inline-block; background: #000000; color: #F0E68C; border: 2px solid #00FF00; padding: 8px 15px; font-weight: bold; text-decoration: none; box-shadow: 4px 4px 0px #8b0000;">
-                  Заиграть 
-            </a>
-
-                               <div style="margin-bottom: 35px; border-bottom: 3px double #787878; padding-bottom: 20px; text-align: center;">
-            <div class="track-title" style="color: #FF1493 !important; font-size: 1.1em; font-weight: 900; margin-bottom: 10px;">VSE Ot VINTA</div>
-            <div style="color: #ffffff; font-size: 0.8em; margin-bottom: 15px;"></div>
-            
-            <a href="https://vkvideo.ru/video-177539978_456240470" target="_blank" style="display: inline-block; background: #000000; color: #F0E68C; border: 2px solid #00FF00; padding: 8px 15px; font-weight: bold; text-decoration: none; box-shadow: 4px 4px 0px #8b0000;">
-                  Заиграть 
-            </a>
-        </div>
-
-                          <img src="IMG_0552.jpeg" alt="manifestation" class="divine-image">
-
-                        
-                        <img src="luna.JPG" alt="manifestation" class="divine-image">
-
-                        <img src="goddess.jpg" alt="manifestation" class="divine-image">
-
-                        <img src="toet.jpeg" alt="manifestation" class="divine-image">
-
-                          <img src="2D7D3510-649C-4D5C-993E-51D0CEF39C33.jpeg" alt="manifestation" class="divine-image">
-                                
-                                <img src="IMG_0508.jpeg" alt="manifestation" class="divine-image">
-                                    
-                          <img src="IMG_0507.png" alt="manifestation" class="divine-image">
-
-                        <img src="IMG_0511.jpeg" alt="manifestation" class="divine-image">
-
-                        <img src="411F383C-5AE3-4616-AB74-10C2DC342E17.jpeg" alt="manifestation" class="divine-image">
-
-
-                        
+                        <source src="golovakamen.MP4" type="video/mp4">
+                    </video>
                 </div>
             </div>
-            
+                    
+            <div style="margin-bottom: 35px; border-bottom: 3px double #E2007A; padding-bottom: 20px; text-align: center;">
+                <div class="track-title" style="color: #E2007A !important; font-size: 1.1em; font-weight: 900; margin-bottom: 10px;">Purpurnaya Substantia</div>
+                <a href="https://paideuma.tv//videos/golovin-purpur.mp4" target="_blank" style="display: inline-block; background: #000000; color: #F0E68C; border: 2px solid #00FF00; padding: 8px 15px; font-weight: bold; text-decoration: none; box-shadow: 4px 4px 0px #8b0000;">
+                      Заиграть 
+                </a>
 
+                <div style="margin-bottom: 35px; border-bottom: 3px double #787878; padding-bottom: 20px; text-align: center;">
+                    <div class="track-title" style="color: #FF1493 !important; font-size: 1.1em; font-weight: 900; margin-bottom: 10px;">VSE Ot VINTA</div>
+                    <a href="https://vkvideo.ru/video-177539978_456240470" target="_blank" style="display: inline-block; background: #000000; color: #F0E68C; border: 2px solid #00FF00; padding: 8px 15px; font-weight: bold; text-decoration: none; box-shadow: 4px 4px 0px #8b0000;">
+                          Заиграть 
+                    </a>
+                </div>
+
+                <img src="IMG_0552.jpeg" alt="manifestation" class="divine-image">
+                <img src="luna.JPG" alt="manifestation" class="divine-image">
+                <img src="goddess.jpg" alt="manifestation" class="divine-image">
+                <img src="toet.jpeg" alt="manifestation" class="divine-image">
+                <img src="2D7D3510-649C-4D5C-993E-51D0CEF39C33.jpeg" alt="manifestation" class="divine-image">
+                <img src="IMG_0508.jpeg" alt="manifestation" class="divine-image">
+                <img src="IMG_0507.png" alt="manifestation" class="divine-image">
+                <img src="IMG_0511.jpeg" alt="manifestation" class="divine-image">
+                <img src="411F383C-5AE3-4616-AB74-10C2DC342E17.jpeg" alt="manifestation" class="divine-image">
+            </div>
         </div>
 
     </div>
 
-    
-    <p style="color: #011101; font-size: 0.8em; text-align: center; margin-top: 50px;">
-        
-    </p>
-
     <div class="footer">
         ДЛЯ НЕСТЕРПИМОЙ СВЯЗИ: <a href="mailto:isidordukass@gmail.com">isidordukass@gmail.com</a>
-        
         <div class="alchemy-text">         
-            
-        Свету положены пределы; в бессрочном, в беспредельном ночь царит. 
+            Свету положены пределы; в бессрочном, в беспредельном ночь царит. 
             Сон длится вечно. Сон святой, не обездоливай надолго причастных 
-         ночи в тягостях земного дня.
+            ночи в тягостях земного дня.
+            <div style="margin-top: 25px; border-top: 1px dashed #333; padding-top: 15px; text-align:center;"></div>
+        </div>
+        <img src="Lautor.png" alt="manifestation" width="228" height="300">
+    </div>
 
-            <div style="margin-top: 25px; border-top: 1px dashed #333; padding-top: 15px; text-align:center;">
-            </div>
-         </div>
-    <img src="Lautor.png" alt="manifestation" width="228" height="300">
-  
-</div>
+    <script>
+      const audioItems = Array.from(document.querySelectorAll('.audio-item:not(.unique-loop-player)'));
 
+      audioItems.forEach((item, index) => {
+        const audio = item.querySelector('.my-audio');
+        const btn = item.querySelector('.play-btn');
 
+        if (audio && btn) {
+          const trackName = btn.textContent;
 
+          btn.addEventListener('click', () => {
+            if (audio.paused) {
+              document.querySelectorAll('.my-audio').forEach(otherAudio => {
+                if (otherAudio !== audio) {
+                  otherAudio.pause();
+                  const otherBtn = otherAudio.closest('.audio-item').querySelector('.play-btn');
+                  if (otherBtn) {
+                    otherBtn.textContent = otherBtn.textContent.replace(' ⏸ ПАУЗА', '').replace(' ▶ ИГРАЕТ', '');
+                  }
+                }
+              });
 
-<script>
-  const audioItems = Array.from(document.querySelectorAll('.audio-item:not(.unique-loop-player)'));
-
-  audioItems.forEach((item, index) => {
-    const audio = item.querySelector('.my-audio');
-    const btn = item.querySelector('.play-btn');
-
-    if (audio && btn) {
-      const trackName = btn.textContent;
-
-      btn.addEventListener('click', () => {
-        if (audio.paused) {
-          document.querySelectorAll('.my-audio').forEach(otherAudio => {
-            if (otherAudio !== audio) {
-              otherAudio.pause();
-              const otherBtn = otherAudio.closest('.audio-item').querySelector('.play-btn');
-              if (otherBtn) {
-                otherBtn.textContent = otherBtn.textContent.replace(' ⏸ ПАУЗА', '').replace(' ▶ ИГРАЕТ', '');
-              }
+              audio.play();
+              btn.textContent = trackName + ' ▶ ИГРАЕТ';
+            } else {
+              audio.pause();
+              btn.textContent = trackName + ' ⏸ ПАУЗА';
             }
           });
 
-          audio.play();
-          btn.textContent = trackName + ' ▶ ИГРАЕТ';
-        } else {
-          audio.pause();
-          btn.textContent = trackName + ' ⏸ ПАУЗА';
+          audio.addEventListener('ended', () => {
+            btn.textContent = trackName;
+            const nextItem = audioItems[index + 1];
+            if (nextItem) {
+              const nextAudio = nextItem.querySelector('.my-audio');
+              const nextBtn = nextItem.querySelector('.play-btn');
+              if (nextAudio && nextBtn) {
+                nextAudio.play();
+                nextBtn.textContent = nextBtn.textContent + ' ▶ ИГРАЕТ';
+              }
+            }
+          });
         }
       });
+    </script>
 
-      audio.addEventListener('ended', () => {
-        btn.textContent = trackName;
-        const nextItem = audioItems[index + 1];
-        if (nextItem) {
-          const nextAudio = nextItem.querySelector('.my-audio');
-          const nextBtn = nextItem.querySelector('.play-btn');
-          if (nextAudio && nextBtn) {
-            nextAudio.play();
-            nextBtn.textContent = nextBtn.textContent + ' ▶ ИГРАЕТ';
+    <script>
+      document.querySelectorAll('.unique-loop-player').forEach(item => {
+        const audio = item.querySelector('.my-audio');
+        const btn = item.querySelector('.play-btn');
+
+        if (audio && btn) {
+          const trackName = btn.textContent;
+
+          btn.addEventListener('click', () => {
+            if (audio.paused) {
+              document.querySelectorAll('.my-audio').forEach(otherAudio => {
+                if (otherAudio !== audio) {
+                  otherAudio.pause();
+                  const otherBtn = otherAudio.closest('.audio-item').querySelector('.play-btn');
+                  if (otherBtn) {
+                    otherBtn.textContent = otherBtn.textContent.replace(' ⏸ ПАУЗА', '').replace(' ▶ ИГРАЕТ', '');
+                  }
+                }
+              });
+
+              audio.play();
+              btn.textContent = trackName + ' ▶ ИГРАЕТ';
+            } else {
+              audio.pause();
+              btn.textContent = trackName + ' ⏸ ПАУЗА';
+            }
+          });
+        }
+      });
+    </script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const contentBar = document.querySelector('.content');
+        if (!contentBar) return;
+
+        const canvas = document.createElement('canvas');
+        canvas.id = 'web1-canvas';
+        contentBar.insertBefore(canvas, contentBar.firstChild);
+
+        const ctx = canvas.getContext('2d');
+        function resize() {
+          canvas.width = contentBar.clientWidth;
+          canvas.height = contentBar.clientHeight;
+        }
+        resize();
+        window.addEventListener('resize', resize);
+        new ResizeObserver(() => resize()).observe(contentBar);
+
+        let mouse = { x: -1000, y: -1000 };
+        contentBar.addEventListener('mousemove', (e) => {
+          const rect = contentBar.getBoundingClientRect();
+          mouse.x = e.clientX - rect.left;
+          mouse.y = e.clientY - rect.top;
+        });
+        contentBar.addEventListener('mouseleave', () => { mouse.x = -1000; mouse.y = -1000; });
+
+        function drawNoise() {
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+          ctx.fillStyle = '#00FF00'; 
+          const step = 6; 
+
+          for (let x = 0; x < canvas.width; x += step) {
+            for (let y = 0; y < canvas.height; y += step) {
+              const dx = x - mouse.x;
+              const dy = y - mouse.y;
+              const dist = Math.sqrt(dx * dx + dy * dy);
+              
+              let rand = Math.random();
+              if (dist < 90) { rand += (1 - dist / 90) * 0.5; } 
+              
+              if (rand > 0.95) { ctx.fillRect(x, y, 2, 2); }
+            }
           }
+          requestAnimationFrame(drawNoise);
+        }
+        drawNoise();
+      });
+    </script>
+
+    <!-- СКРИПТ ПОСЛУШНОГО И НЕЖНОГО ЦВЕТОЧНОГО ДОЖДЯ -->
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const flowerIcons = [
+          '🌸', '🌺', '🌹', '🌷', '🌼', '🪷', '💐', '🥀', '💮', 
+          '<span style="color:#FFB6C1;">❀</span>', 
+          '<span style="color:#EE82EE;">✿</span>', 
+          '<span style="color:#FF1493;">❁</span>'
+        ];
+
+        const maxFlowers = 38;
+
+        function createFlower() {
+          const flower = document.createElement('div');
+          flower.className = 'falling-flower';
+          flower.innerHTML = flowerIcons[Math.floor(Math.random() * flowerIcons.length)];
+          
+          const startLeft = Math.random() * 98;
+          const duration = 6 + Math.random() * 8;
+          const size = 16 + Math.random() * 24;
+          const delay = Math.random() * 5;
+
+          flower.style.left = startLeft + 'vw';
+          flower.style.fontSize = size + 'px';
+          flower.style.animationDuration = duration + 's';
+          flower.style.animationDelay = delay + 's';
+          flower.style.opacity = (0.6 + Math.random() * 0.4).toString();
+
+          document.body.appendChild(flower);
+
+          setTimeout(() => {
+            flower.remove();
+            createFlower();
+          }, (duration + delay) * 1000);
+        }
+
+        for (let i = 0; i < maxFlowers; i++) {
+          setTimeout(createFlower, i * 200);
         }
       });
-    }
-  });
-</script>
-
-
-<script>
-  document.querySelectorAll('.unique-loop-player').forEach(item => {
-    const audio = item.querySelector('.my-audio');
-    const btn = item.querySelector('.play-btn');
-
-    if (audio && btn) {
-      const trackName = btn.textContent;
-
-      btn.addEventListener('click', () => {
-        if (audio.paused) {
-          document.querySelectorAll('.my-audio').forEach(otherAudio => {
-            if (otherAudio !== audio) {
-              otherAudio.pause();
-              const otherBtn = otherAudio.closest('.audio-item').querySelector('.play-btn');
-              if (otherBtn) {
-                otherBtn.textContent = otherBtn.textContent.replace(' ⏸ ПАУЗА', '').replace(' ▶ ИГРАЕТ', '');
-              }
-            }
-          });
-
-          audio.play();
-          btn.textContent = trackName + ' ▶ ИГРАЕТ';
-        } else {
-          audio.pause();
-          btn.textContent = trackName + ' ⏸ ПАУЗА';
-        }
-      });
-    }
-  });
-</script>
-
-
-<script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const contentBar = document.querySelector('.content');
-    if (!contentBar) return;
-
-    
-    const canvas = document.createElement('canvas');
-    canvas.id = 'web1-canvas';
-    contentBar.insertBefore(canvas, contentBar.firstChild);
-
-    const ctx = canvas.getContext('2d');
-    function resize() {
-      canvas.width = contentBar.clientWidth;
-      canvas.height = contentBar.clientHeight;
-    }
-    resize();
-    window.addEventListener('resize', resize);
-    new ResizeObserver(() => resize()).observe(contentBar);
-
-    let mouse = { x: -1000, y: -1000 };
-    contentBar.addEventListener('mousemove', (e) => {
-      const rect = contentBar.getBoundingClientRect();
-      mouse.x = e.clientX - rect.left;
-      mouse.y = e.clientY - rect.top;
-    });
-    contentBar.addEventListener('mouseleave', () => { mouse.x = -1000; mouse.y = -1000; });
-
-    function drawNoise() {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      ctx.fillStyle = '#00FF00'; 
-      const step = 6; 
-
-      for (let x = 0; x < canvas.width; x += step) {
-        for (let y = 0; y < canvas.height; y += step) {
-          const dx = x - mouse.x;
-          const dy = y - mouse.y;
-          const dist = Math.sqrt(dx * dx + dy * dy);
-          
-          let rand = Math.random();
-          if (dist < 90) { rand += (1 - dist / 90) * 0.5; } 
-          
-          if (rand > 0.95) { ctx.fillRect(x, y, 2, 2); }
-        }
-      }
-      requestAnimationFrame(drawNoise);
-    }
-    drawNoise();
-  });
-</script>
+    </script>
 
 </body>
 </html>
