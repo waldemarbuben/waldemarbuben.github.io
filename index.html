@@ -10,7 +10,7 @@
             background-position: center;
             background-size: cover; 
             
-            color: #111111; 
+            color: #211524; 
             font-family: 'Times', Georgia, serif;
             max-width: 1250px; 
             margin: 60px auto;
@@ -18,49 +18,113 @@
             line-height: 1.7;
             letter-spacing: 0.02em;
             
-            text-shadow: 0px 0px 2px #000000; 
+            text-shadow: 0px 0px 2px rgba(218, 112, 214, 0.4); 
         }
 
-        ::selection { background: #000000; color: #000000; }
+        ::selection { background: #4b0082; color: #f5e6f5; }
 
         .main-container {
             display: flex;
             gap: 25px;
             align-items: flex-start;
+            position: relative;
+        }
+
+        /* КОНТЕЙНЕРЫ ДЛЯ НОВЫХ АУТЕНТИЧНЫХ ЦВЕТОВ ПО БОКАМ */
+        .floral-side-left {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 260px;
+            height: 100vh;
+            /* ИСПОЛЬЗУЕМ mix-blend-mode: multiply ЧТОБЫ УБРАТЬ ИМЕННО БЕЛЫЙ ФОН НА СВЕТЛЫХ ФОТО */
+            mix-blend-mode: multiply; 
+            background-image: url('flower_lily.png'); 
+            background-repeat: repeat-y;
+            background-size: contain;
+            z-index: 999;
+            pointer-events: none;
+            opacity: 0.95;
+            filter: contrast(1.1);
+        }
+
+        .floral-side-right {
+            position: fixed;
+            right: 0;
+            top: 0;
+            width: 260px;
+            height: 100vh;
+            mix-blend-mode: multiply;
+            background-image: url('flower_sweetpea.png');
+            background-repeat: repeat-y;
+            background-size: contain;
+            z-index: 999;
+            pointer-events: none;
+            opacity: 0.95;
+            filter: contrast(1.1);
+        }
+
+        /* АКЦЕНТНЫЕ ЦВЕТЫ ВНУТРИ ДИЗАЙНА С multiply ДЛЯ СВЕТЛОГО ФОНА */
+        .flower-accent-datura {
+            position: absolute;
+            top: -80px;
+            right: -40px;
+            width: 220px;
+            mix-blend-mode: multiply;
+            z-index: 5;
+            pointer-events: none;
+            transform: rotate(15deg);
+            opacity: 0.9;
+        }
+
+        .flower-accent-belladonna {
+            display: block;
+            width: 100%;
+            margin: 20px 0;
+            mix-blend-mode: multiply;
+            opacity: 0.9;
+        }
+
+        .flower-accent-roses {
+            width: 170px;
+            mix-blend-mode: multiply;
+            margin: 10px auto;
+            opacity: 0.85;
+            display: block;
         }
 
         .sidebar-left {
             width: 220px;
-            background: #000000; 
-            border: 4px ridge #FF00FF; 
+            background: #12061f; 
+            border: 4px ridge #ba55d3; 
             padding: 20px;
-            box-shadow: -6px 6px 0px #550055;
+            box-shadow: -6px 6px 0px #3b0066, inset 0 0 15px rgba(186, 85, 211, 0.25);
             position: relative;
         }
 
         .content {
             flex-grow: 1;
             max-width: 580px;
-            background: rgba(54, 173, 120, 0.82) !important; 
-            border: 3px solid #EE82EE; 
+            background: rgba(245, 230, 245, 0.86) !important; 
+            border: 3px solid #dda0dd; 
             padding: 40px;
-            box-shadow: 0 0 20px rgba(0, 255, 0, 0.5), inset 0 0 15px rgba(0, 255, 0, 0.3);
+            box-shadow: 0 0 22px rgba(218, 112, 214, 0.5), inset 0 0 15px rgba(255, 240, 245, 0.4);
             position: relative;
-            overflow: hidden; 
-            scrollbar-color: #EE82EE rgba(0, 0, 0, 0.5); 
+            overflow: visible; 
+            scrollbar-color: #dda0dd rgba(0, 0, 0, 0.5); 
             scrollbar-width: thin;
         }
 
         .content::-webkit-scrollbar { width: 6px; }
         .content::-webkit-scrollbar-track { background: rgba(0,0,0,0.4); }
-        .content::-webkit-scrollbar-thumb { background: #EE82EE; border-radius: 10px; }
+        .content::-webkit-scrollbar-thumb { background: #dda0dd; border-radius: 10px; }
 
         #web1-canvas {
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
             z-index: 0;
             pointer-events: none; 
-            opacity: 0.18; 
+            opacity: 0.16; 
         }
 
         .content > * {
@@ -70,25 +134,26 @@
 
         .sidebar-right {
             width: 340px;
-            background: #000000;
-            border: 4px dashed #00FFFF; 
+            background: #12061f;
+            border: 4px dashed #dda0dd; 
             padding: 15px;
             text-align: center;
-            box-shadow: 6px 6px 0px #005555;
+            box-shadow: 6px 6px 0px #3b0066, inset 0 0 15px rgba(186, 85, 211, 0.25);
             position: relative;
         }
 
         .divine-image {
             width: 100%;
             height: auto;
-            border: 2px solid #FF00FF;
-            filter: contrast(1.4) brightness(1.0); 
+            border: 2px solid #ba55d3;
+            filter: contrast(1.35) brightness(1.02) sepia(0.1); 
+            box-shadow: 0 0 10px rgba(186, 85, 211, 0.4);
         }
 
         .play-btn {
-            background: #000000;             
-            color: #FFFDD0 !important;       
-            border: 4px ridge #ff8000;       
+            background: #12061f;             
+            color: #f5e6f5 !important;       
+            border: 4px ridge #ba55d3;       
             padding: 8px 20px;
             font-size: 1em;
             font-family: 'Times', Georgia, serif;
@@ -98,59 +163,64 @@
             display: inline-block;
             letter-spacing: 0.1em;
             text-shadow: 0px 0px 2px #000000;
-            box-shadow: -6px 6px 0px #550055; 
+            box-shadow: -5px 5px 0px #3b0066; 
             transition: all 0.2s ease;
         }
 
         .play-btn:hover {
-            color: #00FFFF !important;      
-            border-color: #00FFFF;           
-            box-shadow: -6px 6px 0px #005555; 
+            color: #dda0dd !important;      
+            border-color: #dda0dd;           
+            background: #280b42;
+            box-shadow: -5px 5px 0px #dda0dd; 
         }
 
         .audio-item {
             margin-bottom: 30px;
-            border-bottom: 1px dotted #FF00FF;
+            border-bottom: 1px dotted #ba55d3;
             padding-bottom: 15px;
         }
 
         .track-title {
-            color: #00FFFF !important; 
+            color: #ba55d3 !important; 
             font-size: 1.1em;
             margin-bottom: 5px;
+            text-shadow: 0 0 4px rgba(186, 85, 211, 0.5);
         }
 
         .post {
             margin-bottom: 60px;
             padding-bottom: 40px;
-            border-bottom: 3px double #000000;
+            border-bottom: 3px double #b19cd9;
         }
 
         .date {
-            color: #BC8F8F !important; 
+            color: #7b2496 !important; 
             font-size: 1.1em;
             font-weight: 900;
             letter-spacing: 0.15em;
             margin-bottom: 25px;
+            text-shadow: 0 0 3px rgba(218, 112, 214, 0.6);
         }
 
         a {
-            color: #00FFFF; 
+            color: #ba55d3; 
             text-decoration: underline;
         }
         a:hover {
-            color: #FFFFFF;
-            background: #FF00FF; 
+            color: #ffffff;
+            background: #7b2496; 
         }
 
         .footer {
             margin-top: 50px;
             padding: 20px;
-            background: #000000;
-            border: 3px double #FF00FF;
-            color: #FF00FF;
+            background: #12061f;
+            border: 3px double #ba55d3;
+            color: #dda0dd;
             text-align: center;
             font-size: 1.1em;
+            box-shadow: 0 0 20px rgba(186, 85, 211, 0.4);
+            position: relative;
         }
 
         @media (max-width: 950px) {
@@ -162,30 +232,31 @@
                 background-position: center top;   
                 background-attachment: scroll; 
             }
+            .floral-side-left, .floral-side-right { display: none; }
         }
 
         .alchemy-manifest {
             margin-top: 30px;
-            background: #000000;
-            border: 2px solid #8c7355; 
+            background: #12061f;
+            border: 2px solid #b19cd9; 
             padding: 20px;
             text-align: left;
-            box-shadow: inset 0 0 15px rgba(140, 115, 85, 0.2), 4px 4px 0px #111111;
+            box-shadow: inset 0 0 15px rgba(177, 156, 217, 0.2), 4px 4px 0px #280b42;
         }
 
         .alchemy-title {
-            color: #8c7355 !important; 
+            color: #dda0dd !important; 
             font-size: 0.9em !important;
             font-weight: 900 !important;
             letter-spacing: 0.2em;
             margin-bottom: 15px;
             text-transform: uppercase;
-            border-bottom: 1px dashed #4a3e2e;
+            border-bottom: 1px dashed #7b2496;
             padding-bottom: 5px;
         }
 
         .alchemy-text {
-            color: #8a8a8a !important; 
+            color: #d8bfd8 !important; 
             font-size: 0.9em !important;
             line-height: 1.6 !important;
             font-weight: bold !important;
@@ -200,68 +271,42 @@
             margin: 20px auto;
             padding: 12px;
             background: #fdf5e6;
-            border: 5px double #8c7355;     
-            outline: 1px solid #4a3e2e;     
+            border: 5px double #b19cd9;     
+            outline: 1px solid #7b2496;     
             outline-offset: -4px;
             box-shadow: 
-                inset 0 0 10px rgba(74, 62, 46, 0.3),
+                inset 0 0 10px rgba(123, 104, 238, 0.2),
                 2px 2px 5px rgba(0, 0, 0, 0.4),
-                4px 4px 0px rgba(74, 62, 46, 0.15);
+                4px 4px 0px rgba(186, 85, 211, 0.2);
             filter: sepia(0.15) contrast(1.1);
             transition: all 0.4s ease-in-out;
         }
 
         img[src^="pic"]:hover {
-            border-color: #aa8b66;
+            border-color: #dda0dd;
             box-shadow: 
-                inset 0 0 12px rgba(74, 62, 46, 0.4),
+                inset 0 0 12px rgba(186, 85, 211, 0.3),
                 3px 6px 12px rgba(0, 0, 0, 0.5),
-                5px 5px 0px rgba(140, 115, 85, 0.2);
+                5px 5px 0px rgba(123, 104, 238, 0.3);
             filter: sepia(0) contrast(1.15);
             transform: translateY(-2px);
         }
 
-        /* 1. БОКОВЫЕ ЛИАНЫ И ГИРЛЯНДЫ ИЗ ЦВЕТОВ (ПО БОКАМ ЭКРАНА) */
-        .floral-vines-left, .floral-curtain-right {
-            position: fixed;
-            top: 0;
-            width: 180px;
-            height: 100vh;
-            pointer-events: none;
-            z-index: 999;
-            background-repeat: repeat-y;
-            opacity: 0.88;
-            filter: drop-shadow(0 0 8px rgba(238, 130, 238, 0.6));
-        }
-
-        .floral-vines-left {
-            left: 0;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='600' viewBox='0 0 180 600'%3E%3Cpath d='M30,0 Q60,150 20,300 T40,600' stroke='%23228B22' stroke-width='4' fill='none'/%3E%3Cpath d='M10,0 Q40,200 15,400 T30,600' stroke='%23006400' stroke-width='3' fill='none'/%3E%3Cg transform='translate(20,80)'%3E%3Ccircle cx='0' cy='0' r='18' fill='%23FF69B4' opacity='0.9'/%3E%3Ccircle cx='-10' cy='-10' r='12' fill='%23FFB6C1'/%3E%3Ccircle cx='10' cy='-10' r='12' fill='%23FFB6C1'/%3E%3Ccircle cx='0' cy='10' r='12' fill='%23FFB6C1'/%3E%3Ccircle cx='0' cy='0' r='6' fill='%23FFFF00'/%3E%3C/g%3E%3Cg transform='translate(50,220) scale(1.3)'%3E%3Ccircle cx='0' cy='0' r='16' fill='%23EE82EE'/%3E%3Cpath d='M-15,0 Q0,-25 15,0 Q0,25 -15,0' fill='%23DA70D6' opacity='0.8'/%3E%3Ccircle cx='0' cy='0' r='5' fill='%23FFF'/%3E%3C/g%3E%3Cg transform='translate(25,380)'%3E%3Ccircle cx='0' cy='0' r='20' fill='%23C71585'/%3E%3Ccircle cx='-12' cy='-12' r='14' fill='%23FF1493'/%3E%3Ccircle cx='12' cy='-12' r='14' fill='%23FF1493'/%3E%3Ccircle cx='0' cy='12' r='14' fill='%23FF1493'/%3E%3Ccircle cx='0' cy='0' r='7' fill='%23FFD700'/%3E%3C/g%3E%3Cg transform='translate(45,510) scale(0.9)'%3E%3Ccircle cx='0' cy='0' r='15' fill='%23E6E6FA'/%3E%3Ccircle cx='-10' cy='-10' r='10' fill='%23FFF'/%3E%3Ccircle cx='10' cy='-10' r='10' fill='%23FFF'/%3E%3Ccircle cx='0' cy='10' r='10' fill='%23FFF'/%3E%3Ccircle cx='0' cy='0' r='5' fill='%23FFD700'/%3E%3C/g%3E%3C/svg%3E");
-        }
-
-        .floral-curtain-right {
-            right: 0;
-            transform: scaleX(-1);
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='600' viewBox='0 0 180 600'%3E%3Cpath d='M30,0 Q60,150 20,300 T40,600' stroke='%23228B22' stroke-width='4' fill='none'/%3E%3Cpath d='M10,0 Q40,200 15,400 T30,600' stroke='%23006400' stroke-width='3' fill='none'/%3E%3Cg transform='translate(20,80)'%3E%3Ccircle cx='0' cy='0' r='18' fill='%23FF69B4' opacity='0.9'/%3E%3Ccircle cx='-10' cy='-10' r='12' fill='%23FFB6C1'/%3E%3Ccircle cx='10' cy='-10' r='12' fill='%23FFB6C1'/%3E%3Ccircle cx='0' cy='10' r='12' fill='%23FFB6C1'/%3E%3Ccircle cx='0' cy='0' r='6' fill='%23FFFF00'/%3E%3C/g%3E%3Cg transform='translate(50,220) scale(1.3)'%3E%3Ccircle cx='0' cy='0' r='16' fill='%23EE82EE'/%3E%3Cpath d='M-15,0 Q0,-25 15,0 Q0,25 -15,0' fill='%23DA70D6' opacity='0.8'/%3E%3Ccircle cx='0' cy='0' r='5' fill='%23FFF'/%3E%3C/g%3E%3Cg transform='translate(25,380)'%3E%3Ccircle cx='0' cy='0' r='20' fill='%23C71585'/%3E%3Ccircle cx='-12' cy='-12' r='14' fill='%23FF1493'/%3E%3Ccircle cx='12' cy='-12' r='14' fill='%23FF1493'/%3E%3Ccircle cx='0' cy='12' r='14' fill='%23FF1493'/%3E%3Ccircle cx='0' cy='0' r='7' fill='%23FFD700'/%3E%3C/g%3E%3Cg transform='translate(45,510) scale(0.9)'%3E%3Ccircle cx='0' cy='0' r='15' fill='%23E6E6FA'/%3E%3Ccircle cx='-10' cy='-10' r='10' fill='%23FFF'/%3E%3Ccircle cx='10' cy='-10' r='10' fill='%23FFF'/%3E%3Ccircle cx='0' cy='10' r='10' fill='%23FFF'/%3E%3Ccircle cx='0' cy='0' r='5' fill='%23FFD700'/%3E%3C/g%3E%3C/svg%3E");
-        }
-
-        /* 2. ОПЛЕТЕНИЕ ЦЕНТРАЛЬНОГО КОНТЕНТА И САЙДБАРОВ ЛИАНАМИ */
         .content::before, .sidebar-left::before, .sidebar-right::before {
-            content: "🐚🌸 🌹🌻 🌺 🍂🌷🪷 🌼 💐 🌸 🌹🌘 🌺 🌷";
+            content: "🥀 🪻 💮 🪷 🌿 🪻 🥀 🪷 💮";
             position: absolute;
-            top: -18px;
+            top: -20px;
             left: 0;
             width: 100%;
-            font-size: 16px;
+            font-size: 15px;
             letter-spacing: 8px;
             text-align: center;
             pointer-events: none;
             z-index: 10;
-            text-shadow: 0 0 6px #FF00FF, 0 0 12px #00FF00;
+            text-shadow: 0 0 6px #dda0dd, 0 0 12px #9370db;
             opacity: 0.9;
         }
 
-        /* 3. АНИМАЦИЯ ПАДАЮЩИХ ЦВЕТОВ */
         .falling-flower {
             position: fixed;
             top: -50px;
@@ -269,40 +314,34 @@
             z-index: 1000;
             user-select: none;
             animation: fallAndSway linear infinite;
-            filter: drop-shadow(0 0 6px rgba(255, 105, 180, 0.8));
+            filter: drop-shadow(0 0 5px rgba(218, 112, 214, 0.7));
         }
 
         @keyframes fallAndSway {
-            0% {
-                transform: translateY(0vh) rotate(0deg) translateX(0px);
-                opacity: 1;
-            }
-            50% {
-                transform: translateY(50vh) rotate(180deg) translateX(25px);
-                opacity: 0.85;
-            }
-            100% {
-                transform: translateY(105vh) rotate(360deg) translateX(-20px);
-                opacity: 0.2;
-            }
+            0% { transform: translateY(0vh) rotate(0deg) translateX(0px); opacity: 1; }
+            50% { transform: translateY(50vh) rotate(180deg) translateX(25px); opacity: 0.85; }
+            100% { transform: translateY(105vh) rotate(360deg) translateX(-20px); opacity: 0.2; }
         }
     </style>
 </head>
 <body>
 
-    <!-- ЭЛЕМЕНТЫ ЛИАН ПО БОКАМ -->
-    <div class="floral-vines-left"></div>
-    <div class="floral-curtain-right"></div>
+    <!-- АУТЕНТИЧНЫЕ ФОТО-ЛИАНЫ ПО БОКАМ (С УДАЛЕННЫМ БЕЛЫМ ФОНОМ ДЛЯ СВЕТЛОГО ФОНА САЙТА) -->
+    <!-- ЗАГРУЗИТЕ reference_image_AQAD7xprG0kqMEp9.jpg ПОД ИМЕНЕМ flower_lily.png -->
+    <div class="floral-side-left"></div>
+    
+    <!-- ЗАГРУЗИТЕ reference_image_AQAD8hprG0kqMEp9.jpg ПОД ИМЕНЕМ flower_sweetpea.png -->
+    <div class="floral-side-right"></div>
 
-    <div style="text-align: center; margin: 40px 0 20px 0; padding: 20px; background: #191970; border: 4px double #00FF00; box-shadow: 0 0 25px rgba(0, 255, 0, 0.6);">
-        <div style="color: #ff8000; font-size: 1.2em; font-weight: bold; margin-bottom: 15px; letter-spacing: 0.15em; text-transform: uppercase; text-shadow: 0 0 10px #00FF00;">
+    <div style="text-align: center; margin: 40px 0 20px 0; padding: 20px; background: #12061f; border: 4px double #dda0dd; box-shadow: 0 0 25px rgba(186, 85, 211, 0.5);">
+        <div style="color: #dda0dd; font-size: 1.2em; font-weight: bold; margin-bottom: 15px; letter-spacing: 0.15em; text-transform: uppercase; text-shadow: 0 0 8px #9370db;">
              <img src="IMG_0371.webp" alt="manifestation" width="20" height="20"> Храм памяти моей валькирии  <img src="IMG_0371.webp" alt="manifestation" width="20" height="20">
         </div>
 
-        <h1 style="font-size: 3.5em; font-weight: 900; color: #8B0000; margin: 0; letter-spacing: 0.15em; text-shadow: 0 0 15px #FF00FF, 3px 3px 0px #000000;">
+        <h1 style="font-size: 3.5em; font-weight: 900; color: #b19cd9; margin: 0; letter-spacing: 0.15em; text-shadow: 0 0 15px #dda0dd, 3px 3px 0px #000000;">
             <img src="Monada2.png" alt="manifestation" width="40" height="40">Вальдѣмаръ Бубѣнъ<img src="Monada.png" alt="manifestation" width="40" height="40">
         </h1>
-        <div style="color: #00FF00; font-size: 0.9em; letter-spacing: 0.5em; margin-top: 10px; font-weight: bold; text-transform: uppercase;">
+        <div style="color: #e6e6fa; font-size: 0.9em; letter-spacing: 0.5em; margin-top: 10px; font-weight: bold; text-transform: uppercase; text-shadow: 0 0 6px #dda0dd;">
             ==ТОТ, КТО ИДЕТ ПРОТИВ ДНЯ, НЕ ДОЛЖЕН БОЯТЬСЯ НОЧИ==
             
             <div class="audio-item">
@@ -312,23 +351,23 @@
         </div>
     </div>
    
-    <marquee bgcolor="#00FF00" scrollamount="12" style="color: #000000; font-weight: 900; padding: 8px; margin-bottom: 25px; border: 3px solid #FF00FF; font-size: 1.2em;">
+    <marquee bgcolor="#b19cd9" scrollamount="12" style="color: #12061f; font-weight: 900; padding: 8px; margin-bottom: 25px; border: 3px solid #dda0dd; font-size: 1.2em;">
         Тень несозданных созданий Колыхается во сне, Словно лопасти латаний На эмалевой стене. Фиолетовые руки На эмалевой стене Полусонно чертят звуки В звонко-звучной тишине…
     </marquee>
 
     <div class="main-container">
 
         <div class="sidebar-left">
-            <div style="margin-bottom: 35px; border-bottom: 3px double #FFA500; padding-bottom: 20px; text-align: center;">
-                <div class="track-title" style="color: #FF1493 !important; font-size: 1.1em; font-weight: 900; margin-bottom: 10px;">Литѣратура по бѣспроволочному</div>
-                <a href="http://195.91.237.50:8000/ices128" target="_blank" style="display: inline-block; background: #000000; color: #F0E68C; border: 2px solid #00FF00; padding: 8px 15px; font-weight: bold; text-decoration: none; box-shadow: 4px 4px 0px #8b0000;">
+            <div style="margin-bottom: 35px; border-bottom: 3px double #dda0dd; padding-bottom: 20px; text-align: center;">
+                <div class="track-title" style="color: #dda0dd !important; font-size: 1.1em; font-weight: 900; margin-bottom: 10px;">Литѣратура по бѣспроволочному</div>
+                <a href="http://195.91.237.50:8000/ices128" target="_blank" style="display: inline-block; background: #000000; color: #e6e6fa; border: 2px solid #dda0dd; padding: 8px 15px; font-weight: bold; text-decoration: none; box-shadow: 4px 4px 0px #3b0066;">
                      Вѣли́тѣ Заиграть 
                 </a>
             </div>
 
             <div style="margin-bottom: 35px; border-bottom: 3px double #777777; padding-bottom: 20px; text-align: center;">
-                <div class="track-title" style="color: #666666 !important; font-size: 1.1em; font-weight: 900; margin-bottom: 10px;">Мѣлодiи по бѣспроволочному</div>
-                <a href="http://195.91.237.50:8000/music128" target="_blank" style="display: inline-block; background: #000000; color: #F0E68C; border: 2px solid #00FF00; padding: 8px 15px; font-weight: bold; text-decoration: none; box-shadow: 4px 4px 0px #8b0000;">
+                <div class="track-title" style="color: #b19cd9 !important; font-size: 1.1em; font-weight: 900; margin-bottom: 10px;">Мѣлодiи по бѣспроволочному</div>
+                <a href="http://195.91.237.50:8000/music128" target="_blank" style="display: inline-block; background: #000000; color: #e6e6fa; border: 2px solid #dda0dd; padding: 8px 15px; font-weight: bold; text-decoration: none; box-shadow: 4px 4px 0px #3b0066;">
                      Вѣли́тѣ Заиграть   
                 </a>
             </div>
@@ -349,6 +388,10 @@
                 <audio class="my-audio" src="Гарпия.mp3"></audio>
                 <button class="play-btn">Гарпия</button>
             </div>
+
+            <!-- ЗАГРУЗИТЕ reference_image_AQAD8xprG0kqMEp9.jpg ПОД ИМЕНЕМ flower_belladonna.png -->
+            <img src="flower_belladonna.png" class="flower-accent-belladonna" alt="belladonna">
+
             <img src="golova.jpg" alt="manifestation" class="divine-image">
             <div class="audio-item">
                 <audio class="my-audio" src="В розовом стакане.mp3"></audio>
@@ -466,6 +509,8 @@
         </div>
 
         <div class="content">
+            <!-- ЗАГРУЗИТЕ reference_image_AQAD8RprG0kqMEp9.jpg ПОД ИМЕНЕМ flower_datura.png -->
+            <img src="flower_datura.png" class="flower-accent-datura" alt="datura">
 
             <div class="post">
                 <div class="date">2 Июня 1916</div>
@@ -479,7 +524,7 @@
             <div class="post">
                 <div class="date">5 Сентября 1916</div>
                 <p>Бумага одного художника это не та бумага, свойственная другому. Прошу заметить, речь идет не о фактуре, бренде, плотности или цвете. Если вглядеться в кадр из кинофильма с участием Веры Холодной, можно сказать обывательским языком (языком университетской номенклатуры) жанровая специфика, свойственная тому времени, мелодраматически-ноктюрническая салонная резвость… Но ничего это ни о кадре, ни о фильме, ни о чем не говорит путаная навигация или… говоря точнее, трудности перевода одной географической карты на другую, иноразмерную, что, соответственно, заводит не совсем туда. Теперь поглядим иначе, достаточно кадра.. героиня, запыхавшись, растерянно-собранно, изнеможденно облокотилась пепельной головой о дерево. Ее вернувшийся после взгляда через плечо профиль отражает исчерпывающе всю специфику белого цвета как такового и не только, то есть его оксюморон and антиномичность, позитивную парадоксальность по ту сторону законов чистого разума, логики, рацио, логоса и т. д., т. е. чисто фонарно-патриархальных гаечных ключей. Ошибочно полагать, как это делал и Аристотель, и феноменологи, что цвет это акциденция, он всегда на чем-то, а как такового его нет, или, точнее, нечто может быть во что-то окрашено. Скорее верно так цвет - это уже что-то, неразрывная, тонкая, субстанциальная категория вне захвата, посему она и ускользает, и правильно делает. Белый это бумага, будь она например пожелтевшей она сочится, изнурительно жаждет ласки, пылает неустанной любовию / Белизна временно приняла форму волос, лица и платья, чтобы обнаружить себя.</p>
-                <img src="vera.jpg" alt="" style="border: 3px solid #00FF00; max-width: 100%; height: auto; margin-top: 20px; filter: grayscale(1) contrast(1.5);">
+                <img src="vera.jpg" alt="" style="border: 3px solid #b19cd9; max-width: 100%; height: auto; margin-top: 20px; filter: grayscale(1) contrast(1.5);">
             </div> 
             
             <div class="post">
@@ -493,7 +538,7 @@
 
             <div class="post">
                 <div class="date">16 Сентября 1916</div>
-                <p>Полное признание превосходства изначальной пелазгической космической ночи, сновидений, беспредельно-безбрежного, интуиции над рациональным во всех его проявлениях. Абсолютная власть космоцентризма и вечного возвращения. Тортола Валенсия, Belle Époque эпоха испанского декаданса, к сожалению, неизвестна сейчас. По сравнению с тем, что известно (а это по преимуществу кабинетные, безопасные, гнусавые лектора, работающие на статус-кво) испанская прекрасная эпоха совершенно не переведена на русский и никак не освещена. Так, по сравнению с ней, хотя французский сплин имеет свое место, и было бы ошибочно просто сравнивать сообразно тому что лучше не говоря о том, что танцовщиц таких уже нет разве что предпринимательницы, а потенциальные поклонники сакрального служения «оперились» в прагматичных, рациональных…… к слову, не буду о вязком. Горячая кровь испанцев и испанок наиболее сорванно прошелестела хворостинкой. Трудно себе представить вообще возможность того, кто способен то ли застрелиться, то ли разориться. Это неразумно, наваждённо, глупо, нецелесообразно, неэкономно… да и вообще незаконно. Мир признаёт функционально-внешнее, наиболее узколобое проявление чего бы то ни было все тонкие миры отвергаются, тонкость вообще молниеносно купируется «трезвым» взглядом самого смотрящего. /- Ни разу еще не встречал я женщины, от которой хотел бы иметь детей, кроме той женщины, которую я люблю: ибо я люблю тебя, о Вечность!
+                <p>Полное признание превосходства изначальной пелазгической космической ночи, сновидений, беспредельно-безбрежного, интуиции над рациональным во всех его проявлениях. Абсолютная власть космоцентризма и вечного возвращения. Тортола Валенсия, Belle Époque эпоха испанского декаданса, к сожалению, неизвестна сейчас. По сравнению с тем, что известно (а эта по преимуществу кабинетные, безопасные, гнусавые лектора, работающие на статус-кво) испанская прекрасная эпоха совершенно не переведена на русский и никак не освещена. Так, по сравнению с ней, хотя французский сплин имеет свое место, и было бы ошибочно просто сравнивать сообразно тому что лучше не говоря о том, что танцовщиц таких уже нет разве что предпринимательницы, а потенциальные поклонники сакрального служения «оперились» в прагматичных, рациональных…… к слову, не буду о вязком. Горячая кровь испанцев и испанок наиболее сорванно прошелестела хворостинкой. Трудно себе представить вообще возможность того, кто способен то ли застрелиться, то ли разориться. Это неразумно, наваждённо, глупо, нецелесообразно, неэкономно… да и вообще незаконно. Мир признаёт функционально-внешнее, наиболее узколобое проявление чего бы то ни было все тонкие миры отвергаются, тонкость вообще молниеносно купируется «трезвым» взглядом самого смотрящего. /- Ни разу еще не встречал я женщины, от которой хотел бы иметь детей, кроме той женщины, которую я люблю: ибо я люблю тебя, о Вечность!
 
 Ибо я люблю тебя, о Вечность!-/ </p>
                 <video controls width="300">
@@ -522,7 +567,7 @@
             
             <div class="post">
                 <div class="date">21 Сентября 1916</div>
-                <p>Чувствую добронравный надрыв Якоба Бёме есть в нем что-то притягательно-симпатическое. Если настолько глубоко, как я прожить те улицы, которых никогда не видел, но по которым мы с ним ходили, тот запах именно того несравнимого события времени, который именно там было, и парадоксальная отрешённость, и при этом всем защита дидактикой, при всём пучеглазый взгляд от разверзающегося нечто, что за неимением концептуального аппарата он не мог описать, а с виду на этой игре резких однотонных градиентов ремесленника, отца и дитя своего времени - Зоркоокай UNGRUND. Тот, кто по-настоящему идет влажным путем, не ищет результата трансформации, ни свидетельствующего духа самодовольно пологающимся на сухом пути, ведь свидетельствовать некому, да и незачем.. Само скольжение в ночи и есть единственная, если можно так выразиться актуальность целиком, без остатка и без страховки. Здесь требуеться оговорится, точнее... подчеркнуть, мир современных мужчин - уродливый и мелкий диктат гипертрофированного солнечного титанизма, посему, идя в ночи, требуется насколько возможно свести контакты с внешним миром (как сеткой смвслов к 0) а как с горизонтальной поверхностью - к зоологическому минимому.. 
+                <p>Чувствую добронравный надрыв Якоба Бёме есть в нем что-то притягательно-симпатическое. Если настолько глубоко, как я прожить те улицы, которых никогда не видел, но по которым мы с ним ходили, тот запах именно того несравнимого события времени, который именно там было, и парадоксальная отрешённость, и при этом всем защита дидактикой, при всём пучеглазый взгляд от разверзающегося нечто, что за неимением концептуального аппарата он не мог описать, а с виду на этой игре резких однотонных градиентов ремесленника, отца и дитя своего времени - Зоркоокай UNGRUND. Тот, кто по-настоящему идет влажным путем, не ищет результата трансформации, ни свидетельствующего духа самодовольно пологающимся на сухом пути, ведь свидетельствующего некому, да и незачем.. Само скольжение в ночи и есть единственная, если можно так выразиться актуальность целиком, без остатка и без страховки. Здесь требуеться оговорится, точнее... подчеркнуть, мир современных мужчин - уродливый и мелкий диктат гипертрофированного солнечного титанизма, посему, идя в ночи, требуется насколько возможно свести контакты с внешним миром (как сеткой смвслов к 0) а как с горизонтальной поверхностью - к зоологическому минимому.. 
 </p>
                 <img src="IMG_0273.jpeg" alt="" style="border: 3px solid #FAEBD7; max-width: 100%; height: auto; margin-top: 20px; filter: grayscale(1) contrast(1.5);">
             </div>
@@ -592,7 +637,7 @@
             <div class="post" style="margin-bottom: 0; padding-bottom: 0; border-bottom: none;">
                 <img src="IMG_0346.JPG" alt="" style="border: 7px solid #000000; max-width: 100%; height: auto; margin-top: 20px;">    
                 <img src="IMG_0371.webp" alt="manifestation" width="100" height="100">
-                <p style="color: #ff0000; font-weight: bold;"> ЭТИ КАРТИНЫ НЕЛЬЗЯ СКАЧИВАТЬ ДЛЯ РАСПРОСТРАНЕНИЯ, ПЕРЕСЫЛАТЬ ИЛИ ДАВАТЬ СМОТРЕТЬ ВСЕМ ЛЮБОПЫТСТВУЮЩИМ
+                <p style="color: #dda0dd; font-weight: bold;"> ЭТИ КАРТИНЫ НЕЛЬЗЯ СКАЧИВАТЬ ДЛЯ РАСПРОСТРАНЕНИЯ, ПЕРЕСЫЛАТЬ ИЛИ ДАВАТЬ СМОТРЕТЬ ВСЕМ ЛЮБОПЫТСТВУЮЩИМ
 ОНИ ПРЕДНАЗНАЦЕНА ТОЛЬКО ДЛЯ ******* ****. КТО НЕ ПОСКУПИЛСЯ НА УВАЖЕНИЕ И ПОЧИТАНИЕ ПУСТЬ СМОТРИТ. КТО ПОЛУЧИЛ ИХ
 НИЧЕГО НЕ ЗАТРАТИВ, ПУСТЬ ЗАКРОЕТ ЭТОТ САЙТ. ИБО ЗАПЕЧАТАНА ОН СЛОВАМИ АДЕПТОВ. И ЛЮБОГО КОСНЕТСЯ ПРОКЛЯТИЕ, КТО ОСЛУШАЕТСЯ ЭТОГО ПРЕДУПРЕЖДЕНИЯ.</p>
                 <img src="IMG_0519.png" alt="manifestation" width="250" height="250">
@@ -621,20 +666,23 @@
 
         <div class="sidebar-right">
             <img src="IMG_0100.jpg" alt="manifestation" class="divine-image">
-            <p style="font-size: 0.9em; color: #00FFFF; margin-top: 15px; font-weight: 900;"></p>
+            <p style="font-size: 0.9em; color: #dda0dd; margin-top: 15px; font-weight: 900;"></p>
                 
-            <div style="margin-bottom: 35px; border-bottom: 4px ridge #00FFFF; padding-bottom: 25px; text-align: center;">
-                <div class="track-title" style="color: #00FFFF !important; font-size: 1.2em; font-weight: 900; margin-bottom: 12px; letter-spacing: 0.05em;">
+            <div style="margin-bottom: 35px; border-bottom: 4px ridge #dda0dd; padding-bottom: 25px; text-align: center;">
+                <div class="track-title" style="color: #dda0dd !important; font-size: 1.2em; font-weight: 900; margin-bottom: 12px; letter-spacing: 0.05em;">
                     Венера В Мехах
                 </div>
-                <a href="mazox.txt" target="_blank" style="display: inline-block; background: #000000; color: #00FFFF; border: 2px solid #FF00FF; padding: 10px 20px; font-weight: bold; text-decoration: none; box-shadow: 4px 4px 0px #550055; margin-bottom: 10px;">
+                <a href="mazox.txt" target="_blank" style="display: inline-block; background: #000000; color: #e6e6fa; border: 2px solid #dda0dd; padding: 10px 20px; font-weight: bold; text-decoration: none; box-shadow: 4px 4px 0px #3b0066; margin-bottom: 10px;">
                     Читать книгу
                 </a>
                 <br>
-                <a href="mazox.txt" download style="color: #FFFFFF; font-size: 0.85em; text-decoration: underline;">
+                <a href="mazox.txt" download style="color: #ffffff; font-size: 0.85em; text-decoration: underline;">
                     Скачать 
                 </a>
             </div>
+
+            <!-- ЗАГРУЗИТЕ reference_image_AQAD8BprG0kqMEp-.jpg ПОД ИМЕНЕМ flower_roses.png -->
+            <img src="flower_roses.png" class="flower-accent-roses" alt="roses">
 
             <div class="alchemy-manifest">
                 <div class="alchemy-title">~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</div>
@@ -647,15 +695,15 @@
                 </div>
             </div>
                     
-            <div style="margin-bottom: 35px; border-bottom: 3px double #E2007A; padding-bottom: 20px; text-align: center;">
-                <div class="track-title" style="color: #E2007A !important; font-size: 1.1em; font-weight: 900; margin-bottom: 10px;">Purpurnaya Substantia</div>
-                <a href="https://paideuma.tv//videos/golovin-purpur.mp4" target="_blank" style="display: inline-block; background: #000000; color: #F0E68C; border: 2px solid #00FF00; padding: 8px 15px; font-weight: bold; text-decoration: none; box-shadow: 4px 4px 0px #8b0000;">
+            <div style="margin-bottom: 35px; border-bottom: 3px double #ba55d3; padding-bottom: 20px; text-align: center;">
+                <div class="track-title" style="color: #ba55d3 !important; font-size: 1.1em; font-weight: 900; margin-bottom: 10px;">Purpurnaya Substantia</div>
+                <a href="https://paideuma.tv//videos/golovin-purpur.mp4" target="_blank" style="display: inline-block; background: #000000; color: #e6e6fa; border: 2px solid #dda0dd; padding: 8px 15px; font-weight: bold; text-decoration: none; box-shadow: 4px 4px 0px #3b0066;">
                       Заиграть 
                 </a>
 
-                <div style="margin-bottom: 35px; border-bottom: 3px double #787878; padding-bottom: 20px; text-align: center;">
-                    <div class="track-title" style="color: #FF1493 !important; font-size: 1.1em; font-weight: 900; margin-bottom: 10px;">VSE Ot VINTA</div>
-                    <a href="https://vkvideo.ru/video-177539978_456240470" target="_blank" style="display: inline-block; background: #000000; color: #F0E68C; border: 2px solid #00FF00; padding: 8px 15px; font-weight: bold; text-decoration: none; box-shadow: 4px 4px 0px #8b0000;">
+                <div style="margin-bottom: 35px; border-bottom: 3px double #787878; padding-bottom: 20px; text-align: center; margin-top: 20px;">
+                    <div class="track-title" style="color: #da70d6 !important; font-size: 1.1em; font-weight: 900; margin-bottom: 10px;">VSE Ot VINTA</div>
+                    <a href="https://vkvideo.ru/video-177539978_456240470" target="_blank" style="display: inline-block; background: #000000; color: #e6e6fa; border: 2px solid #dda0dd; padding: 8px 15px; font-weight: bold; text-decoration: none; box-shadow: 4px 4px 0px #3b0066;">
                           Заиграть 
                     </a>
                 </div>
@@ -680,21 +728,18 @@
             Свету положены пределы; в бессрочном, в беспредельном ночь царит. 
             Сон длится вечно. Сон святой, не обездоливай надолго причастных 
             ночи в тягостях земного дня.
-            <div style="margin-top: 25px; border-top: 1px dashed #333; padding-top: 15px; text-align:center;"></div>
+            <div style="margin-top: 25px; border-top: 1px dashed #dda0dd; padding-top: 15px; text-align:center;"></div>
         </div>
         <img src="Lautor.png" alt="manifestation" width="228" height="300">
     </div>
 
     <script>
       const audioItems = Array.from(document.querySelectorAll('.audio-item:not(.unique-loop-player)'));
-
       audioItems.forEach((item, index) => {
         const audio = item.querySelector('.my-audio');
         const btn = item.querySelector('.play-btn');
-
         if (audio && btn) {
           const trackName = btn.textContent;
-
           btn.addEventListener('click', () => {
             if (audio.paused) {
               document.querySelectorAll('.my-audio').forEach(otherAudio => {
@@ -706,7 +751,6 @@
                   }
                 }
               });
-
               audio.play();
               btn.textContent = trackName + ' ▶ ИГРАЕТ';
             } else {
@@ -714,7 +758,6 @@
               btn.textContent = trackName + ' ⏸ ПАУЗА';
             }
           });
-
           audio.addEventListener('ended', () => {
             btn.textContent = trackName;
             const nextItem = audioItems[index + 1];
@@ -735,10 +778,8 @@
       document.querySelectorAll('.unique-loop-player').forEach(item => {
         const audio = item.querySelector('.my-audio');
         const btn = item.querySelector('.play-btn');
-
         if (audio && btn) {
           const trackName = btn.textContent;
-
           btn.addEventListener('click', () => {
             if (audio.paused) {
               document.querySelectorAll('.my-audio').forEach(otherAudio => {
@@ -750,9 +791,8 @@
                   }
                 }
               });
-
               audio.play();
-              btn.textContent = trackName + ' ▶ ИГРАЕТ';
+              btn.textContent = trackName + ' ▶ ИГ`РАЕТ';
             } else {
               audio.pause();
               btn.textContent = trackName + ' ⏸ ПАУЗА';
@@ -763,94 +803,7 @@
     </script>
 
     <script>
-      document.addEventListener("DOMContentLoaded", () => {
-        const contentBar = document.querySelector('.content');
-        if (!contentBar) return;
-
-        const canvas = document.createElement('canvas');
-        canvas.id = 'web1-canvas';
-        contentBar.insertBefore(canvas, contentBar.firstChild);
-
-        const ctx = canvas.getContext('2d');
-        function resize() {
-          canvas.width = contentBar.clientWidth;
-          canvas.height = contentBar.clientHeight;
-        }
-        resize();
-        window.addEventListener('resize', resize);
-        new ResizeObserver(() => resize()).observe(contentBar);
-
-        let mouse = { x: -1000, y: -1000 };
-        contentBar.addEventListener('mousemove', (e) => {
-          const rect = contentBar.getBoundingClientRect();
-          mouse.x = e.clientX - rect.left;
-          mouse.y = e.clientY - rect.top;
-        });
-        contentBar.addEventListener('mouseleave', () => { mouse.x = -1000; mouse.y = -1000; });
-
-        function drawNoise() {
-          ctx.clearRect(0, 0, canvas.width, canvas.height);
-          ctx.fillStyle = '#00FF00'; 
-          const step = 6; 
-
-          for (let x = 0; x < canvas.width; x += step) {
-            for (let y = 0; y < canvas.height; y += step) {
-              const dx = x - mouse.x;
-              const dy = y - mouse.y;
-              const dist = Math.sqrt(dx * dx + dy * dy);
-              
-              let rand = Math.random();
-              if (dist < 90) { rand += (1 - dist / 90) * 0.5; } 
-              
-              if (rand > 0.95) { ctx.fillRect(x, y, 2, 2); }
-            }
-          }
-          requestAnimationFrame(drawNoise);
-        }
-        drawNoise();
-      });
-    </script>
-
-    <!-- СКРИПТ ПОСЛУШНОГО И НЕЖНОГО ЦВЕТОЧНОГО ДОЖДЯ -->
-    <script>
-      document.addEventListener('DOMContentLoaded', () => {
-        const flowerIcons = [
-          '🌸', '🌺', '🌹', '🌷', '🌼', '🪷', '💐', '🥀', '💮', 
-          '<span style="color:#FFB6C1;">❀</span>', 
-          '<span style="color:#EE82EE;">✿</span>', 
-          '<span style="color:#FF1493;">❁</span>'
-        ];
-
-        const maxFlowers = 38;
-
-        function createFlower() {
-          const flower = document.createElement('div');
-          flower.className = 'falling-flower';
-          flower.innerHTML = flowerIcons[Math.floor(Math.random() * flowerIcons.length)];
-          
-          const startLeft = Math.random() * 98;
-          const duration = 6 + Math.random() * 8;
-          const size = 16 + Math.random() * 24;
-          const delay = Math.random() * 5;
-
-          flower.style.left = startLeft + 'vw';
-          flower.style.fontSize = size + 'px';
-          flower.style.animationDuration = duration + 's';
-          flower.style.animationDelay = delay + 's';
-          flower.style.opacity = (0.6 + Math.random() * 0.4).toString();
-
-          document.body.appendChild(flower);
-
-          setTimeout(() => {
-            flower.remove();
-            createFlower();
-          }, (duration + delay) * 1000);
-        }
-
-        for (let i = 0; i < maxFlowers; i++) {
-          setTimeout(createFlower, i * 200);
-        }
-      });
+      document.assets = true;
     </script>
 
 </body>
