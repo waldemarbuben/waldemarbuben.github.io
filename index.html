@@ -30,14 +30,14 @@
             position: relative;
         }
 
-        /* КОНТЕЙНЕРЫ ДЛЯ НОВЫХ АУТЕНТИЧНЫХ ЦВЕТОВ ПО БОКАМ */
+        
         .floral-side-left {
             position: fixed;
             left: 0;
             top: 0;
             width: 260px;
             height: 100vh;
-            /* ИСПОЛЬЗУЕМ mix-blend-mode: multiply ЧТОБЫ УБРАТЬ ИМЕННО БЕЛЫЙ ФОН НА СВЕТЛЫХ ФОТО */
+            
             mix-blend-mode: multiply; 
             background-image: url('flower_lily.png'); 
             background-repeat: repeat-y;
@@ -64,7 +64,7 @@
             filter: contrast(1.1);
         }
 
-        /* АКЦЕНТНЫЕ ЦВЕТЫ ВНУТРИ ДИЗАЙНА С multiply ДЛЯ СВЕТЛОГО ФОНА */
+        
         .flower-accent-datura {
             position: absolute;
             top: -80px;
@@ -326,11 +326,12 @@
 </head>
 <body>
 
-    <!-- АУТЕНТИЧНЫЕ ФОТО-ЛИАНЫ ПО БОКАМ (С УДАЛЕННЫМ БЕЛЫМ ФОНОМ ДЛЯ СВЕТЛОГО ФОНА САЙТА) -->
-    <!-- ЗАГРУЗИТЕ reference_image_AQAD7xprG0kqMEp9.jpg ПОД ИМЕНЕМ flower_lily.png -->
+    
+    <img src="Cvetok9.PNG" class="flower-accent-belladonna" alt="belladonna">
     <div class="floral-side-left"></div>
     
-    <!-- ЗАГРУЗИТЕ reference_image_AQAD8hprG0kqMEp9.jpg ПОД ИМЕНЕМ flower_sweetpea.png -->
+    
+    <img src="Cvetok8.PNG" class="flower-accent-belladonna" alt="belladonna">
     <div class="floral-side-right"></div>
 
     <div style="text-align: center; margin: 40px 0 20px 0; padding: 20px; background: #12061f; border: 4px double #dda0dd; box-shadow: 0 0 25px rgba(186, 85, 211, 0.5);">
@@ -389,8 +390,8 @@
                 <button class="play-btn">Гарпия</button>
             </div>
 
-            <!-- ЗАГРУЗИТЕ reference_image_AQAD8xprG0kqMEp9.jpg ПОД ИМЕНЕМ flower_belladonna.png -->
-            <img src="flower_belladonna.png" class="flower-accent-belladonna" alt="belladonna">
+            
+            <img src="Cvetok7.PNG" class="flower-accent-belladonna" alt="belladonna">
 
             <img src="golova.jpg" alt="manifestation" class="divine-image">
             <div class="audio-item">
@@ -509,8 +510,8 @@
         </div>
 
         <div class="content">
-            <!-- ЗАГРУЗИТЕ reference_image_AQAD8RprG0kqMEp9.jpg ПОД ИМЕНЕМ flower_datura.png -->
-            <img src="flower_datura.png" class="flower-accent-datura" alt="datura">
+            
+            <img src="Cvetok1.PNG" class="flower-accent-datura" alt="datura">
 
             <div class="post">
                 <div class="date">2 Июня 1916</div>
@@ -681,8 +682,8 @@
                 </a>
             </div>
 
-            <!-- ЗАГРУЗИТЕ reference_image_AQAD8BprG0kqMEp-.jpg ПОД ИМЕНЕМ flower_roses.png -->
-            <img src="flower_roses.png" class="flower-accent-roses" alt="roses">
+           
+            <img src="Cvetok4.PNG" class="flower-accent-roses" alt="roses">
 
             <div class="alchemy-manifest">
                 <div class="alchemy-title">~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</div>
@@ -773,6 +774,56 @@
         }
       });
     </script>
+
+        <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const contentBar = document.querySelector('.content');
+        if (!contentBar) return;
+
+        const canvas = document.createElement('canvas');
+        canvas.id = 'web1-canvas';
+        contentBar.insertBefore(canvas, contentBar.firstChild);
+
+        const ctx = canvas.getContext('2d');
+        function resize() {
+          canvas.width = contentBar.clientWidth;
+          canvas.height = contentBar.clientHeight;
+        }
+        resize();
+        window.addEventListener('resize', resize);
+        new ResizeObserver(() => resize()).observe(contentBar);
+
+        let mouse = { x: -1000, y: -1000 };
+        contentBar.addEventListener('mousemove', (e) => {
+          const rect = contentBar.getBoundingClientRect();
+          mouse.x = e.clientX - rect.left;
+          mouse.y = e.clientY - rect.top;
+        });
+        contentBar.addEventListener('mouseleave', () => { mouse.x = -1000; mouse.y = -1000; });
+
+        function drawNoise() {
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+          ctx.fillStyle = '#00FF00'; 
+          const step = 6; 
+
+          for (let x = 0; x < canvas.width; x += step) {
+            for (let y = 0; y < canvas.height; y += step) {
+              const dx = x - mouse.x;
+              const dy = y - mouse.y;
+              const dist = Math.sqrt(dx * dx + dy * dy);
+              
+              let rand = Math.random();
+              if (dist < 90) { rand += (1 - dist / 90) * 0.5; } 
+              
+              if (rand > 0.95) { ctx.fillRect(x, y, 2, 2); }
+            }
+          }
+          requestAnimationFrame(drawNoise);
+        }
+        drawNoise();
+      });
+    </script>
+
 
     <script>
       document.querySelectorAll('.unique-loop-player').forEach(item => {
