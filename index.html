@@ -853,46 +853,59 @@
       });
     </script>
     
-   <script>
-  document.addEventListener('DOMContentLoaded', () => {
+  <script>
+document.addEventListener('DOMContentLoaded', () => {
     const flowerImages = [
-      'flower3.PNG', 'flower4.PNG', 'flower5.PNG',
-      'flower7.PNG', 'flower8.PNG', 'flower12.PNG',
+        'flower3.PNG',
+        'flower4.PNG',
+        'flower5.PNG',
+        'flower7.PNG',
+        'flower8.PNG',
+        'flower12.PNG',
     ];
-
     const maxFlowers = 38;
 
+    
+    flowerImages.forEach(src => {
+        const img = new Image();
+        img.src = src;
+    });
+
     function createFlower() {
-      const flower = document.createElement('img');
-      flower.className = 'falling-flower';
-      
-      flower.src = flowerImages[Math.floor(Math.random() * flowerImages.length)];
-      
-      const startLeft = Math.random() * 98;
-      const duration = 6 + Math.random() * 8;
-      const size = 40 + Math.random() * 60; 
-      const delay = Math.random() * 5;
+        const flower = document.createElement('img');
+        flower.className = 'falling-flower';
+        flower.src = flowerImages[Math.floor(Math.random() * flowerImages.length)];
+        
+        const startLeft = Math.random() * 98;
+        const duration = 6 + Math.random() * 8;
+        const size = 40 + Math.random() * 60;
+        const delay = Math.random() * 5;
 
-      flower.style.left = startLeft + 'vw';
-      flower.style.width = size + 'px'; 
-      flower.style.height = 'auto'; 
-      
-      flower.style.animationDuration = duration + 's';
-      flower.style.animationDelay = delay + 's';
-      flower.style.opacity = (0.6 + Math.random() * 0.4).toString();
+        flower.style.left = startLeft + 'vw';
+        flower.style.width = size + 'px';
+        flower.style.height = 'auto';
+        flower.style.animationDuration = duration + 's';
+        flower.style.animationDelay = delay + 's';
+        flower.style.opacity = (0.6 + Math.random() * 0.4).toString();
+        
+        
+        flower.style.visibility = 'hidden';
+        flower.onload = () => {
+            flower.style.visibility = 'visible';
+        };
 
-      document.body.appendChild(flower);
+        document.body.appendChild(flower);
 
-      setTimeout(() => {
-        flower.remove();
-        createFlower();
-      }, (duration + delay) * 1000);
+        setTimeout(() => {
+            flower.remove();
+            createFlower();
+        }, (duration + delay) * 1000);
     }
 
     for (let i = 0; i < maxFlowers; i++) {
-      setTimeout(createFlower, i * 200);
+        setTimeout(createFlower, i * 200);
     }
-  });
+});
 </script>
 
     
