@@ -877,7 +877,7 @@
       });
     </script>
     
-  <script>
+<script>
 document.addEventListener('DOMContentLoaded', () => {
     const flowerImages = [
         'flower3.PNG',
@@ -887,7 +887,6 @@ document.addEventListener('DOMContentLoaded', () => {
         'flower8.PNG',
         'flower12.PNG',
     ];
-    const maxFlowers = 38;
 
     
     flowerImages.forEach(src => {
@@ -895,42 +894,160 @@ document.addEventListener('DOMContentLoaded', () => {
         img.src = src;
     });
 
+    
+    const contentBar = document.querySelector('.content');
+
     function createFlower() {
+        const currentFlowers = document.querySelectorAll('.falling-flower').length;
+        if (currentFlowers >= 20) return; // чуть увеличили лимит, так как часть цветов будет "сидеть"
+
         const flower = document.createElement('img');
         flower.className = 'falling-flower';
         flower.src = flowerImages[Math.floor(Math.random() * flowerImages.length)];
         
-        const startLeft = Math.random() * 98;
-        const duration = 6 + Math.random() * 8;
-        const size = 40 + Math.random() * 60;
-        const delay = Math.random() * 5;
-
-        flower.style.left = startLeft + 'vw';
+        
+        flower.style.position = 'fixed';
+        flower.style.zIndex = '100'; 
+        flower.style.pointerEvents = 'none';
+        
+        const size = 30 + Math.random() * 40; // размеры от 30px до 70px
         flower.style.width = size + 'px';
         flower.style.height = 'auto';
-        flower.style.animationDuration = duration + 's';
-        flower.style.animationDelay = delay + 's';
-        flower.style.opacity = (0.6 + Math.random() * 0.4).toString();
+        flower.style.opacity = (0.5 + Math.random() * 0.4).toString();
+
         
+        let posX = Math.random() * window.innerWidth;
+        let posY = -size;
+        
+        
+        const speedY = 1.5 + Math.random() * 2; 
+        const swaySpeed = 0.02 + Math.random() * 0.03;
+        const swayAmplitude = 1 + Math.random() * 2;
+        let swayStep = Math.random() * 100;
+
+        
+        let state = 'falling'; 
+        let sitTimer = 0;
+        let crawlDir = Math.random() > 0.5 ? 1 : -1; // направление ползания (вбок)
+
+        flower.style.left = posX + 'px';
+        flower.style.top = posY + 'px';
         
         flower.style.visibility = 'hidden';
-        flower.onload = () => {
-            flower.style.visibility = 'visible';
-        };
-
+        flower.onload = () => flower.style.visibility = 'visible';
         document.body.appendChild(flower);
 
-        setTimeout(() => {
-            flower.remove();
-            createFlower();
-        }, (duration + delay) * 1000);
+        
+        function update() {
+            if (!flower.parentElement) return;
+
+            
+            let targetRect = null;
+            if (contentBar) {
+                targetRect = contentBar.getBoundingClientRect();
+            }
+
+            
+            if (state === 'falling') {
+                posY += speedY;
+                swayStep += swaySpeed;
+                posX += Math.sin(swayStep) * swayAmplitude;
+
+                
+                if (targetRect) {
+                    const flowerBottom = posY + size;
+                    const flowerCenterX = posX + size / 2;
+
+                    
+                    if (flowerBottom >= targetRect.top && posY < targetRect.top &&
+                        flowerCenterX >= targetRect.left && flowerCenterX <= targetRect.right) {
+                        
+                        
+                        if (Math.random() < 0.6) {
+                            state = 'sitting';
+                            posY = targetRect.top - size + 2; // слегка притопим в грань блока
+                            sitTimer = 200 + Math.floor(Math.random() * 400); // время сидения в кадрах (~5-10 сек)
+                        }
+                    }
+                }
+            }
+            
+            
+            else if (state === 'sitting') {
+                sitTimer--;
+                if (sitTimer <= 0) {
+                    
+                    const dice = Math.random();
+                    if (dice < 0.4) {
+                        state = 'crawling'; 
+                        sitTimer = 100 + Math.floor(Math.random() * 200);
+                    } else if (dice < 0.7) {
+                        state = 'falling'; 
+                        posY += 5; 
+                    } else {
+                        
+                        sitTimer = 200 + Math.floor(Math.random() * 300);
+                    }
+                }
+                
+                
+                if (targetRect) {
+                    posY = targetRect.top - size + 2;
+                }
+            }
+
+            
+            else if (state === 'crawling') {
+                sitTimer--;
+                posX += crawlDir * 0.5; 
+
+                if (targetRect) {
+                    posY = targetRect.top - size + 2; 
+
+                    if (posX + size/2 < targetRect.left || posX + size/2 > targetRect.right) {
+                        state = 'falling';
+                    }
+                }
+
+                if (sitTimer <= 0) {
+                    state = 'sitting'; // устал ползти, снова замер
+                    sitTimer = 100 + Math.floor(Math.random() * 200);
+                }
+            }
+
+            flower.style.left = posX + 'px';
+            flower.style.top = posY + 'px';
+
+            if (posY > window.innerHeight) {
+                flower.remove();
+            } else {
+                requestAnimationFrame(update);
+            }
+        }
+
+        requestAnimationFrame(update);
     }
 
-    for (let i = 0; i < maxFlowers; i++) {
-        setTimeout(createFlower, i * 200);
+    function spawnWave() {
+        const count = Math.floor(Math.random() * 3) + 1; // 1-3 цветка за раз
+
+        for (let i = 0; i < count; i++) {
+            const microDelay = Math.random() * 2500;
+            setTimeout(createFlower, microDelay);
+        }
+
+        const isLongDelay = Math.random() > 0.5;
+        const nextDelay = isLongDelay 
+            ? (14000 + Math.random() * 8000)  // затишье на 14-22 сек
+            : (4000 + Math.random() * 4000);   // быстрая добавка через 4-8 сек
+
+        setTimeout(spawnWave, nextDelay);
     }
+
+    setTimeout(spawnWave, 1000);
 });
 </script>
+
 
     
     <script>
