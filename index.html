@@ -775,12 +775,11 @@
       });
     </script>
 
-       <script>
+     <script>
   document.addEventListener("DOMContentLoaded", () => {
     const contentBar = document.querySelector('.content');
     if (!contentBar) return;
 
-    
     const canvas = document.createElement('canvas');
     canvas.id = 'web1-canvas';
     canvas.style.position = 'absolute';
@@ -789,7 +788,7 @@
     canvas.style.width = '100%';
     canvas.style.height = '100%';
     canvas.style.pointerEvents = 'none'; 
-    
+    canvas.style.zIndex = '-1'; // ИСПРАВЛЕНО: уводим холст под текст и картинки, чтобы ничего не перекрывать
     
     if (window.getComputedStyle(contentBar).position === 'static') {
       contentBar.style.position = 'relative';
@@ -800,7 +799,6 @@
     const ctx = canvas.getContext('2d');
     
     function resize() {
-      
       canvas.width = contentBar.offsetWidth;
       canvas.height = contentBar.offsetHeight;
     }
@@ -817,7 +815,6 @@
     contentBar.addEventListener('mouseleave', () => { mouse.x = -1000; mouse.y = -1000; });
 
     function drawNoise() {
-      
       if (canvas.width === 0 || canvas.height === 0) {
         requestAnimationFrame(drawNoise);
         return;
@@ -835,11 +832,10 @@
           
           let rand = Math.random();
           if (dist < 90) { 
-            rand += (1 - dist / 90) * 0.6; // Немного усилили эффект у мыши
+            rand += (1 - dist / 90) * 0.5; // Твой оригинальный баланс чувствительности мыши
           } 
           
-          
-          if (rand > 0.88) { 
+          if (rand > 0.95) { // ИСПРАВЛЕНО: вернули оригинальную аккуратную плотность точек
             ctx.fillRect(x, y, 2, 2); 
           }
         }
@@ -849,6 +845,7 @@
     drawNoise();
   });
 </script>
+
 
 
 
