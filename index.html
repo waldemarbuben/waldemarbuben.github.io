@@ -322,10 +322,135 @@
             50% { transform: translateY(50vh) rotate(180deg) translateX(25px); opacity: 0.85; }
             100% { transform: translateY(105vh) rotate(360deg) translateX(-20px); opacity: 0.2; }
         }
+        
+        
+#chess-lock-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #111111; 
+  z-index: 999999; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Times New Roman", Times, serif;
+  user-select: none;
+}
+
+.chess-container {
+  background: #1a1a1a;
+  padding: 25px;
+  border: 1px solid #333;
+  text-align: center;
+  color: #ccc;
+  box-shadow: 0 0 25px rgba(0,0,0,0.7);
+}
+
+.chess-container h2 {
+  color: #7b219f;
+  margin-top: 0;
+  margin-bottom: 5px;
+}
+
+.chess-hint {
+  font-style: italic;
+  font-size: 14px;
+  color: #888;
+  margin-bottom: 20px;
+}
+
+#chess-board {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-rows: repeat(8, 1fr);
+  width: 320px;
+  height: 320px;
+  border: 4px solid #444;
+  position: relative;
+}
+
+
+#chess-board.shake {
+  animation: boardShake 0.4s ease-in-out;
+}
+
+@keyframes boardShake {
+  0%, 100% { transform: translateX(0); }
+  20%, 60% { transform: translateX(-6px); }
+  40%, 80% { transform: translateX(6px); }
+}
+
+.chess-cell {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.chess-cell.light { background-color: #f0d9b5; }
+.chess-cell.dark { background-color: #b58863; }
+
+.chess-queen {
+  font-size: 32px;
+  color: #ffffff;
+  text-shadow: 0 0 3px #000, 0 0 3px #000;
+  cursor: grab;
+  z-index: 10;
+  position: relative;
+  left: 0;
+  top: 0;
+}
+
+.chess-queen:active {
+  cursor: grabbing;
+}
+
+
+.chess-queen.whistle-back {
+  transition: transform 0.25s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.chess-cell.drag-over {
+  box-shadow: inset 0 0 10px rgba(123, 33, 159, 0.8);
+  background-color: #d1b3db !important;
+}
+/* --- СТИЛИ ДЛЯ ПАДАЮЩИХ И САДЯЩИХСЯ ЦВЕТОВ --- */
+.falling-flower {
+  position: fixed;
+  z-index: 100; 
+  pointer-events: none;
+  transform-origin: center;
+}
+
+/* --- СТИЛИ ДЛЯ ЗЕЛЕНОГО ШУМА ПОДЛОЖКОЙ --- */
+#web1-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1; /* Железно уходит под текст твоего блока .content */
+}
+
     </style>
 </head>
 <body>
-
+    
+ <div id="chess-lock-screen">
+    <div class="chess-container">
+      <h2>Подтвердите, что вы хоть кто-то</h2>
+      <p class="chess-hint">Сделайте правильный ход для паломничества</p>
+      <div id="chess-board"></div>
+      <div id="chess-error" style="display: none; color: #ff3333; margin-top: 15px; font-size: 14px;">
+        Ход записан. Доступ отклонен, Пошел Нахуй. Либо Еще Раз?.
+      </div>
+    </div>
+  </div>
     
     
     <div class="floral-side-left"></div>
