@@ -775,54 +775,81 @@
       });
     </script>
 
-        <script>
-      document.addEventListener("DOMContentLoaded", () => {
-        const contentBar = document.querySelector('.content');
-        if (!contentBar) return;
+       <script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const contentBar = document.querySelector('.content');
+    if (!contentBar) return;
 
-        const canvas = document.createElement('canvas');
-        canvas.id = 'web1-canvas';
-        contentBar.insertBefore(canvas, contentBar.firstChild);
+    
+    const canvas = document.createElement('canvas');
+    canvas.id = 'web1-canvas';
+    canvas.style.position = 'absolute';
+    canvas.style.top = '0';
+    canvas.style.left = '0';
+    canvas.style.width = '100%';
+    canvas.style.height = '100%';
+    canvas.style.pointerEvents = 'none'; 
+    
+    
+    if (window.getComputedStyle(contentBar).position === 'static') {
+      contentBar.style.position = 'relative';
+    }
 
-        const ctx = canvas.getContext('2d');
-        function resize() {
-          canvas.width = contentBar.clientWidth;
-          canvas.height = contentBar.clientHeight;
-        }
-        resize();
-        window.addEventListener('resize', resize);
-        new ResizeObserver(() => resize()).observe(contentBar);
+    contentBar.insertBefore(canvas, contentBar.firstChild);
 
-        let mouse = { x: -1000, y: -1000 };
-        contentBar.addEventListener('mousemove', (e) => {
-          const rect = contentBar.getBoundingClientRect();
-          mouse.x = e.clientX - rect.left;
-          mouse.y = e.clientY - rect.top;
-        });
-        contentBar.addEventListener('mouseleave', () => { mouse.x = -1000; mouse.y = -1000; });
+    const ctx = canvas.getContext('2d');
+    
+    function resize() {
+      
+      canvas.width = contentBar.offsetWidth;
+      canvas.height = contentBar.offsetHeight;
+    }
+    resize();
+    window.addEventListener('resize', resize);
+    new ResizeObserver(() => resize()).observe(contentBar);
 
-        function drawNoise() {
-          ctx.clearRect(0, 0, canvas.width, canvas.height);
-          ctx.fillStyle = '#00FF00'; 
-          const step = 6; 
+    let mouse = { x: -1000, y: -1000 };
+    contentBar.addEventListener('mousemove', (e) => {
+      const rect = contentBar.getBoundingClientRect();
+      mouse.x = e.clientX - rect.left;
+      mouse.y = e.clientY - rect.top;
+    });
+    contentBar.addEventListener('mouseleave', () => { mouse.x = -1000; mouse.y = -1000; });
 
-          for (let x = 0; x < canvas.width; x += step) {
-            for (let y = 0; y < canvas.height; y += step) {
-              const dx = x - mouse.x;
-              const dy = y - mouse.y;
-              const dist = Math.sqrt(dx * dx + dy * dy);
-              
-              let rand = Math.random();
-              if (dist < 90) { rand += (1 - dist / 90) * 0.5; } 
-              
-              if (rand > 0.95) { ctx.fillRect(x, y, 2, 2); }
-            }
+    function drawNoise() {
+      
+      if (canvas.width === 0 || canvas.height === 0) {
+        requestAnimationFrame(drawNoise);
+        return;
+      }
+
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = '#00FF00'; 
+      const step = 6; 
+
+      for (let x = 0; x < canvas.width; x += step) {
+        for (let y = 0; y < canvas.height; y += step) {
+          const dx = x - mouse.x;
+          const dy = y - mouse.y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          
+          let rand = Math.random();
+          if (dist < 90) { 
+            rand += (1 - dist / 90) * 0.6; // Немного усилили эффект у мыши
+          } 
+          
+          
+          if (rand > 0.88) { 
+            ctx.fillRect(x, y, 2, 2); 
           }
-          requestAnimationFrame(drawNoise);
         }
-        drawNoise();
-      });
-    </script>
+      }
+      requestAnimationFrame(drawNoise);
+    }
+    drawNoise();
+  });
+</script>
+
 
 
     <script>
