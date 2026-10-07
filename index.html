@@ -1179,5 +1179,150 @@ document.addEventListener('DOMContentLoaded', () => {
       document.assets = true;
     </script>
 
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const lockScreen = document.getElementById('chess-lock-screen');
+  if (!lockScreen) return;
+
+  
+  if (sessionStorage.getItem('site_unlocked') === 'true') {
+    lockScreen.remove();
+    return;
+  }
+
+  
+  const sadTrombone = new Audio('sad-trombone.mp3');
+
+  const board = document.getElementById('chess-board');
+  const errorMsg = document.getElementById('chess-error');
+  const files = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
+  const ranks = ['8', '7', '6', '5', '4', '3', '2', '1'];
+  const targetCellId = 'a6'; 
+  
+  
+  let startCellId = 'd1'; 
+  do {
+    const randomFile = files[Math.floor(Math.random() * files.length)];
+    const randomRank = ranks[Math.floor(Math.random() * ranks.length)];
+    startCellId = randomFile + randomRank;
+  } while (startCellId === targetCellId);
+
+  let previousCellId = startCellId;
+
+  
+  ranks.forEach((rank, rIdx) => {
+    files.forEach((file, fIdx) => {
+      const cell = document.createElement('div');
+      const cellId = file + rank;
+      cell.id = 'cell-' + cellId;
+      cell.className = 'chess-cell ' + ((rIdx + fIdx) % 2 === 0 ? 'light' : 'dark');
+      
+      cell.addEventListener('dragover', (e) => e.preventDefault());
+      cell.addEventListener('dragenter', () => cell.classList.add('drag-over'));
+      cell.addEventListener('dragleave', () => cell.classList.remove('drag-over'));
+      cell.addEventListener('drop', (e) => {
+        cell.classList.remove('drag-over');
+        const queen = document.querySelector('.chess-queen');
+        if (queen) {
+          if (cellId === previousCellId) return;
+          handleMove(queen, cell, cellId);
+        }
+      });
+      board.appendChild(cell);
+    });
+  });
+
+  
+  const queen = document.createElement('div');
+  queen.className = 'chess-queen';
+  queen.innerText = '♛';
+  queen.setAttribute('draggable', 'true');
+
+  queen.addEventListener('dragstart', () => {
+    const currentCell = queen.parentElement;
+    if (currentCell) previousCellId = currentCell.id.replace('cell-', '');
+  });
+
+  
+  let activeTouchCell = null;
+  queen.addEventListener('touchstart', () => {
+    const currentCell = queen.parentElement;
+    if (currentCell) previousCellId = currentCell.id.replace('cell-', '');
+  });
+  
+  queen.addEventListener('touchmove', (e) => {
+    e.preventDefault();
+    const touch = e.touches[0];
+    const element = document.elementFromPoint(touch.clientX, touch.clientY);
+    const cell = element ? element.closest('.chess-cell') : null;
+    document.querySelectorAll('.chess-cell').forEach(c => c.classList.remove('drag-over'));
+    if (cell) {
+      cell.classList.add('drag-over');
+      activeTouchCell = cell;
+    }
+  });
+
+  queen.addEventListener('touchend', () => {
+    document.querySelectorAll('.chess-cell').forEach(c => c.classList.remove('drag-over'));
+    if (activeTouchCell) {
+      const cellId = activeTouchCell.id.replace('cell-', '');
+      if (cellId !== previousCellId) {
+        handleMove(queen, activeTouchCell, cellId);
+      }
+      activeTouchCell = null;
+    }
+  });
+
+  
+  const startCell = document.getElementById('cell-' + startCellId);
+  if (startCell) startCell.appendChild(queen);
+
+  
+  function handleMove(queenElement, targetCellElement, newCellId) {
+    if (newCellId === targetCellId) {
+      
+      targetCellElement.appendChild(queenElement);
+      sessionStorage.setItem('site_unlocked', 'true');
+      lockScreen.style.transition = 'opacity 0.8s ease, visibility 0.8s';
+      lockScreen.style.opacity = '0';
+      lockScreen.style.visibility = 'hidden';
+      setTimeout(() => lockScreen.remove(), 800);
+    } else {
+      
+      const oldCellElement = document.getElementById('cell-' + previousCellId);
+      const oldRect = oldCellElement.getBoundingClientRect();
+      const newRect = targetCellElement.getBoundingClientRect();
+      const diffX = newRect.left - oldRect.left;
+      const diffY = newRect.top - oldRect.top;
+
+      targetCellElement.appendChild(queenElement);
+      queenElement.style.transform = `translate(${-diffX}px, ${-diffY}px)`;
+      
+      board.classList.add('shake');
+      errorMsg.style.display = 'block';
+
+      
+      sadTrombone.currentTime = 0;
+      sadTrombone.play().catch(err => console.log("Печалька ", err));
+
+      setTimeout(() => board.classList.remove('shake'), 400);
+
+      requestAnimationFrame(() => {
+        queenElement.classList.add('whistle-back');
+        queenElement.style.transform = 'translate(0px, 0px)';
+      });
+
+      setTimeout(() => {
+        queenElement.classList.remove('whistle-back');
+        oldCellElement.appendChild(queenElement);
+      }, 250);
+    }
+  }
+});
+</script>
+
+
+
 </body>
 </html>
