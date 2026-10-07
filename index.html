@@ -324,7 +324,7 @@
         }
         
         
-/* --- СТИЛИЗАЦИЯ ШАХМАТНОГО ЭКРАНА ПОД СТИЛЬ САЙТА --- */
+
 #chess-lock-screen {
   position: fixed;
   top: 0;
@@ -339,23 +339,24 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: "Georgia", "Times New Roman", serif; /* Подходящий книжный шрифт */
+  font-family: "Georgia", "Times New Roman", serif;
   user-select: none;
+  box-sizing: border-box;
+  padding: 10px;
 }
-
 
 .chess-container {
-  background: rgba(19, 3, 24, 0.85); 
-  padding: 35px;
-  border: 2px solid #7b219f; 
-  border-image: linear-gradient(to right, #7b219f, #bc7cb4, #7b219f) 1; 
+  background: rgba(19, 3, 24, 0.9); 
+  padding: 20px; 
+  border: 2px solid #7b219f;
+  border-image: linear-gradient(to right, #7b219f, #bc7cb4, #7b219f) 1;
   text-align: center;
-  color: #e2c5f0; 
-  box-shadow: 0 0 30px rgba(123, 33, 159, 0.5); 
-  max-width: 400px;
+  color: #e2c5f0;
+  box-shadow: 0 0 30px rgba(123, 33, 159, 0.5);
+  max-width: 360px;
   width: 100%;
+  box-sizing: border-box;
 }
-
 
 .chess-container h2 {
   font-family: "Georgia", serif;
@@ -363,16 +364,17 @@
   text-shadow: 0 0 10px rgba(188, 124, 180, 0.6);
   margin-top: 0;
   margin-bottom: 8px;
-  font-size: 22px;
+  font-size: 18px; 
   letter-spacing: 1px;
+  line-height: 1.3;
 }
 
 .chess-hint {
   font-style: italic;
-  font-size: 13px;
+  font-size: 12px;
   color: #a48da9;
-  margin-bottom: 25px;
-  text-transform: lowercase; 
+  margin-bottom: 15px;
+  text-transform: lowercase;
 }
 
 
@@ -380,14 +382,15 @@
   display: grid;
   grid-template-columns: repeat(8, 1fr);
   grid-template-rows: repeat(8, 1fr);
-  width: 320px;
-  height: 320px;
+  width: 100%;
+  aspect-ratio: 1 / 1; 
+  max-width: 300px;
+  max-height: 300px;
   margin: 0 auto;
   border: 3px solid #7b219f;
   box-shadow: 0 0 15px rgba(123, 33, 159, 0.3);
   position: relative;
 }
-
 
 #chess-board.shake {
   animation: boardShake 0.4s ease-in-out;
@@ -399,7 +402,6 @@
   40%, 80% { transform: translateX(6px); }
 }
 
-
 .chess-cell {
   width: 100%;
   height: 100%;
@@ -409,45 +411,54 @@
   box-sizing: border-box;
 }
 
-
-.chess-cell.light { background-color: #311c3a; } 
-.chess-cell.dark { background-color: #16071c; }  
+.chess-cell.light { background-color: #311c3a; }
+.chess-cell.dark { background-color: #16071c; }
 
 
 .chess-queen {
-  font-size: 38px; 
+  font-size: 28px; 
   color: #ffffff;
-  
   text-shadow: 0 0 8px rgba(255,255,255,0.8), 0 0 3px #000; 
   cursor: grab;
   z-index: 10;
   position: relative;
   left: 0;
   top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+
+@media (min-width: 350px) {
+  .chess-queen { font-size: 36px; }
 }
 
 .chess-queen:active {
   cursor: grabbing;
 }
 
-
 .chess-queen.whistle-back {
   transition: transform 0.25s cubic-bezier(0.25, 1, 0.5, 1);
 }
-
 
 .chess-cell.drag-over {
   box-shadow: inset 0 0 15px rgba(188, 124, 180, 0.9);
   background-color: #4c265c !important;
 }
 
-
 #chess-error {
   font-family: "Georgia", serif;
   font-style: italic;
+  font-size: 13px;
+  margin-top: 15px;
+  min-height: 18px; 
   letter-spacing: 0.5px;
   text-shadow: 0 0 5px rgba(255, 51, 51, 0.3);
 }
+
 
 
 .falling-flower {
@@ -1223,11 +1234,26 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   const sadTrombone = new Audio('sad-trombone.mp3');
+  
+  
+  let audioActivated = false;
+  function initMobileAudio() {
+    if (audioActivated) return;
+    sadTrombone.play().then(() => {
+      sadTrombone.pause(); 
+      sadTrombone.currentTime = 0;
+      audioActivated = true;
+    }).catch(e => console.log('Ожидание первого честного клика...'));
+  }
+  
+  window.addEventListener('touchstart', initMobileAudio, { passive: true });
+  window.addEventListener('click', initMobileAudio);
+
   const board = document.getElementById('chess-board');
   const errorMsg = document.getElementById('chess-error');
   const files = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
   const ranks = ['8', '7', '6', '5', '4', '3', '2', '1'];
-  const targetCellId = 'a6'; 
+  const targetCellId = 'a6';
   
   let startCellId = 'd1'; 
   do {
@@ -1237,9 +1263,8 @@ document.addEventListener("DOMContentLoaded", () => {
   } while (startCellId === targetCellId);
 
   let previousCellId = startCellId;
-  let isLocked = false; 
+  let isLocked = false;
 
- 
   ranks.forEach((rank, rIdx) => {
     files.forEach((file, fIdx) => {
       const cell = document.createElement('div');
@@ -1254,7 +1279,7 @@ document.addEventListener("DOMContentLoaded", () => {
       cell.addEventListener('dragleave', () => cell.classList.remove('drag-over'));
       cell.addEventListener('drop', (e) => {
         cell.classList.remove('drag-over');
-        if (isLocked) return; 
+        if (isLocked) return;
         const queen = document.querySelector('.chess-queen');
         if (queen) {
           if (cellId === previousCellId) return;
@@ -1270,7 +1295,6 @@ document.addEventListener("DOMContentLoaded", () => {
   queen.innerText = '♛';
   queen.setAttribute('draggable', 'true');
 
-  
   queen.addEventListener('dragstart', (e) => {
     if (isLocked) {
       e.preventDefault();
@@ -1280,10 +1304,11 @@ document.addEventListener("DOMContentLoaded", () => {
     if (currentCell) previousCellId = currentCell.id.replace('cell-', '');
   });
 
-  // Мобильные тач-события
+  
   let activeTouchCell = null;
-  queen.addEventListener('touchstart', (e) => {
+  queen.addEventListener('touchstart', () => {
     if (isLocked) return;
+    initMobileAudio(); 
     const currentCell = queen.parentElement;
     if (currentCell) previousCellId = currentCell.id.replace('cell-', '');
   });
@@ -1316,13 +1341,12 @@ document.addEventListener("DOMContentLoaded", () => {
   const startCell = document.getElementById('cell-' + startCellId);
   if (startCell) startCell.appendChild(queen);
 
-  
   function startLockTimer() {
     isLocked = true;
-    queen.setAttribute('draggable', 'false'); 
+    queen.setAttribute('draggable', 'false');
     queen.style.cursor = 'not-allowed';
     
-    let timeLeft = 60; 
+    let timeLeft = 60;
     errorMsg.style.display = 'block';
     errorMsg.innerText = `Неверный ход. Попробуйте через ${timeLeft} сек...`;
 
@@ -1333,7 +1357,7 @@ document.addEventListener("DOMContentLoaded", () => {
         isLocked = false;
         queen.setAttribute('draggable', 'true');
         queen.style.cursor = 'grab';
-        errorMsg.style.display = 'none'; 
+        errorMsg.style.display = 'none';
       } else {
         errorMsg.innerText = `Неверный ход. Попробуйте через ${timeLeft} сек...`;
       }
@@ -1342,7 +1366,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function handleMove(queenElement, targetCellElement, newCellId) {
     if (newCellId === targetCellId) {
-      
       targetCellElement.appendChild(queenElement);
       sessionStorage.setItem('site_unlocked', 'true');
       lockScreen.style.transition = 'opacity 0.8s ease, visibility 0.8s';
@@ -1350,7 +1373,6 @@ document.addEventListener("DOMContentLoaded", () => {
       lockScreen.style.visibility = 'hidden';
       setTimeout(() => lockScreen.remove(), 800);
     } else {
-      
       const oldCellElement = document.getElementById('cell-' + previousCellId);
       const oldRect = oldCellElement.getBoundingClientRect();
       const newRect = targetCellElement.getBoundingClientRect();
@@ -1363,7 +1385,7 @@ document.addEventListener("DOMContentLoaded", () => {
       board.classList.add('shake');
 
       sadTrombone.currentTime = 0;
-      sadTrombone.play().catch(err => console.log("Аудио заблокировано: ", err));
+      sadTrombone.play().catch(err => console.log("Браузер сопротивляется звуку: ", err));
 
       setTimeout(() => board.classList.remove('shake'), 400);
 
@@ -1375,14 +1397,13 @@ document.addEventListener("DOMContentLoaded", () => {
       setTimeout(() => {
         queenElement.classList.remove('whistle-back');
         oldCellElement.appendChild(queenElement);
-        
-        
         startLockTimer();
       }, 250);
     }
   }
 });
 </script>
+
 
 
 
