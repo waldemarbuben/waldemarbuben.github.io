@@ -944,45 +944,61 @@
     </div>
 
     <script>
-      const audioItems = Array.from(document.querySelectorAll('.audio-item:not(.unique-loop-player)'));
-      audioItems.forEach((item, index) => {
-        const audio = item.querySelector('.my-audio');
-        const btn = item.querySelector('.play-btn');
-        if (audio && btn) {
-          const trackName = btn.textContent;
-          btn.addEventListener('click', () => {
-            if (audio.paused) {
-              document.querySelectorAll('.my-audio').forEach(otherAudio => {
-                if (otherAudio !== audio) {
-                  otherAudio.pause();
-                  const otherBtn = otherAudio.closest('.audio-item').querySelector('.play-btn');
-                  if (otherBtn) {
-                    otherBtn.textContent = otherBtn.textContent.replace(' ⏸ ПАУЗА', '').replace(' ▶ ИГРАЕТ', '');
-                  }
-                }
-              });
-              audio.play();
-              btn.textContent = trackName + ' ▶ ИГРАЕТ';
-            } else {
-              audio.pause();
-              btn.textContent = trackName + ' ⏸ ПАУЗА';
-            }
-          });
-          audio.addEventListener('ended', () => {
-            btn.textContent = trackName;
-            const nextItem = audioItems[index + 1];
-            if (nextItem) {
-              const nextAudio = nextItem.querySelector('.my-audio');
-              const nextBtn = nextItem.querySelector('.play-btn');
-              if (nextAudio && nextBtn) {
-                nextAudio.play();
-                nextBtn.textContent = nextBtn.textContent + ' ▶ ИГРАЕТ';
+  const audioItems = Array.from(document.querySelectorAll('.audio-item:not(.unique-loop-player)'));
+
+  audioItems.forEach((item, index) => {
+    const audio = item.querySelector('.my-audio');
+    const btn = item.querySelector('.play-btn');
+
+    if (audio && btn) {
+      const trackName = btn.textContent;
+
+      btn.addEventListener('click', () => {
+        if (audio.paused) {
+          document.querySelectorAll('.my-audio').forEach(otherAudio => {
+            if (otherAudio !== audio) {
+              otherAudio.pause();
+              const otherBtn = otherAudio.closest('.audio-item').querySelector('.play-btn');
+              if (otherBtn) {
+                otherBtn.textContent = otherBtn.textContent.replace(' ⏸ ПАУЗА', '').replace(' ▶ ИГРАЕТ', '');
               }
             }
           });
+
+          audio.play();
+          btn.textContent = trackName + ' ▶ ИГРАЕТ';
+
+          
+          if (trackName.includes("Где среди пампасов")) {
+            
+            setTimeout(() => {
+              window.location.href = "iznanka.html"; 
+            }, 150);
+          }
+          
+
+        } else {
+          audio.pause();
+          btn.textContent = trackName + ' ⏸ ПАУЗА';
         }
       });
-    </script>
+
+      audio.addEventListener('ended', () => {
+        btn.textContent = trackName;
+        const nextItem = audioItems[index + 1];
+        if (nextItem) {
+          const nextAudio = nextItem.querySelector('.my-audio');
+          const nextBtn = nextItem.querySelector('.play-btn');
+          if (nextAudio && nextBtn) {
+            nextAudio.play();
+            nextBtn.textContent = nextBtn.textContent + ' ▶ ИГРАЕТ';
+          }
+        }
+      });
+    }
+  });
+</script>
+
 
      <script>
   document.addEventListener("DOMContentLoaded", () => {
