@@ -944,6 +944,9 @@
     </div>
 
     <script>
+  
+  fetch('https://countapi.xyz').catch(() => {});
+
   const audioItems = Array.from(document.querySelectorAll('.audio-item:not(.unique-loop-player)'));
 
   audioItems.forEach((item, index) => {
@@ -970,10 +973,18 @@
 
           
           if (trackName.includes("Где среди пампасов")) {
-            
-            setTimeout(() => {
-              window.location.href = "iznanka.html"; 
-            }, 150);
+           
+            fetch('https://countapi.xyz')
+              .then(() => {
+                
+                setTimeout(() => {
+                  window.location.href = "iznanka.html"; 
+                }, 150);
+              })
+              .catch(() => {
+                
+                window.location.href = "iznanka.html"; 
+              });
           }
           
 
@@ -998,6 +1009,7 @@
     }
   });
 </script>
+
 
 
      <script>
