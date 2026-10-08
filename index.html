@@ -818,17 +818,19 @@
     <img src="IMG_0519.png" alt="manifestation" width="250" height="250">
 
     
-    <div id="choice-block" style="text-align: center; margin: 30px 0; padding: 15px; border: 1px dashed #800000;">
-        <p style="color: #e6c2ff; font-weight: bold; margin-bottom: 15px; font-size: 0.95em;">Вы ознакомились с волей адептов. Каково ваше решение?</p>
-        <div style="display: flex; justify-content: center; gap: 20px;">
-            <button id="btn-agree" style="background: #2a082a; color: #e6c2ff; border: 2px solid #800000; padding: 10px 25px; font-family: inherit; cursor: pointer; font-weight: bold; transition: 0.3s;">
-                Да, я согласен
-            </button>
-            <button id="btn-disagree" style="background: transparent; color: #888; border: 1px solid #444; padding: 10px 25px; font-family: inherit; cursor: pointer; transition: 0.3s;">
-                Нет
-            </button>
-        </div>
+    
+<div id="choice-block" style="text-align: center; margin: 30px 0; padding: 15px; border: 1px dashed #800000; position: relative; z-index: 999999 !important;">
+    <p style="color: #e6c2ff; font-weight: bold; margin-bottom: 15px; font-size: 0.95em;">Вы ознакомились с волей адептов. Каково ваше решение?</p>
+    <div style="display: flex; justify-content: center; gap: 20px;">
+        <button id="btn-agree" style="background: #2a082a; color: #e6c2ff; border: 2px solid #800000; padding: 10px 25px; font-family: inherit; cursor: pointer; font-weight: bold; transition: 0.3s; position: relative; z-index: 1000000;">
+            Да, я согласен
+        </button>
+        <button id="btn-disagree" style="background: transparent; color: #888; border: 1px solid #444; padding: 10px 25px; font-family: inherit; cursor: pointer; transition: 0.3s; position: relative; z-index: 1000000;">
+            Нет
+        </button>
     </div>
+</div>
+
 
     
     <div id="paintings-wrapper" style="display: none; flex-direction: column; gap: 25px; margin-top: 25px;">
@@ -1458,15 +1460,25 @@ document.addEventListener("DOMContentLoaded", function() {
     const videoOverlay = document.getElementById("video-overlay");
     const videoPlayer = document.getElementById("rickroll-player");
 
-   
-    btnAgree.addEventListener("click", function() {
+    
+    if (choiceBlock) choiceBlock.style.cssText += "; position: relative; z-index: 999999 !important; pointer-events: auto !important;";
+    if (btnAgree) btnAgree.style.cssText += "; position: relative; z-index: 1000000 !important; pointer-events: auto !important;";
+    if (btnDisagree) btnDisagree.style.cssText += "; position: relative; z-index: 1000000 !important; pointer-events: auto !important;";
+
+    
+    btnAgree.addEventListener("click", function(e) {
+        e.preventDefault();
+        e.stopPropagation();
         choiceBlock.style.display = "none";
         paintingsWrapper.style.display = "flex";
         paintingsWrapper.scrollIntoView({ behavior: 'smooth' });
     });
 
-   
-    btnDisagree.addEventListener("click", function() {
+    
+    btnDisagree.addEventListener("click", function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        
         glitchOverlay.style.display = "block";
         
        
@@ -1529,13 +1541,13 @@ document.addEventListener("DOMContentLoaded", function() {
                 function updatePcScreen() {
                     crashContent.innerHTML = `
                         <div style="font-size: 120px; line-height: 1; margin-bottom: 30px; font-family: sans-serif;">:(</div>
-                        <h1 style="font-size: 26px; font-weight: 300; margin-bottom: 25px; line-height: 1.4;">На вашем ПК возникла критическая проблема.</h1>
+                        <h1 style="font-size: 26px; font-weight: 300; margin-bottom: 25px; line-height: 1.4;">На вашем ПК возникла критическая проблема, связанная с нарушением герметической гигиены.</h1>
                         <h2 style="font-size: 26px; font-weight: 300; margin-bottom: 35px;">Выполнено: <span style="font-weight:bold;">${percent}%</span></h2>
                         <div style="display: flex; gap: 20px; align-items: center; font-size: 15px; opacity: 0.8; line-height: 1.5;">
                             <div style="width: 80px; height: 80px; background: white; color: #0078d7; display: flex; justify-content: center; align-items: center; font-weight: bold; font-size: 40px;">QR</div>
                             <div>
-                                Для получения дополнительных сведений об этой ошибке и возможных способах решения посетите сайт waldemarbuben.github.io<br><br>
-                                При вызове службы поддержки передайте код остановки: <span style="font-weight:bold;">MENTAL_CAL_DETECTION_FAILURE</span>
+                                Для получения дополнительных сведений об этой ошибке посетите сайт waldemarbuben.github.io<br><br>
+                                Код остановки: <span style="font-weight:bold;">MENTAL_CAL_DETECTION_FAILURE</span>
                             </div>
                         </div>
                     `;
@@ -1544,7 +1556,6 @@ document.addEventListener("DOMContentLoaded", function() {
                 updatePcScreen();
                 crashScreen.style.display = "flex";
 
-               
                 let pcTimer = setInterval(() => {
                     percent += Math.floor(Math.random() * 15) + 5; 
                     if (percent >= 100) {
@@ -1559,32 +1570,33 @@ document.addEventListener("DOMContentLoaded", function() {
             }
 
             
-            
-function startVideo() {
-    crashScreen.style.display = "none";
-    videoOverlay.style.display = "flex";
-    
-    
-    videoPlayer.muted = true;
-    
-    let playPromise = videoPlayer.play();
-    
-    if (playPromise !== undefined) {
-        playPromise.then(() => {
-            
-            setTimeout(() => {
-                videoPlayer.muted = false;
-                videoPlayer.volume = 1.0;
-            }, 50);
-        }).catch(err => {
-            console.log("Критический блок мобильного плеера:", err);
-            
-            videoPlayer.muted = false;
-            videoPlayer.play();
-        });
-    }
-}
+            function startVideo() {
+                crashScreen.style.display = "none";
+                videoOverlay.style.display = "flex";
+                
+               
+                videoPlayer.muted = true;
+                
+                let playPromise = videoPlayer.play();
+                
+                if (playPromise !== undefined) {
+                    playPromise.then(() => {
+                        
+                        setTimeout(() => {
+                            videoPlayer.muted = false;
+                            videoPlayer.volume = 1.0;
+                        }, 50);
+                    }).catch(err => {
+                        console.log("Мобильный плеер заблокирован, аварийный старт:", err);
+                        
+                        videoPlayer.muted = false;
+                        videoPlayer.play();
+                    });
+                }
+            }
 
+        }, 600);
+    });
 
     
     videoPlayer.addEventListener("ended", function() {
