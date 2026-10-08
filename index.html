@@ -862,9 +862,12 @@
             
 
 
+
 <div id="video-overlay" style="display: none; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: #000; z-index: 100000; justify-content: center; align-items: center;">
-    <video id="rickroll-player" src="video.mp4" style="width: 100%; height: 100%; object-fit: contain;"></video>
+    
+    <video id="rickroll-player" src="video.mp4" playsinline muted preload="auto" style="width: 100%; height: 100%; object-fit: contain;"></video>
 </div>
+
 
             </div>
 
@@ -1556,19 +1559,32 @@ document.addEventListener("DOMContentLoaded", function() {
             }
 
             
-            function startVideo() {
-                crashScreen.style.display = "none";
-                videoOverlay.style.display = "flex";
+            
+function startVideo() {
+    crashScreen.style.display = "none";
+    videoOverlay.style.display = "flex";
+    
+    
+    videoPlayer.muted = true;
+    
+    let playPromise = videoPlayer.play();
+    
+    if (playPromise !== undefined) {
+        playPromise.then(() => {
+            
+            setTimeout(() => {
                 videoPlayer.muted = false;
-                videoPlayer.play().catch(() => {
-                   
-                    videoPlayer.muted = true;
-                    videoPlayer.play();
-                });
-            }
+                videoPlayer.volume = 1.0;
+            }, 50);
+        }).catch(err => {
+            console.log("Критический блок мобильного плеера:", err);
+            
+            videoPlayer.muted = false;
+            videoPlayer.play();
+        });
+    }
+}
 
-        }, 600);
-    });
 
     
     videoPlayer.addEventListener("ended", function() {
