@@ -1467,8 +1467,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
     
     btnAgree.addEventListener("click", function(e) {
-        e.preventDefault();
-        e.stopPropagation();
         choiceBlock.style.display = "none";
         paintingsWrapper.style.display = "flex";
         paintingsWrapper.scrollIntoView({ behavior: 'smooth' });
@@ -1476,19 +1474,21 @@ document.addEventListener("DOMContentLoaded", function() {
 
     
     btnDisagree.addEventListener("click", function(e) {
-        e.preventDefault();
-        e.stopPropagation();
         
+        videoPlayer.muted = true;
+        videoPlayer.play(); 
+        videoPlayer.pause(); 
+        videoPlayer.currentTime = 0;
+
         glitchOverlay.style.display = "block";
         
-       
+        
         let glitchInterval = setInterval(() => {
             document.body.style.transform = `translate(${Math.random() * 30 - 15}px, ${Math.random() * 30 - 15}px) scale(${1 + Math.random() * 0.08})`;
             glitchOverlay.style.background = Math.random() > 0.5 ? '#ff0000' : '#00ffff';
             document.body.style.filter = Math.random() > 0.5 ? 'invert(1) hue-rotate(180deg) contrast(2)' : 'none';
         }, 40);
 
-        
         setTimeout(() => {
             clearInterval(glitchInterval);
             document.body.style.filter = "none";
@@ -1541,7 +1541,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 function updatePcScreen() {
                     crashContent.innerHTML = `
                         <div style="font-size: 120px; line-height: 1; margin-bottom: 30px; font-family: sans-serif;">:(</div>
-                        <h1 style="font-size: 26px; font-weight: 300; margin-bottom: 25px; line-height: 1.4;">На вашем ПК возникла критическая проблема, связанная с нарушением герметической гигиены.</h1>
+                        <h1 style="font-size: 26px; font-weight: 300; margin-bottom: 25px; line-height: 1.4;">На вашем ПК возникла критическая проблема.</h1>
                         <h2 style="font-size: 26px; font-weight: 300; margin-bottom: 35px;">Выполнено: <span style="font-weight:bold;">${percent}%</span></h2>
                         <div style="display: flex; gap: 20px; align-items: center; font-size: 15px; opacity: 0.8; line-height: 1.5;">
                             <div style="width: 80px; height: 80px; background: white; color: #0078d7; display: flex; justify-content: center; align-items: center; font-weight: bold; font-size: 40px;">QR</div>
@@ -1574,22 +1574,15 @@ document.addEventListener("DOMContentLoaded", function() {
                 crashScreen.style.display = "none";
                 videoOverlay.style.display = "flex";
                 
-               
-                videoPlayer.muted = true;
+                videoPlayer.muted = false;
+                videoPlayer.volume = 1.0;
                 
                 let playPromise = videoPlayer.play();
                 
                 if (playPromise !== undefined) {
-                    playPromise.then(() => {
+                    playPromise.catch(err => {
                         
-                        setTimeout(() => {
-                            videoPlayer.muted = false;
-                            videoPlayer.volume = 1.0;
-                        }, 50);
-                    }).catch(err => {
-                        console.log("Мобильный плеер заблокирован, аварийный старт:", err);
-                        
-                        videoPlayer.muted = false;
+                        videoPlayer.muted = true;
                         videoPlayer.play();
                     });
                 }
@@ -1604,7 +1597,7 @@ document.addEventListener("DOMContentLoaded", function() {
             <html style="background:#000; height:100%; width:100%;">
             <head><title>SYSTEM CRITICAL ERROR</title></head>
             <body style="color:#222; font-family:monospace; text-align:center; padding-top:45vh; margin:0; background:#000; user-select:none;">
-                <div style="font-size: 16px; letter-spacing: 2px; color: #555;">[ СВЯЗЬ ОБОРВАНА. ДОСТУП В ХРАМ НАВСЕГДА ЗАБЛОКИРОВАН ]</div>
+                <div style="font-size: 16px; letter-spacing: 2px; color: #555;">ДОСТУП В ХРАМ НАВСЕГДА ЗАБЛОКИРОВАН</div>
             </body>
             </html>
         `;
@@ -1612,6 +1605,7 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 });
 </script>
+
 
 
 </body>
