@@ -673,6 +673,24 @@
     drawNoise();
   });
 </script>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    
+    Promise.all([
+        fetch('https://countapi.xyz').then(r => r.json()),
+        fetch('https://countapi.xyz').then(r => r.json())
+    ]).then(([totalData, pilgrimsData]) => {
+        
+        console.clear();
+        console.log("%cАРХИВ", "color: #00FF00; font-weight: bold; font-size: 14px;");
+        console.log(`%cВсего %c${totalData.value}`, "color: #8a8a8a;", "color: #EE82EE; font-weight: bold;");
+        console.log(`%cУсп %c${pilgrimsData.value}`, "color: #8a8a8a;", "color: #00FF00; font-weight: bold;");
+        console.log("%c---------------------------------------", "color: #333;");
+    }).catch(err => {
+        console.log("Связь.");
+    });
+});
+</script>
 
 </body>
 </html>
