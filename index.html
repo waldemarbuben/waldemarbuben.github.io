@@ -1255,13 +1255,13 @@ document.addEventListener("DOMContentLoaded", () => {
               otherAudio.pause();
               const otherBtn = otherAudio.closest('.audio-item').querySelector('.play-btn');
               if (otherBtn) {
-                otherBtn.textContent = otherBtn.textContent.replace(' ⏸ ПАУЗА', '').replace(' ▶ ИГРАЕТ', '');
+                otherBtn.textContent = otherBtn.textContent.replace('  ПАУЗА', '').replace('  ИГРАЕТ', '');
               }
             }
           });
 
           audio.play();
-          btn.textContent = trackName + ' ▶ ИГРАЕТ';
+          btn.textContent = trackName + '  ИГРАЕТ';
 
           
           if (trackName.includes("Где среди пампасов")) {
@@ -1282,7 +1282,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         } else {
           audio.pause();
-          btn.textContent = trackName + ' ⏸ ПАУЗА';
+          btn.textContent = trackName + '  ПАУЗА';
         }
       });
 
@@ -1294,7 +1294,7 @@ document.addEventListener("DOMContentLoaded", () => {
           const nextBtn = nextItem.querySelector('.play-btn');
           if (nextAudio && nextBtn) {
             nextAudio.play();
-            nextBtn.textContent = nextBtn.textContent + ' ▶ ИГРАЕТ';
+            nextBtn.textContent = nextBtn.textContent + '  ИГРАЕТ';
           }
         }
       });
@@ -1396,10 +1396,10 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
               });
               audio.play();
-              btn.textContent = trackName + ' ▶ ИГ`РАЕТ';
+              btn.textContent = trackName + '  ИГРАЕТ';
             } else {
               audio.pause();
-              btn.textContent = trackName + ' ⏸ ПАУЗА';
+              btn.textContent = trackName + '  ПАУЗА';
             }
           });
         }
