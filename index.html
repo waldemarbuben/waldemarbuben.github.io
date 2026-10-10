@@ -672,6 +672,8 @@
     text-decoration: none !important;
     box-shadow: 6px 6px 0px #0a0312; 
     transition: transform 0.2s ease, box-shadow 0.2s ease;
+    position: relative; 
+    overflow: hidden; 
 }
 
 
@@ -706,6 +708,26 @@ document.addEventListener("DOMContentLoaded", () => {
     document.documentElement.style.scrollBehavior = "smooth";
 
     
+    const imagesPool = [
+        'plah1.PNG',
+        'plah2.PNG',
+        'plah3.PNG'
+    ];
+
+    
+    function shuffle(array) {
+        let currentIndex = array.length, randomIndex;
+        while (currentIndex != 0) {
+            randomIndex = Math.floor(Math.random() * currentIndex);
+            currentIndex--;
+            [array[currentIndex], array[randomIndex]] = [array[randomIndex], array[currentIndex]];
+        }
+        return array;
+    }
+
+    const shuffledImages = shuffle([...imagesPool]);
+
+    
     const validPosts = Array.from(document.querySelectorAll(".content .post")).filter(post => {
         const dateEl = post.querySelector(".date");
         return dateEl && dateEl.textContent.includes("1916");
@@ -714,32 +736,48 @@ document.addEventListener("DOMContentLoaded", () => {
     const container = document.getElementById("buben-recent-posts");
     if (!container || validPosts.length === 0) return;
 
-    
     validPosts.forEach((post, index) => {
         post.id = "buben-diary-true-post-" + index;
     });
 
-    
     const recentPosts = validPosts.slice(-3).reverse();
     container.innerHTML = ""; 
 
-    recentPosts.forEach(post => {
+    recentPosts.forEach((post, i) => {
         const dateElement = post.querySelector(".date");
         const paragraphElement = post.querySelector("p");
 
         const dateText = dateElement.textContent.trim();
         let bodyText = paragraphElement ? paragraphElement.textContent.trim() : "";
         
-        if (bodyText.length > 75) {
-            bodyText = bodyText.substring(0, 72) + "...";
+        
+        if (bodyText.length > 60) {
+            bodyText = bodyText.substring(0, 57) + "...";
         }
+
+        const currentImgSrc = shuffledImages[i % shuffledImages.length];
 
         const link = document.createElement("a");
         link.href = "#" + post.id;
         link.className = "buben-ghost-link";
+        
+        
         link.innerHTML = `
-            <span class="buben-link-date">${dateText}</span>
-            <span class="buben-link-desc">${bodyText}</span>
+            <div style="max-width: 70%; min-width: 0;">
+                <span class="buben-link-date">${dateText}</span>
+                <span class="buben-link-desc">${bodyText}</span>
+            </div>
+            <img src="${currentImgSrc}" alt="" style="
+                position: absolute;
+                right: 15px; 
+                top: 50%;
+                transform: translateY(-50%);
+                width: 90px;  
+                height: 90px;
+                object-fit: contain;
+                pointer-events: none; 
+                mix-blend-mode: multiply; 
+            " />
         `;
 
         container.appendChild(link);
