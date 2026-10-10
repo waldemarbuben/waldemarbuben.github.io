@@ -2071,6 +2071,7 @@ document.addEventListener("DOMContentLoaded", function() {
 </script>
 
 
+
 <script>
 document.addEventListener("DOMContentLoaded", () => {
     const gate = document.getElementById('balabanov-cinema-gate');
@@ -2079,20 +2080,24 @@ document.addEventListener("DOMContentLoaded", () => {
     const video = document.getElementById('balabanov-video');
     const textInstruction = document.getElementById('cinema-instruction-text');
     
-   
+  
     const chessLock = document.getElementById('chess-lock-screen');
 
     if (gate && startBtn && video) {
+       
         video.controls = false;
         video.disablePictureInPicture = true;
 
+      
         startBtn.addEventListener('click', () => {
             startBtn.style.display = 'none';
             wrapper.style.display = 'block';
+            
             if (textInstruction) {
                 textInstruction.innerText = "......";
                 textInstruction.style.color = "#FF8C00";
             }
+            
             video.muted = false;
             video.volume = 1.0;
             video.play().catch(() => {
@@ -2101,9 +2106,9 @@ document.addEventListener("DOMContentLoaded", () => {
             });
         });
 
-        
+       
         video.addEventListener('ended', () => {
-            
+         
             gate.style.transition = 'opacity 1s ease, visibility 1s';
             gate.style.opacity = '0';
             gate.style.visibility = 'hidden';
@@ -2113,18 +2118,17 @@ document.addEventListener("DOMContentLoaded", () => {
                 
                
                 if (chessLock && sessionStorage.getItem('site_unlocked') !== 'true') {
+                  
                     chessLock.style.display = 'flex';
-                   
-                    setTimeout(() => {
-                        chessLock.style.opacity = '1';
-                        chessLock.style.visibility = 'visible';
-                    }, 50);
+                    chessLock.style.setProperty('opacity', '1', 'important');
+                    chessLock.style.setProperty('visibility', 'visible', 'important');
                 }
             }, 1000);
         });
     }
 });
 </script>
+
 
 
 
