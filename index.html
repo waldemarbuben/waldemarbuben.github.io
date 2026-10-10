@@ -561,72 +561,96 @@
     </div>
    
    
-<!-- Единый асимметричный контейнер, убирающий лишнюю ширину -->
+<!-- Главный контейнер-кокон во всю оригинальную длину -->
 <div style="
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 20px;
-    max-width: 900px;
+    background-color: #12061f;
+    border: 6px double #b19cd9;
+    padding: 30px;
+    box-shadow: 15px 15px 0px #0a0312;
     margin: 40px auto;
-    padding: 15px;
-    background-color: #12061f; /* Родной глубокий цвет сайта */
-    border-left: 4px double #b19cd9; /* Плотный винтажный акцент слева */
     position: relative;
+    box-sizing: border-box;
+    /* Ограничиваем высоту строго под масштаб бабочки + ниши, предотвращая разверзание страницы */
+    height: 430px; 
 ">
 
-    <!-- Левая колонка: Ваш оригинальный marquee БЕЗ изменений текста -->
-    <div style="flex: 1; min-width: 0;">
-       <marquee bgcolor="#00FF00" scrollamount="12" style="color: #000000; font-weight: 900; padding: 8px; margin-bottom: 25px; border: 3px solid #FF00FF; font-size: 1.2em;">
+    <!-- ТОТ САМЫЙ MARQUEE ИЗ ВАШЕГО ЗАПРОСА — ПОЛНОСТЬЮ БЕЗ ИЗМЕНЕНИЙ СТИЛЕЙ И ТЕКСТА -->
+    <marquee bgcolor="#00FF00" scrollamount="12" style="color: #000000; font-weight: 900; padding: 8px; margin-bottom: 25px; border: 3px solid #FF00FF; font-size: 1.2em;">
         Тень несозданных созданий Колыхается во сне, Словно лопасти латаний На эмалевой стене. Фиолетовые руки На эмалевой стене Полусонно чертят звуки В звонко-звучной тишине…
     </marquee>
-    </div>
 
-    <!-- Правая колонка: Бабочка, прикрепившаяся сбоку к строке -->
+    <!-- 
+      Правая сакральная вертикаль. 
+      Она жестко привязана к правому краю, не раздвигает границы плашки 
+      и служит контейнером для цветов и бабочки.
+    -->
     <div style="
-        flex-shrink: 0; 
-        position: relative;
-        width: 160px; /* Сузили ширину под пропорции бабочки сбоку */
-        height: 150px;
+        position: absolute;
+        right: 30px;
+        top: 85px; /* Отступ вниз сразу под marquee */
+        width: 300px;
+        height: 320px;
         display: flex;
+        flex-direction: column;
+        justify-content: space-between;
         align-items: center;
-        justify-content: center;
     ">
-        <!-- Тягучая фиолетовая дымка за ней -->
-        <div style="
-            position: absolute;
-            width: 100px;
-            height: 100px;
-            background: #b19cd9;
-            filter: blur(25px);
-            opacity: 0.2;
-            pointer-events: none;
-        "></div>
+        
+        <!-- СЛОТ ДЛЯ ЦВЕТОВ НАВЕРХУ (Замените src на ваш файл цветка) -->
+        <div style="width: 100%; height: 50px; display: flex; justify-content: center; align-items: center; overflow: hidden;">
+            <img src="flower_top.png" alt="" style="max-height: 100%; max-width: 100%; filter: drop-shadow(3px 3px 0px #0a0312);" />
+        </div>
 
-        <!-- Углокрыльница, колышущаяся на боку -->
-        <img src="flower13.png" width="160" height="150" alt="manifestation" style="
-            position: relative;
-            z-index: 2;
-            filter: drop-shadow(5px 5px 0px #0a0312) contrast(1.15);
-            animation: butterfly-side-hypnosis 6s ease-in-out infinite alternate;
-        " />
+        <!-- Центральный элемент: Углокрыльница (300х300) в тягучем анабиозе -->
+        <div style="
+            position: relative; 
+            width: 300px; 
+            height: 220px; /* Сжатая контейнерная область, чтобы не распирать блок */
+            display: flex; 
+            justify-content: center; 
+            align-items: center;
+        ">
+            <!-- Плотный фиолетовый дымчатый занавес -->
+            <div style="
+                position: absolute;
+                width: 200px;
+                height: 200px;
+                background: #b19cd9;
+                filter: blur(40px);
+                opacity: 0.12;
+                pointer-events: none;
+            "></div>
+
+            <img src="flower13.png" width="300" height="300" alt="manifestation" style="
+                position: relative;
+                z-index: 2;
+                filter: drop-shadow(8px 8px 0px #0a0312) contrast(1.15);
+                animation: butterfly-maximalism 7s ease-in-out infinite alternate;
+            " />
+        </div>
+
+        <!-- СЛОТ ДЛЯ ЦВЕТОВ ВНИЗУ (Замените src на ваш файл цветка) -->
+        <div style="width: 100%; height: 50px; display: flex; justify-content: center; align-items: center; overflow: hidden;">
+            <img src="flower_bottom.png" alt="" style="max-height: 100%; max-width: 100%; filter: drop-shadow(3px 3px 0px #0a0312);" />
+        </div>
+
     </div>
 </div>
 
-<!-- Стили тягучего, гипнотического крена для бабочки сбоку -->
+<!-- Стили неординарного, тягуче-декадентского колыхания бабочки -->
 <style>
-@keyframes butterfly-side-hypnosis {
+@keyframes butterfly-maximalism {
     0% {
-        transform: scale(1) rotate(-3deg) translateY(0px);
+        transform: scale(1) rotate(-2deg) translateY(0px) translateX(0px);
     }
-    45% {
-        transform: scale(0.97) rotate(1deg) translateY(2px); /* Замирание */
+    35% {
+        transform: scale(0.98) rotate(1deg) translateY(4px) translateX(-2px); /* Заваливание на бок */
     }
-    50% {
-        transform: scale(1.02) rotate(-4deg) translateY(-1px); /* Легкий надрывный сдвиг */
+    40% {
+        transform: scale(1.01) rotate(-1deg) translateY(2px) translateX(1px); /* Надрывная судорога */
     }
     100% {
-        transform: scale(1) rotate(2deg) translateY(-3px);
+        transform: scale(1.02) rotate(3deg) translateY(-4px) translateX(3px);
     }
 }
 </style>
