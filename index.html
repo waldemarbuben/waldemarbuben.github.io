@@ -374,26 +374,25 @@
 
 #chess-lock-screen {
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  width: 100%;
-  height: 100%;
+  top: 0; left: 0; right: 0; bottom: 0;
+  width: 100vw; height: 100vh;
   background-image: url('IMG_0721.jpeg'); 
   background-size: cover;       
   background-position: center;  
   background-repeat: no-repeat;  
   background-attachment: fixed;  
-  z-index: 999999;
-  display: flex;
+  z-index: 999998; 
+  display: none;  
   justify-content: center;
   align-items: center;
   font-family: "Georgia", "Times New Roman", serif;
   user-select: none;
   box-sizing: border-box;
   padding: 15px;
+  opacity: 0;      
+  visibility: hidden;
 }
+
 
 
 .chess-container {
@@ -1736,6 +1735,9 @@ document.addEventListener("DOMContentLoaded", () => {
     lockScreen.remove();
     return;
   }
+    if (sessionStorage.getItem('site_unlocked') !== 'true') { 
+    lockScreen.style.display = 'flex'; 
+  }
 
   const sadTrombone = new Audio('sad-trombone.mp3');
   
@@ -2071,31 +2073,26 @@ document.addEventListener("DOMContentLoaded", function() {
 
 <script>
 document.addEventListener("DOMContentLoaded", () => {
-    
     const gate = document.getElementById('balabanov-cinema-gate');
     const startBtn = document.getElementById('balabanov-start-btn');
     const wrapper = document.getElementById('balabanov-player-wrapper');
     const video = document.getElementById('balabanov-video');
     const textInstruction = document.getElementById('cinema-instruction-text');
     
-    
+   
     const chessLock = document.getElementById('chess-lock-screen');
 
     if (gate && startBtn && video) {
-        
         video.controls = false;
         video.disablePictureInPicture = true;
 
-        
         startBtn.addEventListener('click', () => {
             startBtn.style.display = 'none';
             wrapper.style.display = 'block';
-            
             if (textInstruction) {
-                textInstruction.innerText = "......";
+                textInstruction.innerText = "Сигнал принят. Идет трансляция...";
                 textInstruction.style.color = "#FF8C00";
             }
-            
             video.muted = false;
             video.volume = 1.0;
             video.play().catch(() => {
@@ -2114,17 +2111,21 @@ document.addEventListener("DOMContentLoaded", () => {
             setTimeout(() => {
                 gate.remove(); 
                 
-                
+               
                 if (chessLock && sessionStorage.getItem('site_unlocked') !== 'true') {
                     chessLock.style.display = 'flex';
-                    chessLock.style.opacity = '1';
-                    chessLock.style.visibility = 'visible';
+                   
+                    setTimeout(() => {
+                        chessLock.style.opacity = '1';
+                        chessLock.style.visibility = 'visible';
+                    }, 50);
                 }
             }, 1000);
         });
     }
 });
 </script>
+
 
 
 
