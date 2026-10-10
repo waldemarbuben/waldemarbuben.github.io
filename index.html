@@ -561,110 +561,80 @@
     </div>
    
    
+<!-- Единый асимметричный контейнер, убирающий лишнюю ширину -->
 <div style="
-    background: radial-gradient(circle at center, #2e1a47 0%, #0d0614 100%);
-    padding: 40px;
-    border-radius: 30px;
-    box-shadow: 
-        0 20px 50px rgba(18, 6, 31, 0.9), 
-        inset 0 0 30px rgba(221, 160, 221, 0.2);
-    border: 1px solid rgba(221, 160, 221, 0.15);
-    max-width: 800px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    max-width: 900px;
     margin: 40px auto;
-    font-family: 'Georgia', serif;
+    padding: 15px;
+    background-color: #12061f; /* Родной глубокий цвет сайта */
+    border-left: 4px double #b19cd9; /* Плотный винтажный акцент слева */
     position: relative;
-    overflow: hidden;
 ">
-    
-    
-    <div style="
-        position: absolute;
-        top: -50%;
-        left: -50%;
-        width: 200%;
-        height: 200%;
-        background: linear-gradient(45deg, transparent 45%, rgba(221, 160, 221, 0.08) 50%, transparent 55%);
-        animation: waldemar-shimmer 9s infinite linear;
-        pointer-events: none;
-    "></div>
 
-    
-    <marquee bgcolor="#b19cd9" scrollamount="12" style="
-        color: #12061f; 
-        font-weight: 900; 
-        padding: 12px; 
-        margin-bottom: 35px; 
-        border: 3px dashed #dda0dd; 
-        font-size: 1.3em;
-        letter-spacing: 1px;
-        box-shadow: 0 0 25px rgba(177, 156, 217, 0.5);
-        border-radius: 40px 10px 40px 10px;
-        text-shadow: 1px 1px 0px rgba(255,255,255,0.3);
-    ">
-        Тень несозданных созданий Колыхается во сне, Словно лопасти латаний На эмалевой стене. Фиолетовые руки На эмалевой стене Полусонно чертят звуки В звонко-звучной тишине…
-    </marquee>
-
-    
-    <div style="
-        position: relative;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin: 40px 0;
-    ">
-        
-        <div style="
-            position: absolute;
-            width: 320px;
-            height: 300px;
-            background: radial-gradient(ellipse, rgba(230, 92, 23, 0.25) 0%, rgba(177, 156, 217, 0.1) 60%, transparent 80%);
-            filter: blur(15px);
-            border-radius: 50%;
-        "></div>
-
-       
-        <img src="flower13.png" width="320" height="300" alt="Углокрыльница с-белое" style="
-            position: relative;
-            z-index: 2;
-            filter: drop-shadow(0 0 25px rgba(230, 92, 23, 0.55)) contrast(1.1);
-            animation: butterfly-pulsation 4.5s ease-in-out infinite alternate;
-            transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
-            cursor: pointer;
-        " onmouseover="this.style.transform='scale(1.07) rotate(3deg)';" onmouseout="this.style.transform='scale(1) rotate(0deg)';" />
+    <!-- Левая колонка: Ваш оригинальный marquee БЕЗ изменений текста -->
+    <div style="flex: 1; min-width: 0;">
+        <marquee bgcolor="#b19cd9" scrollamount="12" style="
+            color: #12061f; 
+            font-weight: 900; 
+            padding: 8px; 
+            margin: 0; 
+            border: 3px solid #dda0dd; 
+            font-size: 1.2em;
+            display: block;
+        ">
+            Тень несозданных созданий Колыхается во сне, Словно лопасти латаний На эмалевой стене. Фиолетовые руки На эмалевой стене Полусонно чертят звуки В звонко-звучной тишине…
+        </marquee>
     </div>
 
-    
+    <!-- Правая колонка: Бабочка, прикрепившаяся сбоку к строке -->
     <div style="
-        text-align: center;
-        color: rgba(177, 156, 217, 0.35);
-        font-size: 0.85em;
-        letter-spacing: 7px;
-        text-transform: uppercase;
-        margin-top: 20px;
+        flex-shrink: 0; 
+        position: relative;
+        width: 160px; /* Сузили ширину под пропорции бабочки сбоку */
+        height: 150px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     ">
-        ✦ 9 октября 1916 ✦
+        <!-- Тягучая фиолетовая дымка за ней -->
+        <div style="
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background: #b19cd9;
+            filter: blur(25px);
+            opacity: 0.2;
+            pointer-events: none;
+        "></div>
+
+        <!-- Углокрыльница, колышущаяся на боку -->
+        <img src="flowers13.png" width="160" height="150" alt="manifestation" style="
+            position: relative;
+            z-index: 2;
+            filter: drop-shadow(5px 5px 0px #0a0312) contrast(1.15);
+            animation: butterfly-side-hypnosis 6s ease-in-out infinite alternate;
+        " />
     </div>
 </div>
 
-
+<!-- Стили тягучего, гипнотического крена для бабочки сбоку -->
 <style>
-@keyframes butterfly-pulsation {
+@keyframes butterfly-side-hypnosis {
     0% {
-        transform: scale(0.97) translateY(0px);
-        filter: drop-shadow(0 0 15px rgba(230, 92, 23, 0.4)) contrast(1.05);
+        transform: scale(1) rotate(-3deg) translateY(0px);
+    }
+    45% {
+        transform: scale(0.97) rotate(1deg) translateY(2px); /* Замирание */
+    }
+    50% {
+        transform: scale(1.02) rotate(-4deg) translateY(-1px); /* Легкий надрывный сдвиг */
     }
     100% {
-        transform: scale(1.03) translateY(-7px);
-        filter: drop-shadow(0 8px 35px rgba(230, 92, 23, 0.75)) contrast(1.15);
-    }
-}
-
-@keyframes waldemar-shimmer {
-    0% {
-        transform: translate(-25%, -25%) rotate(0deg);
-    }
-    100% {
-        transform: translate(25%, 25%) rotate(360deg);
+        transform: scale(1) rotate(2deg) translateY(-3px);
     }
 }
 </style>
