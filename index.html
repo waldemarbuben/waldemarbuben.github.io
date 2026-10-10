@@ -382,16 +382,18 @@
   background-repeat: no-repeat;  
   background-attachment: fixed;  
   z-index: 999998; 
-  display: none;  
+  display: flex;  
   justify-content: center;
   align-items: center;
   font-family: "Georgia", "Times New Roman", serif;
   user-select: none;
   box-sizing: border-box;
   padding: 15px;
-  opacity: 0;      
   visibility: hidden;
+  transform: scale(0.95);
+  transition: transform 0.8s ease, visibility 0.8s ease;
 }
+
 
 
 
@@ -2087,44 +2089,39 @@ document.addEventListener("DOMContentLoaded", () => {
     
     const adminGirlImg = document.querySelector('img[src*="girl.jpeg"]');
 
-   
+    
     function skipToChess() {
         if (!gate) return;
         
-       
         if (video) { video.pause(); }
 
        
-        gate.style.transition = 'opacity 0.6s ease, visibility 0.6s';
+        gate.style.transition = 'opacity 0.8s ease, visibility 0.6s';
         gate.style.opacity = '0';
         gate.style.visibility = 'hidden';
         
         setTimeout(() => {
-            gate.remove();
+            gate.remove(); 
             
-            
+           
             if (chessLock && sessionStorage.getItem('site_unlocked') !== 'true') {
-                chessLock.style.display = 'flex';
-                chessLock.style.setProperty('opacity', '1', 'important');
                 chessLock.style.setProperty('visibility', 'visible', 'important');
+                chessLock.style.setProperty('transform', 'scale(1)', 'important');
             }
-        }, 600);
+        }, 800);
     }
 
-   
+    
     if (adminGirlImg) {
         let clickCount = 0;
         let lastClickTime = 0;
 
-       
         adminGirlImg.style.pointerEvents = 'auto'; 
         adminGirlImg.style.cursor = 'default'; 
 
         adminGirlImg.addEventListener('click', (e) => {
-            e.preventDefault(); 
-            
+            e.preventDefault();
             const currentTime = new Date().getTime();
-            
             
             if (currentTime - lastClickTime > 1500) {
                 clickCount = 0;
@@ -2133,15 +2130,14 @@ document.addEventListener("DOMContentLoaded", () => {
             clickCount++;
             lastClickTime = currentTime;
 
-            
             if (clickCount === 6) {
-                clickCount = 0; 
+                clickCount = 0;
                 skipToChess(); 
             }
         });
     }
 
-   
+  
     if (gate && startBtn && video) {
         video.controls = false;
         video.disablePictureInPicture = true;
@@ -2163,9 +2159,8 @@ document.addEventListener("DOMContentLoaded", () => {
             });
         });
 
-        
         video.addEventListener('ended', () => {
-            skipToChess();
+            skipToChess(); 
         });
     }
 });
