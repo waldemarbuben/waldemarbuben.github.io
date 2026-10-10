@@ -705,33 +705,34 @@
 }
 </style>
 
-<!-- ============================================================================== -->
-<!-- СКРИПТ ГЕНЕРАЦИИ (ПРАВИЛЬНО НАПРАВЛЯЕТ ДАННЫЕ В НОВУЮ СТРУКТУРУ) -->
-<!-- ============================================================================== -->
 <script>
 document.addEventListener("DOMContentLoaded", () => {
     document.documentElement.style.scrollBehavior = "smooth";
 
-    const posts = Array.from(document.querySelectorAll(".content .post"));
-    const container = document.getElementById("buben-recent-posts");
-    
-    if (!container || posts.length === 0) return;
-
-    posts.forEach((post, index) => {
-        if (!post.id) {
-            post.id = "buben-diary-post-" + index;
-        }
+    // 🔬 Находим ВСЕ `.post`, но тут же фильтруем их!
+    // Пост валиден, только если внутри есть блок с классом `.date`, содержащий текст "1916"
+    const validPosts = Array.from(document.querySelectorAll(".content .post")).filter(post => {
+        const dateEl = post.querySelector(".date");
+        return dateEl && dateEl.textContent.includes("1916");
     });
 
-    // Забираем 3 последних поста
-    const recentPosts = posts.slice(-3).reverse();
+    const container = document.getElementById("buben-recent-posts");
+    if (!container || validPosts.length === 0) return;
+
+    // Расставляем уникальные ID-якоря исключительно отфильтрованным постам
+    validPosts.forEach((post, index) => {
+        post.id = "buben-diary-true-post-" + index;
+    });
+
+    // Берем 3 самых свежих отфильтрованных поста с конца вашей ленты
+    const recentPosts = validPosts.slice(-3).reverse();
     container.innerHTML = ""; 
 
     recentPosts.forEach(post => {
         const dateElement = post.querySelector(".date");
         const paragraphElement = post.querySelector("p");
 
-        const dateText = dateElement ? dateElement.textContent.trim() : "Неизвестная дата";
+        const dateText = dateElement.textContent.trim();
         let bodyText = paragraphElement ? paragraphElement.textContent.trim() : "";
         
         if (bodyText.length > 75) {
@@ -750,6 +751,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 </script>
+
 
 
     <div class="main-container">
