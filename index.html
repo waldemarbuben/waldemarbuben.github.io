@@ -528,17 +528,17 @@
 <body>
 
     
+<!-- ============================================================================== -->
+<!-- ЧАСТЬ 1: КОВЕР, КОРПУС ТЕЛЕВИЗОРА, КНИГИ И ВЫПУКЛЫЙ КИНЕСКОП -->
+<!-- ============================================================================== -->
 <div id="balabanov-cinema-gate" style="
     position: fixed;
     top: 0; left: 0; right: 0; bottom: 0;
     width: 100vw; height: 100vh;
-    
-   
     background-image: url('kover.JPG'); 
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    
     z-index: 9999999; 
     display: flex;
     justify-content: center;
@@ -549,125 +549,101 @@
     padding: 20px;
 ">
     
-    
+    <!-- Главный деревянный корпус телевизора -->
     <div style="
         background: #2b1810; 
-        padding: 25px 40px 25px 25px;
-        border: 12px double #5c3a21; 
-        border-radius: 4px;
+        padding: 55px 45px 30px 30px; 
+        border-top: 14px solid #4a2f1b;
+        border-left: 14px solid #3d2616;
+        border-right: 14px solid #1c0f0a;
+        border-bottom: 18px solid #140b07; 
+        border-radius: 6px;
         text-align: center;
-        max-width: 750px;
+        max-width: 820px;
         width: 100%;
-        box-shadow: 
-            0 30px 60px rgba(0,0,0,0.9),
-            inset 0 0 20px rgba(0,0,0,0.8);
+        box-shadow: 0 45px 90px rgba(0,0,0,0.95), 20px 20px 0px rgba(0, 0, 0, 0.4), inset 5px 5px 15px rgba(255,255,255,0.05), inset -5px -5px 15px rgba(0,0,0,0.6);
         display: flex;
-        gap: 20px;
+        gap: 25px;
         align-items: center;
         position: relative;
     ">
         
-        
-        <div style="flex: 1; min-width: 0;">
-            
-            
-            <h2 id="cinema-instruction-text" style="
-                color: #FF8C00; 
-                font-size: 1.2em;
-                letter-spacing: 1px;
-                line-height: 1.4;
-                margin-top: 0;
-                margin-bottom: 20px;
-                font-weight: 900;
-                text-transform: uppercase;
-                text-align: center;
-            ">
+        <!-- 📚 СЛОТ ДЛЯ СТОПКИ КНИГ НАВЕРХУ ТЕЛЕВИЗОРА -->
+        <div style="position: absolute; top: -55px; left: 60px; width: 180px; z-index: 10; pointer-events: none;">
+            <!-- ⚠️ МЕНЯТЬ КНИГИ ЗДЕСЬ: Замените 'books_stack.png' на имя вашего файла с книгами -->
+            <img src="books_stack.png" alt="" style="width: 100%; height: auto; display: block; border: none !important; box-shadow: none !important; outline: none !important;" />
+        </div>
+
+        <!-- КИНЕСКОПНЫЙ ЭКРАН -->
+        <div style="flex: 1; min-width: 0; position: relative;">
+            <h2 id="cinema-instruction-text" style="color: #FF8C00; font-size: 1.25em; letter-spacing: 2px; line-height: 1.4; margin-top: 0; margin-bottom: 25px; font-weight: 900; text-transform: uppercase; text-shadow: 2px 2px 0px #000, 0 0 8px rgba(123, 36, 150, 0.3); text-align: center;">
                 Необходимо перед заходом обязательно посмотреть фрагмент...
             </h2>
 
-            
-            <div id="balabanov-player-wrapper" style="
-                display: none; 
-                width: 100%; 
-                aspect-ratio: 4/3; 
-                border: 6px solid #1a1a1a; 
-                background: #050505; 
-                box-shadow: inset 0 0 30px rgba(0,0,0,1);
-                position: relative;
-                overflow: hidden;
-            ">
-               
-                <div style="
-                    position: absolute;
-                    top: 0; left: 0; width: 100%; height: 100%;
-                    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
-                    background-size: 100% 4px, 6px 100%;
-                    z-index: 3;
-                    pointer-events: none;
-                "></div>
+            <!-- Глубокая впадина маски кинескопа -->
+            <div style="background: #0d0a08; padding: 16px; border-top: 10px solid #080605; border-left: 10px solid #0a0807; border-right: 8px solid #1a1410; border-bottom: 6px solid #241c16; box-shadow: inset 10px 10px 25px rgba(0,0,0,1), inset -10px -10px 25px rgba(255,255,255,0.02); position: relative;">
+                
+                <div id="balabanov-player-wrapper" style="display: none; width: 100%; aspect-ratio: 4/3; border: 4px solid #000; background: #000; box-shadow: 0 0 30px rgba(0,0,0,1); position: relative; overflow: hidden; border-radius: 30px / 15px;">
+                    <!-- Стекло с бликами -->
+                    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.3) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.04), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.04)), radial-gradient(circle at 30% 30%, rgba(255,255,255,0.08) 0%, transparent 60%); background-size: 100% 5px, 6px 100%, 100% 100%; z-index: 3; pointer-events: none;"></div>
+                    <video id="balabanov-video" src="balabanov.MP4" playsinline style="width: 100%; height: 100%; object-fit: cover; filter: contrast(1.25) brightness(0.88) sepia(0.2);"></video>
+                </div>
 
-                <video id="balabanov-video" src="balabanov.MP4" playsinline style="
-                    width: 100%; 
-                    height: 100%; 
-                    object-fit: cover;
-                    filter: contrast(1.2) brightness(0.9) sepia(0.15); 
-                "></video>
+                <!-- Розовая пожеванная жвачка на стекле -->
+                <div style="position: absolute; bottom: 25px; left: 25px; width: 18px; height: 14px; background: #ff94b8; border-radius: 60% 40% 50% 50% / 40% 50% 40% 60%; box-shadow: inset -2px -2px 4px #d1527a, inset 2px 2px 3px #ffccd1, 2px 2px 3px rgba(0,0,0,0.8); z-index: 5; transform: rotate(-15deg); pointer-events: none;"></div>
             </div>
         </div>
 
-        
+                <!-- ============================================================================== -->
+        <!-- ЧАСТЬ 2: ПАНЕЛЬ УПРАВЛЕНИЯ, НАКЛЕЙКА С ДЕВУШКОЙ И РУЧКИ НАСТРОЙКИ -->
+        <!-- ============================================================================== -->
         <div style="
-            width: 100px;
-            flex-shrink: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-start;
-            gap: 25px;
-            border-left: 4px solid #1a1a1a;
-            padding-left: 15px;
-            height: 100%;
+            width: 130px; flex-shrink: 0; display: flex; flex-direction: column; align-items: center; justify-content: flex-start;
+            background: #21120b; border-top: 4px solid #140b07; border-left: 5px solid #170d08; border-right: 4px solid #361e12; border-bottom: 4px solid #3d2215;
+            padding: 20px 10px; box-shadow: inset 4px 4px 10px rgba(0,0,0,0.6), 3px 0px 0px rgba(255,255,255,0.03); align-self: stretch; position: relative;
         ">
-           
-            <div style="width: 50px; height: 50px; background: #1a1a1a; border: 3px ridge #5c3a21; border-radius: 50%; box-shadow: inset 0 0 5px #000; position: relative;">
-                <div style="position: absolute; width: 4px; height: 20px; background: #5c3a21; top: 5px; left: 23px;"></div>
+            
+            <!-- 🏷️ НАКЛЕЙКА-ВКЛАДЫШ С ДЕВУШКОЙ ИЗ 90-Х -->
+            <div style="position: absolute; bottom: 120px; right: -15px; width: 55px; height: 75px; border: 1px solid #000; transform: rotate(8deg); box-shadow: 3px 3px 6px rgba(0,0,0,0.7); z-index: 12; opacity: 0.9; filter: contrast(1.1) sepia(0.2);">
+                <!-- ⚠️ МЕНЯТЬ ДЕВУШКУ ЗДЕСЬ: Замените 'baba.png' на ваш файл -->
+                <img src="baba.png" alt="" style="width: 100%; height: 100%; object-fit: cover; display: block; border: none !important;" />
+                <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, rgba(255,255,255,0.15) 0%, transparent 50%, rgba(0,0,0,0.1) 100%);"></div>
             </div>
 
-            
-            <div style="width: 60px; height: 80px; display: flex; flex-direction: column; gap: 5px;">
-                <div style="height: 3px; background: #1a1a1a;"></div>
-                <div style="height: 3px; background: #1a1a1a;"></div>
-                <div style="height: 3px; background: #1a1a1a;"></div>
-                <div style="height: 3px; background: #1a1a1a;"></div>
-                <div style="height: 3px; background: #1a1a1a;"></div>
-                <div style="height: 3px; background: #1a1a1a;"></div>
-                <div style="height: 3px; background: #1a1a1a;"></div>
-                <div style="height: 3px; background: #1a1a1a;"></div>
+            <div style="color: #573b2c; font-size: 0.65em; font-weight: bold; font-family: monospace; border: 1px solid #3d2a1f; padding: 2px 6px; margin-bottom: 15px; letter-spacing: 1px; background: #170d08;">РУБИН-714</div>
+
+            <!-- Круглый переключатель каналов ПТК -->
+            <div style="width: 70px; height: 70px; background: #0f0805; border-top: 4px solid #070403; border-left: 4px solid #070403; border-right: 3px solid #2b180f; border-bottom: 3px solid #3b2114; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: inset 5px 5px 10px rgba(0,0,0,0.9); margin-bottom: 10px;">
+                <div style="width: 46px; height: 46px; background: linear-gradient(135deg, #2b1c14 0%, #120b08 100%); border: 2px solid #000; border-radius: 50%; box-shadow: 3px 3px 6px rgba(0,0,0,0.8); position: relative;">
+                    <div style="position: absolute; width: 5px; height: 18px; background: #b87333; top: 0; left: 21px; border-radius: 2px;"></div>
+                </div>
             </div>
 
-            
-            <button id="balabanov-start-btn" style="
-                background: #000000;             
-                color: #FFFDD0 !important;       
-                border: 4px ridge #ff8000;       
-                padding: 10px 5px;
-                width: 100%;
-                font-size: 0.9em;
-                font-family: 'Times', Georgia, serif;
-                font-weight: bold;
-                cursor: pointer;
-                letter-spacing: 0.05em;
-                text-shadow: 0px 0px 2px #000000;
-                box-shadow: -4px 4px 0px #550055; 
-                transition: all 0.2s ease;
-                text-transform: uppercase;
-            " onmouseover="this.style.color='#00FFFF'; this.style.borderColor='#00FFFF'; this.style.boxShadow='-4px 4px 0px #005555';" onmouseout="this.style.color='#FFFDD0'; this.style.borderColor='#ff8000'; this.style.boxShadow='-5px 5px 0px #550055';">
+            <!-- Три мелких регулятора -->
+            <div style="display: flex; gap: 8px; margin-bottom: 25px; background: #170d08; padding: 6px; border: 1px solid #2e1b10;">
+                <div style="width: 20px; height: 20px; background: #120b08; border: 2px dashed #422817; border-radius: 50%; position: relative;"><div style="position: absolute; width: 2px; height: 8px; background: #855335; top: 0; left: 9px;"></div></div>
+                <div style="width: 20px; height: 20px; background: #120b08; border: 2px dashed #422817; border-radius: 50%; position: relative;"><div style="position: absolute; width: 2px; height: 8px; background: #855335; top: 2px; left: 13px; transform: rotate(45deg);"></div></div>
+                <div style="width: 20px; height: 20px; background: #120b08; border: 2px dashed #422817; border-radius: 50%; position: relative;"><div style="position: absolute; width: 2px; height: 8px; background: #855335; top: 5px; left: 16px; transform: rotate(90deg);"></div></div>
+            </div>
+
+            <!-- Решетка динамика с глубокими щелями -->
+            <div style="width: 90px; flex-grow: 1; display: flex; flex-direction: column; gap: 4px; background: #0d0704; padding: 10px 6px; border-top: 3px solid #070402; border-left: 3px solid #070402; border-right: 2px solid #2b180d; border-bottom: 2px solid #2b180d; box-shadow: inset 4px 4px 10px rgba(0,0,0,0.8); margin-bottom: 25px;">
+                <div style="height: 4px; background: #1f110a; border-bottom: 2px solid #422517; box-shadow: inset 0 2px 3px #000;"></div>
+                <div style="height: 4px; background: #1f110a; border-bottom: 2px solid #422517; box-shadow: inset 0 2px 3px #000;"></div>
+                <div style="height: 4px; background: #1f110a; border-bottom: 2px solid #422517; box-shadow: inset 0 2px 3px #000;"></div>
+                <div style="height: 4px; background: #1f110a; border-bottom: 2px solid #422517; box-shadow: inset 0 2px 3px #000;"></div>
+                <div style="height: 4px; background: #1f110a; border-bottom: 2px solid #422517; box-shadow: inset 0 2px 3px #000;"></div>
+                <div style="height: 4px; background: #1f110a; border-bottom: 2px solid #422517; box-shadow: inset 0 2px 3px #000;"></div>
+            </div>
+
+            <!-- Кнопка запуска видео в стиле аудиоплееров сайта -->
+            <button id="balabanov-start-btn" style="background: #000000; color: #FFFDD0 !important; border: 4px ridge #ff8000; padding: 10px 5px; width: 100%; font-size: 0.9em; font-family: 'Times', Georgia, serif; font-weight: bold; cursor: pointer; letter-spacing: 0.05em; text-shadow: 0px 0px 2px #000000; box-shadow: -4px 4px 0px #550055; transition: all 0.2s ease; text-transform: uppercase;" onmouseover="this.style.color='#00FFFF'; this.style.borderColor='#00FFFF'; this.style.boxShadow='-4px 4px 0px #005555';" onmouseout="this.style.color='#FFFDD0'; this.style.borderColor='#ff8000'; this.style.boxShadow='-5px 5px 0px #550055';">
                 Смотреть
             </button>
         </div>
-
     </div>
 </div>
+
 
     
  <div id="chess-lock-screen">
