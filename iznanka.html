@@ -239,11 +239,130 @@
             filter: sepia(0) contrast(1.15);
             transform: translateY(-2px);
         }
+        
+.chess-cell {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+}
+.chess-cell.light { background-color: #311c3a; }
+.chess-cell.dark { background-color: #16071c; }
+
+.chess-queen {
+  font-size: 28px; 
+  color: #ffffff;
+  text-shadow: 0 0 8px rgba(255,255,255,0.8), 0 0 3px #000; 
+  cursor: grab;
+  z-index: 10;
+  position: relative;
+  left: 0; top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%; height: 100%;
+}
+@media (min-width: 350px) {
+  .chess-queen { font-size: 36px; }
+}
+.chess-queen:active { cursor: grabbing; }
+.chess-queen.whistle-back { transition: transform 0.25s cubic-bezier(0.25, 1, 0.5, 1); }
+.chess-cell.drag-over {
+  box-shadow: inset 0 0 15px rgba(188, 124, 180, 0.9);
+  background-color: #4c265c !important;
+}
+#chess-board.shake { animation: boardShake 0.4s ease-in-out; }
+@keyframes boardShake {
+  0%, 100% { transform: translateX(0); }
+  20%, 60% { transform: translateX(-6px); }
+  40%, 80% { transform: translateX(6px); }
+}
 
 
     </style>
 </head>
 <body>
+
+
+    
+<div id="chess-lock-screen" style="
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  width: 100vw; height: 100vh;
+  background-image: url('IMG_0721.jpeg'); 
+  background-size: cover;       
+  background-position: center;  
+  background-repeat: no-repeat;  
+  background-attachment: fixed;  
+  z-index: 999998; 
+  display: flex;  
+  justify-content: center;
+  align-items: center;
+  font-family: 'Georgia', 'Times New Roman', serif;
+  user-select: none;
+  box-sizing: border-box;
+  padding: 15px;
+">
+  <div class="chess-container" style="
+    background: rgba(19, 3, 24, 0.9); 
+    padding: 20px; 
+    border: 2px solid #7b219f;
+    border-image: linear-gradient(to right, #7b219f, #bc7cb4, #7b219f) 1;
+    text-align: center;
+    color: #e2c5f0;
+    box-shadow: 0 0 30px rgba(123, 33, 159, 0.5);
+    max-width: 360px;
+    width: 100%;
+    box-sizing: border-box;
+  ">
+    <h2 style="
+      font-family: 'Georgia', serif;
+      color: #bc7cb4;
+      text-shadow: 0 0 10px rgba(188, 124, 180, 0.6);
+      margin-top: 0;
+      margin-bottom: 8px;
+      font-size: 18px; 
+      letter-spacing: 1px;
+      line-height: 1.3;
+    ">Найди открытый вход в закрытый дворец королевы</h2>
+    <p class="chess-hint" style="
+      font-style: italic;
+      font-size: 12px;
+      color: #a48da9;
+      margin-bottom: 15px;
+      text-transform: lowercase;
+    ">Сделайте убедительный ход для паломничества</p>
+    <div id="chess-board" style="
+      display: grid;
+      grid-template-columns: repeat(8, 1fr);
+      grid-template-rows: repeat(8, 1fr);
+      width: 100%;
+      aspect-ratio: 1 / 1; 
+      max-width: 300px;
+      max-height: 300px;
+      margin: 0 auto;
+      border: 3px solid #7b219f;
+      box-shadow: 0 0 15px rgba(123, 33, 159, 0.3);
+      position: relative;
+    "></div>
+    <div id="chess-error" style="
+      font-family: 'Georgia', serif;
+      font-style: italic;
+      font-size: 13px;
+      margin-top: 15px;
+      min-height: 18px; 
+      letter-spacing: 0.5px;
+      text-shadow: 0 0 5px rgba(255, 51, 51, 0.3);
+      display: none; 
+      color: #ff3333;
+    ">
+      Ход записан. Доступ отклонен.
+    </div>
+  </div>
+</div>
+
 
        <div style="text-align: center; margin: 40px 0 20px 0; padding: 20px; background: #191970; border: 4px double #00FF00; box-shadow: 0 0 25px rgba(0, 255, 0, 0.6);">
   
@@ -692,6 +811,202 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 </script>
 
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const lockScreen = document.getElementById('chess-lock-screen');
+  if (!lockScreen) return;
 
+  
+  if (sessionStorage.getItem('site_unlocked') === 'true') {
+    lockScreen.remove();
+    return;
+  }
+  
+  
+  lockScreen.style.display = 'flex'; 
+
+  const sadTrombone = new Audio('sad-trombone.mp3');
+  let audioActivated = false;
+  
+  function initMobileAudio() {
+    if (audioActivated) return;
+    sadTrombone.play().then(() => {
+      sadTrombone.pause(); 
+      sadTrombone.currentTime = 0;
+      audioActivated = true;
+    }).catch(e => console.log('Ожидание клика для аудио...'));
+  }
+  
+  window.addEventListener('touchstart', initMobileAudio, { passive: true });
+  window.addEventListener('click', initMobileAudio);
+
+  const board = document.getElementById('chess-board');
+  const errorMsg = document.getElementById('chess-error');
+  const files = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
+  const ranks = ['8', '7', '6', '5', '4', '3', '2', '1'];
+  const targetCellId = 'a6'; 
+  
+  
+  let startCellId = 'd1'; 
+  do {
+    const randomFile = files[Math.floor(Math.random() * files.length)];
+    const randomRank = ranks[Math.floor(Math.random() * ranks.length)];
+    startCellId = randomFile + randomRank;
+  } while (startCellId === targetCellId);
+
+  let previousCellId = startCellId;
+  let isLocked = false;
+
+  
+  ranks.forEach((rank, rIdx) => {
+    files.forEach((file, fIdx) => {
+      const cell = document.createElement('div');
+      const cellId = file + rank;
+      cell.id = 'cell-' + cellId;
+      cell.className = 'chess-cell ' + ((rIdx + fIdx) % 2 === 0 ? 'light' : 'dark');
+      
+      cell.addEventListener('dragover', (e) => e.preventDefault());
+      cell.addEventListener('dragenter', () => {
+        if (!isLocked) cell.classList.add('drag-over');
+      });
+      cell.addEventListener('dragleave', () => cell.classList.remove('drag-over'));
+      cell.addEventListener('drop', (e) => {
+        cell.classList.remove('drag-over');
+        if (isLocked) return;
+        const queen = document.querySelector('.chess-queen');
+        if (queen) {
+          if (cellId === previousCellId) return;
+          handleMove(queen, cell, cellId);
+        }
+      });
+      board.appendChild(cell);
+    });
+  });
+
+ 
+  const queen = document.createElement('div');
+  queen.className = 'chess-queen';
+  queen.innerText = '♛';
+  queen.setAttribute('draggable', 'true');
+
+  queen.addEventListener('dragstart', (e) => {
+    if (isLocked) {
+      e.preventDefault();
+      return;
+    }
+    const currentCell = queen.parentElement;
+    if (currentCell) previousCellId = currentCell.id.replace('cell-', '');
+  });
+
+  
+  let activeTouchCell = null;
+  queen.addEventListener('touchstart', () => {
+    if (isLocked) return;
+    initMobileAudio(); 
+    const currentCell = queen.parentElement;
+    if (currentCell) previousCellId = currentCell.id.replace('cell-', '');
+  });
+  
+  queen.addEventListener('touchmove', (e) => {
+    if (isLocked) return;
+    e.preventDefault();
+    const touch = e.touches[0];
+    const element = document.elementFromPoint(touch.clientX, touch.clientY);
+    const cell = element ? element.closest('.chess-cell') : null;
+    document.querySelectorAll('.chess-cell').forEach(c => c.classList.remove('drag-over'));
+    if (cell) {
+      cell.classList.add('drag-over');
+      activeTouchCell = cell;
+    }
+  });
+
+  queen.addEventListener('touchend', () => {
+    document.querySelectorAll('.chess-cell').forEach(c => c.classList.remove('drag-over'));
+    if (isLocked) return;
+    if (activeTouchCell) {
+      const cellId = activeTouchCell.id.replace('cell-', '');
+      if (cellId !== previousCellId) {
+        handleMove(queen, activeTouchCell, cellId);
+      }
+      activeTouchCell = null;
+    }
+  });
+
+  
+  const startCell = document.getElementById('cell-' + startCellId);
+  if (startCell) startCell.appendChild(queen);
+
+  
+  function startLockTimer() {
+    isLocked = true;
+    queen.setAttribute('draggable', 'false');
+    queen.style.cursor = 'not-allowed';
+    
+    let timeLeft = 60;
+    errorMsg.style.display = 'block';
+    errorMsg.innerText = `Неверный ход. Попробуйте через ${timeLeft} сек...`;
+
+    const interval = setInterval(() => {
+      timeLeft--;
+      if (timeLeft <= 0) {
+        clearInterval(interval);
+        isLocked = false;
+        queen.setAttribute('draggable', 'true');
+        queen.style.cursor = 'grab';
+        errorMsg.style.display = 'none';
+      } else {
+        errorMsg.innerText = `Неверный ход. Попробуйте через ${timeLeft} сек...`;
+      }
+    }, 1000);
+  }
+
+  
+  function handleMove(queenElement, targetCellElement, newCellId) {
+    if (newCellId === targetCellId) {
+      targetCellElement.appendChild(queenElement);
+      sessionStorage.setItem('site_unlocked', 'true');
+      
+      
+      lockScreen.style.transition = 'opacity 0.8s ease, visibility 0.8s';
+      lockScreen.style.opacity = '0';
+      lockScreen.style.visibility = 'hidden';
+      
+      setTimeout(() => {
+        window.location.href = 'index.html'; 
+      }, 800);
+    } else {
+      
+      const oldCellElement = document.getElementById('cell-' + previousCellId);
+      const oldRect = oldCellElement.getBoundingClientRect();
+      const newRect = targetCellElement.getBoundingClientRect();
+      const diffX = newRect.left - oldRect.left;
+      const diffY = newRect.top - oldRect.top;
+
+      targetCellElement.appendChild(queenElement);
+      queenElement.style.transform = `translate(${-diffX}px, ${-diffY}px)`;
+      board.classList.add('shake');
+
+      sadTrombone.currentTime = 0;
+      sadTrombone.play().catch(err => console.log("Ошибка воспроизведения звука: ", err));
+
+      setTimeout(() => board.classList.remove('shake'), 400);
+
+      requestAnimationFrame(() => {
+        queenElement.classList.add('whistle-back');
+        queenElement.style.transform = 'translate(0px, 0px)';
+      });
+
+      setTimeout(() => {
+        queenElement.classList.remove('whistle-back');
+        oldCellElement.appendChild(queenElement);
+        startLockTimer(); 
+      }, 250);
+    }
+  }
+});
+</script>
+
+
+    
 </body>
 </html>
