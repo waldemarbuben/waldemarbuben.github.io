@@ -560,9 +560,115 @@
         </div>
     </div>
    
-    <marquee bgcolor="#b19cd9" scrollamount="12" style="color: #12061f; font-weight: 900; padding: 8px; margin-bottom: 25px; border: 3px solid #dda0dd; font-size: 1.2em;">
+   
+<div style="
+    background: radial-gradient(circle at center, #2e1a47 0%, #0d0614 100%);
+    padding: 40px;
+    border-radius: 30px;
+    box-shadow: 
+        0 20px 50px rgba(18, 6, 31, 0.9), 
+        inset 0 0 30px rgba(221, 160, 221, 0.2);
+    border: 1px solid rgba(221, 160, 221, 0.15);
+    max-width: 800px;
+    margin: 40px auto;
+    font-family: 'Georgia', serif;
+    position: relative;
+    overflow: hidden;
+">
+    
+    
+    <div style="
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: linear-gradient(45deg, transparent 45%, rgba(221, 160, 221, 0.08) 50%, transparent 55%);
+        animation: waldemar-shimmer 9s infinite linear;
+        pointer-events: none;
+    "></div>
+
+    
+    <marquee bgcolor="#b19cd9" scrollamount="12" style="
+        color: #12061f; 
+        font-weight: 900; 
+        padding: 12px; 
+        margin-bottom: 35px; 
+        border: 3px dashed #dda0dd; 
+        font-size: 1.3em;
+        letter-spacing: 1px;
+        box-shadow: 0 0 25px rgba(177, 156, 217, 0.5);
+        border-radius: 40px 10px 40px 10px;
+        text-shadow: 1px 1px 0px rgba(255,255,255,0.3);
+    ">
         Тень несозданных созданий Колыхается во сне, Словно лопасти латаний На эмалевой стене. Фиолетовые руки На эмалевой стене Полусонно чертят звуки В звонко-звучной тишине…
     </marquee>
+
+    
+    <div style="
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 40px 0;
+    ">
+        
+        <div style="
+            position: absolute;
+            width: 320px;
+            height: 300px;
+            background: radial-gradient(ellipse, rgba(230, 92, 23, 0.25) 0%, rgba(177, 156, 217, 0.1) 60%, transparent 80%);
+            filter: blur(15px);
+            border-radius: 50%;
+        "></div>
+
+       
+        <img src="flower13.png" width="320" height="300" alt="Углокрыльница с-белое" style="
+            position: relative;
+            z-index: 2;
+            filter: drop-shadow(0 0 25px rgba(230, 92, 23, 0.55)) contrast(1.1);
+            animation: butterfly-pulsation 4.5s ease-in-out infinite alternate;
+            transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+            cursor: pointer;
+        " onmouseover="this.style.transform='scale(1.07) rotate(3deg)';" onmouseout="this.style.transform='scale(1) rotate(0deg)';" />
+    </div>
+
+    
+    <div style="
+        text-align: center;
+        color: rgba(177, 156, 217, 0.35);
+        font-size: 0.85em;
+        letter-spacing: 7px;
+        text-transform: uppercase;
+        margin-top: 20px;
+    ">
+        ✦ 9 октября 1916 ✦
+    </div>
+</div>
+
+
+<style>
+@keyframes butterfly-pulsation {
+    0% {
+        transform: scale(0.97) translateY(0px);
+        filter: drop-shadow(0 0 15px rgba(230, 92, 23, 0.4)) contrast(1.05);
+    }
+    100% {
+        transform: scale(1.03) translateY(-7px);
+        filter: drop-shadow(0 8px 35px rgba(230, 92, 23, 0.75)) contrast(1.15);
+    }
+}
+
+@keyframes waldemar-shimmer {
+    0% {
+        transform: translate(-25%, -25%) rotate(0deg);
+    }
+    100% {
+        transform: translate(25%, 25%) rotate(360deg);
+    }
+}
+</style>
+
 
     <div class="main-container">
 
@@ -719,7 +825,7 @@
 
         <div class="content">
             
-            <img src="Cvetok1.PNG" class="flower-accent-datura" alt="datura"> <img src="flower13.png" alt="manifestation" width="320" height="300">
+            <img src="Cvetok1.PNG" class="flower-accent-datura" alt="datura"> <img src="flower13.PNG" alt="manifestation" width="320" height="300">
 
             <div class="post">
                 <div class="date">2 Июня 1916</div>
