@@ -2082,65 +2082,41 @@ document.addEventListener("DOMContentLoaded", () => {
     const wrapper = document.getElementById('balabanov-player-wrapper');
     const video = document.getElementById('balabanov-video');
     const textInstruction = document.getElementById('cinema-instruction-text');
-    
-    
-    const chessLock = document.getElementById('chess-lock-screen');
-
-    
     const adminGirlImg = document.querySelector('img[src="kover.JPG"]');
 
-    
-    function skipToChess() {
-        if (!gate) return;
-        
-        if (video) { video.pause(); }
-
-        
-        gate.style.transition = 'opacity 0.8s ease, visibility 0.6s';
-        gate.style.opacity = '0';
-        gate.style.visibility = 'hidden';
-        
-        setTimeout(() => {
-            gate.remove(); 
-            
-            
-            if (chessLock && sessionStorage.getItem('site_unlocked') !== 'true') {
-                chessLock.style.setProperty('visibility', 'visible', 'important');
-                chessLock.style.setProperty('transform', 'scale(1)', 'important');
-            }
-        }, 800);
+   
+    if (sessionStorage.getItem('site_unlocked') === 'true') {
+        if (gate) gate.remove();
+        return; 
     }
 
-    
+   
+    function skipToIznanka() {
+        if (!gate) return;
+        if (video) { video.pause(); }
+        window.location.href = 'iznanka.html';
+    }
+
     if (adminGirlImg) {
         let clickCount = 0;
         let lastClickTime = 0;
-
         adminGirlImg.style.pointerEvents = 'auto'; 
         adminGirlImg.style.cursor = 'default'; 
 
         adminGirlImg.addEventListener('click', (e) => {
             e.preventDefault(); 
-            
             const currentTime = new Date().getTime();
-            
-            
-            if (currentTime - lastClickTime > 1500) {
-                clickCount = 0;
-            }
-            
+            if (currentTime - lastClickTime > 1500) { clickCount = 0; }
             clickCount++;
             lastClickTime = currentTime;
 
-            
             if (clickCount === 6) {
                 clickCount = 0; 
-                skipToChess(); 
+                skipToIznanka(); 
             }
         });
     }
 
-  
     if (gate && startBtn && video) {
         video.controls = false;
         video.disablePictureInPicture = true;
@@ -2151,7 +2127,6 @@ document.addEventListener("DOMContentLoaded", () => {
             
             if (textInstruction) {
                 textInstruction.innerText = "......";
-                textInstruction.style.color = "#FF8C00";
             }
             
             video.muted = false;
@@ -2162,6 +2137,7 @@ document.addEventListener("DOMContentLoaded", () => {
             });
         });
 
+        
         video.addEventListener('ended', () => {
             window.location.href = 'iznanka.html'; 
         });
