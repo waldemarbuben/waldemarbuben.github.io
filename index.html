@@ -2083,11 +2083,11 @@ document.addEventListener("DOMContentLoaded", () => {
     const video = document.getElementById('balabanov-video');
     const textInstruction = document.getElementById('cinema-instruction-text');
     
-   
+    
     const chessLock = document.getElementById('chess-lock-screen');
 
     
-    const adminGirlImg = document.querySelector('img[src*="girl.jpeg"]');
+    const adminGirlImg = document.querySelector('img[src="girl.jpeg"]');
 
     
     function skipToChess() {
@@ -2095,7 +2095,7 @@ document.addEventListener("DOMContentLoaded", () => {
         
         if (video) { video.pause(); }
 
-       
+        
         gate.style.transition = 'opacity 0.8s ease, visibility 0.6s';
         gate.style.opacity = '0';
         gate.style.visibility = 'hidden';
@@ -2103,7 +2103,7 @@ document.addEventListener("DOMContentLoaded", () => {
         setTimeout(() => {
             gate.remove(); 
             
-           
+            
             if (chessLock && sessionStorage.getItem('site_unlocked') !== 'true') {
                 chessLock.style.setProperty('visibility', 'visible', 'important');
                 chessLock.style.setProperty('transform', 'scale(1)', 'important');
@@ -2120,8 +2120,10 @@ document.addEventListener("DOMContentLoaded", () => {
         adminGirlImg.style.cursor = 'default'; 
 
         adminGirlImg.addEventListener('click', (e) => {
-            e.preventDefault();
+            e.preventDefault(); 
+            
             const currentTime = new Date().getTime();
+            
             
             if (currentTime - lastClickTime > 1500) {
                 clickCount = 0;
@@ -2130,8 +2132,9 @@ document.addEventListener("DOMContentLoaded", () => {
             clickCount++;
             lastClickTime = currentTime;
 
+            
             if (clickCount === 6) {
-                clickCount = 0;
+                clickCount = 0; 
                 skipToChess(); 
             }
         });
