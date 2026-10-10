@@ -561,7 +561,9 @@
     </div>
    
    
-<!-- Главный контейнер-кокон во всю оригинальную длину -->
+<!-- ============================================================================== -->
+<!-- ОБНОВЛЕННЫЙ МАКСИМАЛИСТСКИЙ КОНТЕЙНЕР (ЗАМЕНЯЕТ СТАРУЮ ПЛАШКУ В BODY) -->
+<!-- ============================================================================== -->
 <div style="
     background-color: #12061f;
     border: 6px double #b19cd9;
@@ -570,90 +572,185 @@
     margin: 40px auto;
     position: relative;
     box-sizing: border-box;
-    /* Ограничиваем высоту строго под масштаб бабочки + ниши, предотвращая разверзание страницы */
     height: 430px; 
 ">
 
-    <!-- ТОТ САМЫЙ MARQUEE ИЗ ВАШЕГО ЗАПРОСА — ПОЛНОСТЬЮ БЕЗ ИЗМЕНЕНИЙ СТИЛЕЙ И ТЕКСТА -->
-    <marquee bgcolor="#00FF00" scrollamount="12" style="color: #000000; font-weight: 900; padding: 8px; margin-bottom: 25px; border: 3px solid #FF00FF; font-size: 1.2em;">
-        Тень несозданных созданий Колыхается во сне, Словно лопасти латаний На эмалевой стене. Фиолетовые руки На эмалевой стене Полусонно чертят звуки В звонко-звучной тишине…
-    </marquee>
-
-    <!-- 
-      Правая сакральная вертикаль. 
-      Она жестко привязана к правому краю, не раздвигает границы плашки 
-      и служит контейнером для цветов и бабочки.
-    -->
+    <!-- Сетка: Разделение левой интерактивной ниши и правой колонны бабочки -->
     <div style="
-        position: absolute;
-        right: 30px;
-        top: 85px; /* Отступ вниз сразу под marquee */
-        width: 300px;
-        height: 320px;
         display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        align-items: center;
+        gap: 40px;
+        align-items: flex-start;
+        height: 100%;
     ">
         
-        <!-- СЛОТ ДЛЯ ЦВЕТОВ НАВЕРХУ (Замените src на ваш файл цветка) -->
-        <div style="width: 100%; height: 50px; display: flex; justify-content: center; align-items: center; overflow: hidden;">
-            <img src="IMG_0781.png" alt="" style="max-height: 100%; max-width: 100%; filter: drop-shadow(3px 3px 0px #0a0312);" />
+        <!-- ЛЕВАЯ СТОРОНА: Пространство сmarquee и автоматическим выводом последних постов -->
+        <div style="flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 15px; height: 100%;">
+            
+            <!-- ТОТ САМЫЙ MARQUEE ИЗ ВАШЕГО ЗАПРОСА — ПОЛНОСТЬЮ БЕЗ ИЗМЕНЕНИЙ СТИЛЕЙ И ТЕКСТА -->
+            <marquee bgcolor="#00FF00" scrollamount="12" style="color: #000000; font-weight: 900; padding: 8px; margin: 0; border: 3px solid #FF00FF; font-size: 1.2em; display: block; width: 100%; box-sizing: border-box;">
+                Тень несозданных созданий Колыхается во сне, Словно лопасти латаний На эмалевой стене. Фиолетовые руки На эмалевой стене Полусонно чертят звуки В звонко-звучной тишине…
+            </marquee>
+            
+            <!-- ИНТЕРАКТИВНЫЙ БЛОК: Сюда скрипт вставит 3 последних поста -->
+            <div id="buben-recent-posts" style="
+                display: flex;
+                flex-direction: column;
+                gap: 12px;
+                margin-top: 10px;
+                font-family: 'Times', Georgia, serif;
+            ">
+                <!-- Посты генерируются автоматически через JavaScript внизу страницы -->
+            </div>
         </div>
 
-        <!-- Центральный элемент: Углокрыльница (300х300) в тягучем анабиозе -->
+        <!-- ПРАВАЯ СТОРОНА: Вертикальная сакральная колонна для бабочки и цветов -->
         <div style="
-            position: relative; 
-            width: 300px; 
-            height: 220px; /* Сжатая контейнерная область, чтобы не распирать блок */
-            display: flex; 
-            justify-content: center; 
+            flex-shrink: 0;
+            width: 300px;
+            height: 330px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
             align-items: center;
         ">
-            <!-- Плотный фиолетовый дымчатый занавес -->
+            <!-- СЛОТ ДЛЯ ЦВЕТОВ НАВЕРХУ -->
+            <div style="width: 100%; height: 50px; display: flex; justify-content: center; align-items: center; overflow: hidden;">
+                <img src="IMG_0781.png" alt="" style="max-height: 100%; max-width: 100%; filter: drop-shadow(3px 3px 0px #0a0312);" />
+            </div>
+
+            <!-- Центральный элемент: Углокрыльница (300х300) в тягучем анабиозе -->
             <div style="
-                position: absolute;
-                width: 200px;
-                height: 200px;
-                background: #b19cd9;
-                filter: blur(40px);
-                opacity: 0.12;
-                pointer-events: none;
-            "></div>
+                position: relative; 
+                width: 300px; 
+                height: 220px; 
+                display: flex; 
+                justify-content: center; 
+                align-items: center;
+            ">
+                <!-- Плотный фиолетовый дымчатый занавес -->
+                <div style="
+                    position: absolute;
+                    width: 200px;
+                    height: 200px;
+                    background: #b19cd9;
+                    filter: blur(40px);
+                    opacity: 0.12;
+                    pointer-events: none;
+                "></div>
 
-            <img src="flower13.png" width="300" height="300" alt="manifestation" style="
-                position: relative;
-                z-index: 2;
-                filter: drop-shadow(8px 8px 0px #0a0312) contrast(1.15);
-                animation: butterfly-maximalism 7s ease-in-out infinite alternate;
-            " />
-        </div>
+                <img src="flower13.png" width="300" height="300" alt="manifestation" style="
+                    position: relative;
+                    z-index: 2;
+                    filter: drop-shadow(8px 8px 0px #0a0312) contrast(1.15);
+                    animation: butterfly-maximalism 7s ease-in-out infinite alternate;
+                " />
+            </div>
 
-        <!-- СЛОТ ДЛЯ ЦВЕТОВ ВНИЗУ (Замените src на ваш файл цветка) -->
-        <div style="width: 100%; height: 50px; display: flex; justify-content: center; align-items: center; overflow: hidden;">
-            <img src="IMG_0779.jpeg" alt="" style="max-height: 100%; max-width: 100%; filter: drop-shadow(3px 3px 0px #0a0312);" />
+            <!-- СЛОТ ДЛЯ ЦВЕТОВ ВНИЗУ -->
+            <div style="width: 100%; height: 50px; display: flex; justify-content: center; align-items: center; overflow: hidden;">
+                <img src="IMG_0779.jpeg" alt="" style="max-height: 100%; max-width: 100%; filter: drop-shadow(3px 3px 0px #0a0312);" />
+            </div>
         </div>
 
     </div>
 </div>
 
-<!-- Стили неординарного, тягуче-декадентского колыхания бабочки -->
+<!-- ============================================================================== -->
+<!-- ДОПОЛНИТЕЛЬНЫЕ СТИЛИ ДЛЯ АНИМАЦИИ И МЕРЦАНИЯ ССЫЛОК -->
+<!-- ============================================================================== -->
 <style>
+/* Тягуче-декадентское колыхания бабочки */
 @keyframes butterfly-maximalism {
-    0% {
-        transform: scale(1) rotate(-2deg) translateY(0px) translateX(0px);
-    }
-    35% {
-        transform: scale(0.98) rotate(1deg) translateY(4px) translateX(-2px); /* Заваливание на бок */
-    }
-    40% {
-        transform: scale(1.01) rotate(-1deg) translateY(2px) translateX(1px); /* Надрывная судорога */
-    }
-    100% {
-        transform: scale(1.02) rotate(3deg) translateY(-4px) translateX(3px);
-    }
+    0% { transform: scale(1) rotate(-2deg) translateY(0px) translateX(0px); }
+    35% { transform: scale(0.98) rotate(1deg) translateY(4px) translateX(-2px); }
+    40% { transform: scale(1.01) rotate(-1deg) translateY(2px) translateX(1px); }
+    100% { transform: scale(1.02) rotate(3deg) translateY(-4px) translateX(3px); }
+}
+
+/* Призрачное мерцание постов-якорей */
+.buben-ghost-link {
+    display: block;
+    padding: 10px 14px;
+    border: 1px dashed rgba(177, 156, 217, 0.25);
+    background: rgba(18, 6, 31, 0.4);
+    color: #b19cd9 !important;
+    text-decoration: none !important;
+    transition: all 0.4s ease-in-out;
+    animation: buben-post-glow 5s infinite ease-in-out;
+}
+.buben-ghost-link:nth-child(2) { animation-delay: 1.5s; }
+.buben-ghost-link:nth-child(3) { animation-delay: 3s; }
+
+.buben-ghost-link:hover {
+    background: rgba(46, 26, 71, 0.7) !important;
+    border-color: #dda0dd !important;
+    color: #ffffff !important;
+    box-shadow: 0 0 15px rgba(186, 85, 211, 0.3);
+    transform: translateX(6px);
+    animation-play-state: paused;
+}
+
+@keyframes buben-post-glow {
+    0%, 100% { opacity: 0.55; filter: drop-shadow(0 0 0px transparent); }
+    50% { opacity: 0.95; filter: drop-shadow(0 0 5px rgba(186, 85, 211, 0.35)); }
 }
 </style>
+
+<!-- ============================================================================== -->
+<!-- СКРИПТ АВТОМАТИЧЕСКОГО СБОРА 3-Х ПОСЛЕДНИХ ПОСТОВ -->
+<!-- ============================================================================== -->
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    // 1. Включаем глобальный плавный скролл для всей страницы при клике
+    document.documentElement.style.scrollBehavior = "smooth";
+
+    // 2. Находим все посты в ленте сайта
+    const posts = Array.from(document.querySelectorAll(".content .post"));
+    const container = document.getElementById("buben-recent-posts");
+    
+    if (!container || posts.length === 0) return;
+
+    // 3. Для корректной навигации расставляем уникальные ID на посты, если их нет
+    posts.forEach((post, index) => {
+        if (!post.id) {
+            post.id = "buben-diary-post-" + index;
+        }
+    });
+
+    // 4. Берем 3 самых последних (крайних в коде) поста страницы
+    // (Поскольку новые записи вы дописываете снизу, берем с конца массива)
+    const recentPosts = posts.slice(-3).reverse();
+
+    container.innerHTML = ""; // Очищаем заглушки
+
+    // 5. Парсим контент и динамически собираем мерцающие плашки в пустоту
+    recentPosts.forEach(post => {
+        const dateElement = post.querySelector(".date");
+        const paragraphElement = post.querySelector("p");
+
+        const dateText = dateElement ? dateElement.textContent.trim() : "Неизвестная дата";
+        let bodyText = paragraphElement ? paragraphElement.textContent.trim() : "";
+        
+        // Аккуратно обрезаем длинный текст, оставляя только интригующее начало
+        if (bodyText.length > 70) {
+            bodyText = bodyText.substring(0, 67) + "...";
+        }
+
+        // Собираем интерактивный узел-ссылку
+        const link = document.createElement("a");
+        link.href = "#" + post.id;
+        link.className = "buben-ghost-link";
+        link.innerHTML = `
+            <span style="color: #dda0dd; font-size: 0.85em; font-weight: 900; letter-spacing: 2px; display: block; margin-bottom: 4px; text-shadow: 0 0 3px rgba(218,112,214,0.5);">✦ ${dateText.toUpperCase()}</span>
+            <span style="font-size: 0.9em; font-style: italic; opacity: 0.85;">${bodyText}</span>
+        `;
+
+        container.appendChild(link);
+    });
+});
+</script>
+<!-- ============================================================================== -->
+
 
 
     <div class="main-container">
