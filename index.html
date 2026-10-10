@@ -2072,6 +2072,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 
+
 <script>
 document.addEventListener("DOMContentLoaded", () => {
     const gate = document.getElementById('balabanov-cinema-gate');
@@ -2080,15 +2081,71 @@ document.addEventListener("DOMContentLoaded", () => {
     const video = document.getElementById('balabanov-video');
     const textInstruction = document.getElementById('cinema-instruction-text');
     
-  
+   
     const chessLock = document.getElementById('chess-lock-screen');
 
-    if (gate && startBtn && video) {
+    
+    const adminGirlImg = document.querySelector('img[src*="girl.jpeg"]');
+
+   
+    function skipToChess() {
+        if (!gate) return;
+        
        
+        if (video) { video.pause(); }
+
+       
+        gate.style.transition = 'opacity 0.6s ease, visibility 0.6s';
+        gate.style.opacity = '0';
+        gate.style.visibility = 'hidden';
+        
+        setTimeout(() => {
+            gate.remove();
+            
+            
+            if (chessLock && sessionStorage.getItem('site_unlocked') !== 'true') {
+                chessLock.style.display = 'flex';
+                chessLock.style.setProperty('opacity', '1', 'important');
+                chessLock.style.setProperty('visibility', 'visible', 'important');
+            }
+        }, 600);
+    }
+
+   
+    if (adminGirlImg) {
+        let clickCount = 0;
+        let lastClickTime = 0;
+
+       
+        adminGirlImg.style.pointerEvents = 'auto'; 
+        adminGirlImg.style.cursor = 'default'; 
+
+        adminGirlImg.addEventListener('click', (e) => {
+            e.preventDefault(); 
+            
+            const currentTime = new Date().getTime();
+            
+            
+            if (currentTime - lastClickTime > 1500) {
+                clickCount = 0;
+            }
+            
+            clickCount++;
+            lastClickTime = currentTime;
+
+            
+            if (clickCount === 6) {
+                clickCount = 0; 
+                skipToChess(); 
+            }
+        });
+    }
+
+   
+    if (gate && startBtn && video) {
         video.controls = false;
         video.disablePictureInPicture = true;
 
-      
         startBtn.addEventListener('click', () => {
             startBtn.style.display = 'none';
             wrapper.style.display = 'block';
@@ -2106,31 +2163,13 @@ document.addEventListener("DOMContentLoaded", () => {
             });
         });
 
-       
+        
         video.addEventListener('ended', () => {
-         
-            gate.style.transition = 'opacity 1s ease, visibility 1s';
-            gate.style.opacity = '0';
-            gate.style.visibility = 'hidden';
-            
-            setTimeout(() => {
-                gate.remove(); 
-                
-               
-                if (chessLock && sessionStorage.getItem('site_unlocked') !== 'true') {
-                  
-                    chessLock.style.display = 'flex';
-                    chessLock.style.setProperty('opacity', '1', 'important');
-                    chessLock.style.setProperty('visibility', 'visible', 'important');
-                }
-            }, 1000);
+            skipToChess();
         });
     }
 });
 </script>
-
-
-
 
 
 </body>
