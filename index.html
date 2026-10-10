@@ -561,9 +561,7 @@
     </div>
    
    
-<!-- ============================================================================== -->
-<!-- ОБНОВЛЕННЫЙ КОНТЕЙНЕР (ОРИГИНАЛЬНАЯ ДЛИНА, СТИЛЬ КОНТЕНТА СО СКРИНШОТА) -->
-<!-- ============================================================================== -->
+
 <div style="
     background-color: #12061f;
     border: 6px double #b19cd9;
@@ -575,7 +573,7 @@
     height: 430px; 
 ">
 
-    <!-- Сетка: Разделение левой интерактивной ниши и правой колонны бабочки -->
+    
     <div style="
         display: flex;
         gap: 40px;
@@ -583,15 +581,15 @@
         height: 100%;
     ">
         
-        <!-- ЛЕВАЯ СТОРОНА: marquee и едкие плашки переходов -->
+        
         <div style="flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 15px; height: 100%;">
             
-            <!-- ТОТ САМЫЙ MARQUEE ИЗ ВАШЕГО ЗАПРОСА — БЕЗ ИЗМЕНЕНИЙ -->
+            
             <marquee bgcolor="#00FF00" scrollamount="12" style="color: #000000; font-weight: 900; padding: 8px; margin: 0; border: 3px solid #FF00FF; font-size: 1.2em; display: block; width: 100%; box-sizing: border-box;">
                 Тень несозданных созданий Колыхается во сне, Словно лопасти латаний На эмалевой стене. Фиолетовые руки На эмалевой стене Полусонно чертят звуки В звонко-звучной тишине…
             </marquee>
             
-            <!-- ИНТЕРАКТИВНЫЙ БЛОК: Сюда скрипт вставит 3 последних поста в стиле вашего контента -->
+            
             <div id="buben-recent-posts" style="
                 display: flex;
                 flex-direction: column;
@@ -599,11 +597,11 @@
                 margin-top: 10px;
                 font-family: 'Times', Georgia, serif;
             ">
-                <!-- Посты генерируются автоматически через JavaScript -->
+                
             </div>
         </div>
 
-        <!-- ПРАВАЯ СТОРОНА: Вертикальная сакральная колонна для бабочки и цветов -->
+        
         <div style="
             flex-shrink: 0;
             width: 300px;
@@ -613,12 +611,12 @@
             justify-content: space-between;
             align-items: center;
         ">
-            <!-- СЛОТ ДЛЯ ЦВЕТОВ НАВЕРХУ -->
+            <!-- цветы вверх -->
             <div style="width: 100%; height: 50px; display: flex; justify-content: center; align-items: center; overflow: hidden;">
                 <img src="IMG_0781.png" alt="" style="max-height: 100%; max-width: 100%; filter: drop-shadow(3px 3px 0px #0a0312);" />
             </div>
 
-            <!-- Центральный элемент: Углокрыльница (300х300) в тягучем анабиозе -->
+            
             <div style="
                 position: relative; 
                 width: 300px; 
@@ -645,7 +643,7 @@
                 " />
             </div>
 
-            <!-- СЛОТ ДЛЯ ЦВЕТОВ ВНИЗУ -->
+            <!-- цыеты даун -->
             <div style="width: 100%; height: 50px; display: flex; justify-content: center; align-items: center; overflow: hidden;">
                 <img src="IMG_0779.jpeg" alt="" style="max-height: 100%; max-width: 100%; filter: drop-shadow(3px 3px 0px #0a0312);" />
             </div>
@@ -654,11 +652,9 @@
     </div>
 </div>
 
-<!-- ============================================================================== -->
-<!-- НОВЫЕ ТЕКСТУРНЫЕ СТИЛИ (ПЛОТНЫЙ ДЕКАДЕНТСКИЙ ДИЗАЙН С ФОТОГРАФИИ) -->
-<!-- ============================================================================== -->
+
 <style>
-/* Колыхание бабочки */
+
 @keyframes butterfly-maximalism {
     0% { transform: scale(1) rotate(-2deg) translateY(0px) translateX(0px); }
     35% { transform: scale(0.98) rotate(1deg) translateY(4px) translateX(-2px); }
@@ -666,28 +662,28 @@
     100% { transform: scale(1.02) rotate(3deg) translateY(-4px) translateX(3px); }
 }
 
-/* 🟢 Копируем дизайн вашего блока со скриншота: зеленый фон, розовая рамка, черный текст */
+
 .buben-ghost-link {
     display: block;
     padding: 12px 16px;
-    background-color: #3cb371 !important; /* Насыщенный зеленый фон из вашего контента */
-    border: 3px solid #ff00ff !important; /* Яркая неоново-розовая обводка */
-    color: #000000 !important; /* Строго черный контрастный текст как на фото */
+    background-color: #3cb371 !important; 
+    border: 3px solid #ff00ff !important; 
+    color: #000000 !important; 
     text-decoration: none !important;
-    box-shadow: 6px 6px 0px #0a0312; /* Жесткая плотная тень без размытия */
+    box-shadow: 6px 6px 0px #0a0312; 
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-/* Эффект при наведении курсора — плашка вдавливается */
+
 .buben-ghost-link:hover {
     transform: translate(3px, 3px);
     box-shadow: 3px 3px 0px #0a0312;
-    background-color: #2ed173 !important; /* Слегка загорается зеленый при наведении */
+    background-color: #2ed173 !important; 
 }
 
-/* Бордовый стиль даты со скриншота */
+
 .buben-link-date {
-    color: #7b2496 !important; /* Пурпурно-бордовый цвет даты */
+    color: #7b2496 !important; 
     font-size: 1.05em;
     font-weight: 900;
     letter-spacing: 0.1em;
@@ -696,7 +692,7 @@
     text-shadow: 0 0 2px rgba(218, 112, 214, 0.4);
 }
 
-/* Текст описания поста */
+
 .buben-link-desc {
     font-size: 0.95em;
     line-height: 1.5;
@@ -709,8 +705,7 @@
 document.addEventListener("DOMContentLoaded", () => {
     document.documentElement.style.scrollBehavior = "smooth";
 
-    // 🔬 Находим ВСЕ `.post`, но тут же фильтруем их!
-    // Пост валиден, только если внутри есть блок с классом `.date`, содержащий текст "1916"
+    
     const validPosts = Array.from(document.querySelectorAll(".content .post")).filter(post => {
         const dateEl = post.querySelector(".date");
         return dateEl && dateEl.textContent.includes("1916");
@@ -719,12 +714,12 @@ document.addEventListener("DOMContentLoaded", () => {
     const container = document.getElementById("buben-recent-posts");
     if (!container || validPosts.length === 0) return;
 
-    // Расставляем уникальные ID-якоря исключительно отфильтрованным постам
+    
     validPosts.forEach((post, index) => {
         post.id = "buben-diary-true-post-" + index;
     });
 
-    // Берем 3 самых свежих отфильтрованных поста с конца вашей ленты
+    
     const recentPosts = validPosts.slice(-3).reverse();
     container.innerHTML = ""; 
 
