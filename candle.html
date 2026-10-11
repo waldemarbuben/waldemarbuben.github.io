@@ -18,11 +18,11 @@
             -webkit-user-select: none;
         }
 
-        /* Лик Хозяйки как священное ядро пространства */
+        
         .shrine-background {
             position: fixed;
             top: 0; left: 0; width: 100vw; height: 100vh;
-            background-image: url('IMG_P_njeb.png');
+            background-image: url('candle.jpeg');
             background-size: cover;
             background-position: center 20%;
             background-repeat: no-repeat;
@@ -31,7 +31,7 @@
             transform: scale(1.02);
         }
 
-        /* Наслоение священного мрака */
+        
         .shrine-shadow-overlay {
             position: fixed;
             top: 0; left: 0; width: 100vw; height: 100vh;
@@ -40,7 +40,7 @@
             pointer-events: none;
         }
 
-        /* Церковный багрово-красный пол с вековой патиной */
+        
         .red-church-floor {
             position: fixed;
             bottom: 0; left: 0; width: 100vw; height: 35vh;
@@ -50,7 +50,7 @@
             box-shadow: inset 0 20px 40px rgba(0,0,0,0.9), 0 -10px 30px rgba(140, 42, 26, 0.15);
         }
 
-        /* Текстурный слой на полу - SVG-шум воска и древнего камня */
+       
         .floor-patina {
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
@@ -59,7 +59,7 @@
             background-image: url("data:image/svg+xml,%3Csvg width='120' height='120' viewBox='0 0 120 120' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)'/%3E%3C/svg%3E");
         }
 
-        /* Контейнер элементов переднего плана */
+       
         .shrine-stage {
             position: relative;
             width: 100%;
@@ -72,7 +72,7 @@
             padding: 40px 20px;
         }
 
-        /* Текст-инструкция дореволюционным духом */
+       
         .instruction-banner {
             font-size: 13px;
             letter-spacing: 6px;
@@ -88,7 +88,7 @@
             text-align: center;
         }
 
-        /* ---- ЛАМПАДКА ВЕРТИКАЛЬНАЯ ---- */
+       
         .hanging-lamp-container {
             position: absolute;
             left: 10%;
@@ -136,7 +136,7 @@
             animation: lampFlicker 0.12s ease-in-out infinite alternate;
         }
 
-        /* ---- ГОТИЧЕСКИЙ НАПОЛЬНЫЙ ПОДСВЕЧНИК ---- */
+        
         .altar-podium-zone {
             position: absolute;
             right: 15%;
@@ -188,7 +188,7 @@
             transform: scale(1.1);
         }
 
-        /* ---- ИЗЯЩНАЯ СВЕЧА ---- */
+        
         .candle-spawn-anchor {
             position: absolute;
             left: 30%;
@@ -226,7 +226,7 @@
             background: #caa148; border-radius: 2px; opacity: 0.9;
         }
 
-        /* ---- СВЯЩЕННОЕ ПЛАМЯ ---- */
+        
         .sacred-flame-core {
             display: none;
             position: absolute;
@@ -250,7 +250,7 @@
             pointer-events: none;
         }
 
-        /* Кнопка исхода */
+       
         .gate-return-trigger {
             display: none;
             background: linear-gradient(180deg, #2b1406 0%, #120602 50%, #050201 100%);
@@ -332,7 +332,7 @@
         const flame = document.getElementById('flame');
         const returnBtn = document.getElementById('returnBtn');
 
-        // ПК Drag & Drop
+       
         candle.addEventListener('dragstart', (e) => {
             e.dataTransfer.setData('text/plain', 'ignite');
         });
@@ -346,7 +346,7 @@
             igniteCandle();
         });
 
-        // Мобильный Touch интерфейс
+        
         let isMoving = false;
         candle.addEventListener('touchstart', () => { isMoving = true; });
 
