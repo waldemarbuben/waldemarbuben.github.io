@@ -2487,7 +2487,8 @@ document.addEventListener("DOMContentLoaded", () => {
         const textInstruction = document.getElementById('cinema-instruction-text');
         const adminGirlImg = document.querySelector('img[src="kover.JPG"]');
 
-        if (sessionStorage.getItem('site_unlocked') === 'true') {
+        
+        if (sessionStorage.getItem('balabanov_watched') === 'true' || sessionStorage.getItem('site_unlocked') === 'true') {
             if (gate) gate.remove();
             return; 
         }
@@ -2495,6 +2496,7 @@ document.addEventListener("DOMContentLoaded", () => {
         function skipToIznanka() {
             if (!gate) return;
             if (video) { video.pause(); }
+            sessionStorage.setItem('balabanov_watched', 'true');
             window.location.href = 'iznanka.html';
         }
 
@@ -2538,7 +2540,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 });
             });
 
+           
             video.addEventListener('ended', () => {
+                sessionStorage.setItem('balabanov_watched', 'true'); // <--- ВОТ ЭТА СТРОЧКА!
                 window.location.href = 'iznanka.html'; 
             });
         }
