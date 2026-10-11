@@ -44,25 +44,34 @@
             font-style: normal;
         }
 
-        /* -------------------------------------------------------------
-           ОСНОВАНИЕ ХРАМА И ОБЩИЙ БАРОЧНЫЙ КОРПУС
-        ------------------------------------------------------------- */
+       
         body {
-            background-image: url('IMG_9799.jpg');
-            background-attachment: fixed; 
-            background-position: center;
-            background-size: cover; 
+        background-image: 
+        radial-gradient(ellipse at 50% 30%, rgba(30, 14, 5, 0.45) 0%, rgba(8, 3, 1, 0.78) 100%),
+        url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23d4af37' stroke-width='0.65' stroke-opacity='0.22'%3E%3Cpath d='M40 0 C28 20 20 28 0 40 C20 52 28 60 40 80 C52 60 60 52 80 40 C60 28 52 20 40 0 Z'/%3E%3Ccircle cx='40' cy='40' r='18' stroke-dasharray='3 3'/%3E%3Cpath d='M40 12 Q52 28 68 40 Q52 52 40 68 Q28 52 12 40 Q28 28 40 12 Z' fill='%23caa148' fill-opacity='0.04'/%3E%3C/g%3E%3C/svg%3E"),
             
-            color: #f7eed8; 
-            font-family: "Georgia", "Palatino Linotype", "Times New Roman", serif;
-            max-width: 1320px; 
-            margin: 50px auto;
-            padding: 0 25px;
-            line-height: 1.85;
-            letter-spacing: 0.035em;
-            
-            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.95), 0 0 10px rgba(184, 134, 11, 0.22);
-        }
+        url('IMG_9799.jpg');
+
+    
+    background-repeat: no-repeat, repeat, no-repeat;
+    background-size: cover, 80px 80px, cover;
+    background-position: center, top left, center;
+    background-attachment: fixed, fixed, fixed;
+    
+    
+    background-color: #0d0502;
+    background-blend-mode: normal, overlay, normal;
+
+    color: #f7eed8; 
+    font-family: "Georgia", "Palatino Linotype", "Times New Roman", serif;
+    max-width: 1320px; 
+    margin: 50px auto;
+    padding: 0 25px;
+    line-height: 1.85;
+    letter-spacing: 0.035em;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.95), 0 0 10px rgba(184, 134, 11, 0.22);
+}
+
 
         ::selection { 
             background: #4a2808; 
@@ -77,9 +86,7 @@
             position: relative;
         }
 
-        /* -------------------------------------------------------------
-           БОКОВЫЕ КОВАНЫЕ КАНДЕЛЯБРЫ И РАСТЕНИЯ
-        ------------------------------------------------------------- */
+        
         .floral-side-left {
             position: fixed;
             left: 0;
@@ -143,9 +150,7 @@
             filter: sepia(30%) contrast(1.25) drop-shadow(0 8px 18px rgba(0,0,0,0.85));
         }
 
-        /* -------------------------------------------------------------
-           ЛЕВЫЙ АЛТАРНЫЙ ПРИТВОРЪ (SIDEBAR-LEFT): ЧЕРНЕНОЕ ЗОЛОТО И ЛАДАН
-        ------------------------------------------------------------- */
+        
         .sidebar-left {
             width: 240px;
             background-color: #0c0502;
@@ -166,9 +171,7 @@
             position: relative;
         }
 
-        /* -------------------------------------------------------------
-           ЦЕНТРАЛЬНЫЙ АЛТАРНЫЙ КОВЧЕГЪ / СВЯЩЕННЫЙ МАНУСКРИПТ (CONTENT)
-        ------------------------------------------------------------- */
+        
         .content {
             flex-grow: 1;
             max-width: 620px;
@@ -215,9 +218,7 @@
             z-index: 1;
         }
 
-        /* -------------------------------------------------------------
-           ПРАВЫЙ АЛТАРНЫЙ ПРИТВОРЪ (SIDEBAR-RIGHT): ПАНИКАДИЛО И ВОТИВЫ
-        ------------------------------------------------------------- */
+        
         .sidebar-right {
             width: 360px;
             background-color: #0c0502;
@@ -257,9 +258,7 @@
             border-color: #ffd977;
         }
 
-        /* -------------------------------------------------------------
-           БАРОЧНЫЕ ВОТИВНЫЕ КНОПКИ (ПЛАКЕТЫ ИЗ ЧЕРНЕНОЙ ЛАТУНИ И ЗОЛОТА)
-        ------------------------------------------------------------- */
+        
         .play-btn {
             background: linear-gradient(180deg, #2c1606 0%, #100602 50%, #060201 100%) !important;             
             color: #ffe6aa !important;       
@@ -321,9 +320,7 @@
             text-shadow: 0 2px 4px #000, 0 0 10px rgba(212, 175, 55, 0.4);
         }
 
-        /* -------------------------------------------------------------
-           ПОСТЫ 1916 ГОДА (МАНУСКРИПТНЫЕ ПАРАГРАФЫ)
-        ------------------------------------------------------------- */
+   
         .post {
             margin-bottom: 65px;
             padding-bottom: 45px;
@@ -379,9 +376,7 @@
             text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 15px #d4af37;
         }
 
-        /* -------------------------------------------------------------
-           АЛХИМИЧЕСКИЙ МАНИФЕСТЪ В БОКОВИНЕ
-        ------------------------------------------------------------- */
+        
         .alchemy-manifest {
             margin-top: 30px;
             background: radial-gradient(ellipse at center, #261205 0%, #0d0401 100%);
@@ -413,9 +408,7 @@
             text-shadow: 0 1px 3px #000 !important; 
         }
 
-        /* -------------------------------------------------------------
-           ОКЛАДЫ ДЛЯ ЖИВОПИСНЫХ ПОЛОТЕН (PICS)
-        ------------------------------------------------------------- */
+  
         img[src^="pic"] {
             box-sizing: border-box;
             max-width: 100%;
@@ -478,165 +471,12 @@
             50% { transform: translateY(50vh) rotate(180deg) translateX(25px); opacity: 0.85; }
             100% { transform: translateY(105vh) rotate(360deg) translateX(-20px); opacity: 0.2; }
         }
-
-        /* -------------------------------------------------------------
-           ШАХМАТНЫЙ ЗАТВОРЪ (ДВОРЕЦЪ КОРОЛЕВЫ)
-        ------------------------------------------------------------- */
-        #chess-lock-screen {
-            position: fixed;
-            top: 0; left: 0; right: 0; bottom: 0;
-            width: 100vw; height: 100vh;
-            background-image: url('IMG_0721.jpeg'); 
-            background-size: cover;       
-            background-position: center;  
-            background-repeat: no-repeat;  
-            background-attachment: fixed;  
-            z-index: 999998; 
-            display: flex;  
-            justify-content: center;
-            align-items: center;
-            font-family: "Georgia", "Times New Roman", serif;
-            user-select: none;
-            box-sizing: border-box;
-            padding: 15px;
-            visibility: hidden;
-            transform: scale(0.95);
-            transition: transform 0.8s ease, visibility 0.8s ease;
-        }
-
-        .chess-container {
-            background: radial-gradient(ellipse at center, rgba(38, 18, 5, 0.96) 0%, rgba(10, 4, 1, 0.98) 100%); 
-            padding: 30px 25px; 
-            border: 5px ridge #caa148;
-            outline: 2px solid #1a0802;
-            outline-offset: -8px;
-            text-align: center;
-            color: #faebd0;
-            box-shadow: 
-              0 0 0 4px #0a0402,
-              0 0 0 8px #7d5923,
-              0 35px 80px rgba(0, 0, 0, 0.99), 
-              0 0 50px rgba(212, 175, 55, 0.35);
-            max-width: 410px;
-            width: 100%;
-            box-sizing: border-box;
-        }
-
-        .chess-container h2 {
-            font-family: "Georgia", serif;
-            color: #ffd977;
-            text-shadow: 0 0 14px rgba(255, 215, 0, 0.8), 0 2px 4px #000;
-            margin-top: 0;
-            margin-bottom: 10px;
-            font-size: 19px; 
-            letter-spacing: 0.12em;
-            line-height: 1.4;
-            text-transform: uppercase;
-        }
-
-        .chess-hint {
-            font-style: italic;
-            font-size: 13px;
-            color: #d8b26e;
-            margin-bottom: 20px;
-            text-shadow: 0 1px 2px #000;
-        }
-
-        #chess-board {
-            display: grid;
-            grid-template-columns: repeat(8, 1fr);
-            grid-template-rows: repeat(8, 1fr);
-            width: 100%;
-            aspect-ratio: 1 / 1; 
-            max-width: 320px;
-            max-height: 320px;
-            margin: 0 auto;
-            border: 4px ridge #caa148;
-            box-shadow: 0 0 25px rgba(0, 0, 0, 0.95), inset 0 0 15px rgba(0,0,0,0.9);
-            position: relative;
-        }
-
-        #chess-board.shake {
-            animation: boardShake 0.4s ease-in-out;
-        }
-
-        @keyframes boardShake {
-            0%, 100% { transform: translateX(0); }
-            20%, 60% { transform: translateX(-6px); }
-            40%, 80% { transform: translateX(6px); }
-        }
-
-        .chess-cell {
-            width: 100%;
-            height: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            box-sizing: border-box;
-        }
-
-        .chess-cell.light { background-color: #3b2210; box-shadow: inset 0 0 5px rgba(0,0,0,0.5); }
-        .chess-cell.dark { background-color: #120602; box-shadow: inset 0 0 8px rgba(0,0,0,0.8); }
-
-        .chess-queen {
-            font-size: 30px; 
-            color: #ffffff;
-            text-shadow: 0 0 14px rgba(255, 235, 170, 0.95), 0 0 25px rgba(255, 215, 0, 0.8), 0 0 4px #000; 
-            cursor: grab;
-            z-index: 10;
-            position: relative;
-            left: 0;
-            top: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-            height: 100%;
-        }
-
-        @media (min-width: 350px) {
-            .chess-queen { font-size: 38px; }
-        }
-
-        .chess-queen:active { cursor: grabbing; }
-
-        .chess-queen.whistle-back {
-            transition: transform 0.25s cubic-bezier(0.25, 1, 0.5, 1);
-        }
-
-        .chess-cell.drag-over {
-            box-shadow: inset 0 0 20px rgba(255, 215, 0, 0.95);
-            background-color: #5a3412 !important;
-        }
-
-        #chess-error {
-            font-family: "Georgia", serif;
-            font-style: italic;
-            font-size: 13.5px;
-            margin-top: 18px;
-            min-height: 20px; 
-            letter-spacing: 0.08em;
-            text-shadow: 0 0 8px rgba(255, 60, 60, 0.7);
-        }
-
-        @media (max-width: 950px) {
-            body {
-                margin: 20px auto; 
-                background-image: url('IMG_9779.jpeg');
-                background-repeat: repeat-y;
-                background-size: 100% auto;       
-                background-position: center top;   
-                background-attachment: scroll; 
-            }
-            .floral-side-left, .floral-side-right { display: none; }
-            .main-container { flex-direction: column; align-items: center; }
-            .sidebar-left, .content, .sidebar-right { width: 100%; max-width: 100%; }
-        }
+        
     </style>
 </head>
 <body>
 
-<!-- БАЛАБАНОВСКИЙ КИНО-ПОРТАЛ (ПОЛНОСТЬЮ СОХРАНЁН) -->
+
 <div id="balabanov-cinema-gate" style="
     position: fixed;
     top: 0; left: 0; right: 0; bottom: 0;
@@ -746,25 +586,12 @@
     </div>
 </div>
 
-<!-- ШАХМАТНЫЙ ЗАТВОР ДВОРЦА КОРОЛЕВЫ -->
-<div id="chess-lock-screen">
-    <div class="chess-container">
-      <h2>Найди открытый вход в закрытый дворец королевы</h2>
-      <p class="chess-hint">Сделайте убедительный ход для паломничества</p>
-      <div id="chess-board"></div>
-      <div id="chess-error" style="display: none; color: #ff5555; margin-top: 15px; font-size: 14px;">
-        Ход записан. Доступ отклонен.
-      </div>
-    </div>
-</div>
     
 <div class="floral-side-left"></div>
 <img src="IMG_0704.png" class="flower-accent-roses" alt="roses">
 <div class="floral-side-right"></div>
 
-<!-- =============================================================
-     ВЕЛИКИЙ АРХИТЕКТОНИЧЕСКИЙ ФРОНТОНЪ: ХРАМЪ ВАЛЬКИРИИ
-============================================================= -->
+
 <div style="
     text-align: center; 
     margin: 40px auto 25px auto; 
@@ -804,7 +631,7 @@
     </div>
 </div>
 
-<!-- ЗОЛОТОЙ БАРОЧНЫЙ ФРИЗЪ (БЕГУЩАЯ СТРОКА СУСАЛЬНОГО ЧЕРНЕНИЯ) -->
+
 <marquee scrollamount="11" style="
     background: linear-gradient(90deg, #180902 0%, #3e220a 25%, #180902 50%, #3e220a 75%, #180902 100%);
     color: #ffd977; 
@@ -825,9 +652,7 @@
     Тень несозданных созданий Колыхается во сне, Словно лопасти латаний На эмалевой стене. Фиолетовые руки На эмалевой стене Полусонно чертят звуки В звонко-звучной тишине…
 </marquee>
 
-<!-- =============================================================
-     СРЕДНИЙ КОВЧЕГЪ С НЕДАВНИМИ ПИСЬМЕНАМИ И БАБОЧКОЙ
-============================================================= -->
+
 <div style="
     background-color: #0c0502;
     background-image: 
@@ -1041,12 +866,10 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 </script>
 
-    <!-- =============================================================
-         ГЛАВНЫЙ АЛТАРНЫЙ ТРИПТИХЪ (ЛЕВЫЙ ПРИТВОРЪ / МАНУСКРИПТЪ / ПРАВЫЙ ПРИТВОРЪ)
-    ============================================================= -->
+   
     <div class="main-container">
 
-        <!-- ЛЕВЫЙ БАРОЧНЫЙ ПРИТВОРЪ -->
+        
         <div class="sidebar-left">
             <div style="margin-bottom: 35px; border-bottom: 2px solid #7d5923; padding-bottom: 20px; text-align: center;">
                 <div class="track-title">Литѣратура по бѣспроволочному</div>
@@ -1197,7 +1020,7 @@ document.addEventListener("DOMContentLoaded", () => {
             </div>
         </div>
 
-        <!-- ЦЕНТРАЛЬНЫЙ СВЯЩЕННЫЙ МАНУСКРИПТЪ -->
+        
         <div class="content">
             
             <img src="Cvetok1.PNG" class="flower-accent-datura" alt="datura"> 
@@ -1348,7 +1171,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 </div>
             </div>
 
-            <!-- ЗАКРЫТЫЙ ПРЕДЕЛ КАРТИН С ПРОКЛЯТИЕМ И ВЫБОРОМ -->
+            
             <div class="post" style="margin-bottom: 0; padding-bottom: 0; border-bottom: none;">
                 <img src="IMG_0346.JPG" alt="" style="border: 7px solid #000000; max-width: 100%; height: auto; margin-top: 20px; box-shadow: 0 10px 30px #000;">    
                 <img src="IMG_0371.webp" alt="manifestation" width="100" height="100" style="display: block; margin: 15px auto; filter: sepia(30%);">
@@ -1406,7 +1229,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         </div>
 
-        <!-- ПРАВЫЙ БАРОЧНЫЙ ПРИТВОРЪ -->
+        
         <div class="sidebar-right">
             <img src="IMG_0100.jpg" alt="manifestation" class="divine-image">
             <p style="font-size: 0.9em; color: #ffd977; margin-top: 15px; font-weight: 900;"></p>
@@ -1831,66 +1654,59 @@ document.addEventListener("DOMContentLoaded", () => {
     </div>
 
    
-    <script>
-      fetch('https://mileshilliard.com').catch(() => {});
+  <script>       
+  fetch('https://mileshilliard.com').catch(() => {});        
+  const audioItems = Array.from(document.querySelectorAll('.audio-item:not(.unique-loop-player)'));        
+  audioItems.forEach((item, index) => {         
+    const audio = item.querySelector('.my-audio');         
+    const btn = item.querySelector('.play-btn');          
+    if (audio && btn) {           
+      const trackName = btn.textContent;            
+      btn.addEventListener('click', () => {             
+        if (audio.paused) {               
+          document.querySelectorAll('.my-audio').forEach(otherAudio => {                 
+            if (otherAudio !== audio) {                   
+              otherAudio.pause();                   
+              const otherBtn = otherAudio.closest('.audio-item').querySelector('.play-btn');                   
+              if (otherBtn) {                     
+                otherBtn.textContent = otherBtn.textContent.replace('  ПАУЗА', '').replace('  ИГРАЕТ', '');                   
+              }                 
+            }               
+          });                
+          audio.play();               
+          btn.textContent = trackName + '  ИГРАЕТ';                
+          if (trackName.includes("Где среди пампасов")) {                 
+            fetch('https://mileshilliard.com')                   
+              .then(() => {                     
+                setTimeout(() => {                       
+                  window.location.href = "iznanka.html";                      
+                }, 150);                   
+              })                   
+              .catch(() => {                     
+                window.location.href = "iznanka.html";                    
+              });               
+          }              
+        } else {               
+          audio.pause();               
+          btn.textContent = trackName + '  ПАУЗА';             
+        }           
+      });            
+      audio.addEventListener('ended', () => {             
+        btn.textContent = trackName;             
+        const nextItem = audioItems[index + 1];             
+        if (nextItem) {               
+          const nextAudio = nextItem.querySelector('.my-audio');               
+          const nextBtn = nextItem.querySelector('.play-btn');               
+          if (nextAudio && nextBtn) {                 
+            nextAudio.play();                 
+            nextBtn.textContent = nextBtn.textContent + '  ИГРАЕТ';               
+          }             
+        }           
+      });         
+    }       
+  });     
+</script>
 
-      const audioItems = Array.from(document.querySelectorAll('.audio-item:not(.unique-loop-player)'));
-
-      audioItems.forEach((item, index) => {
-        const audio = item.querySelector('.my-audio');
-        const btn = item.querySelector('.play-btn');
-
-        if (audio && btn) {
-          const trackName = btn.textContent;
-
-          btn.addEventListener('click', () => {
-            if (audio.paused) {
-              document.querySelectorAll('.my-audio').forEach(otherAudio => {
-                if (otherAudio !== audio) {
-                  otherAudio.pause();
-                  const otherBtn = otherAudio.closest('.audio-item').querySelector('.play-btn');
-                  if (otherBtn) {
-                    otherBtn.textContent = otherBtn.textContent.replace('  ПАУЗА', '').replace('  ИГРАЕТ', '');
-                  }
-                }
-              });
-
-              audio.play();
-              btn.textContent = trackName + '  ИГРАЕТ';
-
-              if (trackName.includes("Где среди пампасов")) {
-                fetch('https://mileshilliard.com')
-                  .then(() => {
-                    setTimeout(() => {
-                      window.location.href = "iznanka.html"; 
-                    }, 150);
-                  })
-                  .catch(() => {
-                    window.location.href = "iznanka.html"; 
-                  });
-              }
-
-            } else {
-              audio.pause();
-              btn.textContent = trackName + '  ПАУЗА';
-            }
-          });
-
-          audio.addEventListener('ended', () => {
-            btn.textContent = trackName;
-            const nextItem = audioItems[index + 1];
-            if (nextItem) {
-              const nextAudio = nextItem.querySelector('.my-audio');
-              const nextBtn = nextItem.querySelector('.play-btn');
-              if (nextAudio && nextBtn) {
-                nextAudio.play();
-                nextBtn.textContent = nextBtn.textContent + '  ИГРАЕТ';
-              }
-            }
-          });
-        }
-      });
-    </script>
 
     <script>
       document.addEventListener("DOMContentLoaded", () => {
@@ -1963,33 +1779,37 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     </script>
 
-    <script>
-      document.querySelectorAll('.unique-loop-player').forEach(item => {
-        const audio = item.querySelector('.my-audio');
-        const btn = item.querySelector('.play-btn');
-        if (audio && btn) {
-          const trackName = btn.textContent;
-          btn.addEventListener('click', () => {
-            if (audio.paused) {
-              document.querySelectorAll('.my-audio').forEach(otherAudio => {
-                if (otherAudio !== audio) {
-                  otherAudio.pause();
-                  const otherBtn = otherAudio.closest('.audio-item').querySelector('.play-btn');
-                  if (otherBtn) {
-                    otherBtn.textContent = otherBtn.textContent.replace(' ⏸ ПАУЗА', '').replace(' ▶ ИГРАЕТ', '');
-                  }
-                }
-              });
-              audio.play();
-              btn.textContent = trackName + '  ИГРАЕТ';
-            } else {
-              audio.pause();
-              btn.textContent = trackName + '  ПАУЗА';
+   <script>
+  document.querySelectorAll('.unique-loop-player').forEach(item => {
+    const audio = item.querySelector('.my-audio');
+    const btn = item.querySelector('.play-btn');
+    if (audio && btn) {
+      const trackName = btn.textContent;
+      btn.addEventListener('click', () => {
+        if (audio.paused) {
+          document.querySelectorAll('.my-audio').forEach(otherAudio => {
+            if (otherAudio !== audio) {
+              otherAudio.pause();
+              
+              const otherItem = otherAudio.closest('.audio-item') || otherAudio.closest('.unique-loop-player');
+              const otherBtn = otherItem ? otherItem.querySelector('.play-btn') : null;
+              if (otherBtn) {
+                
+                otherBtn.textContent = otherBtn.textContent.replace('  ПАУЗА', '').replace('  ИГРАЕТ', '');
+              }
             }
           });
+          audio.play();
+          btn.textContent = trackName + '  ИГРАЕТ';
+        } else {
+          audio.pause();
+          btn.textContent = trackName + '  ПАУЗА';
         }
       });
-    </script>
+    }
+  });
+</script>
+
     
     <script>
     document.addEventListener('DOMContentLoaded', () => {
@@ -2147,187 +1967,7 @@ document.addEventListener("DOMContentLoaded", () => {
       document.assets = true;
     </script>
 
-    <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const lockScreen = document.getElementById('chess-lock-screen');
-      if (!lockScreen) return;
-
-      if (sessionStorage.getItem('site_unlocked') === 'true') {
-        lockScreen.remove();
-        return;
-      }
-      if (sessionStorage.getItem('site_unlocked') !== 'true') { 
-        lockScreen.style.display = 'flex'; 
-      }
-
-      const sadTrombone = new Audio('sad-trombone.mp3');
-      
-      let audioActivated = false;
-      function initMobileAudio() {
-        if (audioActivated) return;
-        sadTrombone.play().then(() => {
-          sadTrombone.pause(); 
-          sadTrombone.currentTime = 0;
-          audioActivated = true;
-        }).catch(e => console.log('Ожидание первого честного клика...'));
-      }
-      
-      window.addEventListener('touchstart', initMobileAudio, { passive: true });
-      window.addEventListener('click', initMobileAudio);
-
-      const board = document.getElementById('chess-board');
-      const errorMsg = document.getElementById('chess-error');
-      const files = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
-      const ranks = ['8', '7', '6', '5', '4', '3', '2', '1'];
-      const targetCellId = 'a6';
-      
-      let startCellId = 'd1'; 
-      do {
-        const randomFile = files[Math.floor(Math.random() * files.length)];
-        const randomRank = ranks[Math.floor(Math.random() * ranks.length)];
-        startCellId = randomFile + randomRank;
-      } while (startCellId === targetCellId);
-
-      let previousCellId = startCellId;
-      let isLocked = false;
-
-      ranks.forEach((rank, rIdx) => {
-        files.forEach((file, fIdx) => {
-          const cell = document.createElement('div');
-          const cellId = file + rank;
-          cell.id = 'cell-' + cellId;
-          cell.className = 'chess-cell ' + ((rIdx + fIdx) % 2 === 0 ? 'light' : 'dark');
-          
-          cell.addEventListener('dragover', (e) => e.preventDefault());
-          cell.addEventListener('dragenter', () => {
-            if (!isLocked) cell.classList.add('drag-over');
-          });
-          cell.addEventListener('dragleave', () => cell.classList.remove('drag-over'));
-          cell.addEventListener('drop', (e) => {
-            cell.classList.remove('drag-over');
-            if (isLocked) return;
-            const queen = document.querySelector('.chess-queen');
-            if (queen) {
-              if (cellId === previousCellId) return;
-              handleMove(queen, cell, cellId);
-            }
-          });
-          board.appendChild(cell);
-        });
-      });
-
-      const queen = document.createElement('div');
-      queen.className = 'chess-queen';
-      queen.innerText = '♛';
-      queen.setAttribute('draggable', 'true');
-
-      queen.addEventListener('dragstart', (e) => {
-        if (isLocked) {
-          e.preventDefault();
-          return;
-        }
-        const currentCell = queen.parentElement;
-        if (currentCell) previousCellId = currentCell.id.replace('cell-', '');
-      });
-
-      let activeTouchCell = null;
-      queen.addEventListener('touchstart', () => {
-        if (isLocked) return;
-        initMobileAudio(); 
-        const currentCell = queen.parentElement;
-        if (currentCell) previousCellId = currentCell.id.replace('cell-', '');
-      });
-      
-      queen.addEventListener('touchmove', (e) => {
-        if (isLocked) return;
-        e.preventDefault();
-        const touch = e.touches[0];
-        const element = document.elementFromPoint(touch.clientX, touch.clientY);
-        const cell = element ? element.closest('.chess-cell') : null;
-        document.querySelectorAll('.chess-cell').forEach(c => c.classList.remove('drag-over'));
-        if (cell) {
-          cell.classList.add('drag-over');
-          activeTouchCell = cell;
-        }
-      });
-
-      queen.addEventListener('touchend', () => {
-        document.querySelectorAll('.chess-cell').forEach(c => c.classList.remove('drag-over'));
-        if (isLocked) return;
-        if (activeTouchCell) {
-          const cellId = activeTouchCell.id.replace('cell-', '');
-          if (cellId !== previousCellId) {
-            handleMove(queen, activeTouchCell, cellId);
-          }
-          activeTouchCell = null;
-        }
-      });
-
-      const startCell = document.getElementById('cell-' + startCellId);
-      if (startCell) startCell.appendChild(queen);
-
-      function startLockTimer() {
-        isLocked = true;
-        queen.setAttribute('draggable', 'false');
-        queen.style.cursor = 'not-allowed';
-        
-        let timeLeft = 60;
-        errorMsg.style.display = 'block';
-        errorMsg.innerText = `Неверный ход. Попробуйте через ${timeLeft} сек...`;
-
-        const interval = setInterval(() => {
-          timeLeft--;
-          if (timeLeft <= 0) {
-            clearInterval(interval);
-            isLocked = false;
-            queen.setAttribute('draggable', 'true');
-            queen.style.cursor = 'grab';
-            errorMsg.style.display = 'none';
-          } else {
-            errorMsg.innerText = `Неверный ход. Попробуйте через ${timeLeft} сек...`;
-          }
-        }, 1000);
-      }
-
-      function handleMove(queenElement, targetCellElement, newCellId) {
-        if (newCellId === targetCellId) {
-          targetCellElement.appendChild(queenElement);
-          sessionStorage.setItem('site_unlocked', 'true');
-          lockScreen.style.transition = 'opacity 0.8s ease, visibility 0.8s';
-          lockScreen.style.opacity = '0';
-          lockScreen.style.visibility = 'hidden';
-          setTimeout(() => lockScreen.remove(), 800);
-        } else {
-          const oldCellElement = document.getElementById('cell-' + previousCellId);
-          const oldRect = oldCellElement.getBoundingClientRect();
-          const newRect = targetCellElement.getBoundingClientRect();
-          const diffX = newRect.left - oldRect.left;
-          const diffY = newRect.top - oldRect.top;
-
-          targetCellElement.appendChild(queenElement);
-          queenElement.style.transform = `translate(${-diffX}px, ${-diffY}px)`;
-          
-          board.classList.add('shake');
-
-          sadTrombone.currentTime = 0;
-          sadTrombone.play().catch(err => console.log("Браузер сопротивляется звуку: ", err));
-
-          setTimeout(() => board.classList.remove('shake'), 400);
-
-          requestAnimationFrame(() => {
-            queenElement.classList.add('whistle-back');
-            queenElement.style.transform = 'translate(0px, 0px)';
-          });
-
-          setTimeout(() => {
-            queenElement.classList.remove('whistle-back');
-            oldCellElement.appendChild(queenElement);
-            startLockTimer();
-          }, 250);
-        }
-      }
-    });
-    </script>
+   
 
     <script>
     document.addEventListener("DOMContentLoaded", function() {
@@ -2542,7 +2182,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
            
             video.addEventListener('ended', () => {
-                sessionStorage.setItem('balabanov_watched', 'true'); // <--- ВОТ ЭТА СТРОЧКА!
+                sessionStorage.setItem('balabanov_watched', 'true'); 
                 window.location.href = 'iznanka.html'; 
             });
         }
