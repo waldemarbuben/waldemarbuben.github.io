@@ -20,26 +20,33 @@
             font-style: normal;
         }
 
-        /* -------------------------------------------------------------
-           ОСНОВАНИЕ ИЗНАНКИ: НОЧНАЯ ПУРПУРНАЯ СУБСТАНЦИЯ И ТЕМНЫЙ ОБСИДИАН
-           (Родственный Храму, но инвертированный в тайну ночной крипты)
-        ------------------------------------------------------------- */
+        
         body {
-            background-image: url('IMG_0499.jpeg');
-            background-attachment: fixed; 
-            background-position: center;
-            background-size: cover; 
-            
-            color: #f5eaf8; 
-            font-family: "Georgia", "Palatino Linotype", "Times New Roman", serif;
-            max-width: 1320px; 
-            margin: 50px auto;
-            padding: 0 25px;
-            line-height: 1.85;
-            letter-spacing: 0.035em;
-            
-            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.98), 0 0 12px rgba(168, 85, 247, 0.28);
-        }
+        background-image: 
+        radial-gradient(ellipse at 50% 30%, rgba(30, 14, 5, 0.45) 0%, rgba(8, 3, 1, 0.78) 100%),
+        url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23d4af37' stroke-width='0.65' stroke-opacity='0.22'%3E%3Cpath d='M40 0 C28 20 20 28 0 40 C20 52 28 60 40 80 C52 60 60 52 80 40 C60 28 52 20 40 0 Z'/%3E%3Ccircle cx='40' cy='40' r='18' stroke-dasharray='3 3'/%3E%3Cpath d='M40 12 Q52 28 68 40 Q52 52 40 68 Q28 52 12 40 Q28 28 40 12 Z' fill='%23caa148' fill-opacity='0.04'/%3E%3C/g%3E%3C/svg%3E"),
+        url('IMG_0499.jpeg');
+
+    
+    background-repeat: no-repeat, repeat, no-repeat;
+    background-size: cover, 80px 80px, cover;
+    background-position: center, top left, center;
+    background-attachment: fixed, fixed, fixed;
+    
+    
+    background-color: #0d0502;
+    background-blend-mode: normal, overlay, normal;
+
+    color: #f7eed8; 
+    font-family: "Georgia", "Palatino Linotype", "Times New Roman", serif;
+    max-width: 1320px; 
+    margin: 50px auto;
+    padding: 0 25px;
+    line-height: 1.85;
+    letter-spacing: 0.035em;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.95), 0 0 10px rgba(184, 134, 11, 0.22);
+}
+
 
         ::selection { 
             background: #3b074d; 
@@ -54,9 +61,7 @@
             position: relative;
         }
 
-        /* -------------------------------------------------------------
-           ЛЕВЫЙ ПРИТВОРЪ ИЗНАНКИ (SIDEBAR-LEFT): ТЕМНОЕ ЗОЛОТО И ФИОЛЕТОВАЯ ЧЕРНЬ
-        ------------------------------------------------------------- */
+        
         .sidebar-left {
             width: 240px;
             background-color: #0b020e;
@@ -77,10 +82,7 @@
             position: relative;
         }
 
-        /* -------------------------------------------------------------
-           ЦЕНТРАЛЬНЫЙ АЛТАРНЫЙ КОВЧЕГЪ ИЗНАНКИ (CONTENT)
-           Глубокий изумрудно-тирийский нефрит с сусальной патиной
-        ------------------------------------------------------------- */
+       
         .content {
             flex-grow: 1;
             max-width: 620px;
@@ -127,9 +129,7 @@
             z-index: 1;
         }
 
-        /* -------------------------------------------------------------
-           ПРАВЫЙ ПРИТВОРЪ ИЗНАНКИ (SIDEBAR-RIGHT)
-        ------------------------------------------------------------- */
+        
         .sidebar-right {
             width: 360px;
             background-color: #0b020e;
@@ -169,9 +169,7 @@
             border-color: #ffd977;
         }
 
-        /* -------------------------------------------------------------
-           БАРОЧНЫЕ ВОТИВНЫЕ КНОПКИ ИЗНАНКИ
-        ------------------------------------------------------------- */
+      
         .play-btn {
             background: linear-gradient(180deg, #2b0b38 0%, #110317 50%, #060108 100%) !important;             
             color: #ffe6aa !important;       
@@ -335,9 +333,7 @@
             opacity: 0.95;
         }
 
-        /* -------------------------------------------------------------
-           ШАХМАТНЫЙ ЗАТВОРЪ (ТОЧНАЯ ИНКОРПОРАЦИЯ ИЗ INDEX С РАЗБЛОКИРОВКОЙ)
-        ------------------------------------------------------------- */
+     
         #chess-lock-screen {
             position: fixed;
             top: 0; left: 0; right: 0; bottom: 0;
@@ -491,7 +487,7 @@
 </head>
 <body>
 
-<!-- ШАХМАТНЫЙ ЗАТВОР ДВОРЦА КОРОЛЕВЫ (ПОЛНОСТЬЮ ИЗ ОСНОВНОГО ИНДЕКСА) -->
+
 <div id="chess-lock-screen">
     <div class="chess-container">
       <h2>Найди открытый вход в закрытый дворец королевы</h2>
@@ -503,9 +499,7 @@
     </div>
 </div>
 
-<!-- =============================================================
-     ВЕЛИКИЙ АРХИТЕКТОНИЧЕСКИЙ ФРОНТОНЪ: ИЗНАНКА ХРАМА
-============================================================= -->
+
 <div style="
     text-align: center; 
     margin: 40px auto 25px auto; 
@@ -545,7 +539,7 @@
     </div>
 </div>
 
-<!-- ТИРИЙСКИЙ БАРОЧНЫЙ ФРИЗЪ -->
+
 <marquee scrollamount="11" style="
     background: linear-gradient(90deg, #100317 0%, #360c47 25%, #100317 50%, #360c47 75%, #100317 100%);
     color: #ffd977; 
@@ -566,12 +560,10 @@
     Тень несозданных созданий Колыхается во сне, Словно лопасти латаний На эмалевой стене. Фиолетовые руки На эмалевой стене Полусонно чертят звуки В звонко-звучной тишине…
 </marquee>
 
-    <!-- =============================================================
-         ГЛАВНЫЙ АЛТАРНЫЙ ТРИПТИХЪ ИЗНАНКИ
-    ============================================================= -->
+  
     <div class="main-container">
 
-        <!-- ЛЕВЫЙ ПРИТВОРЪ -->
+        
         <div class="sidebar-left">
             <div style="margin-bottom: 35px; border-bottom: 2px solid #6b21a8; padding-bottom: 20px; text-align: center;">
                 <div class="track-title">Литѣратура по бѣспроволочному</div>
@@ -721,7 +713,7 @@
             </div>
         </div>
 
-        <!-- ЦЕНТРАЛЬНЫЙ СВЯЩЕННЫЙ МАНУСКРИПТЪ ИЗНАНКИ -->
+       
         <div class="content">
             <div class="post" style="border-bottom: none; margin-bottom: 0; padding-bottom: 10px;">
                 <div class="date">8 Октября 1916</div>
@@ -731,7 +723,7 @@
             </div>
         </div>
 
-        <!-- ПРАВЫЙ ПРИТВОРЪ -->
+       
         <div class="sidebar-right">
             <img src="IMG_0100.jpg" alt="manifestation" class="divine-image">
             <p style="font-size: 0.9em; color: #ffd977; margin-top: 15px; font-weight: 900;"></p>
@@ -750,7 +742,7 @@
             </div>
 
             <div class="alchemy-manifest">
-                <div class="alchemy-title">~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</div>
+                <div class="alchemy-title">~~~~~~~~~~</div>
                 <div class="alchemy-text">
                     Да, я живу въ 1916 году, мнѣ 19 лѣтъ, я 1897 года рождѣнiя…
                     <div style="border-top: 1px dashed #6b21a8; margin: 12px 0;"></div>
@@ -787,9 +779,7 @@
 
     </div>
 
-    <!-- =============================================================
-         МОНУМЕНТАЛЬНЫЙ БАРОЧНЫЙ КИОТЪ ИЗНАНКИ (ФУТЕР-РЕЛИКВАРИЙ)
-    ============================================================= -->
+    
     <style>
       .iznanka-tabernaculum {
         position: relative;
@@ -1194,7 +1184,7 @@
     });
     </script>
 
-    <!-- ИНКОРПОРИРОВАННАЯ МЕХАНИКА ШАХМАТНОГО ЗАТВОРА (С РАЗБЛОКИРОВКОЙ И ВОЗВРАТОМ НА INDEX.HTML) -->
+    
     <script>
     document.addEventListener("DOMContentLoaded", () => {
       const lockScreen = document.getElementById('chess-lock-screen');
