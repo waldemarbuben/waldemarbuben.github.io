@@ -293,7 +293,7 @@
     <div class="red-church-floor"><div class="floor-patina"></div></div>
 
     <div class="shrine-stage">
-        <div class="instruction-banner">Привнесите восковой даръ въ готическiй подсвѣчникъ Госпожи</div>
+        <div class="instruction-banner">Привнесите даръ въ подсвѣчникъ </div>
         
         <div class="hanging-lamp-container">
             <div class="lamp-chain"></div>
@@ -386,7 +386,7 @@
             }
         });
 
-        function igniteCandle() {
+              function igniteCandle() {
             socket.appendChild(candle);
             candle.style.position = 'absolute';
             candle.style.left = '5px';
@@ -394,6 +394,7 @@
             candle.setAttribute('draggable', 'false');
             flame.style.display = 'block';
             localStorage.setItem('ritual_candle_lit', 'true');
+            localStorage.setItem('ritual_candle_lit_permanently', 'true'); 
             returnBtn.style.display = 'inline-block';
         }
 
@@ -401,5 +402,6 @@
             window.location.href = 'index.html';
         });
     </script>
+
 </body>
 </html>
