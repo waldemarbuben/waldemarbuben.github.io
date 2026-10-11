@@ -2214,22 +2214,17 @@ document.addEventListener("DOMContentLoaded", () => {
     });
     </script>
 
-    <script>
+ <script>
 document.addEventListener("DOMContentLoaded", () => {
-   
+    
     if (localStorage.getItem('shrine_eternal_ban') === 'true') {
-        
         sessionStorage.clear();
-        
         document.documentElement.innerHTML = `
             <html style="background:#050201; height:100%; width:100%;">
-            <head><title>ДОСТУП ПРЕСЕЧЕН</title></head>
+            <head><title>ВЫ ИЗГНАНЫ НАВСЕГДА</title></head>
             <body style="color:#551a8b; font-family:Georgia, serif; text-align:center; padding-top:45vh; margin:0; background:#050201; user-select:none;">
                 <div style="font-size: 13px; letter-spacing: 5px; color: #8b0000; text-shadow: 0 0 12px rgba(255,0,0,0.6); text-transform: uppercase; margin-bottom: 20px;">
-                    ПРЕБЫВАНИЕ ПРЕСЕЧЕНО 
-                </div>
-                <div style="font-size: 11px; letter-spacing: 2px; color: #caa148; font-style: italic;">
-                    Вы покинули соборъ безъ подношенiя. Ваше время стерто. Входъ закрытъ навѣчно.
+                    ✠ СЕССIЯ ВЫЖЖЕНА И ПРЕБЫВАНИЕ ПРЕСЕЧЕНО ✠
                 </div>
             </body>
             </html>
@@ -2237,65 +2232,38 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
     }
 
-    
-    if (localStorage.getItem('ritual_candle_lit_permanently') === 'true') {
-        return;
-    }
-
-    
     if (localStorage.getItem('ritual_candle_lit') === 'true') {
         localStorage.setItem('ritual_candle_lit_permanently', 'true');
-        return;
-    }
 
-   
-    window.addEventListener('beforeunload', (e) => {
-        
-        if (localStorage.getItem('ritual_candle_lit_permanently') === 'true') {
-            return;
-        }
-
-        
-        if (document.activeElement && document.activeElement.href && document.activeElement.href.includes('candle.html')) {
-            return;
-        }
-
-       
-        localStorage.setItem('shrine_eternal_ban', 'true');
-        sessionStorage.clear();
-    });
-});
-</script>
-
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-    if (localStorage.getItem('ritual_candle_lit') === 'true') {
         
         const candleWrapper = document.getElementById('candle-behind-wall');
         if (candleWrapper) candleWrapper.style.display = 'block';
 
-        
-        const firstAudioItem = document.querySelector('.audio-item');
-        if (firstAudioItem) {
-            const audio = firstAudioItem.querySelector('.my-audio');
-            const btn = firstAudioItem.querySelector('.play-btn');
-            if (audio && btn) {
-                
-                audio.play().then(() => {
-                    btn.textContent = btn.textContent.replace('  ИГРАЕТ', '') + '  ИГРАЕТ';
-                }).catch(() => {
-                    
-                    window.addEventListener('click', () => {
-                        if (audio.paused) {
-                            audio.play();
-                            btn.textContent = btn.textContent.replace('  ИГРАЕТ', '') + '  ИГРАЕТ';
-                        }
-                    }, { once: true });
-                });
+       
+        const forcePlayAudio = () => {
+            const firstAudioItem = document.querySelector('.audio-item');
+            if (firstAudioItem) {
+                const audio = firstAudioItem.querySelector('.my-audio');
+                const btn = firstAudioItem.querySelector('.play-btn');
+                if (audio && audio.paused) {
+                    audio.play().then(() => {
+                        btn.textContent = btn.textContent.replace('  ИГРАЕТ', '') + '  ИГРАЕТ';
+                        
+                        document.removeEventListener('click', forcePlayAudio);
+                        document.removeEventListener('touchstart', forcePlayAudio);
+                    }).catch(err => console.log("Браузер все еще сопротивляется воле Хозяйки:", err));
+                }
             }
-        }
+        };
 
+   
+        document.addEventListener('click', forcePlayAudio, { capture: true, once: true });
+        document.addEventListener('touchstart', forcePlayAudio, { capture: true, once: true });
         
+        
+        forcePlayAudio();
+
+       
         const canvas = document.getElementById('smoke-canvas');
         if (canvas) {
             const ctx = canvas.getContext('2d');
@@ -2303,30 +2271,40 @@ document.addEventListener("DOMContentLoaded", () => {
             
             function resizeSmoke() {
                 canvas.width = window.innerWidth;
-                canvas.height = window.innerHeight * 0.6;
+                canvas.height = window.innerHeight * 0.7;
             }
             resizeSmoke();
             window.addEventListener('resize', resizeSmoke);
 
-            class SmokeParticle {
+            class RealSmokeParticle {
                 constructor() {
-                    this.x = Math.random() * canvas.width;
-                    this.y = canvas.height + 20;
-                    this.size = 10 + Math.random() * 25;
-                    this.speedY = 0.4 + Math.random() * 0.7;
-                    this.speedX = (Math.random() - 0.5) * 0.3;
-                    this.alpha = 1;
+                    this.x = canvas.width * 0.85 + (Math.random() - 0.5) * 30;
+                    this.y = canvas.height + 40;
+                    this.size = 20 + Math.random() * 20;
+                    this.maxSize = 120 + Math.random() * 60;
+                    this.speedY = 0.6 + Math.random() * 0.8;
+                    this.wobbleSpeed = 0.01 + Math.random() * 0.02;
+                    this.wobbleAngle = Math.random() * Math.PI * 2;
+                    this.wobbleRadius = 0.5 + Math.random() * 1;
+                    this.alpha = 0.4;
+                    this.fadeSpeed = 0.0012 + Math.random() * 0.001;
                 }
                 update() {
                     this.y -= this.speedY;
-                    this.x += this.speedX;
-                    this.alpha -= 0.0025;
-                    if (this.size < 60) this.size += 0.15;
+                    this.wobbleAngle += this.wobbleSpeed;
+                    this.x += Math.sin(this.wobbleAngle) * this.wobbleRadius;
+                    if (this.size < this.maxSize) this.size += 0.4;
+                    this.alpha -= this.fadeSpeed;
                 }
                 draw() {
+                    if (this.alpha <= 0) return;
                     ctx.save();
-                    ctx.globalAlpha = this.alpha;
-                    ctx.fillStyle = '#666'; 
+                    let grad = ctx.createRadialGradient(this.x, this.y, this.size * 0.1, this.x, this.y, this.size);
+                    grad.addColorStop(0, `rgba(140, 130, 120, ${this.alpha * 0.7})`);
+                    grad.addColorStop(0.3, `rgba(90, 85, 80, ${this.alpha * 0.4})`);
+                    grad.addColorStop(0.7, `rgba(40, 38, 45, ${this.alpha * 0.1})`);
+                    grad.addColorStop(1, 'rgba(0, 0, 0, 0)');
+                    ctx.fillStyle = grad;
                     ctx.beginPath();
                     ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
                     ctx.fill();
@@ -2336,24 +2314,33 @@ document.addEventListener("DOMContentLoaded", () => {
 
             function animateSmoke() {
                 ctx.clearRect(0, 0, canvas.width, canvas.height);
-                if (particles.length < 40 && Math.random() < 0.15) {
-                    particles.push(new SmokeParticle());
+                if (particles.length < 60 && Math.random() < 0.25) {
+                    particles.push(new RealSmokeParticle());
                 }
-                particles.forEach((p, index) => {
+                for (let i = particles.length - 1; i >= 0; i--) {
+                    let p = particles[i];
                     p.update();
                     p.draw();
-                    if (p.alpha <= 0 || p.y < -50) particles.splice(index, 1);
-                });
+                    if (p.alpha <= 0 || p.y < -100) particles.splice(i, 1);
+                }
                 requestAnimationFrame(animateSmoke);
             }
             animateSmoke();
         }
 
-        
         localStorage.removeItem('ritual_candle_lit');
     }
+
+    
+    window.addEventListener('beforeunload', (e) => {
+        if (localStorage.getItem('ritual_candle_lit_permanently') === 'true') return;
+        if (document.activeElement && document.activeElement.href && document.activeElement.href.includes('candle.html')) return;
+        localStorage.setItem('shrine_eternal_ban', 'true');
+        sessionStorage.clear();
+    });
 });
 </script>
+
 
     
 </body>
