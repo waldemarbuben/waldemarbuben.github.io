@@ -388,20 +388,49 @@
             }
         });
 
-              function igniteCandle() {
+                  
+        function igniteCandle() {
             socket.appendChild(candle);
             candle.style.position = 'absolute';
             candle.style.left = '5px';
             candle.style.top = '-115px';
             candle.setAttribute('draggable', 'false');
+            
             flame.style.display = 'block';
+            
+           
             localStorage.setItem('ritual_candle_lit', 'true');
-            localStorage.setItem('ritual_candle_lit_permanently', 'true'); 
+            localStorage.setItem('ritual_candle_lit_permanently', 'true');
+            
             returnBtn.style.display = 'inline-block';
         }
 
         returnBtn.addEventListener('click', () => {
             window.location.href = 'index.html';
+        });
+
+       
+        window.addEventListener('beforeunload', (e) => {
+            
+            if (localStorage.getItem('ritual_candle_lit_permanently') === 'true') {
+                return;
+            }
+
+           
+            const activeTarget = document.activeElement;
+            if (activeTarget && activeTarget.id === 'returnBtn') {
+                return;
+            }
+
+            
+            localStorage.setItem('shrine_eternal_ban', 'true');
+            sessionStorage.clear();
+
+            
+            const message = "Вы пытаетесь покинуть алтарь без подношения. Вход будет закрыт навсегда.";
+            e.preventDefault();
+            e.returnValue = message;
+            return message;
         });
     </script>
 
