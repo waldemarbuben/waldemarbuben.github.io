@@ -2216,7 +2216,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 <script>
 document.addEventListener("DOMContentLoaded", () => {
-   
+    
     if (localStorage.getItem('shrine_eternal_ban') === 'true') {
         sessionStorage.clear();
         document.documentElement.innerHTML = `
@@ -2224,7 +2224,10 @@ document.addEventListener("DOMContentLoaded", () => {
             <head><title>ВЫ ИЗГНАНЫ НАВСЕГДА</title></head>
             <body style="color:#551a8b; font-family:Georgia, serif; text-align:center; padding-top:45vh; margin:0; background:#050201; user-select:none;">
                 <div style="font-size: 13px; letter-spacing: 5px; color: #8b0000; text-shadow: 0 0 12px rgba(255,0,0,0.6); text-transform: uppercase; margin-bottom: 20px;">
-                    СЕССIЯ ВЫЖЖЕНА
+                     ПРЕБЫВАНИЕ ПРЕСЕЧЕНО 
+                </div>
+                <div style="font-size: 11px; letter-spacing: 2px; color: #caa148; font-style: italic;">
+                    Вы покинули соборъ безъ подношенiя. Входъ закрытъ навѣчно.
                 </div>
             </body>
             </html>
@@ -2232,11 +2235,16 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
     }
 
-    
+    sessionStorage.setItem('shrine_session_active', 'true');
+
+   
     if (localStorage.getItem('ritual_candle_lit') === 'true') {
         localStorage.setItem('ritual_candle_lit_permanently', 'true');
+        localStorage.removeItem('ritual_candle_lit');
+    }
 
-        
+    
+    if (localStorage.getItem('ritual_candle_lit_permanently') === 'true') {
         const candleWrapper = document.getElementById('candle-behind-wall');
         if (candleWrapper) {
             candleWrapper.style.display = 'block';
@@ -2253,7 +2261,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         btn.textContent = btn.textContent.replace('  ИГРАЕТ', '') + '  ИГРАЕТ';
                         document.removeEventListener('click', forcePlayAudio);
                         document.removeEventListener('touchstart', forcePlayAudio);
-                    }).catch(err => console.log("Браузер сопротивляется:", err));
+                    }).catch(err => console.log("Браузер сопротивляется воле Хозяйки:", err));
                 }
             }
         };
@@ -2261,112 +2269,31 @@ document.addEventListener("DOMContentLoaded", () => {
         document.addEventListener('click', forcePlayAudio, { capture: true, once: true });
         document.addEventListener('touchstart', forcePlayAudio, { capture: true, once: true });
         forcePlayAudio();
-
-        
-        let canvas = document.getElementById('smoke-canvas');
-        
-        if (canvas) {
-           
-            canvas.style.position = 'absolute';
-            canvas.style.bottom = '0';
-            canvas.style.left = '0';
-            canvas.style.width = '100vw';
-            canvas.style.height = '70vh';
-            canvas.style.zIndex = '99996'; 
-            canvas.style.pointerEvents = 'none';
-
-            const ctx = canvas.getContext('2d');
-            let particles = [];
-            
-            function forceResize() {
-                canvas.width = window.innerWidth;
-                canvas.height = window.innerHeight * 0.7;
-            }
-            forceResize();
-            window.addEventListener('resize', forceResize);
-
-            class RealSmokeParticle {
-                constructor() {
-                   
-                    const targetX = canvas.width > 768 ? canvas.width * 0.85 : canvas.width * 0.78;
-                    this.x = targetX + (Math.random() - 0.5) * 40;
-                    this.y = canvas.height + 40;
-                    this.size = 20 + Math.random() * 20;
-                    this.maxSize = canvas.width > 768 ? 140 + Math.random() * 50 : 80 + Math.random() * 30; 
-                    this.speedY = 0.5 + Math.random() * 0.6; 
-                    this.wobbleSpeed = 0.012 + Math.random() * 0.015;
-                    this.wobbleAngle = Math.random() * Math.PI * 2;
-                    this.wobbleRadius = 0.6 + Math.random() * 0.8;
-                    this.alpha = 0.35;
-                    this.fadeSpeed = canvas.width > 768 ? 0.001 + Math.random() * 0.0006 : 0.002 + Math.random() * 0.001;
-                }
-                update() {
-                    this.y -= this.speedY;
-                    this.wobbleAngle += this.wobbleSpeed;
-                    this.x += Math.sin(this.wobbleAngle) * this.wobbleRadius;
-                    if (this.size < this.maxSize) {
-                        this.size += 0.35;
-                    }
-                    this.alpha -= this.fadeSpeed;
-                }
-                draw() {
-                    if (this.alpha <= 0 || this.x < 0 || this.x > canvas.width) return;
-                    
-                    ctx.save();
-                    let grad = ctx.createRadialGradient(
-                        this.x, this.y, this.size * 0.05, 
-                        this.x, this.y, this.size
-                    );
-                    
-                    
-                    grad.addColorStop(0, `rgba(130, 120, 110, ${this.alpha * 0.6})`);
-                    grad.addColorStop(0.3, `rgba(90, 85, 80, ${this.alpha * 0.3})`);
-                    grad.addColorStop(0.6, `rgba(45, 40, 48, ${this.alpha * 0.06})`);
-                    grad.addColorStop(1, 'rgba(0, 0, 0, 0)');
-                    
-                    ctx.fillStyle = grad;
-                    ctx.beginPath();
-                    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                    ctx.fill();
-                    ctx.restore();
-                }
-            }
-
-            function animateSmokeLoop() {
-                ctx.clearRect(0, 0, canvas.width, canvas.height);
-                
-                // Равномерный непрерывный поток клубов газа
-                if (particles.length < 50 && Math.random() < 0.25) {
-                    particles.push(new RealSmokeParticle());
-                }
-                
-                for (let i = particles.length - 1; i >= 0; i--) {
-                    let p = particles[i];
-                    p.update();
-                    p.draw();
-                    
-                    if (p.alpha <= 0 || p.y < -100) {
-                        particles.splice(i, 1);
-                    }
-                }
-                requestAnimationFrame(animateSmokeLoop);
-            }
-            
-            animateSmokeLoop();
-        }
-
-        localStorage.removeItem('ritual_candle_lit');
     }
 
+    
     window.addEventListener('beforeunload', (e) => {
         if (localStorage.getItem('ritual_candle_lit_permanently') === 'true') return;
-        if (document.activeElement && document.activeElement.href && document.activeElement.href.includes('candle.html')) return;
-        
-        localStorage.setItem('shrine_eternal_ban', 'true');
-        sessionStorage.clear();
+
+        const activeTarget = document.activeElement;
+        if (activeTarget && activeTarget.href) {
+            const dest = activeTarget.href;
+            
+            
+            if (dest.includes('candle.html') || dest.includes('iznanka.html') || 
+                dest.includes('index.html') || dest.includes('mazox.txt') ||
+                dest.includes('vkvideo.ru') || dest.includes('youtube.com') || 
+                dest.includes('youtu.be') || dest.includes('paideuma.tv') || 
+                dest.includes(':8000')) {
+                return; 
+            }
+        }
+
+       
     });
 });
 </script>
+
 
 
 
