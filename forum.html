@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netscape - [ИЗНАНИѢ]</title>
+    <style>
+        /* ГЛОБАЛЬНЫЕ СТИЛИ В СТИЛЕ FORM ART / NETSCAPE WINDOWS 95 */
+        * {
+            box-sizing: border-box;
+            font-family: "Courier New", Courier, monospace;
+            font-size: 13px;
+        }
+
+        body {
+            background-color: #5a7b9c; /* Каноничный бирюзово-синий цвет рабочего стола */
+            margin: 20px;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            color: #000000;
+        }
+
+        /* Эмуляция окна браузера Netscape Navigator 3.0 */
+        .browser-container {
+            background-color: #c0c0c0;
+            width: 100%;
+            max-width: 960px;
+            border: 2px solid;
+            border-color: #ffffff #808080 #808080 #ffffff;
+            box-shadow: 1px 1px 0px 0px #000000;
+            padding: 2px;
+        }
+
+        /* Заголовок окна (Title Bar) */
+        .window-title-bar {
+            background: linear-gradient(90deg, #000080, #1084d0);
+            color: #ffffff;
+            padding: 3px 6px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: bold;
+        }
+
+        .window-title-text {
+            font-size: 12px;
+            letter-spacing: 0.5px;
+        }
+
+        .window-controls button {
+            width: 16px;
+            height: 14px;
+            background-color: #c0c0c0;
+            border: 1px solid;
+            border-color: #ffffff #808080 #808080 #ffffff;
+            font-size: 9px;
+            line-height: 10px;
+            text-align: center;
+            padding: 0;
+            cursor: pointer;
+            color: #000000;
+            font-weight: bold;
+        }
+
+        /* Традиционное текстовое меню (Menu Bar) */
+        .window-menu-bar {
+            display: flex;
+            padding: 4px 6px;
+            gap: 12px;
+            border-bottom: 1px solid #808080;
+        }
+
+        .menu-btn {
+            color: #000000;
+            cursor: default;
+        }
+        .menu-btn::first-letter {
+            text-decoration: underline;
+        }
+
+        /* Навигационная панель с кнопками (Toolbar) */
+        .window-nav-bar {
+            display: flex;
+            padding: 4px;
+            gap: 4px;
+            align-items: center;
+            border-bottom: 2px solid;
+            border-color: #ffffff #808080 #808080 #ffffff;
+            background-color: #c0c0c0;
+        }
+
+        .nav-btn {
+            padding: 4px 10px;
+            background-color: #c0c0c0;
+            border: 1px solid;
+            border-color: #ffffff #808080 #808080 #ffffff;
+            text-align: center;
+            cursor: pointer;
+            min-width: 65px;
+        }
+        .nav-btn:active {
+            border-color: #808080 #ffffff #ffffff #808080;
+        }
+
+        .nav-spacer {
+            flex-grow: 1;
+        }
+
+        /* Логотип Netscape в правом углу панели */
+        .logo-netscape {
+            width: 32px;
+            height: 32px;
+            background-color: #000000;
+            color: #ffffff;
+            font-weight: bold;
+            font-size: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid;
+            border-color: #ffffff #808080 #808080 #ffffff;
+            font-family: "Times New Roman", Times, serif;
+            font-style: italic;
+        }
+
+        /* Поле ввода адреса (Location Bar) */
+        .window-location-bar {
+            display: flex;
+            align-items: center;
+            padding: 6px;
+            gap: 6px;
+            border-bottom: 2px solid #808080;
+        }
+
+        .location-lbl {
+            font-weight: bold;
+        }
+        .location-lbl::first-letter {
+            text-decoration: underline;
+        }
+
+        .location-field {
+            flex-grow: 1;
+            background-color: #ffffff;
+            border: 2px solid;
+            border-color: #808080 #ffffff #ffffff #808080;
+            padding: 2px 6px;
+            color: #000000;
+        }
+
+        /* РАБОЧАЯ ОБЛАСТЬ (СТРАНИЦА ИЗНАНКИ) */
+        .web-viewport {
+            background-color: #c0c0c0;
+            padding: 25px;
+            border: 2px solid;
+            border-color: #808080 #ffffff #ffffff #808080;
+            margin: 4px;
+            color: #000000;
+        }
+
+        /* Дотошный Form Art дизайн по референсу */
+        h1.main-title {
+            text-align: center;
+            font-size: 20px;
+            border: 2px solid;
+            border-color: #808080 #ffffff #ffffff #808080;
+            padding: 8px;
+            margin: 0 auto 30px auto;
+            max-width: 500px;
+            background-color: #c0c0c0;
+            letter-spacing: 2px;
+        }
+
+        h2.section-title {
+            font-size: 15px;
+            text-transform: uppercase;
+            margin-top: 0;
+            border-bottom: 2px solid #808080;
+            padding-bottom: 4px;
+        }
+
+        /* Блоки с выпуклыми (outset) рамками */
+        .art-box {
+            border: 2px solid;
+            border-color: #ffffff #808080 #808080 #ffffff;
+            padding: 20px;
+            margin-bottom: 30px;
+            background-color: #c0c0c0;
+        }
+
+        /* Классические навигационные кнопки-ссылки */
+        .links-container {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 25px;
+        }
+
+        a.art-button, button.art-button, input[type="button"].art-button, input[type="submit"].art-button {
+            display: inline-block;
+            text-decoration: none;
+            color: #000000;
+            background-color: #c0c0c0;
+            border: 2px solid;
+            border-color: #ffffff #808080 #808080 #ffffff;
+            padding: 5px 15px;
+            cursor: pointer;
+            font-weight: normal;
+            text-align: center;
+        }
+
+        a.art-button:active, button.art-button:active, input[type="button"].art-button:active, input[type="submit"].art-button:active {
+            border-color: #808080 #ffffff #ffffff #808080;
+            padding: 6px 14px 4px 16px;
+        }
+
+        /* Статус пользователя */
+        .status-box {
+            margin: 15px 0;
+            font-weight: bold;
+            text-align: center;
+            border: 2px solid;
+            border-color: #808080 #ffffff #ffffff #808080;
+            padding: 6px;
+            background-color: #dfdfdf;
+            display: inline-block;
+        }
+
+        /* Сетка формы создания треда по канонам Form Art */
+        .art-form-container {
+            border: 2px solid;
+            border-color: #808080 #ffffff #ffffff #808080;
+            padding: 25px;
+            background-color: #c0c0c0;
+            max-width: 650px;
+            margin: 0 auto;
+        }
+
+        .art-form-legend {
+            font-weight: bold;
+            font-size: 14px;
+            margin-bottom: 20px;
+            text-align: center;
+            text-transform: uppercase;
+        }
+
+        .art-form-row {
+            display: flex;
+            margin-bottom: 15px;
+            align-items: flex-start;
+        }
+
+        .art-form-row label {
+            width: 160px;
+            font-weight: bold;
+            padding-top: 4px;
+        }
+
+        /* Вдавленные 3D инпуты */
+        .art-form-row input[type="text"],
+        .art-form-row textarea {
+            flex-grow: 1;
+            background-color: #ffffff;
+            border: 2px solid;
+            border-color: #808080 #ffffff #ffffff #808080;
+            padding: 5px;
+            color: #000000;
+            outline: none;
+        }
+
+        .art-form-row textarea {
+            height: 120px;
+            resize: vertical;
+        }
+
+        /* Кастомный олдскульный input[type="file"] */
+        .file-upload-wrapper {
+            position: relative;
+            flex-grow: 1;
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .file-upload-info {
+            font-size: 11px;
+            color: #404040;
+        }
+
+        .art-form-actions {
+            display: flex;
+            justify-content: flex-end;
+            gap: 12px;
+            margin-top: 20px;
+        }
+
+        /* Нижняя статус-строка браузера */
+        .window-status-bar {
+            border-top: 2px solid #808080;
+            padding: 3px 6px;
+            display: flex;
+            justify-content: space-between;
+            background-color: #c0c0c0;
+            font-size: 11px;
+        }
+
+        .status-left-panel {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .status-indicator-box {
+            width: 14px;
+            height: 14px;
+            border: 1px solid;
+            border-color: #808080 #ffffff #ffffff #808080;
+            background-color: #ff0000; /* Индикатор статуса */
+        }
+    </style>
+</head>
+<body>
+
+<div class="browser-container">
+    <!-- Заголовок Окна -->
+    <div class="window-title-bar">
+        <div class="window-title-text">Netscape - [ИЗНАНИѢ]</div>
+        <div class="window-controls">
+            <button>_</button>
+            <button>🗖</button>
+            <button>X</button>
+        </div>
+    </div>
+
+    <!-- Верхнее Меню -->
+    <div class="window-menu-bar">
+        <div class="menu-btn">File</div>
+        <div class="menu-btn">Edit</div>
+        <div class="menu-btn">View</div>
+        <div class="menu-btn">Go</div>
+        <div class="menu-btn">Bookmarks</div>
+        <div class="menu-btn">Options</div>
+        <div class="menu-btn">Directory</div>
+        <div class="menu-btn">Window</div>
+        <div class="menu-btn">Help</div>
+    </div>
+
+    <!-- Панель управления навигацией -->
+    <div class="window-nav-bar">
+        <div class="nav-btn">Back</div>
+        <div class="nav-btn">Forward</div>
+        <div class="nav-btn">Home</div>
+        <div class="nav-btn">Edit</div>
+        <div class="nav-btn">Reload</div>
+        <div class="nav-btn">Images</div>
+        <div class="nav-btn">Open</div>
+        <div class="nav-btn">Print</div>
+        <div class="nav-btn">Find</div>
+        <div class="nav-spacer"></div>
+        <div class="logo-netscape">N</div>
+    </div>
+
+    <!-- Адресная Строка -->
+    <div class="window-location-bar">
+        <div class="location-lbl">Location:</div>
+        <div class="location-field">http://archive.rhizome.org/anthology/form-art/iznanka.html</div>
+    </div>
+
+    <!-- Контент-зона Изнанки -->
+    <div class="web-viewport">
+        
+        <h1 class="main-title">ИЗНАНИѢ / ФОРУМЪ</h1>
+
+        <!-- Блок паломничества -->
+        <div class="art-box">
+            <h2 class="section-title">Найди открытый вход в закрытый дворец королевы</h2>
+            <p>Сделайте убедительный ход для паломничества...</p>
+            <p><strong>Ход записан. Доступ отклонен.</strong></p>
+        </div>
+
+        <!-- Блок ПАКТЪ -->
+        <div class="art-box">
+            <h2 class="section-title">ПАКТЪ</h2>
+            <p>Вы вступаете на анонимную доску Вальдемара Бубна. Вы можете остаться Анонимомъ или выбрать свой гербовый титул:</p>
+            <button class="art-button" id="acceptTitleBtn">Принять титул и войти</button>
+        </div>
+
+        <!-- Ссылки управления -->
+        <div class="links-container">
+            <a href="#" class="art-button">[ ← Главная ]</a>
+            <a href="#" class="art-button">[ Создать Тредъ ]</a>
+            <a href="#" class="art-button">[ Очистить Свои Записи ]</a>
+        </div>
+
+        <!-- Статус -->
+        <div style="text-align: center;">
+            <div class="status-box">
+                Статус: <span id="currentStatus">Анонимъ</span>
+            </div>
+        </div>
+
+        <!-- Форма создания нового треда -->
+        <div class="art-form-container">
+            <div class="art-form-legend">✦ Создать Новый Тредъ ✦</div>
+            
+            <form id="iznankaForm" onsubmit="return false;">
+                <div class="art-form-row">
+                    <label for="authorTitle">Титул / Имя:</label>
+                    <input type="text" id="authorTitle" name="authorTitle">
+                </div>
+
+                <div class="art-form-row">
+                    <label for="threadSubject">Тема / Заголовок:</label>
+                    <input type="text" id="threadSubject" name="threadSubject">
+                </div>
+
+                <div class="art-form-row">
+                    <label for="threadMessage">Послание:</label>
+                    <textarea id="threadMessage" name="threadMessage"></textarea>
+                </div>
+
+                <div class="art-form-row">
+                    <label for="threadImage">Изображение:</label>
+                    <div class="file-upload-wrapper">
+                        <input type="file" id="threadImage" name="threadImage" style="font-family: monospace;">
+                        <span class="file-upload-info">(До 2MB, JPG/PNG)</span>
+                    </div>
+                </div>
+
+                <div class="art-form-actions">
+                    <button type="button" class="art-button" id="cancelBtn">Отмена Ответа</button>
+                    <input type="submit" class="art-button" id="sealBtn" value="Запечатать">
+                </div>
+            </form>
+        </div>
+
+        <p style="text-align: center; margin-top: 25px; font-size: 11px; color: #333333;">
+            Все сообщения запечатываются в вашей локальной памяти (<code>localStorage</code>).
+        </p>
+
+    </div>
+
+    <!-- Нижний Статус-бар браузера -->
+    <div class="window-status-bar">
+        <div class="status-left-panel">
+            <div class="status-indicator-box"></div>
+            <span>Document: Done</span>
+        </div>
+        <div>✉?</div>
+    </div>
+</div>
+
+<script>
+    // ТЕХНИЧЕСКАЯ НАЧИНКА (Сохранение логики и localStorage)
+    document.addEventListener("DOMContentLoaded", function() {
+        const form = document.getElementById("iznankaForm");
+        const sealBtn = document.getElementById("sealBtn");
+        const cancelBtn = document.getElementById("cancelBtn");
+        const acceptTitleBtn = document.getElementById("acceptTitleBtn");
+        const statusSpan = document.getElementById("currentStatus");
+
+        // Функция инициализации данных из localStorage
+        function loadSavedData() {
+            const savedTitle = localStorage.getItem("iznanka_title");
+            const savedSubject = localStorage.getItem("iznanka_subject");
+            const savedMessage = localStorage.getItem("iznanka_message");
+            const savedStatus = localStorage.getItem("iznanka_user_status");
+
+            if (savedTitle) document.getElementById("authorTitle").value = savedTitle;
+            if (savedSubject) document.getElementById("threadSubject").value = savedSubject;
+            if (savedMessage) document.getElementById("threadMessage").value = savedMessage;
+            if (savedStatus) {
+                statusSpan.textContent = savedStatus;
+            }
+        }
+
+        // Кнопка запечатывания (сохранения) данных
+        if (sealBtn) {
+            sealBtn.addEventListener("click", function(e) {
+                e.preventDefault();
+                const title = document.getElementById("authorTitle").value;
+                const subject = document.getElementById("threadSubject").value;
+                const message = document.getElementById("threadMessage").value;
+
+                localStorage.setItem("iznanka_title", title);
+                localStorage.setItem("iznanka_subject", subject);
+                localStorage.setItem("iznanka_message", message);
+                
+                alert("Послание успешно запечатано в локальной памяти (localStorage)!");
+            });
+        }
+
+        // Кнопка Отмены ответа (очистка полей ввода)
+        if (cancelBtn) {
+            cancelBtn.addEventListener("click", function() {
+                form.reset();
+            });
+        }
+
+        // Кнопка принятия титула ПАКТЪ
+        if (acceptTitleBtn) {
+            acceptTitleBtn.addEventListener("click", function() {
+                const currentName = document.getElementById("authorTitle").value || "Анонимый Лордъ";
+                localStorage.setItem("iznanka_user_status", currentName);
+                statusSpan.textContent = currentName;
+                alert("Титул '" + currentName + "' принят и зафиксирован.");
+            });
+        }
+
+        // Ссылка на Очистить свои записи
+        const clearBtn = document.querySelector("a[href='#']::-moz-focus-inner"); 
+        // Привяжем ко всем кнопкам ссылки логику по тексту
+        const links = document.querySelectorAll(".links-container a");
+        links.forEach(link => {
+            if (link.textContent.includes("Очистить Свои Записи")) {
+                link.addEventListener("click", function(e) {
+                    e.preventDefault();
+                    if(confirm("Вы уверены, что хотите стереть запечатанные записи?")) {
+                        localStorage.clear();
+                        form.reset();
+                        statusSpan.textContent = "Анонимъ";
+                        alert("Локальная память полностью очищена.");
+                    }
+                });
+            }
+            if (link.textContent.includes("Создать Тредъ")) {
+                link.addEventListener("click", function(e) {
+                    e.preventDefault();
+                    document.querySelector(".art-form-container").scrollIntoView({ behavior: 'smooth' });
+                });
+            }
+        });
+
+        // Запуск проверки при загрузке страницы
+        loadSavedData();
+    });
+</script>
+
+</body>
+</html>
