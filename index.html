@@ -44,12 +44,7 @@
             font-style: normal;
         }
 
-        /* =========================================================================
-           ТОТАЛЬНЫЙ БАРОЧНЫЙ СКЕВОМОРФИЗМ (RADICAL PHYSICAL HYPER-SKEUOMORPHISM)
-           Материалы: мореный палисандр, чеканная червонная латунь, полированный
-           бакелит, сургучные печати, заклепки, винты со шлицем, пергамент,
-           фацетное толстое стекло с отражениями и каретная стяжка capitonné.
-           ========================================================================= */
+        
 
         :root {
             --light-source: 135deg;
@@ -67,11 +62,11 @@
         body {
             background-color: #060201;
             background-image: 
-                /* Окружающий свет и дымчатый амбиент */
+                
                 radial-gradient(ellipse at 50% 20%, rgba(85, 40, 10, 0.6) 0%, rgba(16, 6, 2, 0.92) 55%, #050201 100%),
-                /* Физическая фактура деревянного дубового щита с глубокими порами */
+               
                 repeating-linear-gradient(0deg, rgba(20, 8, 3, 0.4) 0px, rgba(10, 4, 1, 0.4) 2px, rgba(35, 14, 5, 0.25) 4px, transparent 6px),
-                /* Сакральный филигранный золотой орнамент ковки */
+               
                 url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23d4af37' stroke-width='0.7' stroke-opacity='0.22'%3E%3Cpath d='M40 0 C28 20 20 28 0 40 C20 52 28 60 40 80 C52 60 60 52 80 40 C60 28 52 20 40 0 Z'/%3E%3Ccircle cx='40' cy='40' r='18' stroke-dasharray='3 3'/%3E%3Cpath d='M40 12 Q52 28 68 40 Q52 52 40 68 Q28 52 12 40 Q28 28 40 12 Z' fill='%23caa148' fill-opacity='0.05'/%3E%3C/g%3E%3C/svg%3E"),
                 url('IMG_9799.jpg');
             background-repeat: no-repeat, repeat, repeat, no-repeat;
@@ -106,9 +101,7 @@
             position: relative;
         }
 
-        /* ---------------------------------------------------------------------
-           ДЕКОРАТИВНЫЕ ВИНТЫ И ЗОЛОТЫЕ ЗАКЛЕПКИ (HARDWARE RIVETS & SCREWS)
-        --------------------------------------------------------------------- */
+        
         .skeuo-screw {
             position: absolute;
             width: 14px;
@@ -137,9 +130,7 @@
         .skeuo-screw.bl { bottom: 9px; left: 9px; }
         .skeuo-screw.br { bottom: 9px; right: 9px; }
 
-        /* ---------------------------------------------------------------------
-           РАСТИТЕЛЬНЫЕ ШЛЕЙФЫ И БОКОВЫЕ АТЛАНТЫ
-        --------------------------------------------------------------------- */
+       
         .floral-side-left {
             position: fixed;
             left: 0;
@@ -203,16 +194,14 @@
             filter: sepia(30%) contrast(1.35) drop-shadow(0 14px 28px rgba(0,0,0,0.98));
         }
 
-        /* ---------------------------------------------------------------------
-           ЛЕВАЯ ПАНЕЛЬ: РЕЗНОЙ МОРИЛЬНЫЙ ДУБЪ С ЛАТУННЫМ ПЕРЕПЛЁТОМ (SIDEBAR-LEFT)
-        --------------------------------------------------------------------- */
+        
         .sidebar-left {
             width: 240px;
             background-color: #0b0402;
             background-image: 
-              /* Верхний световой козырек / полировка */
+              
               linear-gradient(180deg, rgba(255, 240, 180, 0.18) 0%, rgba(212, 175, 55, 0.04) 2.5%, transparent 14%, rgba(0,0,0,0.85) 100%),
-              /* Специфический диагональный блеск лака */
+              
               linear-gradient(145deg, rgba(255, 230, 160, 0.1) 0%, transparent 45%, rgba(0,0,0,0.8) 100%),
               radial-gradient(circle at 50% 12%, rgba(95, 45, 12, 0.98) 0%, rgba(18, 7, 2, 0.99) 70%),
               url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0 C22 15 15 22 0 30 C15 38 22 45 30 60 C38 45 45 38 60 30 C45 22 38 15 30 0 Z' fill='none' stroke='%23b8860b' stroke-width='0.5' stroke-opacity='0.16'/%3E%3C/svg%3E");
@@ -225,13 +214,13 @@
             padding: 26px 18px;
             position: relative;
             box-shadow: 
-              /* Физический рельеф многоступенчатого багета */
+              
               0 3px 0 1px #2b1405,
               0 0 0 4px #080301,
               0 0 0 8px #8a6428,
               0 0 0 11px #160802,
               0 28px 70px rgba(0, 0, 0, 1),
-              /* Внутренний глубокий скос и фаска света */
+              
               inset 0 3px 4px rgba(255, 245, 200, 0.6),
               inset 0 -4px 6px rgba(0, 0, 0, 0.95),
               inset 3px 0 4px rgba(255, 215, 0, 0.25),
@@ -240,14 +229,12 @@
               inset 0 0 30px rgba(184, 134, 11, 0.4);
         }
 
-        /* ---------------------------------------------------------------------
-           ЦЕНТРАЛЬНЫЙ СКРИПТОРИЙ: МАССИВНЫЙ ТЯЖЕЛЫЙ КИОТЪ (CONTENT)
-        --------------------------------------------------------------------- */
+        
         .content {
             flex-grow: 1;
             max-width: 620px;
             background: 
-              /* Фацетный стеклянный блик на всю плоскость (Gloss Sheen) */
+              
               linear-gradient(135deg, rgba(255,255,255,0.12) 0%, rgba(255,255,255,0.02) 28%, transparent 29%),
               linear-gradient(180deg, rgba(255, 245, 205, 0.2) 0%, rgba(212, 175, 55, 0.05) 1.5%, transparent 12%, rgba(0, 0, 0, 0.88) 100%),
               radial-gradient(ellipse at 50% 8%, rgba(85, 42, 12, 0.98) 0%, rgba(20, 7, 2, 0.99) 65%, #070301 100%),
@@ -265,7 +252,7 @@
             scrollbar-width: thin;
             color: #fcefd6;
             box-shadow: 
-              /* Глубокий 6-уровневый кованый багет */
+              
               0 3px 0 1px #331804,
               0 0 0 4px #080301,
               0 0 0 9px #9c722e,
@@ -273,7 +260,7 @@
               0 0 0 17px #070201,
               0 0 0 20px #5c3c13,
               0 45px 110px rgba(0, 0, 0, 1), 
-              /* Внутренняя золотая резьба и световые рефлексы */
+              
               inset 0 4px 6px rgba(255, 248, 210, 0.7),
               inset 0 -5px 8px rgba(0, 0, 0, 0.98),
               inset 4px 0 6px rgba(255, 215, 0, 0.35),
@@ -312,9 +299,7 @@
             z-index: 1;
         }
 
-        /* ---------------------------------------------------------------------
-           ПРАВАЯ ПАНЕЛЬ: РЕЛИКВАРИУМЪ (SIDEBAR-RIGHT)
-        --------------------------------------------------------------------- */
+        
         .sidebar-right {
             width: 360px;
             background-color: #0c0502;
@@ -344,9 +329,7 @@
               inset 0 0 30px rgba(184, 134, 11, 0.4);
         }
 
-        /* ---------------------------------------------------------------------
-           ИКОНЫ-КАРТИНЫ: МУЗЕЙНОЕ СТЕКЛО, ПАСПАРТУ И ЗОЛОТАЯ ЧЕКАНКА
-        --------------------------------------------------------------------- */
+        
         .divine-image {
             width: 100%;
             height: auto;
@@ -377,14 +360,12 @@
               inset 0 0 30px rgba(255, 215, 0, 0.5);
         }
 
-        /* ---------------------------------------------------------------------
-           ТОТАЛИТАРНЫЕ ТАКТИЛЬНЫЕ КНОПКИ (PNEUMATIC MECHANICAL BAKELITE/BRASS)
-        --------------------------------------------------------------------- */
+        
         .play-btn {
             background: 
-              /* Верхний стеклянный скос */
+              
               linear-gradient(180deg, rgba(255,255,255,0.45) 0%, rgba(255,255,255,0.08) 40%, transparent 42%),
-              /* Многоуровневый конический градиент бакелита */
+              
               linear-gradient(180deg, 
                 #5a3112 0%, 
                 #381a07 20%, 
@@ -408,7 +389,7 @@
             display: inline-block;
             letter-spacing: 0.16em;
             text-transform: uppercase;
-            /* Вдавленная золотая гравировка (Intaglio Champlevé) */
+            
             text-shadow: 
               0 -1px 1px #000, 
               0 1px 2px rgba(255, 235, 170, 0.9),
@@ -472,9 +453,7 @@
               0 2px 3px rgba(0, 0, 0, 0.9) !important;
         }
 
-        /* ---------------------------------------------------------------------
-           АУДИО-МОДУЛЬ: ЛАТУННЫЕ РЕЛЬСЫ И ИНДИКАТОРЫ
-        --------------------------------------------------------------------- */
+        
         .audio-item {
             margin-bottom: 28px;
             border-bottom: 2px solid rgba(184, 134, 11, 0.35);
@@ -510,15 +489,13 @@
               0 0 14px rgba(212, 175, 55, 0.55);
         }
 
-        /* ---------------------------------------------------------------------
-           СВИТКИ ДНЕВНИКА 1916 ГОДА (AGED LAID PARCHMENT ON WALNUT)
-        --------------------------------------------------------------------- */
+        
         .post {
             margin-bottom: 70px;
             padding: 30px 25px 45px 25px;
             position: relative;
             background: 
-              /* Световая текстура шелковистого пергамента */
+              
               linear-gradient(180deg, rgba(255,245,215,0.06) 0%, transparent 20%, rgba(0,0,0,0.55) 100%),
               radial-gradient(ellipse at 50% 20%, rgba(45, 20, 6, 0.6) 0%, rgba(14, 5, 2, 0.85) 80%);
             border: 2px solid #5a3811;
@@ -584,9 +561,7 @@
             text-shadow: 0 0 12px rgba(255, 255, 255, 1), 0 0 20px #d4af37;
         }
 
-        /* ---------------------------------------------------------------------
-           АЛХИМИЧЕСКИЙ МЕДАЛЬОНЪ (CHEST MANIFEST)
-        --------------------------------------------------------------------- */
+        
         .alchemy-manifest {
             margin-top: 30px;
             background: 
@@ -628,9 +603,7 @@
             text-shadow: 0 1px 3px #000 !important; 
         }
 
-        /* ---------------------------------------------------------------------
-           ТАЙНЫЕ КАРТИНЫ (ТАЙНИК АДЕПТОВ): МАССИВНЫЕ РЕЗНЫЕ РАМЫ
-        --------------------------------------------------------------------- */
+        
         img[src^="pic"] {
             box-sizing: border-box;
             max-width: 100%;
@@ -724,10 +697,7 @@
 }
 </style>
 
-<!-- =========================================================================
-     ШЛЮЗЪ-СИНЕМАТОГРАФЪ: СОВЕТСКИЙ ТЕЛЕВИЗОРЪ «РУБИН-А6» (СКЕВОМОРФИЗМ)
-     Полированный орех, выпуклый кинескоп с антибликом, бакелитовые ручки
-     ========================================================================= -->
+
 <div id="balabanov-cinema-gate" style="
     position: fixed;
     top: 0; left: 0; right: 0; bottom: 0;
@@ -855,21 +825,21 @@
 
             <div style="color: #c98e60; font-size: 0.65em; font-weight: bold; font-family: monospace; border: 1px solid #4a3020; padding: 2px 6px; margin-bottom: 15px; letter-spacing: 1.5px; background: #120904; box-shadow: inset 0 0 5px #000, 0 1px 0 rgba(255,255,255,0.05); text-shadow: 0 0 6px rgba(201, 142, 96, 0.45);">РУБИН-A6</div>
 
-            <!-- Рельефная круглая ручка-селектор каналов ПТП -->
+            
             <div style="width: 70px; height: 70px; background: #0c0603; border-top: 4px solid #050201; border-left: 4px solid #050201; border-right: 3px solid #2b180f; border-bottom: 3px solid #3b2114; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: inset 7px 7px 14px rgba(0,0,0,1), 0 2px 5px rgba(0,0,0,0.9); margin-bottom: 10px;">
                 <div style="width: 48px; height: 48px; background: radial-gradient(circle at 35% 35%, #422a1e 0%, #170c07 70%, #0a0402 100%); border: 2px solid #000; border-radius: 50%; box-shadow: 4px 4px 10px rgba(0,0,0,0.95), inset 1px 1px 2px rgba(255,255,255,0.25); position: relative;">
                     <div style="position: absolute; width: 5px; height: 18px; background: linear-gradient(90deg, #d48b48, #8a4816); top: 0; left: 21px; border-radius: 2px; box-shadow: 0 1px 3px #000;"></div>
                 </div>
             </div>
 
-            <!-- Тумблеры и индикаторы частот -->
+           
             <div style="display: flex; gap: 8px; margin-bottom: 25px; background: #130904; padding: 6px; border: 1px solid #2e1b10; box-shadow: inset 0 0 6px #000;">
                 <div style="width: 20px; height: 20px; background: #0f0805; border: 2px dashed #422817; border-radius: 50%; position: relative; box-shadow: inset 0 0 4px #000;"><div style="position: absolute; width: 2px; height: 8px; background: #a86c47; top: 0; left: 9px;"></div></div>
                 <div style="width: 20px; height: 20px; background: #0f0805; border: 2px dashed #422817; border-radius: 50%; position: relative; box-shadow: inset 0 0 4px #000;"><div style="position: absolute; width: 2px; height: 8px; background: #a86c47; top: 2px; left: 13px; transform: rotate(45deg);"></div></div>
                 <div style="width: 20px; height: 20px; background: #0f0805; border: 2px dashed #422817; border-radius: 50%; position: relative; box-shadow: inset 0 0 4px #000;"><div style="position: absolute; width: 2px; height: 8px; background: #a86c47; top: 5px; left: 16px; transform: rotate(90deg);"></div></div>
             </div>
 
-            <!-- Решетка динамика (Текстура латунной перфорации) -->
+            
             <div style="width: 90px; flex-grow: 1; display: flex; flex-direction: column; gap: 4px; background: #0a0503; padding: 10px 6px; border-top: 3px solid #050201; border-left: 3px solid #050201; border-right: 2px solid #2b180d; border-bottom: 2px solid #2b180d; box-shadow: inset 6px 6px 14px rgba(0,0,0,0.95); margin-bottom: 25px;">
                 <div style="height: 4px; background: #1f110a; border-bottom: 2px solid #4a2b1b; box-shadow: inset 0 2px 3px #000;"></div>
                 <div style="height: 4px; background: #1f110a; border-bottom: 2px solid #4a2b1b; box-shadow: inset 0 2px 3px #000;"></div>
@@ -909,9 +879,7 @@
 <img src="IMG_0704.png" class="flower-accent-roses" alt="roses">
 <div class="floral-side-right"></div>
 
-<!-- =========================================================================
-     ВЕРХНИЙ ФРОНТОНЪ: ЛАТУННЫЙ КАРТУШЪ С РЕЛЬЕФНЫМИ ВИНТАМИ ПО УГЛАМ
-     ========================================================================= -->
+
 <div style="
     text-align: center; 
     margin: 40px auto 25px auto; 
@@ -963,7 +931,7 @@
     </div>
 </div>
 
-<!-- БАРОЧНАЯ БЕГУЩАЯ СТРОКА: ТИСНЕНИЕ НА ЛАТУННОЙ ЛЕНТЕ -->
+
 <marquee scrollamount="11" style="
     background: 
       linear-gradient(180deg, rgba(255,255,255,0.15) 0%, transparent 40%, rgba(0,0,0,0.6) 100%),
@@ -986,9 +954,7 @@
     Тень несозданных созданий Колыхается во сне, Словно лопасти латаний На эмалевой стене. Фиолетовые руки На эмалевой стене Полусонно чертят звуки В звонко-звучной тишине…
 </marquee>
 
-<!-- =========================================================================
-     БЛОКЪ СВѢЖИХЪ СВИТКОВЪ: ТЯЖЕЛЫЙ КАРТУШЪ С РЕЗНЫМ ПАЛИСАНДРОМ
-     ========================================================================= -->
+
 <div style="
     background-color: #0c0502;
     background-image: 
@@ -1094,7 +1060,7 @@
     100% { transform: scale(1.02) rotate(3deg) translateY(-4px) translateX(3px); }
 }
 
-/* СКЕВОМОРФНЫЕ ПЛАШКИ-ССЫЛКИ: ВРЕЗАННЫЙ В ДЕРЕВО ПЕРГАМЕНТ */
+
 .buben-ghost-link {
     display: block;
     padding: 14px 20px;
@@ -1561,7 +1527,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 <img src="IMG_0346.JPG" alt="" style="border: 10px solid #000000; max-width: 100%; height: auto; margin-top: 20px; box-shadow: 0 14px 40px #000, 0 0 25px rgba(0,0,0,0.95);">    
                 <img src="IMG_0371.webp" alt="manifestation" width="100" height="100" style="display: block; margin: 15px auto; filter: sepia(30%) drop-shadow(0 6px 14px #000);">
                 
-                <!-- СУРГУЧНОЕ ПРЕДОСТЕРЕЖЕНИЕ (WAX-SEALED COFFER WARNING) -->
+                
                 <p style="
                     color: #ffd977; 
                     font-weight: 900; 
@@ -1774,10 +1740,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     </div>
 
-    <!-- =========================================================================
-     НИЖНИЙ КИОТЪ: САКРАЛЬНЫЙ АЛТАРНЫЙ ТАБЕРНАКЛЬ (SKEUOMORPHIC ALTAR SHRINE)
-     Многоступенчатая чеканная латунь, полированный палисандр, глубокий рельеф
-     ========================================================================= -->
+    
     <style>
       .sacrum-tabernaculum {
         position: relative;
@@ -1790,7 +1753,7 @@ document.addEventListener("DOMContentLoaded", () => {
         font-family: "Georgia", "Palatino Linotype", "Times New Roman", serif;
         overflow: hidden;
 
-        /* Монолитный алтарь: 7 ступеней литого сусального золота и черного дерева */
+        
         border-top: 16px solid #f2d78b;
         border-left: 16px solid #caa148;
         border-right: 16px solid #6b4512;
