@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Вальдѣмаръ Бубѣнъ — Алтарь За Стѣной</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-select=no">
+    <meta name="theme-color" content="#060201">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+
+    <style>
+        @font-face {
+            font-family: 'B52-Soviet';
+            src: url('B52.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        /* =========================================================================
+           ТОТАЛЬНЫЙ БАРОЧНЫЙ СКЕВОМОРФИЗМ АЛТАРЯ (RADICAL TOTALITARIAN SKEUOMORPHISM)
+           Материалы: Мореный полированный палисандр, чеканная червонная латунь,
+           литье из орудийной бронзы, сусальное золото, вощеный пчелиный воск,
+           рубиновое лампадное стекло, кованое железо и латунные винты со шлицем.
+           ========================================================================= */
+
+        :root {
+            --wood-dark: #090301;
+            --wood-grain-1: #1a0803;
+            --brass-high: #fff6d9;
+            --brass-mid: #d4a748;
+            --brass-low: #6b4512;
+            --brass-deep: #291203;
+            --rivet-shine: radial-gradient(circle at 35% 35%, #fff6d9 0%, #d4a748 45%, #59350a 85%, #1a0a02 100%);
+        }
+
+        * { 
+            box-sizing: border-box; 
+            margin: 0; 
+            padding: 0; 
+        }
+        
+        body, html {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background-color: #060201;
+            font-family: "Georgia", "Palatino Linotype", "Times New Roman", serif;
+            user-select: none;
+            -webkit-user-select: none;
+            color: #fcf1d9;
+        }
+
+        /* ---------------------------------------------------------------------
+           ДЕКОРАТИВНЫЕ МЕХАНИЧЕСКИЕ ВИНТЫ СО ШЛИЦЕМ (RIVETS & SCREWS)
+        --------------------------------------------------------------------- */
+        .skeuo-screw {
+            position: absolute;
+            width: 13px;
+            height: 13px;
+            border-radius: 50%;
+            background: var(--rivet-shine);
+            box-shadow: 
+                0 2px 4px rgba(0,0,0,0.9), 
+                inset 0 1px 1px rgba(255,255,255,0.7),
+                inset 0 -1px 2px rgba(0,0,0,0.8);
+            border: 1px solid #1a0802;
+            z-index: 30;
+            pointer-events: none;
+        }
+        .skeuo-screw::before {
+            content: "";
+            position: absolute;
+            top: 50%; left: 15%; right: 15%; height: 2px;
+            margin-top: -1px;
+            background: #100501;
+            box-shadow: 0 1px 0 rgba(255, 235, 170, 0.5);
+            transform: rotate(38deg);
+        }
+        .skeuo-screw.tl { top: 10px; left: 10px; }
+        .skeuo-screw.tr { top: 10px; right: 10px; }
+        .skeuo-screw.bl { bottom: 10px; left: 10px; }
+        .skeuo-screw.br { bottom: 10px; right: 10px; }
+
+        /* ---------------------------------------------------------------------
+           МНОГОСЛОЙНЫЙ АРХИТЕКТУРНЫЙ КИОТЪ И ЗАДНИЙ ПЛАН
+        --------------------------------------------------------------------- */
+        .shrine-background {
+            position: fixed;
+            top: 0; left: 0; width: 100vw; height: 100vh;
+            background-image: 
+                radial-gradient(ellipse at 50% 25%, rgba(110, 48, 12, 0.6) 0%, rgba(20, 7, 2, 0.94) 65%, #050201 100%),
+                url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23d4af37' stroke-width='0.7' stroke-opacity='0.16'%3E%3Cpath d='M40 0 C28 20 20 28 0 40 C20 52 28 60 40 80 C52 60 60 52 80 40 C60 28 52 20 40 0 Z'/%3E%3Ccircle cx='40' cy='40' r='18' stroke-dasharray='3 3'/%3E%3Cpath d='M40 12 Q52 28 68 40 Q52 52 40 68 Q28 52 12 40 Q28 28 40 12 Z' fill='%23caa148' fill-opacity='0.05'/%3E%3C/g%3E%3C/svg%3E"),
+                url('candle.jpeg');
+            background-size: cover, 80px 80px, cover;
+            background-position: center 20%, top left, center 20%;
+            background-repeat: no-repeat, repeat, no-repeat;
+            filter: brightness(0.38) contrast(1.35) saturate(1.15) drop-shadow(0 0 60px rgba(0,0,0,1));
+            z-index: 1;
+            transform: scale(1.02);
+        }
+
+        .shrine-shadow-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100vw; height: 100vh;
+            background: 
+                radial-gradient(circle at 50% 35%, transparent 8%, rgba(8, 3, 1, 0.82) 50%, #030100 100%),
+                linear-gradient(180deg, rgba(0,0,0,0.7) 0%, transparent 20%, transparent 70%, rgba(0,0,0,0.95) 100%);
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        /* БОКОВЫЕ РАСТИТЕЛЬНЫЕ АТЛАНТЫ ИЗ INDEX.HTML */
+        .floral-side-left {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 220px;
+            height: 100vh;
+            mix-blend-mode: multiply; 
+            background-image: url('IMG_0678.png'); 
+            background-repeat: repeat-y;
+            background-size: contain;
+            z-index: 9;
+            pointer-events: none;
+            opacity: 0.88;
+            filter: sepia(45%) saturate(125%) contrast(1.3) brightness(0.78) drop-shadow(15px 0 25px rgba(0,0,0,0.98));
+        }
+
+        .floral-side-right {
+            position: fixed;
+            right: 0;
+            top: 0;
+            width: 220px;
+            height: 100vh;
+            mix-blend-mode: multiply;
+            background-image: url('Cvetok8.PNG');
+            background-repeat: repeat-y;
+            background-size: contain;
+            z-index: 9;
+            pointer-events: none;
+            opacity: 0.88;
+            filter: sepia(45%) saturate(125%) contrast(1.3) brightness(0.78) drop-shadow(-15px 0 25px rgba(0,0,0,0.98));
+        }
+
+        /* ---------------------------------------------------------------------
+           ЦЕРКОВНЫЙ ПОМОСТЪ: МРАМОРНЫЙ РЕЛЬЕФ И КОВАНОЕ ЗОЛОТО
+        --------------------------------------------------------------------- */
+        .red-church-floor {
+            position: fixed;
+            bottom: 0; left: 0; width: 100vw; height: 38vh;
+            z-index: 3;
+            background: 
+                linear-gradient(180deg, rgba(255, 235, 170, 0.18) 0%, rgba(212, 175, 55, 0.05) 3px, transparent 15px),
+                linear-gradient(180deg, #2b0805 0%, #170404 35%, #080101 100%);
+            border-top: 7px solid #e0ba62;
+            box-shadow: 
+                0 0 0 3px #180702,
+                0 0 0 7px #7a5521,
+                0 0 0 11px #0e0401,
+                inset 0 3px 6px rgba(255, 245, 205, 0.6),
+                inset 0 25px 60px rgba(0, 0, 0, 0.98), 
+                0 -20px 50px rgba(180, 50, 20, 0.35);
+        }
+
+        .floor-patina {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            opacity: 0.12;
+            mix-blend-mode: overlay;
+            background-image: url("data:image/svg+xml,%3Csvg width='120' height='120' viewBox='0 0 120 120' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)'/%3E%3C/svg%3E");
+        }
+
+        /* Верхняя филигранная чеканка по цоколю пола */
+        .floor-filigree-trim {
+            position: absolute;
+            top: 6px; left: 0; right: 0; height: 2px;
+            background: repeating-linear-gradient(90deg, #caa148 0, #caa148 10px, transparent 10px, transparent 20px);
+            opacity: 0.5;
+            box-shadow: 0 1px 0 rgba(0,0,0,0.8);
+        }
+
+        /* ---------------------------------------------------------------------
+           СЦЕНИЧЕСКИЙ ПРОСТОР (SHRINE STAGE)
+        --------------------------------------------------------------------- */
+        .shrine-stage {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            z-index: 10;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            padding: 30px 20px 40px 20px;
+        }
+
+        /* ---------------------------------------------------------------------
+           ВЕРХНИЙ ВОТИВНЫЙ КАРТУШЪ (ИНСТРУКЦИЯ ИЗ ЧЕКАННОЙ ЛАТУНИ И ДУБА)
+        --------------------------------------------------------------------- */
+        .instruction-banner {
+            font-size: 13.5px;
+            letter-spacing: 0.35em;
+            text-transform: uppercase;
+            color: #ffd977;
+            font-weight: 900;
+            text-shadow: 
+                0 1px 0 rgba(255, 245, 205, 0.7), 
+                0 2px 4px #000, 
+                0 0 16px rgba(255, 215, 0, 0.8);
+            border-top: 5px solid #f0d584;
+            border-left: 5px solid #caa148;
+            border-right: 5px solid #6b4512;
+            border-bottom: 7px solid #361f06;
+            outline: 2px solid #140702;
+            outline-offset: -7px;
+            padding: 16px 45px;
+            background: 
+                linear-gradient(180deg, rgba(255, 240, 190, 0.18) 0%, transparent 25%, rgba(0, 0, 0, 0.88) 100%),
+                radial-gradient(ellipse at 50% 30%, rgba(95, 48, 14, 0.98) 0%, rgba(20, 8, 2, 0.99) 85%);
+            box-shadow: 
+                0 3px 0 1px #2a1506,
+                0 0 0 3px #080301,
+                0 0 0 6px #855f26,
+                0 0 0 9px #160802,
+                0 25px 60px rgba(0, 0, 0, 1),
+                inset 0 2px 4px rgba(255, 245, 205, 0.65),
+                inset 0 -3px 6px rgba(0, 0, 0, 0.95),
+                inset 0 0 40px rgba(0, 0, 0, 0.95),
+                inset 0 0 25px rgba(212, 175, 55, 0.45);
+            margin-top: 10px;
+            max-width: 720px;
+            width: 90%;
+            text-align: center;
+            position: relative;
+            border-radius: 4px;
+        }
+
+        .instruction-banner::before {
+            content: "❖";
+            position: absolute;
+            left: 18px; top: 50%; transform: translateY(-50%);
+            font-size: 14px; color: #f5d77f;
+            text-shadow: 0 0 10px #ffd700, 1px 1px 2px #000;
+        }
+        .instruction-banner::after {
+            content: "❖";
+            position: absolute;
+            right: 18px; top: 50%; transform: translateY(-50%);
+            font-size: 14px; color: #f5d77f;
+            text-shadow: 0 0 10px #ffd700, 1px 1px 2px #000;
+        }
+
+        /* ---------------------------------------------------------------------
+           ПОДВЕСНАЯ ЛАМПАДА (HANGING SANCTUARY LAMP): КОВАНАЯ ЦЕПЬ И РУБИНОВОЕ СТЕКЛО
+        --------------------------------------------------------------------- */
+        .hanging-lamp-container {
+            position: absolute;
+            left: 12%;
+            top: 0;
+            height: 60vh;
+            width: 70px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            pointer-events: none;
+            filter: drop-shadow(0 15px 30px rgba(0,0,0,1));
+            z-index: 12;
+        }
+
+        .lamp-chain {
+            width: 7px;
+            flex-grow: 1;
+            background: 
+                repeating-linear-gradient(180deg, 
+                    #caa148 0px, #caa148 8px, 
+                    #1b1003 8px, #1b1003 14px,
+                    #f5d77f 14px, #f5d77f 16px);
+            border-left: 1px solid #080301;
+            border-right: 1px solid #080301;
+            box-shadow: 
+                0 0 10px rgba(0,0,0,0.9),
+                inset 1px 0 2px rgba(255,255,255,0.4);
+        }
+
+        .lamp-body {
+            width: 64px;
+            height: 80px;
+            background: 
+                linear-gradient(180deg, rgba(255,245,210,0.4) 0%, transparent 20%),
+                radial-gradient(circle at 40% 30%, #ffd977 0%, #a47627 35%, #42290a 75%, #180d02 100%);
+            border-top: 3px solid #fff2be;
+            border-left: 3px solid #caa148;
+            border-right: 3px solid #5a350e;
+            border-bottom: 5px solid #1a0802;
+            border-radius: 50% 50% 20% 20% / 30% 30% 70% 70%;
+            position: relative;
+            box-shadow: 
+                0 18px 35px rgba(0,0,0,1),
+                inset 0 2px 4px rgba(255,255,255,0.6),
+                inset 0 -4px 8px rgba(0,0,0,0.9);
+            display: flex;
+            justify-content: center;
+        }
+
+        .lamp-glass {
+            position: absolute;
+            top: 10px; width: 44px; height: 40px;
+            background: 
+                radial-gradient(circle at 40% 35%, rgba(255, 120, 160, 0.8) 0%, #aa0033 45%, #520014 80%, #200005 100%);
+            border-radius: 50% 50% 40% 40%;
+            border: 2px solid #1a0005;
+            box-shadow: 
+                inset 0 0 14px #000, 
+                0 0 25px rgba(255, 0, 75, 0.55),
+                inset 2px 2px 4px rgba(255,255,255,0.4);
+        }
+
+        .lamp-wick-flame {
+            position: absolute;
+            top: -4px; left: 17px;
+            width: 10px; height: 18px;
+            background: radial-gradient(ellipse at bottom, #ffffff 0%, #ffe38f 35%, #ff8c00 65%, transparent 100%);
+            border-radius: 50% 50% 20% 20%;
+            box-shadow: 
+                0 0 16px #ff8c00, 
+                0 0 30px #ff3300, 
+                0 0 6px #fff;
+            animation: lampFlicker 0.12s ease-in-out infinite alternate;
+        }
+
+        /* ---------------------------------------------------------------------
+           МОНУМЕНТАЛЬНЫЙ ПОДСВѢЧНИКЪ (ORNATE CAST BRONZE CANDLESTICK STAND)
+        --------------------------------------------------------------------- */
+        .altar-podium-zone {
+            position: absolute;
+            right: 18%;
+            bottom: 11vh;
+            width: 140px;
+            height: 270px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            z-index: 15;
+            filter: drop-shadow(0 20px 40px rgba(0,0,0,1));
+        }
+
+        .candlestick-bowl {
+            width: 72px;
+            height: 24px;
+            background: 
+                linear-gradient(180deg, #ffe38f 0%, #caa148 30%, #5e3b10 70%, #241103 100%);
+            border-top: 2px solid #fff6d4;
+            border-left: 2px solid #d4a748;
+            border-right: 2px solid #5a350e;
+            border-bottom: 3px solid #140702;
+            border-radius: 50%;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 
+                0 8px 16px rgba(0,0,0,0.9),
+                inset 0 2px 4px rgba(255,255,255,0.7),
+                inset 0 -2px 4px rgba(0,0,0,0.8);
+        }
+
+        .candle-needle-socket {
+            width: 32px;
+            height: 42px;
+            position: absolute;
+            top: -34px;
+            border: 2px dashed rgba(255, 217, 119, 0.65);
+            background: rgba(40, 18, 5, 0.45);
+            box-sizing: border-box;
+            border-radius: 4px;
+            transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+            box-shadow: inset 0 0 8px rgba(0,0,0,0.8);
+        }
+
+        .candle-needle-socket.drag-over {
+            background: radial-gradient(circle, rgba(255, 215, 0, 0.45) 0%, rgba(202, 161, 72, 0.15) 100%);
+            border: 2px solid #ffffff;
+            box-shadow: 
+                0 0 25px #ffd700, 
+                0 0 45px rgba(255, 215, 0, 0.7),
+                inset 0 0 15px #ffd700;
+            transform: scale(1.15);
+        }
+
+        /* Центральная игла-шпиль подсвечника */
+        .candle-needle-socket::after {
+            content: "";
+            position: absolute;
+            bottom: -6px; left: 50%; transform: translateX(-50%);
+            width: 4px; height: 16px;
+            background: linear-gradient(180deg, #ffd977, #180902);
+            border-radius: 2px 2px 0 0;
+            box-shadow: 0 0 4px #000;
+        }
+
+        .iron-candlestick-stem {
+            width: 14px;
+            height: 190px;
+            background: 
+                repeating-linear-gradient(180deg, #3a2211 0px, #3a2211 12px, #160802 12px, #160802 24px),
+                linear-gradient(90deg, #100602 0%, #8a5e24 45%, #ffd977 55%, #3d220b 80%, #0d0401 100%);
+            border-left: 2px solid #5a350e;
+            border-right: 2px solid #140702;
+            box-shadow: 
+                0 0 15px rgba(0,0,0,1),
+                inset 1px 0 2px rgba(255,255,255,0.4);
+            position: relative;
+        }
+
+        /* Фигурные шаровые муфты на ножке подсвечника */
+        .iron-candlestick-stem::before {
+            content: "";
+            position: absolute;
+            top: 30%; left: -6px; width: 24px; height: 16px;
+            background: radial-gradient(ellipse at 40% 35%, #ffd977 0%, #8a5e24 50%, #160702 100%);
+            border: 1px solid #140702;
+            border-radius: 50%;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.9);
+        }
+        .iron-candlestick-stem::after {
+            content: "";
+            position: absolute;
+            bottom: 25%; left: -8px; width: 28px; height: 20px;
+            background: radial-gradient(ellipse at 40% 35%, #ffd977 0%, #8a5e24 50%, #160702 100%);
+            border: 1px solid #140702;
+            border-radius: 50%;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.9);
+        }
+
+        .iron-candlestick-base {
+            width: 96px;
+            height: 38px;
+            background: 
+                linear-gradient(180deg, #ffd977 0%, #9e712a 25%, #3d2108 65%, #140702 100%);
+            border-top: 2px solid #fff2be;
+            border-left: 2px solid #caa148;
+            border-right: 2px solid #5a350e;
+            border-bottom: 4px solid #080201;
+            border-radius: 50% 50% 0 0;
+            box-shadow: 
+                0 15px 30px rgba(0,0,0,1),
+                inset 0 2px 4px rgba(255,255,255,0.7),
+                inset 0 -3px 6px rgba(0,0,0,0.9);
+            position: relative;
+        }
+
+        /* ---------------------------------------------------------------------
+           ВОСКОВАЯ ЦЕРКОВНАЯ СВѢЧА (RITUAL BEESWAX VOTIVE CANDLE)
+        --------------------------------------------------------------------- */
+        .candle-spawn-anchor {
+            position: absolute;
+            left: 28%;
+            bottom: 7vh;
+            width: 90px;
+            height: 180px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            z-index: 20;
+        }
+
+        .church-wax-candle {
+            width: 18px;
+            height: 145px;
+            background: 
+                linear-gradient(90deg, 
+                    #82580c 0%, 
+                    #caa148 20%, 
+                    #faeed4 45%, 
+                    #faebd0 60%, 
+                    #caa148 85%, 
+                    #5c3e07 100%);
+            border: 1px solid #3d2b04;
+            border-top: 2px solid #fff6dc;
+            border-radius: 4px 4px 1px 1px;
+            cursor: grab;
+            position: relative;
+            box-shadow: 
+                0 12px 25px rgba(0,0,0,0.95), 
+                inset -3px 0 6px rgba(0,0,0,0.35),
+                inset 2px 0 4px rgba(255,255,255,0.5);
+            transform-origin: center bottom;
+            transition: box-shadow 0.2s ease;
+        }
+
+        .church-wax-candle:hover {
+            box-shadow: 
+                0 15px 35px rgba(0,0,0,1), 
+                0 0 20px rgba(212, 175, 55, 0.4);
+        }
+
+        .church-wax-candle:active { 
+            cursor: grabbing; 
+            box-shadow: 0 20px 45px rgba(0,0,0,1);
+        }
+
+        .candle-wick {
+            position: absolute;
+            top: -8px; left: 8px;
+            width: 2.5px; height: 9px;
+            background: linear-gradient(180deg, #111 0%, #3a1505 80%, #caa148 100%);
+            border-radius: 1px;
+            box-shadow: 0 -1px 2px #000;
+        }
+
+        /* Натуральные оплывы пчелиного воска */
+        .wax-drop-1 {
+            position: absolute; top: 12px; left: -3px; width: 5px; height: 32px;
+            background: linear-gradient(180deg, #fff2ce, #caa148);
+            border-radius: 3px; 
+            opacity: 0.95;
+            box-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+        }
+        .wax-drop-2 {
+            position: absolute; top: 28px; right: -3px; width: 4.5px; height: 48px;
+            background: linear-gradient(180deg, #fff2ce, #caa148);
+            border-radius: 3px; 
+            opacity: 0.95;
+            box-shadow: -1px 1px 3px rgba(0,0,0,0.5);
+        }
+        .wax-drop-3 {
+            position: absolute; top: 60px; left: -2px; width: 4px; height: 22px;
+            background: #faeed4; border-radius: 2px; opacity: 0.85;
+        }
+
+        /* ---------------------------------------------------------------------
+           ЖИВОЕ СВЯЩЕННОЕ ПЛАМЯ (HYPER-DETAILED SACRED FLAME)
+        --------------------------------------------------------------------- */
+        .sacred-flame-core {
+            display: none;
+            position: absolute;
+            top: -42px; left: -5px;
+            width: 28px; height: 44px;
+            z-index: 99;
+            transform-origin: center bottom;
+            pointer-events: none;
+        }
+
+        .flame-outer {
+            position: absolute; width: 100%; height: 100%;
+            background: 
+                radial-gradient(ellipse at 50% 85%, 
+                    #ffffff 0%, 
+                    #fff2be 22%, 
+                    #ffb300 48%, 
+                    #ff4500 75%, 
+                    rgba(180, 0, 0, 0) 100%);
+            border-radius: 50% 50% 20% 20% / 60% 60% 40% 40%;
+            box-shadow: 
+                0 0 35px #ff9400, 
+                0 0 65px #ff3b00, 
+                0 0 12px #fff;
+            animation: flameWobble 0.1s ease-in-out infinite alternate;
+        }
+
+        .flame-aura {
+            position: absolute; top: -15px; left: -15px; width: 58px; height: 75px;
+            background: radial-gradient(circle, rgba(255, 140, 0, 0.35) 0%, rgba(255, 60, 0, 0.1) 50%, transparent 75%);
+            mix-blend-mode: screen;
+            pointer-events: none;
+            animation: auraPulse 0.2s ease-in-out infinite alternate;
+        }
+
+        /* ---------------------------------------------------------------------
+           ТАКТИЛЬНАЯ МЕХАНИЧЕСКАЯ КНОПКА ВОЗВРАТА (ИДЕНТИЧНА КНОПКАМ INDEX.HTML)
+        --------------------------------------------------------------------- */
+        .gate-return-trigger {
+            display: none;
+            position: relative;
+            background: 
+                linear-gradient(180deg, rgba(255,255,255,0.45) 0%, rgba(255,255,255,0.08) 40%, transparent 42%),
+                linear-gradient(180deg, 
+                    #5a3112 0%, 
+                    #381a07 20%, 
+                    #160802 52%, 
+                    #2d1205 85%, 
+                    #0e0401 100%) !important;             
+            color: #fff2b8 !important;       
+            border-top: 3px solid #fff6d4 !important;
+            border-left: 3px solid #d4a748 !important;
+            border-right: 3px solid #5a350e !important;
+            border-bottom: 5px solid #241103 !important;
+            outline: 2px solid #060201 !important;
+            outline-offset: 1px !important;
+            border-radius: 4px;
+            padding: 16px 50px;
+            font-size: 13px;
+            font-family: "Georgia", serif;
+            font-weight: 900;
+            cursor: pointer;
+            letter-spacing: 0.28em;
+            text-transform: uppercase;
+            /* Чеканное золотое тиснение */
+            text-shadow: 
+                0 -1px 1px #000, 
+                0 1px 2px rgba(255, 235, 170, 0.9),
+                0 0 14px rgba(255, 215, 0, 0.7);
+            box-shadow: 
+                0 1px 1px rgba(255, 245, 205, 0.5) inset,
+                0 -3px 1px rgba(0, 0, 0, 0.85) inset,
+                0 12px 30px rgba(0, 0, 0, 1),
+                0 3px 6px rgba(0, 0, 0, 0.9),
+                inset 0 0 20px rgba(184, 134, 11, 0.4) !important;
+            transition: all 0.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+            margin-bottom: 15px;
+            z-index: 9999;
+        }
+
+        .gate-return-trigger::after {
+            content: "";
+            position: absolute;
+            top: 4px; left: 8px; right: 8px; height: 1px;
+            background: rgba(255, 255, 255, 0.65);
+            border-radius: 2px;
+            pointer-events: none;
+        }
+
+        .gate-return-trigger:hover {
+            color: #ffffff !important;      
+            border-top-color: #ffffff !important;
+            border-left-color: #ffe89e !important;
+            background: 
+                linear-gradient(180deg, rgba(255,255,255,0.6) 0%, rgba(255,255,255,0.15) 40%, transparent 42%),
+                linear-gradient(180deg, 
+                    #753f17 0%, 
+                    #48230a 20%, 
+                    #200c03 52%, 
+                    #3d1a08 85%, 
+                    #160702 100%) !important;
+            box-shadow: 
+                0 1px 1px rgba(255, 255, 255, 0.8) inset,
+                0 -3px 1px rgba(0, 0, 0, 0.9) inset,
+                0 16px 38px rgba(0, 0, 0, 1),
+                0 0 35px rgba(212, 175, 55, 0.95), 
+                inset 0 0 25px rgba(255, 215, 0, 0.65) !important;
+            transform: translateY(-3px);
+            text-shadow: 
+                0 0 16px rgba(255, 255, 255, 1),
+                0 0 30px #ffd700,
+                0 2px 4px #000;
+        }
+
+        .gate-return-trigger:active {
+            transform: translateY(3px) !important;
+            border-top: 4px solid #140702 !important;
+            border-bottom: 2px solid #ffd977 !important;
+            background: 
+                linear-gradient(180deg, 
+                    #0a0401 0%, 
+                    #1e0b04 50%, 
+                    #381a07 100%) !important;
+            box-shadow: 
+                0 4px 10px rgba(0, 0, 0, 1) inset,
+                0 0 18px rgba(0, 0, 0, 0.95) inset,
+                0 2px 4px rgba(0, 0, 0, 0.9) !important;
+        }
+
+        @keyframes lampFlicker {
+            0% { transform: scale(0.94) translateY(0); opacity: 0.9; }
+            100% { transform: scale(1.06) translateY(-1px); opacity: 1; }
+        }
+        @keyframes flameWobble {
+            0% { transform: scaleX(0.92) rotate(-1.5deg); }
+            100% { transform: scaleX(1.08) rotate(1.5deg); }
+        }
+        @keyframes auraPulse {
+            0% { opacity: 0.8; transform: scale(0.97); }
+            100% { opacity: 1.15; transform: scale(1.03); }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Фоновые алтарные слои -->
+    <div class="shrine-background"></div>
+    <div class="shrine-shadow-overlay"></div>
+    
+    <!-- Растительные барочные колонны по бокам -->
+    <div class="floral-side-left"></div>
+    <div class="floral-side-right"></div>
+
+    <!-- Резной церковный помост -->
+    <div class="red-church-floor">
+        <div class="floor-patina"></div>
+        <div class="floor-filigree-trim"></div>
+    </div>
+
+    <!-- Основной театральный свод алтаря -->
+    <div class="shrine-stage">
+        
+        <!-- Верхний картуш с винтами и позолотой -->
+        <div class="instruction-banner">
+            <div class="skeuo-screw tl"></div>
+            <div class="skeuo-screw tr"></div>
+            <div class="skeuo-screw bl"></div>
+            <div class="skeuo-screw br"></div>
+            Привнесите даръ въ подсвѣчникъ
+        </div>
+        
+        <!-- Лампада на золоченой цепи -->
+        <div class="hanging-lamp-container">
+            <div class="lamp-chain"></div>
+            <div class="lamp-body">
+                <div class="lamp-glass"></div>
+                <div class="lamp-wick-flame"></div>
+            </div>
+        </div>
+
+        <!-- Кованый постамент-подсвечник -->
+        <div class="altar-podium-zone">
+            <div class="candlestick-bowl">
+                <div class="candle-needle-socket" id="socket"></div>
+            </div>
+            <div class="iron-candlestick-stem"></div>
+            <div class="iron-candlestick-base"></div>
+        </div>
+
+        <!-- Восковая свеча на исходной позиции -->
+        <div class="candle-spawn-anchor">
+            <div class="church-wax-candle" id="candle" draggable="true">
+                <div class="candle-wick"></div>
+                <div class="wax-drop-1"></div>
+                <div class="wax-drop-2"></div>
+                <div class="wax-drop-3"></div>
+                
+                <div class="sacred-flame-core" id="flame">
+                    <div class="flame-outer"></div>
+                    <div class="flame-aura"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Тяжелая чеканная кнопка возврата в храм -->
+        <button class="gate-return-trigger" id="returnBtn">Воротиться въ Храмъ</button>
+    </div>
+
+    <script>
+        const candle = document.getElementById('candle');
+        const socket = document.getElementById('socket');
+        const flame = document.getElementById('flame');
+        const returnBtn = document.getElementById('returnBtn');
+
+        // Drag & Drop события
+        candle.addEventListener('dragstart', (e) => {
+            e.dataTransfer.setData('text/plain', 'ignite');
+        });
+
+        socket.addEventListener('dragover', (e) => e.preventDefault());
+        socket.addEventListener('dragenter', () => socket.classList.add('drag-over'));
+        socket.addEventListener('dragleave', () => socket.classList.remove('drag-over'));
+        socket.addEventListener('drop', (e) => {
+            e.preventDefault();
+            socket.classList.remove('drag-over');
+            igniteCandle();
+        });
+
+        // Touch события для мобильных устройств
+        let isMoving = false;
+        candle.addEventListener('touchstart', () => { isMoving = true; });
+
+        document.addEventListener('touchmove', (e) => {
+            if (!isMoving) return;
+            e.preventDefault();
+            const touch = e.touches[0];
+
+            candle.style.position = 'fixed';
+            candle.style.left = (touch.clientX - 9) + 'px';
+            candle.style.top = (touch.clientY - 75) + 'px';
+            candle.style.zIndex = '9999';
+
+            const rect = socket.getBoundingClientRect();
+            if (touch.clientX >= rect.left && touch.clientX <= rect.right && touch.clientY >= rect.top && touch.clientY <= rect.bottom) {
+                socket.classList.add('drag-over');
+            } else {
+                socket.classList.remove('drag-over');
+            }
+        }, { passive: false });
+
+        document.addEventListener('touchend', (e) => {
+            if (!isMoving) return;
+            isMoving = false;
+            socket.classList.remove('drag-over');
+
+            const touch = e.changedTouches[0];
+            const rect = socket.getBoundingClientRect();
+
+            if (touch.clientX >= rect.left && touch.clientX <= rect.right && touch.clientY >= rect.top && touch.clientY <= rect.bottom) {
+                igniteCandle();
+            } else {
+                candle.style.position = 'relative';
+                candle.style.left = '0';
+                candle.style.top = '0';
+                candle.style.zIndex = '20';
+            }
+        });
+
+        // Обряд зажжения свечи
+        function igniteCandle() {
+            socket.appendChild(candle);
+            candle.style.position = 'absolute';
+            candle.style.left = '6px';
+            candle.style.top = '-130px';
+            candle.setAttribute('draggable', 'false');
+            
+            flame.style.display = 'block';
+            
+            localStorage.setItem('ritual_candle_lit', 'true');
+            localStorage.setItem('ritual_candle_lit_permanently', 'true');
+            
+            returnBtn.style.display = 'inline-block';
+        }
+
+        returnBtn.addEventListener('click', () => {
+            window.location.href = 'index.html';
+        });
+
+        // Защитный ритуал пресечения бегства
+        window.addEventListener('beforeunload', (e) => {
+            if (localStorage.getItem('ritual_candle_lit_permanently') === 'true') {
+                return;
+            }
+
+            const activeTarget = document.activeElement;
+            if (activeTarget && activeTarget.id === 'returnBtn') {
+                return;
+            }
+
+            localStorage.setItem('shrine_eternal_ban', 'true');
+            sessionStorage.clear();
+
+            const message = "Вы пытаетесь покинуть алтарь без подношения. Вход будет закрыт навсегда.";
+            e.preventDefault();
+            e.returnValue = message;
+            return message;
+        });
+    </script>
+
+</body>
+</html>
