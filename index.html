@@ -541,12 +541,22 @@
         }
 
         .post p {
-            font-size: 1.02em;
-            line-height: 1.95;
-            text-align: justify;
-            color: #fcefd6;
-            text-shadow: 0 1px 2px #000, 0 0 8px rgba(0,0,0,0.85);
-        }
+    font-size: 1.02em;
+    line-height: 1.95;
+    text-align: justify;
+    text-align-last: left;
+    
+    
+    -webkit-hyphens: auto;
+    -moz-hyphens: auto;
+    -ms-hyphens: auto;
+    hyphens: auto;
+    
+    word-break: normal;
+    overflow-wrap: break-word;
+    color: #fcefd6;
+    text-shadow: 0 1px 2px #000, 0 0 8px rgba(0, 0, 0, 0.85);
+}
 
         a {
             color: #ffd269; 
