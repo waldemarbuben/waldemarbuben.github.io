@@ -18,12 +18,7 @@
             font-style: normal;
         }
 
-        /* =========================================================================
-           ТОТАЛЬНЫЙ БАРОЧНЫЙ СКЕВОМОРФИЗМ АЛТАРЯ (RADICAL TOTALITARIAN SKEUOMORPHISM)
-           Материалы: Мореный полированный палисандр, чеканная червонная латунь,
-           литье из орудийной бронзы, сусальное золото, вощеный пчелиный воск,
-           рубиновое лампадное стекло, кованое железо и латунные винты со шлицем.
-           ========================================================================= */
+       
 
         :root {
             --wood-dark: #090301;
@@ -52,9 +47,7 @@
             color: #fcf1d9;
         }
 
-        /* ---------------------------------------------------------------------
-           ДЕКОРАТИВНЫЕ МЕХАНИЧЕСКИЕ ВИНТЫ СО ШЛИЦЕМ (RIVETS & SCREWS)
-        --------------------------------------------------------------------- */
+        
         .skeuo-screw {
             position: absolute;
             width: 13px;
@@ -83,9 +76,7 @@
         .skeuo-screw.bl { bottom: 10px; left: 10px; }
         .skeuo-screw.br { bottom: 10px; right: 10px; }
 
-        /* ---------------------------------------------------------------------
-           МНОГОСЛОЙНЫЙ АРХИТЕКТУРНЫЙ КИОТЪ И ЗАДНИЙ ПЛАН
-        --------------------------------------------------------------------- */
+        
         .shrine-background {
             position: fixed;
             top: 0; left: 0; width: 100vw; height: 100vh;
@@ -111,7 +102,7 @@
             pointer-events: none;
         }
 
-        /* БОКОВЫЕ РАСТИТЕЛЬНЫЕ АТЛАНТЫ ИЗ INDEX.HTML */
+        
         .floral-side-left {
             position: fixed;
             left: 0;
@@ -144,9 +135,7 @@
             filter: sepia(45%) saturate(125%) contrast(1.3) brightness(0.78) drop-shadow(-15px 0 25px rgba(0,0,0,0.98));
         }
 
-        /* ---------------------------------------------------------------------
-           ЦЕРКОВНЫЙ ПОМОСТЪ: МРАМОРНЫЙ РЕЛЬЕФ И КОВАНОЕ ЗОЛОТО
-        --------------------------------------------------------------------- */
+        
         .red-church-floor {
             position: fixed;
             bottom: 0; left: 0; width: 100vw; height: 38vh;
@@ -172,7 +161,7 @@
             background-image: url("data:image/svg+xml,%3Csvg width='120' height='120' viewBox='0 0 120 120' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)'/%3E%3C/svg%3E");
         }
 
-        /* Верхняя филигранная чеканка по цоколю пола */
+        
         .floor-filigree-trim {
             position: absolute;
             top: 6px; left: 0; right: 0; height: 2px;
@@ -181,9 +170,7 @@
             box-shadow: 0 1px 0 rgba(0,0,0,0.8);
         }
 
-        /* ---------------------------------------------------------------------
-           СЦЕНИЧЕСКИЙ ПРОСТОР (SHRINE STAGE)
-        --------------------------------------------------------------------- */
+        
         .shrine-stage {
             position: relative;
             width: 100%;
@@ -196,9 +183,7 @@
             padding: 30px 20px 40px 20px;
         }
 
-        /* ---------------------------------------------------------------------
-           ВЕРХНИЙ ВОТИВНЫЙ КАРТУШЪ (ИНСТРУКЦИЯ ИЗ ЧЕКАННОЙ ЛАТУНИ И ДУБА)
-        --------------------------------------------------------------------- */
+       
         .instruction-banner {
             font-size: 13.5px;
             letter-spacing: 0.35em;
@@ -252,9 +237,7 @@
             text-shadow: 0 0 10px #ffd700, 1px 1px 2px #000;
         }
 
-        /* ---------------------------------------------------------------------
-           ПОДВЕСНАЯ ЛАМПАДА (HANGING SANCTUARY LAMP): КОВАНАЯ ЦЕПЬ И РУБИНОВОЕ СТЕКЛО
-        --------------------------------------------------------------------- */
+        
         .hanging-lamp-container {
             position: absolute;
             left: 12%;
@@ -330,9 +313,7 @@
             animation: lampFlicker 0.12s ease-in-out infinite alternate;
         }
 
-        /* ---------------------------------------------------------------------
-           МОНУМЕНТАЛЬНЫЙ ПОДСВѢЧНИКЪ (ORNATE CAST BRONZE CANDLESTICK STAND)
-        --------------------------------------------------------------------- */
+        
         .altar-podium-zone {
             position: absolute;
             right: 18%;
@@ -389,7 +370,7 @@
             transform: scale(1.15);
         }
 
-        /* Центральная игла-шпиль подсвечника */
+        
         .candle-needle-socket::after {
             content: "";
             position: absolute;
@@ -414,7 +395,7 @@
             position: relative;
         }
 
-        /* Фигурные шаровые муфты на ножке подсвечника */
+        
         .iron-candlestick-stem::before {
             content: "";
             position: absolute;
@@ -451,9 +432,7 @@
             position: relative;
         }
 
-        /* ---------------------------------------------------------------------
-           ВОСКОВАЯ ЦЕРКОВНАЯ СВѢЧА (RITUAL BEESWAX VOTIVE CANDLE)
-        --------------------------------------------------------------------- */
+        
         .candle-spawn-anchor {
             position: absolute;
             left: 28%;
@@ -510,7 +489,7 @@
             box-shadow: 0 -1px 2px #000;
         }
 
-        /* Натуральные оплывы пчелиного воска */
+        
         .wax-drop-1 {
             position: absolute; top: 12px; left: -3px; width: 5px; height: 32px;
             background: linear-gradient(180deg, #fff2ce, #caa148);
@@ -530,9 +509,7 @@
             background: #faeed4; border-radius: 2px; opacity: 0.85;
         }
 
-        /* ---------------------------------------------------------------------
-           ЖИВОЕ СВЯЩЕННОЕ ПЛАМЯ (HYPER-DETAILED SACRED FLAME)
-        --------------------------------------------------------------------- */
+        
         .sacred-flame-core {
             display: none;
             position: absolute;
@@ -568,9 +545,7 @@
             animation: auraPulse 0.2s ease-in-out infinite alternate;
         }
 
-        /* ---------------------------------------------------------------------
-           ТАКТИЛЬНАЯ МЕХАНИЧЕСКАЯ КНОПКА ВОЗВРАТА (ИДЕНТИЧНА КНОПКАМ INDEX.HTML)
-        --------------------------------------------------------------------- */
+        
         .gate-return-trigger {
             display: none;
             position: relative;
@@ -597,7 +572,7 @@
             cursor: pointer;
             letter-spacing: 0.28em;
             text-transform: uppercase;
-            /* Чеканное золотое тиснение */
+            
             text-shadow: 
                 0 -1px 1px #000, 
                 0 1px 2px rgba(255, 235, 170, 0.9),
@@ -678,24 +653,24 @@
 </head>
 <body>
 
-    <!-- Фоновые алтарные слои -->
+    
     <div class="shrine-background"></div>
     <div class="shrine-shadow-overlay"></div>
     
-    <!-- Растительные барочные колонны по бокам -->
+    
     <div class="floral-side-left"></div>
     <div class="floral-side-right"></div>
 
-    <!-- Резной церковный помост -->
+    
     <div class="red-church-floor">
         <div class="floor-patina"></div>
         <div class="floor-filigree-trim"></div>
     </div>
 
-    <!-- Основной театральный свод алтаря -->
+    
     <div class="shrine-stage">
         
-        <!-- Верхний картуш с винтами и позолотой -->
+        
         <div class="instruction-banner">
             <div class="skeuo-screw tl"></div>
             <div class="skeuo-screw tr"></div>
@@ -704,7 +679,7 @@
             Привнесите даръ въ подсвѣчникъ
         </div>
         
-        <!-- Лампада на золоченой цепи -->
+        
         <div class="hanging-lamp-container">
             <div class="lamp-chain"></div>
             <div class="lamp-body">
@@ -713,7 +688,7 @@
             </div>
         </div>
 
-        <!-- Кованый постамент-подсвечник -->
+        
         <div class="altar-podium-zone">
             <div class="candlestick-bowl">
                 <div class="candle-needle-socket" id="socket"></div>
@@ -722,7 +697,7 @@
             <div class="iron-candlestick-base"></div>
         </div>
 
-        <!-- Восковая свеча на исходной позиции -->
+        
         <div class="candle-spawn-anchor">
             <div class="church-wax-candle" id="candle" draggable="true">
                 <div class="candle-wick"></div>
@@ -737,7 +712,7 @@
             </div>
         </div>
 
-        <!-- Тяжелая чеканная кнопка возврата в храм -->
+        
         <button class="gate-return-trigger" id="returnBtn">Воротиться въ Храмъ</button>
     </div>
 
@@ -747,7 +722,7 @@
         const flame = document.getElementById('flame');
         const returnBtn = document.getElementById('returnBtn');
 
-        // Drag & Drop события
+        
         candle.addEventListener('dragstart', (e) => {
             e.dataTransfer.setData('text/plain', 'ignite');
         });
@@ -761,7 +736,7 @@
             igniteCandle();
         });
 
-        // Touch события для мобильных устройств
+        
         let isMoving = false;
         candle.addEventListener('touchstart', () => { isMoving = true; });
 
@@ -801,7 +776,7 @@
             }
         });
 
-        // Обряд зажжения свечи
+        
         function igniteCandle() {
             socket.appendChild(candle);
             candle.style.position = 'absolute';
@@ -821,7 +796,7 @@
             window.location.href = 'index.html';
         });
 
-        // Защитный ритуал пресечения бегства
+        
         window.addEventListener('beforeunload', (e) => {
             if (localStorage.getItem('ritual_candle_lit_permanently') === 'true') {
                 return;
