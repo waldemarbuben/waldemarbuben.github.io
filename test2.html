@@ -529,7 +529,7 @@
             text-shadow: 0 0 8px #ffd700, 0 1px 2px #000;
         }
 
-        /* Печать для постов подруги */
+        /* comanion */
         .diary-companion .post::after {
             content: "✠ Валькирiя ✠";
             color: #ffe39f;
@@ -697,9 +697,7 @@
             100% { transform: translateY(105vh) rotate(360deg) translateX(-20px); opacity: 0.2; }
         }
 
-        /* ============================================================
-           СКЕВОМОРФНЫЙ ДИПТИХ-ПЕРЕКЛЮЧАТЕЛЬ ДНЕВНИКОВ
-           ============================================================ */
+        
         .diptych-sacrarium {
             position: relative;
             margin: 0 auto 35px auto;
@@ -827,7 +825,7 @@
             filter: sepia(15%) contrast(1.25) brightness(1.02) drop-shadow(0 6px 14px rgba(212,175,55,0.6));
         }
 
-        /* Кнопка-переключатель, полностью унаследованная от .play-btn */
+        
         .diptych-toggle-btn {
             width: 100%;
             box-sizing: border-box;
@@ -1482,37 +1480,35 @@ document.addEventListener("DOMContentLoaded", () => {
                 <div class="skeuo-screw br"></div>
 
                 <div class="diptych-pediment-caption">
-                    ❖ Двоица Свидетельствъ · Избери Свитокъ ❖
+                    ❖ Двоица: Выбѣрите по наитію, къ какому изъ нихъ перейти, - да откроются пиьсма ❖
                 </div>
 
                 <div class="diptych-grid">
-                    <!-- Левое крыло: Вальдѣмаръ Бубѣнъ -->
+                    
                     <div class="diptych-wing active" id="wing-buben">
                         <div class="diptych-title">Вальдѣмаръ Бубѣнъ</div>
                         <div class="diptych-medallion">
                             <img src="Monada2.webp" alt="Вальдѣмаръ Бубѣнъ">
                         </div>
                         <button type="button" class="play-btn diptych-toggle-btn" id="btn-show-buben">
-                            Свитокъ Вальдемара
+                            Свитокъ Вальдѣмара
                         </button>
                     </div>
 
-                    <!-- Правое крыло: Подруга / Валькирия -->
+                    
                     <div class="diptych-wing" id="wing-companion">
-                        <div class="diptych-title">Подруга (Валькирiя)</div>
+                        <div class="diptych-title">Вѣра Червi</div>
                         <div class="diptych-medallion">
                             <img src="Monada.webp" alt="Подруга / Валькирия">
                         </div>
                         <button type="button" class="play-btn diptych-toggle-btn" id="btn-show-companion">
-                            Свитокъ Подруги
+                            Свитокъ Вѣры
                         </button>
                     </div>
                 </div>
             </div>
 
-            <!-- ============================================================
-                 РАЗДЕЛ I: ДНЕВНИК ВАЛЬДЕМАРЪ БУБЕНЪ (ПОЛНЫЙ ИСХОДНИК)
-                 ============================================================ -->
+            <!-- мой -->
             <div id="buben-diary" class="diary-section" style="display: block;">
                 <div class="post">
                     <div class="date">2 Июня 1916</div>
@@ -1682,19 +1678,23 @@ document.addEventListener("DOMContentLoaded", () => {
                 </div>
             </div>
 
-            <!-- ============================================================
-                 РАЗДЕЛ II: ДНЕВНИК ПОДРУГИ (ВАЛЬКИРИЯ) — ТЕСТОВАЯ СТРУКТУРА
-                 ============================================================ -->
+            <!-- еЕ -->
             <div id="companion-diary" class="diary-section diary-companion" style="display: none;">
                 <div class="post">
-                    <div class="date">3 Октября 1916</div>
-                    <p>Кружево стареет медленнее, чем ладони, прикасающиеся к нему на закате. В комнате пахнет высушенным розмарином и воском холодных лампад. Вальдемар говорит, что ночи положено превосходить день, но день даже не сопротивляется — он просто отступает за край портьеры серой известковой каймой. Мой корсаж зашнурован на тринадцать петель: в каждой петле спит обещание не возвращаться в теплоту обыденных гостиных. На белой кости зеркала проступил след мотылька — ровно такой же, как на чертежах у алхимиков. Если молчать довольно долго, слышно, как в саду стынет земля, приготовленная для глубокого сна.</p>
-                    <img src="vera.webp" alt="Образ" style="border: 5px solid #140702; outline: 2px solid #d4a748; max-width: 100%; height: auto; margin-top: 20px; filter: grayscale(1) contrast(1.3) sepia(25%); box-shadow: 0 14px 35px rgba(0,0,0,1);">
+                    <div class="date">14 Октября 1916</div>
+                    <p> </p>
+                    <video controls width="300" preload="none" style="border: 4px solid #140702; outline: 2px solid #caa148; box-shadow: 0 12px 30px rgba(0,0,0,1); margin: 15px 0;">
+                        <source src="les.mp4" type="video/mp4">
+                    </video>
+                     <div class="audio-item unique-loop-player" style="border-bottom: none; margin-bottom: 0; padding-bottom: 0;">
+                        <audio class="my-audio" src="oxota.mp3" preload="none" loop></audio>
+                        <button class="play-btn">Охота на Волков</button>
+                    </div>
                 </div>
 
                 <div class="post">
-                    <div class="date">7 Октября 1916</div>
-                    <p>Они требуют от женщины прозрачности стекла, но забывают, что стекло — это расплавленный и остуженный в ужасе песок. Моя белизна — это не уступка и не стыд, а непреодолимая броня. Когда шелк платья касается пола, время перестает течь по механическим часам: стрелки начинают метаться между цифрами четыре и двенадцать, где всегда наступает полночь. Пусть пришедший сюда опустит глаза перед тканью подола — ибо здесь кончается их мещанский расчет и начинается священное безмолвие.</p>
+                    <div class="date">0 Октября 1916</div>
+                    <p> </p>
                     <div class="audio-item unique-loop-player" style="border-bottom: none; margin-bottom: 0; padding-bottom: 0;">
                         <audio class="my-audio" src="Hans.mp3" preload="none" loop></audio>
                         <button class="play-btn">Зовъ Валькирiи</button>
@@ -1702,12 +1702,12 @@ document.addEventListener("DOMContentLoaded", () => {
                 </div>
 
                 <div class="post">
-                    <div class="date">13 Октября 1916</div>
-                    <p>Пепел роз оседает на эмали стола. Завтра будет туман такой густоты, что птицы спутают ветви деревьев с подводными кораллами. Вальдемар запечатал врата медными винтами; я же положила поперек порога сухой стебель белладонны. Тот, кто дерзнет войти без трепета, найдет здесь лишь свое собственное отражение, разбитое на сорок позолоченных осколков.</p>
+                    <div class="date">0 Октября 1916</div>
+                    <p> </p>
                 </div>
             </div>
 
-            <!-- ЗАКЛЮЧИТЕЛЬНЫЙ БЛОК: ПРЕДУПРЕЖДЕНИЕ, ВЫБОР И КАРТИНЫ (ОБЩИЙ) -->
+            <!-- end -->
             <div class="post" style="margin-bottom: 0; padding-bottom: 0; border-bottom: none;">
                 <img src="IMG_0346.webp" alt="" style="border: 10px solid #000000; max-width: 100%; height: auto; margin-top: 20px; box-shadow: 0 14px 40px #000, 0 0 25px rgba(0,0,0,0.95);">    
                 <img src="IMG_0371.webp" alt="manifestation" width="100" height="100" style="display: block; margin: 15px auto; filter: sepia(30%) drop-shadow(0 6px 14px #000);">
