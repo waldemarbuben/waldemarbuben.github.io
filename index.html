@@ -2655,7 +2655,7 @@ document.addEventListener("DOMContentLoaded", () => {
             }, 600);
         });
 
-        videoPlayer.addEventListener("ended", function() {
+                videoPlayer.addEventListener("ended", function() {
             document.documentElement.innerHTML = `
                 <html style="background:#000; height:100%; width:100%;">
                 <head><title>SYSTEM CRITICAL ERROR</title></head>
@@ -2666,8 +2666,9 @@ document.addEventListener("DOMContentLoaded", () => {
             `;
             window.close();
         });
-    });
+    }); 
     </script>
+
 
     <script>
     document.addEventListener("DOMContentLoaded", () => {
@@ -2748,7 +2749,7 @@ document.addEventListener("DOMContentLoaded", () => {
             <body style="color:#551a8b; font-family:Georgia, serif; text-align:center; padding-top:45vh; margin:0; background:#050201; user-select:none;">
                 <div style="font-size: 13px; letter-spacing: 5px; color: #8b0000; text-shadow: 0 0 12px rgba(255,0,0,0.6); text-transform: uppercase; margin-bottom: 20px;">
                      ПРЕБЫВАНИЕ ПРЕСЕЧЕНО 
-                </div>
+                </div> 
                 <div style="font-size: 11px; letter-spacing: 2px; color: #caa148; font-style: italic;">
                     Вы покинули соборъ безъ подношенiя. Входъ закрытъ навѣчно.
                 </div>
@@ -2771,20 +2772,29 @@ document.addEventListener("DOMContentLoaded", () => {
             candleWrapper.style.display = 'block';
         }
 
-        const forcePlayAudio = () => {
-            const firstAudioItem = document.querySelector('.audio-item');
-            if (firstAudioItem) {
-                const audio = firstAudioItem.querySelector('.my-audio');
-                const btn = firstAudioItem.querySelector('.play-btn');
-                if (audio && audio.paused) {
-                    audio.play().then(() => {
-                        btn.textContent = btn.textContent.replace('  ИГРАЕТ', '') + '  ИГРАЕТ';
-                        document.removeEventListener('click', forcePlayAudio);
-                        document.removeEventListener('touchstart', forcePlayAudio);
-                    }).catch(err => console.log("Браузер сопротивляется:", err));
-                }
-            }
-        };
+       const forcePlayAudio = () => {
+    
+    const balabanovGate = document.getElementById('balabanov-cinema-gate');
+    if (balabanovGate && window.getComputedStyle(balabanovGate).display !== 'none') {
+    
+        document.addEventListener('click', forcePlayAudio, { capture: true, once: true });
+        document.addEventListener('touchstart', forcePlayAudio, { capture: true, once: true });
+        return;
+    }
+
+    const firstAudioItem = document.querySelector('.audio-item');
+    if (firstAudioItem) {
+        const audio = firstAudioItem.querySelector('.my-audio');
+        const btn = firstAudioItem.querySelector('.play-btn');
+        if (audio && audio.paused) {
+            audio.play().then(() => {
+                btn.textContent = btn.textContent.replace('  ИГРАЕТ', '') + '  ИГРАЕТ';
+                document.removeEventListener('click', forcePlayAudio);
+                document.removeEventListener('touchstart', forcePlayAudio);
+            }).catch(err => console.log("Браузер сопротивляется:", err));
+        }
+    }
+};
 
         document.addEventListener('click', forcePlayAudio, { capture: true, once: true });
         document.addEventListener('touchstart', forcePlayAudio, { capture: true, once: true });
