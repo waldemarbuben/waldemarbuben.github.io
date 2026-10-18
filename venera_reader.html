@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Леопольдъ фонъ Захеръ-Мазохъ — Венера въ Мѣхахъ</title>
+
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+
+    <style>
+        @font-face {
+            font-family: 'B52-Soviet';
+            src: url('B52.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        :root {
+            --light-source: 135deg;
+            --wood-dark: #120502;
+            --brass-high: #fff2be;
+            --brass-mid: #d4a748;
+            --brass-low: #754f15;
+            --brass-deep: #2e1a05;
+            --rivet-shine: radial-gradient(circle at 35% 35%, #fff6d9 0%, #d4a748 45%, #59350a 85%, #1a0a02 100%);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        /* 
+           ОСНОВНОЙ ФОН:
+           Полная глубина оригинального сайта (борозды, латунный узор, дерево, радиальные свечения)
+        */
+        body {
+            background-color: #060201;
+            background-image: 
+                radial-gradient(ellipse at 50% 15%, rgba(85, 40, 10, 0.6) 0%, rgba(16, 6, 2, 0.94) 55%, #050201 100%),
+                repeating-linear-gradient(0deg, rgba(20, 8, 3, 0.4) 0px, rgba(10, 4, 1, 0.4) 2px, rgba(35, 14, 5, 0.25) 4px, transparent 6px),
+                url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23d4af37' stroke-width='0.7' stroke-opacity='0.22'%3E%3Cpath d='M40 0 C28 20 20 28 0 40 C20 52 28 60 40 80 C52 60 60 52 80 40 C60 28 52 20 40 0 Z'/%3E%3Ccircle cx='40' cy='40' r='18' stroke-dasharray='3 3'/%3E%3Cpath d='M40 12 Q52 28 68 40 Q52 52 40 68 Q28 52 12 40 Q28 28 40 12 Z' fill='%23caa148' fill-opacity='0.05'/%3E%3C/g%3E%3C/svg%3E"),
+                url('IMG_9799.webp');
+            background-repeat: no-repeat, repeat, repeat, no-repeat;
+            background-size: cover, 100% 12px, 80px 80px, cover;
+            background-position: center, top left, top left, center;
+            background-attachment: fixed, fixed, fixed, fixed;
+            background-blend-mode: normal, overlay, overlay, normal;
+
+            color: #fcf1d9; 
+            font-family: "Georgia", "Palatino Linotype", "Times New Roman", serif;
+            margin: 0;
+            padding: 40px 15px 80px 15px;
+            line-height: 1.95;
+            letter-spacing: 0.035em;
+            text-shadow: 
+                0 -1px 0 rgba(0, 0, 0, 1),
+                0 1px 1px rgba(255, 235, 170, 0.2),
+                0 2px 5px rgba(0, 0, 0, 0.95);
+        }
+
+        ::selection { 
+            background: linear-gradient(180deg, #7a4310, #361c04);
+            color: #fff2b2; 
+            text-shadow: 0 0 10px #ffb300, 0 1px 2px #000;
+        }
+
+        /* Золотой скевоморфный скроллбар */
+        ::-webkit-scrollbar { width: 13px; }
+        ::-webkit-scrollbar-track { 
+            background: linear-gradient(90deg, #090301, #1a0a03, #090301); 
+            border-left: 1px solid #4a2f0c; 
+            box-shadow: inset 0 0 8px rgba(0,0,0,1);
+        }
+        ::-webkit-scrollbar-thumb { 
+            background: linear-gradient(180deg, #caa148 0%, #fff2be 30%, #9e742e 70%, #4a2d0b 100%); 
+            border: 1px solid #140601; 
+            border-radius: 3px;
+            box-shadow: 
+                inset 1px 1px 1px rgba(255,255,255,0.8), 
+                inset -1px -1px 2px rgba(0,0,0,0.8),
+                0 3px 6px rgba(0,0,0,0.9);
+        }
+
+        /* 
+           ========================================================================
+           РАЗМНОЖЕННАЯ ПОЛУПРОЗРАЧНАЯ ФОТОГРАФИЯ ПО БОКАМ (И ДЛЯ ПК, И ДЛЯ МОБИЛЫ):
+           Всегда зафиксирована на экране при прокрутке.
+           Поставил твой файл 'side_pattern.webp' (заменишь на любое свое фото/название).
+           ========================================================================
+        */
+        .side-photo-repeat {
+            position: fixed;
+            top: 0;
+            height: 100vh;
+            width: 140px; /* Ширина боковых лент */
+            background-image: url('side_pattern.webp'); /* СЮДА СВОЕ ФОТО */
+            background-repeat: repeat-y;
+            background-position: center top;
+            background-size: contain;
+            opacity: 0.35; /* Полупрозрачность, чтобы просвечивали борозды и фон */
+            mix-blend-mode: screen; 
+            pointer-events: none;
+            z-index: 2;
+            filter: sepia(50%) saturate(130%) brightness(0.9);
+        }
+        .side-photo-left {
+            left: 0;
+            mask-image: linear-gradient(to right, rgba(0,0,0,1) 60%, rgba(0,0,0,0) 100%);
+            -webkit-mask-image: linear-gradient(to right, rgba(0,0,0,1) 60%, rgba(0,0,0,0) 100%);
+        }
+        .side-photo-right {
+            right: 0;
+            mask-image: linear-gradient(to left, rgba(0,0,0,1) 60%, rgba(0,0,0,0) 100%);
+            -webkit-mask-image: linear-gradient(to left, rgba(0,0,0,1) 60%, rgba(0,0,0,0) 100%);
+        }
+
+        /* Оригинальные цветочные орнаменты */
+        .floral-side-left {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 180px;
+            height: 100vh;
+            mix-blend-mode: multiply; 
+            background-image: url('IMG_0678.webp'); 
+            background-repeat: repeat-y;
+            background-size: contain;
+            z-index: 3;
+            pointer-events: none;
+            opacity: 0.75;
+            filter: sepia(45%) saturate(125%) contrast(1.3) brightness(0.85);
+        }
+
+        .floral-side-right {
+            position: fixed;
+            right: 0;
+            top: 0;
+            width: 180px;
+            height: 100vh;
+            mix-blend-mode: multiply;
+            background-image: url('Cvetok8.webp');
+            background-repeat: repeat-y;
+            background-size: contain;
+            z-index: 3;
+            pointer-events: none;
+            opacity: 0.75;
+            filter: sepia(45%) saturate(125%) contrast(1.3) brightness(0.85);
+        }
+
+        /* Скевоморфные винты */
+        .skeuo-screw {
+            position: absolute;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: var(--rivet-shine);
+            box-shadow: 
+                0 2px 4px rgba(0,0,0,0.9), 
+                inset 0 1px 1px rgba(255,255,255,0.7),
+                inset 0 -1px 2px rgba(0,0,0,0.8);
+            border: 1px solid #1a0802;
+            z-index: 25;
+            pointer-events: none;
+        }
+        .skeuo-screw::before {
+            content: "";
+            position: absolute;
+            top: 50%; left: 15%; right: 15%; height: 2px;
+            margin-top: -1px;
+            background: #100501;
+            box-shadow: 0 1px 0 rgba(255, 235, 170, 0.5);
+            transform: rotate(38deg);
+        }
+        .skeuo-screw.tl { top: 12px; left: 12px; }
+        .skeuo-screw.tr { top: 12px; right: 12px; }
+        .skeuo-screw.bl { bottom: 12px; left: 12px; }
+        .skeuo-screw.br { bottom: 12px; right: 12px; }
+
+        /* Верхнее меню */
+        .reader-nav-header {
+            max-width: 960px;
+            margin: 0 auto 30px auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            padding: 14px 22px;
+            background: linear-gradient(180deg, #240d04 0%, #0d0401 100%);
+            border-top: 3px solid #ffd977;
+            border-left: 3px solid #caa148;
+            border-right: 3px solid #5a350e;
+            border-bottom: 4px solid #1a0802;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.95), inset 0 1px 2px rgba(255,235,170,0.4);
+            border-radius: 4px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .back-link {
+            color: #ffd977;
+            text-decoration: none;
+            font-weight: 900;
+            font-size: 0.9em;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            text-shadow: 0 0 10px #ffd700, 0 1px 2px #000;
+            border-bottom: 1px dashed #ffd977;
+            transition: all 0.25s ease;
+        }
+
+        .back-link:hover {
+            color: #ffffff;
+            border-bottom-style: solid;
+            text-shadow: 0 0 15px #fff;
+        }
+
+        .audio-mini-btn {
+            background: linear-gradient(180deg, #5a3112 0%, #200c03 52%, #0e0401 100%);
+            color: #fff2b8;
+            border-top: 2px solid #fff6d4;
+            border-left: 2px solid #d4a748;
+            border-right: 2px solid #5a350e;
+            border-bottom: 3px solid #1a0802;
+            padding: 7px 18px;
+            font-size: 0.8em;
+            font-family: inherit;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.9);
+            text-shadow: 0 0 8px rgba(255, 215, 0, 0.6);
+            transition: all 0.2s;
+        }
+
+        .audio-mini-btn:hover {
+            color: #fff;
+            box-shadow: 0 0 18px rgba(212, 175, 55, 0.8);
+            transform: translateY(-1px);
+        }
+
+        /* 
+           ОСНОВНОЙ ЧИТАЛЬНЫЙ БЛОК:
+           Точь-в-точь по оформлению и цветокору правого блока исходного сайта!
+        */
+        .txt-reader-wrapper {
+            position: relative;
+            max-width: 960px;
+            margin: 0 auto;
+            background: 
+              linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.02) 28%, transparent 29%),
+              linear-gradient(180deg, rgba(255, 245, 205, 0.18) 0%, rgba(212, 175, 55, 0.05) 1.5%, transparent 12%, rgba(0, 0, 0, 0.88) 100%),
+              radial-gradient(ellipse at 50% 8%, rgba(85, 42, 12, 0.98) 0%, rgba(20, 7, 2, 0.99) 65%, #070301 100%),
+              url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23d4af37' stroke-width='0.6' stroke-opacity='0.16'%3E%3Ccircle cx='50' cy='50' r='35'/%3E%3Cpath d='M50 0 L50 100 M0 50 L100 50 M15 15 L85 85 M15 85 L85 15' stroke-dasharray='2 4'/%3E%3Cpath d='M50 15 Q65 35 85 50 Q65 65 50 85 Q35 65 15 50 Q35 35 50 15 Z' fill='%23b8860b' fill-opacity='0.05'/%3E%3C/g%3E%3C/svg%3E");
+            border-top: 10px solid #ecd07a;
+            border-left: 10px solid #caa148;
+            border-right: 10px solid #6b4512;
+            border-bottom: 12px solid #361f06;
+            outline: 4px solid #140702;
+            outline-offset: -14px;
+            padding: 70px 65px 90px 65px;
+            box-shadow: 
+              0 3px 0 1px #331804,
+              0 0 0 4px #080301,
+              0 0 0 9px #9c722e,
+              0 0 0 13px #180802,
+              0 0 0 17px #070201,
+              0 0 0 20px #5c3c13,
+              0 45px 120px rgba(0, 0, 0, 1), 
+              inset 0 4px 6px rgba(255, 248, 210, 0.7),
+              inset 0 -5px 8px rgba(0, 0, 0, 0.98),
+              inset 4px 0 6px rgba(255, 215, 0, 0.35),
+              inset -4px 0 6px rgba(0, 0, 0, 0.95),
+              inset 0 0 110px rgba(0, 0, 0, 0.99),
+              inset 0 0 45px rgba(212, 175, 55, 0.4);
+            z-index: 5;
+        }
+
+        .txt-reader-wrapper::before {
+            content: "❖ ❖ ❖❖-❖❖ ❖ ❖";
+            position: absolute;
+            top: -19px;
+            left: 0;
+            width: 100%;
+            font-size: 13px;
+            letter-spacing: 12px;
+            text-align: center;
+            pointer-events: none;
+            z-index: 10;
+            color: #ffd977;
+            text-shadow: 
+              0 0 14px #ffd700, 
+              0 0 28px rgba(255, 215, 0, 0.7),
+              0 2px 4px #000;
+            opacity: 0.98;
+        }
+
+        .reader-inner {
+            position: relative;
+            z-index: 2;
+        }
+
+        .book-title-block {
+            text-align: center;
+            margin-bottom: 50px;
+            padding-bottom: 30px;
+            border-bottom: 3px double #caa148;
+            position: relative;
+        }
+
+        .book-title-block::after {
+            content: "✠ ✠ ✠";
+            position: absolute;
+            bottom: -11px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #140702;
+            padding: 0 15px;
+            font-size: 11px;
+            letter-spacing: 8px;
+            color: #ffd977;
+            border: 1px solid #7d5923;
+            text-shadow: 0 0 8px #ffd700;
+        }
+
+        .book-author {
+            color: #ffd977;
+            font-size: 1.2em;
+            letter-spacing: 0.35em;
+            text-transform: uppercase;
+            font-weight: 900;
+            text-shadow: 0 0 14px rgba(255, 215, 0, 0.8), 0 2px 4px #000;
+            margin-bottom: 10px;
+        }
+
+        .book-main-title {
+            font-size: 3.2em;
+            font-weight: 900;
+            color: #faebd0;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            margin: 10px 0 15px 0;
+            text-shadow: 0 0 25px rgba(212, 175, 55, 0.85), 0 4px 8px #000;
+        }
+
+        .book-epigraph {
+            font-style: italic;
+            color: #e5c382;
+            font-size: 1.05em;
+            max-width: 600px;
+            margin: 20px auto 0 auto;
+            line-height: 1.8;
+            text-shadow: 0 1px 3px #000;
+        }
+
+        /* 
+           ТЕКСТ КНИГИ НА МАНЕР TXT ЧИТАЛЬНИ:
+           Переносы, отступы, благородный цвет слоновой кости, тени
+        */
+        .book-body-text {
+            font-size: 1.05em;
+            line-height: 2.05;
+            text-align: justify;
+            text-align-last: left;
+            -webkit-hyphens: auto;
+            -moz-hyphens: auto;
+            hyphens: auto;
+            color: #fcefd6;
+            white-space: pre-wrap; 
+            word-wrap: break-word;
+            font-family: "Georgia", "Palatino Linotype", "Times New Roman", serif;
+            letter-spacing: 0.035em;
+            text-shadow: 0 1px 2px #000, 0 0 8px rgba(0, 0, 0, 0.85);
+        }
+
+        .reader-footer {
+            margin-top: 60px;
+            padding-top: 35px;
+            border-top: 2px solid #5a3811;
+            text-align: center;
+        }
+
+        .end-mark {
+            display: inline-block;
+            font-size: 1.1em;
+            letter-spacing: 0.4em;
+            color: #ffd977;
+            text-transform: uppercase;
+            font-weight: 900;
+            padding: 10px 24px;
+            border: 2px solid #caa148;
+            background: radial-gradient(circle, #2b1206 0%, #0d0402 100%);
+            box-shadow: 0 0 20px rgba(0,0,0,1), 0 0 12px rgba(212, 175, 55, 0.5);
+            text-shadow: 0 0 10px #ffd700;
+            margin-bottom: 30px;
+        }
+
+        /* 
+           =========================================================================
+           АДАПТАЦИЯ ДЛЯ ТЕЛЕФОНА:
+           1) Увеличили полезные поля под текст на максимум (строки длинные и раскатистые)
+           2) Сохранили повторяющиеся полупрозрачные фото по бокам
+           =========================================================================
+        */
+        @media (max-width: 600px) {
+            body {
+                /* Отступы body минимальны, чтобы текст занял максимум экрана */
+                padding: 10px 4px 40px 4px;
+                line-height: 1.65;
+            }
+
+            /* На телефоне боковые фото сужаем и делаем мягче, чтобы не мешали чтению */
+            .side-photo-repeat {
+                width: 35px;
+                opacity: 0.22;
+            }
+            .floral-side-left, 
+            .floral-side-right {
+                display: none;
+            }
+
+            .reader-nav-header {
+                width: 100%;
+                margin: 0 0 12px 0;
+                padding: 8px 10px;
+                gap: 6px;
+                justify-content: space-around;
+            }
+            .back-link {
+                font-size: 0.72em;
+                letter-spacing: 0.05em;
+            }
+            .audio-mini-btn {
+                padding: 6px 10px;
+                font-size: 0.68em;
+                letter-spacing: 0.05em;
+            }
+
+            /* Раскрываем блок читальни на полную ширину экрана телефона */
+            .txt-reader-wrapper {
+                width: 100%;
+                max-width: 100%;
+                padding: 30px 10px 40px 10px; /* Внутренние поля сжаты до 10px — строкам максимум места! */
+                border-top: 6px solid #ecd07a;
+                border-left: 4px solid #caa148;
+                border-right: 4px solid #6b4512;
+                border-bottom: 6px solid #361f06;
+                outline-width: 2px;
+                outline-offset: -7px;
+                box-shadow: 
+                  0 0 0 2px #080301,
+                  0 0 0 4px #9c722e,
+                  0 0 0 6px #180802,
+                  0 20px 45px rgba(0, 0, 0, 1),
+                  inset 0 0 30px rgba(212, 175, 55, 0.25);
+            }
+
+            .txt-reader-wrapper::before {
+                top: -15px;
+                font-size: 10px;
+                letter-spacing: 5px;
+            }
+
+            .skeuo-screw {
+                width: 10px;
+                height: 10px;
+            }
+            .skeuo-screw.tl { top: 6px; left: 6px; }
+            .skeuo-screw.tr { top: 6px; right: 6px; }
+            .skeuo-screw.bl { bottom: 6px; left: 6px; }
+            .skeuo-screw.br { bottom: 6px; right: 6px; }
+
+            .book-title-block {
+                margin-bottom: 22px;
+                padding-bottom: 18px;
+            }
+            .book-author {
+                font-size: 0.85em;
+                letter-spacing: 0.16em;
+            }
+            .book-main-title {
+                font-size: 1.6em;
+                letter-spacing: 0.05em;
+                margin: 6px 0 10px 0;
+            }
+            .book-epigraph {
+                font-size: 0.9em;
+                line-height: 1.55;
+                margin-top: 10px;
+            }
+
+            /* ТЕКСТ НА СМАРТФОНЕ: Длинный, раскатистый, широкий */
+            .book-body-text {
+                font-size: 1.02em;
+                line-height: 1.72;
+                letter-spacing: 0.005em;
+                text-align: left;
+                text-align-last: left;
+                word-break: normal;
+                overflow-wrap: anywhere;
+            }
+
+            .reader-footer {
+                margin-top: 35px;
+                padding-top: 20px;
+            }
+            .end-mark {
+                font-size: 0.82em;
+                letter-spacing: 0.18em;
+                padding: 7px 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 
+        ПОЛУПРОЗРАЧНАЯ РАЗМНОЖЕННАЯ ФОТОГРАФИЯ ПО БОКАМ (И НА ПК, И НА ТЕЛЕФОНЕ):
+        Фон зафиксирован, при скролле лента всегда сопровождает чтение.
+        Замени 'side_pattern.webp' на имя своего файла в CSS классе .side-photo-repeat!
+    -->
+    <div class="side-photo-repeat side-photo-left"></div>
+    <div class="side-photo-repeat side-photo-right"></div>
+
+    <!-- Флористические элементы (для ПК) -->
+    <div class="floral-side-left"></div>
+    <div class="floral-side-right"></div>
+
+    <audio id="ambient-audio" src="timogbi.mp3" preload="none" loop></audio>
+
+    <!-- Верхняя панель -->
+    <div class="reader-nav-header">
+        <a href="index.html" class="back-link">Вернуться</a>
+        <button id="toggle-ambient-btn" class="audio-mini-btn">Аудио-Сопровожденiе</button>
+        <a href="mazox.txt" download class="back-link">Загрузiтъ</a>
+    </div>
+
+    <!-- Основной монолитный блок читальни -->
+    <div class="txt-reader-wrapper">
+        <div class="skeuo-screw tl"></div>
+        <div class="skeuo-screw tr"></div>
+        <div class="skeuo-screw bl"></div>
+        <div class="skeuo-screw br"></div>
+
+        <div class="reader-inner">
+
+            <div class="book-title-block">
+                <div class="book-author">Леопольдъ фонъ Захеръ-Мазохъ</div>
+                <h1 class="book-main-title">ВЕНЕРА ВЪ МѢХАХЪ</h1>
+                <div class="book-epigraph">
+                    «И покарал его Господь и отдал его в руки женщины»... 
+                    Кн. Юдифи, 16, гл. 7.»
+                </div>
+            </div>
+
+            <!-- 
+                ====================================================================
+                [ ЗАМЕТКА: СЮДА ВСТАВЛЯЕШЬ СВОЙ ТЕКСТ КНИГИ ВМЕСТО ЭТОГО БЛОКА ]
+                Все абзацы, пустые строки и отступы отобразятся так же, как в .txt!
+                ====================================================================
+            -->
+            <div class="book-body-text">
+У меня была очаровательная гостья. 
+
+Перед большим камином в стиле «Ренессанс», прямо против меня, сидела Венера. Но это не была какая-нибудь дама полусвета, ведущая под этим именем войну с враждебным полом – вроде какой-нибудь мадмуазель Клеопатры, – а настоящая, подлинная богиня любви. 
+
+Она сидела в кресле, а перед ней пылал в камине яркий огонь, и красный отблеск пламени освещал ее бледное лицо с белыми глазами, а время от времени и ноги, когда она протягивала их к огню, стараясь согреть. 
+
+Голова ее поражала дивной красотой, несмотря на мертвые каменные глаза; но только голову ее я и видел. Величавая богиня закутала все свое мраморное тело в широкие меха и, вся дрожа, сидела свернувшись в комочек, как кошка. 
+
+Между нами шел разговор…
+
+[ВСТАВЛЯЙ СЮДА ВЕСЬ ОСТАЛЬНОЙ ТЕКСТ КНИГИ]
+            </div>
+
+            <div class="reader-footer">
+                <div class="end-mark">✠ КОНЕЦЪ РОМАНА ✠</div>
+                <br>
+                <a href="index.html" class="back-link">⟵ ВЕРНУТЬСЯ НА ГЛАВНУЮ СТРАНИЦУ</a>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+      const audio = document.getElementById('ambient-audio');
+      const btn = document.getElementById('toggle-ambient-btn');
+
+      btn.addEventListener('click', () => {
+        if (audio.paused) {
+          audio.play();
+          btn.textContent = 'Аудио: Играет ❖';
+          btn.style.boxShadow = '0 0 15px #ffd700';
+        } else {
+          audio.pause();
+          btn.textContent = 'Аудио-Сопровожденiе';
+          btn.style.boxShadow = 'none';
+        }
+      });
+    </script>
+
+</body>
+</html>
