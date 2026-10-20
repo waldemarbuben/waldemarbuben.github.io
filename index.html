@@ -898,6 +898,20 @@ body .floral-side-left,body .floral-side-right{width:220px;height:auto;top:0;bot
 #balabanov-cinema-gate,#candle-behind-wall,#glitch-overlay,#crash-screen,#video-overlay,.falling-flower{zoom:calc(1/var(--z))}
 #balabanov-cinema-gate,#candle-behind-wall,#glitch-overlay,#crash-screen,#video-overlay{width:auto!important;height:auto!important;right:0!important;bottom:0!important}
 </style>
+<style id="archive-navigation-style">
+.archive-nav-wrap{position:relative;z-index:30;max-width:1220px;margin:22px auto 32px;padding:10px 13px 13px;box-sizing:border-box;background:linear-gradient(180deg,rgba(255,245,205,.22),transparent 20%),repeating-linear-gradient(0deg,rgba(255,235,170,.035) 0 1px,transparent 1px 4px),linear-gradient(90deg,#100501,#3b1d08 18%,#160802 50%,#3b1d08 82%,#100501);border-top:7px solid #f0d584;border-left:7px solid #caa148;border-right:7px solid #6b4512;border-bottom:9px solid #2a1405;outline:2px solid #090301;box-shadow:0 0 0 3px #5e4016,0 0 0 6px #100501,0 16px 28px #000,inset 0 2px 3px rgba(255,255,220,.7),inset 0 -5px 8px #000,inset 0 0 25px rgba(212,175,55,.3)}
+.archive-nav-wrap:before,.archive-nav-wrap:after{content:"✥ ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ ✥";display:block;text-align:center;color:#d5ae5b;font-size:10px;letter-spacing:2px;line-height:1.2;text-shadow:0 2px 2px #000,0 0 8px #c99a3c;opacity:.9;white-space:nowrap;overflow:hidden}
+.archive-nav{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:9px;margin:9px 0;}
+.archive-nav a{position:relative;display:flex;align-items:center;justify-content:center;min-height:44px;padding:9px 7px;box-sizing:border-box;overflow:hidden;text-align:center;color:#ffdf8b!important;text-decoration:none!important;font-weight:900;font-size:clamp(.74rem,1.2vw,1.02rem);letter-spacing:.11em;text-transform:uppercase;white-space:nowrap;border-top:2px solid #fff0bc;border-left:2px solid #d6ac50;border-right:3px solid #65400e;border-bottom:5px solid #211003;border-radius:3px;background:linear-gradient(180deg,rgba(255,255,255,.34) 0,rgba(255,255,255,.06) 29%,transparent 31%),repeating-linear-gradient(90deg,rgba(255,228,153,.05) 0 1px,transparent 1px 3px),linear-gradient(180deg,#56300f,#2c1205 45%,#100501 100%);box-shadow:0 0 0 1px #050201,0 3px 0 #8b6223,0 6px 9px #000,inset 0 1px 2px rgba(255,245,205,.45),inset 0 -4px 7px rgba(0,0,0,.9);text-shadow:0 -1px #000,0 1px 0 rgba(255,240,180,.65),0 3px 4px #000;transition:filter .18s,transform .18s,box-shadow .18s}
+.archive-nav a:before{content:"";position:absolute;top:4px;left:7px;right:7px;height:1px;background:rgba(255,255,255,.55);pointer-events:none}
+.archive-nav a:after{content:"✦";position:absolute;right:7px;top:50%;transform:translateY(-50%);font-size:9px;color:#b78937;text-shadow:0 1px 2px #000}
+.archive-nav a:hover{filter:brightness(1.25);transform:translateY(-2px);box-shadow:0 0 0 1px #050201,0 5px 0 #a8782c,0 10px 16px #000,0 0 15px rgba(255,211,105,.35),inset 0 1px 2px #fff3c6}
+.archive-nav a.active{color:#2a1605!important;background:linear-gradient(180deg,#fff0b0,#d5ac54 42%,#a47528 56%,#e2c274);border-color:#fff5c9 #71501c #2b1605 #f1ce75;text-shadow:0 1px rgba(255,248,214,.7),0 -1px rgba(60,35,7,.35);box-shadow:0 0 0 1px #080301,0 4px 0 #5b3b11,0 8px 14px #000,inset 0 0 11px rgba(255,251,216,.35)}
+.media-elsewhere{margin:16px auto;padding:18px 16px;text-align:center;border-top:5px solid #e6c875;border-left:5px solid #caa148;border-right:5px solid #65400e;border-bottom:7px solid #281204;background:linear-gradient(180deg,rgba(255,244,196,.1),transparent 25%),linear-gradient(135deg,#351708,#0c0401);box-shadow:0 0 0 2px #050201,0 0 0 4px #8a6428,0 10px 22px #000,inset 0 0 18px #000}
+.media-elsewhere-label{display:block;color:#e8d39a;font-size:.9em;font-style:italic;margin-bottom:8px}
+.media-relocation{display:inline-block;padding:9px 17px;color:#ffdf8b!important;font-weight:900;text-transform:uppercase;letter-spacing:.08em;border-top:2px solid #fff0bc;border-left:2px solid #d6ac50;border-right:3px solid #65400e;border-bottom:4px solid #211003;background:linear-gradient(180deg,#56300f,#100501);box-shadow:0 5px 9px #000,inset 0 1px 2px rgba(255,245,205,.4)}
+@media(max-width:560px){.archive-nav-wrap{margin:18px 0 25px;padding:8px}.archive-nav{gap:6px}.archive-nav a{min-height:40px;padding:8px 3px;font-size:clamp(.68rem,2.7vw,.86rem);letter-spacing:.02em}.archive-nav a:after{right:3px;font-size:7px}.archive-nav-wrap:before,.archive-nav-wrap:after{letter-spacing:0;font-size:8px}}
+</style>
 </head>
 <body>
 
@@ -1090,6 +1104,15 @@ body .floral-side-left,body .floral-side-right{width:220px;height:auto;top:0;bot
 <img src="IMG_0704.webp" class="flower-accent-roses" alt="roses">
 <div class="floral-side-right"></div>
 
+<nav class="archive-nav-wrap" aria-label="Разделы сайта">
+  <div class="archive-nav">
+    <a class="active" href="index.html#articles" aria-current="page">Статьи</a>
+    <a href="video.html">Видео</a>
+    <a href="photo.html">Фото</a>
+    <a href="paintings.html">Картины</a>
+  </div>
+</nav>
+
 <div class="skeuo-frame" style="text-align: center; margin: 40px auto 25px auto; padding: 40px 25px 34px 25px;">
     <div class="skeuo-screw tl"></div>
     <div class="skeuo-screw tr"></div>
@@ -1107,8 +1130,8 @@ body .floral-side-left,body .floral-side-right{width:220px;height:auto;top:0;bot
     <div style="color: #ffe39f; font-size: 0.95em; letter-spacing: 0.55em; margin-top: 18px; font-weight: 900; text-transform: uppercase; text-shadow: 0 2px 4px #000, 0 0 14px rgba(255, 215, 0, 0.6); border-top: 1px solid rgba(202, 161, 72, 0.4); padding-top: 14px;">
         ==ТОТ, КТО ИДЕТ ПРОТИВ ДНЯ, НЕ ДОЛЖЕН БОЯТЬСЯ НОЧИ==
         
-        <div class="audio-item" style="border-bottom: none; margin-bottom: 0; padding-bottom: 0; margin-top: 15px;">
-            <audio class="my-audio" src="tot1.mp3" preload="none"></audio> 
+        <div class="audio-item" style="border-bottom: none; margin-bottom: 0; padding-bottom: 0; margin-top: 15px;" data-audio-src="tot1.mp3" data-audio-title="Интерлюдия">
+             
             <button class="play-btn">Интерлюдия</button>
         </div>
     </div>
@@ -1351,7 +1374,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 </script>
 
-    <div class="main-container">
+    <div class="main-container" id="articles">
         <div class="sidebar-left">
             <div class="skeuo-screw tl"></div>
             <div class="skeuo-screw tr"></div>
@@ -1372,185 +1395,185 @@ document.addEventListener("DOMContentLoaded", () => {
                 </a>
             </div>
 
-            <div class="audio-item">
-                <audio class="my-audio" src="otrada.mp3" preload="none"></audio>
+            <div class="audio-item" data-audio-src="otrada.mp3" data-audio-title="Живет Моя Отрада">
+                
                 <button class="play-btn">Живет Моя Отрада</button>
             </div>
             <img src="MISS.webp" alt="manifestation" class="divine-image">
-            <div class="audio-item">
-                <audio class="my-audio" src="Идальго.mp3" preload="none"></audio>
+            <div class="audio-item" data-audio-src="Идальго.mp3" data-audio-title="Идальго">
+                
                 <button class="play-btn">Идальго</button>
             </div>
-            <div class="audio-item">
-                <audio class="my-audio" src="Москва1984.mp3" preload="none"></audio>
+            <div class="audio-item" data-audio-src="Москва1984.mp3" data-audio-title="Москва 1984">
+                
                 <button class="play-btn">Москва 1984</button>
             </div>
-            <div class="audio-item">
-                <audio class="my-audio" src="4A.mp3" preload="none"></audio>
+            <div class="audio-item" data-audio-src="4A.mp3" data-audio-title="Song 4A">
+                
                 <button class="play-btn">Song 4A</button>
             </div>
-            <div class="audio-item">
-                <audio class="my-audio" src="Нарцисс.mp3" preload="none"></audio>
+            <div class="audio-item" data-audio-src="Нарцисс.mp3" data-audio-title="Нарцисс">
+                
                 <button class="play-btn">Нарцисс</button>
             </div>
-            <div class="audio-item">
-                <audio class="my-audio" src="Миледи.mp3" preload="none"></audio>
+            <div class="audio-item" data-audio-src="Миледи.mp3" data-audio-title="Миледи">
+                
                 <button class="play-btn">Миледи</button>
             </div>
-            <div class="audio-item">
-                <audio class="my-audio" src="228SOR.mp3" preload="none"></audio>
+            <div class="audio-item" data-audio-src="228SOR.mp3" data-audio-title="Сирень">
+                
                 <button class="play-btn">Сирень</button>
             </div>
             <img src="VODIKA.webp" alt="manifestation" class="divine-image">
-            <div class="audio-item">
-                <audio class="my-audio" src="Гарпия.mp3" preload="none"></audio>
+            <div class="audio-item" data-audio-src="Гарпия.mp3" data-audio-title="Гарпия">
+                
                 <button class="play-btn">Гарпия</button>
             </div>
 
             <img src="PGCvetok4.webp" alt="manifestation" class="divine-image">
             <img src="golova.webp" alt="manifestation" class="divine-image">
 
-            <div class="audio-item">
-                <audio class="my-audio" src="В розовом стакане.mp3" preload="none"></audio>
+            <div class="audio-item" data-audio-src="В розовом стакане.mp3" data-audio-title="В розовом стакане">
+                
                 <button class="play-btn">В розовом стакане</button>
             </div>
-            <div class="audio-item">
-                <audio class="my-audio" src="platok.mp3" preload="none"></audio>
+            <div class="audio-item" data-audio-src="platok.mp3" data-audio-title="Синий Платочек">
+                
                 <button class="play-btn">Синий Платочек</button>
             </div>
-            <div class="audio-item">
-                <audio class="my-audio" src="Аннабель.mp3" preload="none"></audio>
+            <div class="audio-item" data-audio-src="Аннабель.mp3" data-audio-title="Аннабель">
+                
                 <button class="play-btn">Аннабель</button>
             </div>
-            <div class="audio-item">
-                <audio class="my-audio" src="Агасфер.mp3" preload="none"></audio>
+            <div class="audio-item" data-audio-src="Агасфер.mp3" data-audio-title="Агасфер">
+                
                 <button class="play-btn">Агасфер</button>
             </div>
-            <div class="audio-item">
-                <audio class="my-audio" src="rio.mp3" preload="none"></audio>
+            <div class="audio-item" data-audio-src="rio.mp3" data-audio-title="Любовь на Рио-Гранде">
+                
                 <button class="play-btn">Любовь на Рио-Гранде</button>
             </div>
             <img src="VOLK.webp" alt="manifestation" class="divine-image">
-            <div class="audio-item">
-                <audio class="my-audio" src="GDETO.mp3" preload="none"></audio>
+            <div class="audio-item" data-audio-src="GDETO.mp3" data-audio-title="Где-то...">
+                
                 <button class="play-btn">Где-то...</button>
             </div>
-            <div class="audio-item">
-                <audio class="my-audio" src="audio1.mp3" preload="none"></audio>
+            <div class="audio-item" data-audio-src="audio1.mp3" data-audio-title="Лещенко: Скажите, почему?">
+                
                 <button class="play-btn">Лещенко: Скажите, почему?</button>
             </div>
-            <div class="audio-item">
-                <audio class="my-audio" src="vodared.mp3" preload="none"></audio>
+            <div class="audio-item" data-audio-src="vodared.mp3" data-audio-title="Ржавая Вода">
+                
                 <button class="play-btn">Ржавая Вода</button>
             </div>
-            <div class="audio-item">
-                <audio class="my-audio" src="pampas.mp3" preload="none"></audio>
+            <div class="audio-item" data-audio-src="pampas.mp3" data-audio-title="Где среди пампасов">
+                
                 <button class="play-btn">Где среди пампасов</button>
             </div>
-            <div class="audio-item">
-                <audio class="my-audio" src="audio2.mp3" preload="none"></audio>
+            <div class="audio-item" data-audio-src="audio2.mp3" data-audio-title="Отчего луна так светит...">
+                
                 <button class="play-btn">Отчего луна так светит...</button>
             </div>
-            <div class="audio-item">
-                <audio class="my-audio" src="timogbi.mp3" preload="none"></audio>
+            <div class="audio-item" data-audio-src="timogbi.mp3" data-audio-title="Ты Мог бы...">
+                
                 <button class="play-btn">Ты Мог бы...</button>
             </div>
-            <div class="audio-item">
-                <audio class="my-audio" src="audio3.mp3" preload="none"></audio>
+            <div class="audio-item" data-audio-src="audio3.mp3" data-audio-title="Гелиополис">
+                
                 <button class="play-btn">Гелиополис</button>
             </div>
-            <div class="audio-item">
-                <audio class="my-audio" src="audio4.mp3" preload="none"></audio>
+            <div class="audio-item" data-audio-src="audio4.mp3" data-audio-title="Ах, зачем эта ночь">
+                
                 <button class="play-btn">Ах, зачем эта ночь</button>
             </div>
             <img src="ugadai.webp" alt="manifestation" class="divine-image">
-            <div class="audio-item">
-                <audio class="my-audio" src="audio5.mp3" preload="none"></audio>
+            <div class="audio-item" data-audio-src="audio5.mp3" data-audio-title="Blues My Naughty">
+                
                 <button class="play-btn">Blues My Naughty</button>
             </div>
-            <div class="audio-item">
-                <audio class="my-audio" src="koldovstvo.mp3" preload="none"></audio>
+            <div class="audio-item" data-audio-src="koldovstvo.mp3" data-audio-title="Страданья">
+                
                 <button class="play-btn">Страданья</button>
             </div>
-            <div class="audio-item">
-                <audio class="my-audio" src="audio6.mp3" preload="none"></audio>
+            <div class="audio-item" data-audio-src="audio6.mp3" data-audio-title="To Many Tears">
+                
                 <button class="play-btn">To Many Tears</button>
             </div>
             <img src="RETORT.webp" alt="manifestation" class="divine-image">
-            <div class="audio-item">
-                <audio class="my-audio" src="audio7.mp3" preload="none"></audio>
+            <div class="audio-item" data-audio-src="audio7.mp3" data-audio-title="Зачем унылой думой">
+                
                 <button class="play-btn">Зачем унылой думой</button>
             </div>
-            <div class="audio-item">
-                <audio class="my-audio" src="kichman.mp3" preload="none"></audio>
+            <div class="audio-item" data-audio-src="kichman.mp3" data-audio-title="С Одесского Кичмана...">
+                
                 <button class="play-btn">С Одесского Кичмана...</button>
             </div>
-            <div class="audio-item">
-                <audio class="my-audio" src="audio8.mp3" preload="none"></audio>
+            <div class="audio-item" data-audio-src="audio8.mp3" data-audio-title="Иду Домой">
+                
                 <button class="play-btn">Иду Домой</button>
             </div>
-            <div class="audio-item">
-                <audio class="my-audio" src="audio9.mp3" preload="none"></audio>
+            <div class="audio-item" data-audio-src="audio9.mp3" data-audio-title="Листики Календаря">
+                
                 <button class="play-btn">Листики Календаря</button>
             </div> 
             <img src="IMG_0108.webp" alt="manifestation" class="divine-image">
-            <div class="audio-item">
-                <audio class="my-audio" src="audio10.mp3" preload="none"></audio>
+            <div class="audio-item" data-audio-src="audio10.mp3" data-audio-title="Malkhas Akhber">
+                
                 <button class="play-btn">Malkhas Akhber</button>
             </div> 
-            <div class="audio-item">
-                <audio class="my-audio" src="audio11.mp3" preload="none"></audio>
+            <div class="audio-item" data-audio-src="audio11.mp3" data-audio-title="Меня не греет шаль">
+                
                 <button class="play-btn">Меня не греет шаль</button>
             </div> 
-            <div class="audio-item">
-                <audio class="my-audio" src="audio12.mp3" preload="none"></audio>
+            <div class="audio-item" data-audio-src="audio12.mp3" data-audio-title="Где тропа за рекой запорошена..">
+                
                 <button class="play-btn">Где тропа за рекой запорошена..</button>
             </div> 
-            <div class="audio-item">
-                <audio class="my-audio" src="VETER.mp3" preload="none"></audio>
+            <div class="audio-item" data-audio-src="VETER.mp3" data-audio-title="То не ветер ветку клонит...">
+                
                 <button class="play-btn">То не ветер ветку клонит...</button>
             </div>
             <img src="IMG_0413.webp" alt="manifestation" class="divine-image">
-            <div class="audio-item">
-                <audio class="my-audio" src="audio13.mp3" preload="none"></audio>
+            <div class="audio-item" data-audio-src="audio13.mp3" data-audio-title="Кармен">
+                
                 <button class="play-btn">Кармен</button>
             </div> 
             <img src="IMG_0356.webp" alt="manifestation" class="divine-image">
-            <div class="audio-item">
-                <audio class="my-audio" src="audio14.mp3" preload="none"></audio>
+            <div class="audio-item" data-audio-src="audio14.mp3" data-audio-title="Иностранка">
+                
                 <button class="play-btn">Иностранка</button>
             </div> 
             <img src="IMG_0438.webp" alt="manifestation" class="divine-image">
-            <div class="audio-item">
-                <audio class="my-audio" src="audio15.mp3" preload="none"></audio>
+            <div class="audio-item" data-audio-src="audio15.mp3" data-audio-title="Мауна Лоа">
+                
                 <button class="play-btn">Мауна Лоа</button>
             </div> 
             <img src="3BB97EFB-274A-49B1-9386-F3CFD26D9F90.webp" alt="manifestation" class="divine-image">
-            <div class="audio-item">
-                <audio class="my-audio" src="audio17.mp3" preload="none"></audio>
+            <div class="audio-item" data-audio-src="audio17.mp3" data-audio-title="Былые увлеченья">
+                
                 <button class="play-btn">Былые увлеченья</button>
-                <iframe width="200" height="200" src="https://www.youtube.com/embed/joKnt76mjsY?si=zfBiLu7XP55Q1uwg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="border: 3px ridge #caa148; margin-top: 10px; box-shadow: 0 6px 15px #000;"></iframe>
+                <div class="media-elsewhere"><span class="media-elsewhere-label">Видеозапись вынесена в отдельную видеотеку</span><a class="media-relocation" href="video.html#video-1">Открыть: Видеозапись из музыкального раздела</a></div>
             </div> 
-            <div class="audio-item">
-                <audio class="my-audio" src="audio18.mp3" preload="none"></audio>
+            <div class="audio-item" data-audio-src="audio18.mp3" data-audio-title="Спускалась ночная прохлада">
+                
                 <button class="play-btn">Спускалась ночная прохлада</button>
             </div> 
             <img src="IMG_0510.webp" alt="manifestation" class="divine-image">
-            <div class="audio-item">
-                <audio class="my-audio" src="audioDEVi.mp3" preload="none"></audio>
+            <div class="audio-item" data-audio-src="audioDEVi.mp3" data-audio-title="Звездочка">
+                
                 <button class="play-btn">Звездочка</button>
             </div> 
-            <div class="audio-item">
-                <audio class="my-audio" src="Цыганочка.mp3" preload="none"></audio>
+            <div class="audio-item" data-audio-src="Цыганочка.mp3" data-audio-title="Цыганочка">
+                
                 <button class="play-btn">Цыганочка</button>
             </div>
-            <div class="audio-item">
-                <audio class="my-audio" src="audioDV.mp3" preload="none"></audio>
+            <div class="audio-item" data-audio-src="audioDV.mp3" data-audio-title="Ночь темна темнешенька">
+                
                 <button class="play-btn">Ночь темна темнешенька</button>
             </div> 
             <img src="1D2C4C56-310A-428E-9D24-9F619114DA15.webp" alt="manifestation" class="divine-image">
-            <div class="audio-item">
-                <audio class="my-audio" src="audioYU.mp3" preload="none"></audio>
+            <div class="audio-item" data-audio-src="audioYU.mp3" data-audio-title="Утопленник">
+                
                 <button class="play-btn">Утопленник</button>
             </div>
         </div>
@@ -1567,8 +1590,8 @@ document.addEventListener("DOMContentLoaded", () => {
             <div class="post">
                 <div class="date">2 Июня 1916</div>
                 <p>В стихии воздуха есть покрывающая шлейф-пленка. Скорее всего, это было известно и древним, но одна такая интуиция многое проясняет. Пленка эта заточена, как лезвие, и вместе с тем прозрачна, чуть мутновата два ее конца смыкаются в пупе земли. Метафорой здесь может послужить-с завязанное декольте посреди двух сферических чаш, которые, впрочем, зовутся ракушками, спиралевидные наутилусы, да и весь лунарный комплекс. Если вдруг птица, ласточка или воробей вьет гнездо под крышей, прямо над вашей головой, остерегайтесь полной луны, если вы не вполне готовы. Тонкость векторной направленности стрелы Амура эфирна а это, в свою очередь, говорит о птичьих яйцах, которые суть три столпа и подпорки всего проявленного, а именно не привычного сущего, т.е того, что не меняет своей твердости в связи со спекуляциями. В лучшем случае на вас готовится охота они, менады луны, закрутят вас в пленку, и от боли в ногах, не переставая танцевать, вы скользнете и расотождествитесь с собою, прогоняя себя от себя по оси двух нитей, уходящих в узел пупа земли. После вы, при должном усердии и с их помощью, возгоните свой пепел, оставшийся от вас и от души, и от тела, и от двойничьего, в сферу огня, то есть в ту сферу, где изначально и было ваше подлинное пребывание, устраняя тем самым дуализм влажного пути а после трансформации превратитесь в конденсат. Тогда, поймав себя в этих ухищрениях, вы увидите точку сечения, то есть вечного возвращения.</p>
-                <div class="audio-item unique-loop-player" style="border-bottom: none; margin-bottom: 0; padding-bottom: 0;">
-                    <audio class="my-audio" src="audio16.mp3" preload="none" loop></audio>
+                <div class="audio-item unique-loop-player" style="border-bottom: none; margin-bottom: 0; padding-bottom: 0;" data-audio-src="audio16.mp3" data-audio-title="Аудио-Сопровождение">
+                    
                     <button class="play-btn">Аудио-Сопровождение</button>
                 </div>       
             </div>
@@ -1582,8 +1605,8 @@ document.addEventListener("DOMContentLoaded", () => {
             <div class="post">
                 <div class="date">11 Сентября 1916</div>
                 <p>Женское тело воздействует магически, золото притягивает безумие, а солнце сжигает дураков. Смерть кощея бессмертного спрятана на конце иглы, которая находится в яйце, яйцо - в утке, утка - в зайце, заяц закован в железный сундук, а сам сундук висит на ветвях векового дуба, растущего в тридевятом царстве, в тридесятом государстве, за тридевять земель на море на окияне, на острове Буяне. Хвосты, они же вывернутые электрические провода на столбах, внушительно убивают голубей. Это те птицы, отличные от ворон или чаек от долгого сидения на проводах голуби больше не могут садиться на здания для них все становится хвостом. Оттого они клюют именно в пол, и переезжают их из-за того, что они думают, будто этот электрический хвост их ветка и внизу. А хвост устроен по принципу циклов, которые в урбанистическом пространстве нарушены. Голуби чувствуют канализацию внизу, посему полагают (и верно) что там их дом, но машина переезжает их быстрее. Вороны гораздо умнее, а чайки или воробьи чаще под крышей, я их редкенько слышу там уже два яйца. Одного социального взаимодействия, сквознякового пролета меж мирами людей, достаточно на год уединения, дабы вновь нарастить скорлупу, ведь турбуленция мышц сжигает холодцовые спазмы.</p>
-                <div class="audio-item unique-loop-player" style="border-bottom: none; margin-bottom: 0; padding-bottom: 0;">
-                    <audio class="my-audio" src="katya.mp3" preload="none" loop></audio>
+                <div class="audio-item unique-loop-player" style="border-bottom: none; margin-bottom: 0; padding-bottom: 0;" data-audio-src="katya.mp3" data-audio-title="Катя">
+                    
                     <button class="play-btn">Катя</button>
                 </div>  
             </div>
@@ -1593,9 +1616,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 <p>Полное признание превосходства изначальной пелазгической космической ночи, сновидений, беспредельно-безбрежного, интуиции над рациональным во всех его проявлениях. Абсолютная власть космоцентризма и вечного возвращения. Тортола Валенсия, Belle Époque эпоха испанского декаданса, к сожалению, неизвестна сейчас. По сравнению с тем, что известно (а эта по преимуществу кабинетные, безопасные, гнусавые лектора, работающие на статус-кво) испанская прекрасная эпоха совершенно не переведена на русский и никак не освещена. Так, по сравнению с ней, хотя французский сплин имеет свое место, и было бы ошибочно просто сравнивать сообразно тому что лучше не говоря о том, что танцовщиц таких уже нет разве что предпринимательницы, а потенциальные поклонники сакрального служения «оперились» в прагматичных, рациональных…… к слову, не буду о вязком. Горячая кровь испанцев и испанок наиболее сорванно прошелестела хворостинкой. Трудно себе представить вообще возможность того, кто способен то ли застрелиться, то ли разориться. Это неразумно, наваждённо, глупо, нецелесообразно, неэкономно… да и вообще незаконно. Мир признаёт функционально-внешнее, наиболее узколобое проявление чего бы то ни было все тонкие миры отвергаются, тонкость вообще молниеносно купируется «трезвым» взглядом самого смотрящего. /- Ни разу еще не встречал я женщины, от которой хотел бы иметь детей, кроме той женщины, которую я люблю: ибо я люблю тебя, о Вечность!
 
 Ибо я люблю тебя, о Вечность!-/</p>
-                <video controls width="300" preload="none" style="border: 4px solid #140702; outline: 2px solid #caa148; box-shadow: 0 12px 30px rgba(0,0,0,1); margin: 15px 0;">
-                    <source src="IMG_0005.MP4" type="video/mp4">
-                </video>
+                <div class="media-elsewhere"><span class="media-elsewhere-label">Видеозапись вынесена в отдельную видеотеку</span><a class="media-relocation" href="video.html#video-2">Открыть: Видеофрагмент IMG_0005</a></div>
                 <p>В их волосах - оливковых - разорванные нити,<br>
 В них пепел прерий, яд и терпкость темной соли.<br>
 Смуглянками зовут их дети лисьи.<br>
@@ -1627,8 +1648,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 <div class="date">22 Сентября 1916</div>
                 <p>Виделся мне дух вооруженной жрицы, идущей с вестями, какими-то кольцами; блистательные отпечатки на песке багровели опадающим внутренним ознобом, вот-вот маясь припасть обратно, а знойные дубы, хирея, склонили свои кроны…</p>
                 <img src="IMG_4182.webp" alt="" style="border: 4px solid #140702; outline: 2px solid #caa148; max-width: 100%; height: auto; margin-top: 20px; box-shadow: 0 14px 35px rgba(0,0,0,1);">
-                <div class="audio-item unique-loop-player" style="border-bottom: none; margin-bottom: 0; padding-bottom: 0;">
-                    <audio class="my-audio" src="Hans.mp3" preload="none" loop></audio>
+                <div class="audio-item unique-loop-player" style="border-bottom: none; margin-bottom: 0; padding-bottom: 0;" data-audio-src="Hans.mp3" data-audio-title="Танго СА">
+                    
                     <button class="play-btn">Танго СА</button>
                 </div>  
             </div>
@@ -1649,8 +1670,8 @@ document.addEventListener("DOMContentLoaded", () => {
             <div class="post">
                 <div class="date">26 Сентября 1916</div>
                 <p>Общение с людьми обыкновенными, приносит лишь глухое, тоскливое вязкое страдание. Их умы совершенно чужды ласке вдохновенного взгляда, глазам пронзительных губ, буранам чёрных страстей, заснувшим поперёк горла наваждениям, спонтанным проискам. Но попытка сблизиться с творцами художниками, музыкантами или поэтами оборачивается ещё более жестоким разочарованием. Вторые слишком деспотичны и безраздельно заняты собой. Они, точно так же как я, ревниво прячутся в собственных тихих омутах, из-за чего любая близость с ними превращается в обоюдную, мучительную несвободу, ощущение, что вот-вот что-то надломится, куда-то вспорхнёт и, разуверенное в своих силах, поникнет, раскатится, счешет нос о лужу!</p>
-                <div class="audio-item unique-loop-player" style="border-bottom: none; margin-bottom: 0; padding-bottom: 0;">
-                    <audio class="my-audio" src="trip.mp3" preload="none" loop></audio>
+                <div class="audio-item unique-loop-player" style="border-bottom: none; margin-bottom: 0; padding-bottom: 0;" data-audio-src="trip.mp3" data-audio-title="Триптих - Башлачев">
+                    
                     <button class="play-btn">Триптих - Башлачев</button>
                 </div>  
             </div>
@@ -1666,9 +1687,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             <div class="post">
                 <div class="date">30 Сентября 1916</div>
-                <video controls width="300" preload="none" style="border: 4px solid #140702; outline: 2px solid #caa148; box-shadow: 0 12px 30px rgba(0,0,0,1); margin: 15px 0;">
-                    <source src="kstupa.mp4" type="video/mp4">
-                </video>
+                <div class="media-elsewhere"><span class="media-elsewhere-label">Видеозапись вынесена в отдельную видеотеку</span><a class="media-relocation" href="video.html#video-3">Открыть: Видеофрагмент «К ступе»</a></div>
                 <p></p>
             </div>  
                         
@@ -1720,9 +1739,7 @@ document.addEventListener("DOMContentLoaded", () => {
 Потом мы надеваем сидя, закрыв один глаз и пялясь на таблицу Сивцева, настойчиво выписанные окулистом очки, так как оказывается, мы плохо стали видеть и/или мы дальтоники. Но почему? «Оттого что стареем, или будем стареть» говорят нам. Но какое это имеет отношение ко мне? Что значит «плохо видеть»? Как импрессионисты? Или линзы, ведь не всем идут очки», говорит божество тенденций. Значит, на нас наконец посмотрят и увидят? Я правильно понимаю на нас, слепых в линзах, посмотрят слепыми глазами другие линзы стремящиеся увидеть самих себя? А кто, собственно, видит теперь, где здесь я? Трава? Корова? Глаза?….
 Именно поэтому можно назвать эту цивилизацию - цивилизацией блефа, а изящьнее, цивилизация «Ш, Б, М, Н, К»
                 </p>
-                <video controls width="300" preload="none" style="border: 4px solid #140702; outline: 2px solid #caa148; box-shadow: 0 12px 30px rgba(0,0,0,1); margin: 15px 0;">
-                    <source src="eburg.MP4" type="video/mp4">
-                </video>
+                <div class="media-elsewhere"><span class="media-elsewhere-label">Видеозапись вынесена в отдельную видеотеку</span><a class="media-relocation" href="video.html#video-4">Открыть: Видеозапись из архива</a></div>
             </div>
 
             <div class="post">
@@ -1734,12 +1751,10 @@ document.addEventListener("DOMContentLoaded", () => {
             <div class="post">
   <div class="date">14 Октября 1916</div>
   <p>...Мы затравленно мчимся на выстрел... У Высоцкого, голос кипящие-бурлящей воды</p>
-    <video controls width="300" preload="none" style="border: 4px solid #140702; outline: 2px solid #caa148; box-shadow: 0 12px 30px rgba(0, 0, 0, 1); margin: 15px 0;">
-      <source src="les.mp4" type="video/mp4">
-    </video>
+    <div class="media-elsewhere"><span class="media-elsewhere-label">Видеозапись вынесена в отдельную видеотеку</span><a class="media-relocation" href="video.html#video-5">Открыть: Видеозапись «Лес»</a></div>
   
-  <div class="audio-item unique loop-player" style="border-bottom: none; margin-bottom: 0; padding-bottom: 0;">
-    <audio class="my-audio" src="oxota.mp3" preload="none" loop></audio>
+  <div class="audio-item unique loop-player" style="border-bottom: none; margin-bottom: 0; padding-bottom: 0;" data-audio-src="oxota.mp3" data-audio-title="Охота на Волков">
+    
     <button class="play-btn">Охота на Волков</button>
   </div>
 </div>
@@ -1747,8 +1762,8 @@ document.addEventListener("DOMContentLoaded", () => {
 <div class="post">
   <div class="date">16 Октября 1916</div>
   <p>Несколько слов о тушках, канте и балконах... камлания</p>
-  <div class="audio-item unique loop-player" style="border-bottom: none; margin-bottom: 0; padding-bottom: 0;">
-    <audio class="my-audio" src="prosvet.mp3" preload="none" loop></audio>
+  <div class="audio-item unique loop-player" style="border-bottom: none; margin-bottom: 0; padding-bottom: 0;" data-audio-src="prosvet.mp3" data-audio-title="Несколько Слов">
+    
     <button class="play-btn">Несколько Слов</button>
   </div>
 </div>
@@ -1756,7 +1771,7 @@ document.addEventListener("DOMContentLoaded", () => {
   <div class="post">
         <div class="date">17 Октября 1916</div>
         <p>Свою возлюбленную стоит искать либо в сказке, либо во сне </p>
-<iframe width="300" height="300" src="https://www.youtube.com/embed/NvRgJGFErHE?si=kKbPYaIetG_Bw8nh" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="border: 3px ridge #caa148; margin-top: 10px; box-shadow: 0 6px 15px #000;"></iframe>
+<div class="media-elsewhere"><span class="media-elsewhere-label">Видеозапись вынесена в отдельную видеотеку</span><a class="media-relocation" href="video.html#video-6">Открыть: Видео к записи «Несколько слов о тушках, канте и балконах»</a></div>
     </div>
     
      <div class="post">
@@ -1892,29 +1907,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     </div>
                 </div>
 
-                <div id="paintings-wrapper" style="display: none; flex-direction: column; gap: 25px; margin-top: 25px;">
-                    <img src="picGODD.webp" alt="" style="border: 1px solid #1a1a1a; max-width: 100%; height: auto; margin-top: 20px;">
-                    <img src="pic0312.webp" alt="" style="border: 1px solid #1a1a1a; max-width: 100%; height: auto; margin-top: 20px;">
-                    <img src="pichora.webp" alt="12" style="width: 100%; height: auto; border: 1px solid #1a1a1a; filter: brightness(0.9);">
-                    <img src="picBACKSIDE.webp" alt="12" style="width: 100%; height: auto; border: 1px solid #1a1a1a; filter: brightness(0.9);">
-                    <img src="picGOL.webp" alt="12" style="width: 100%; height: auto; border: 1px solid #1a1a1a; filter: brightness(0.9);">
-                    <img src="picMAM.webp" alt="12" style="width: 100%; height: auto; border: 1px solid #1a1a1a; filter: brightness(0.9);">
-                    <img src="picFOOT.webp" alt="12" style="width: 100%; height: auto; border: 1px solid #1a1a1a; filter: brightness(0.9);">
-                    <img src="picCAM.webp" alt="12" style="width: 100%; height: auto; border: 1px solid #1a1a1a; filter: brightness(0.9);">
-                    <img src="pic1.webp" alt="1" style="width: 100%; height: auto; border: 1px solid #1a1a1a; filter: brightness(0.9);">
-                    <img src="pic2.webp" alt="2" style="width: 100%; height: auto; border: 1px solid #1a1a1a; filter: brightness(0.9);">
-                    <img src="pic3.webp" alt="3" style="width: 100%; height: auto; border: 1px solid #1a1a1a; filter: brightness(0.9);">
-                    <img src="pic4.webp" alt="4" style="width: 100%; height: auto; border: 1px solid #1a1a1a; filter: brightness(0.9);">
-                    <img src="pic5.webp" alt="5" style="width: 100%; height: auto; border: 1px solid #1a1a1a; filter: brightness(0.9);">
-                    <img src="pic6.webp" alt="6" style="width: 100%; height: auto; border: 1px solid #1a1a1a; filter: brightness(0.9);">
-                    <img src="pic7.webp" alt="7" style="width: 100%; height: auto; border: 1px solid #1a1a1a; filter: brightness(0.9);">
-                    <img src="pic8.webp" alt="8" style="width: 100%; height: auto; border: 1px solid #1a1a1a; filter: brightness(0.9);">
-                    <img src="pic9.webp" alt="9" style="width: 100%; height: auto; border: 1px solid #1a1a1a; filter: brightness(0.9);">
-                    <img src="pic10.webp" alt="10" style="width: 100%; height: auto; border: 1px solid #1a1a1a; filter: brightness(0.9);">
-                    <img src="pic11.webp" alt="11" style="width: 100%; height: auto; border: 1px solid #1a1a1a; filter: brightness(0.9);">
-                    <img src="pic12.webp" alt="12" style="width: 100%; height: auto; border: 1px solid #1a1a1a; filter: brightness(0.9);">
-                    <img src="pic9996.webp" alt="12" style="width: 100%; height: auto; border: 1px solid #1a1a1a; filter: brightness(0.9);">
-                </div>
+                <div id="paintings-wrapper" hidden aria-hidden="true"></div>
             </div>
 
             <div id="glitch-overlay" style="display: none; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: transparent; z-index: 99998; pointer-events: none; mix-blend-mode: difference;"></div>
@@ -1980,9 +1973,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 <div class="alchemy-text">
                     Да, мы жiвѣмъ въ 1916 году, намъ 19 лѣтъ, мы 1897 года рождѣнiя…
                     <div style="border-top: 1px dashed #7a5823; margin: 12px 0;"></div>
-                    <video controls width="199" preload="none" style="border: 3px solid #140702; outline: 2px solid #caa148; box-shadow: 0 8px 18px #000; margin: 0 auto; display: block;">
-                        <source src="golovakamen.mp4" type="video/mp4">
-                    </video>
+                    <div class="media-elsewhere"><span class="media-elsewhere-label">Видеозапись вынесена в отдельную видеотеку</span><a class="media-relocation" href="video.html#video-7">Открыть: Фрагмент «Мы живём в 1916 году»</a></div>
                 </div>
             </div>
                     
@@ -2663,11 +2654,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (btnAgree) btnAgree.style.cssText += "; position: relative; z-index: 1000000 !important; pointer-events: auto !important;";
         if (btnDisagree) btnDisagree.style.cssText += "; position: relative; z-index: 1000000 !important; pointer-events: auto !important;";
 
-        btnAgree.addEventListener("click", function(e) {
-            choiceBlock.style.display = "none";
-            paintingsWrapper.style.display = "flex";
-            paintingsWrapper.scrollIntoView({ behavior: 'smooth' });
-        });
+        btnAgree.addEventListener("click", function() { window.location.href = "paintings.html?agreed=1"; });
 
         btnDisagree.addEventListener("click", function(e) {
             videoPlayer.muted = true;
@@ -2945,5 +2932,16 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 </script>
 
+<script id="homepage-audio-routing">
+document.addEventListener('click', function(event) {
+  const button = event.target.closest('.audio-item[data-audio-src] .play-btn');
+  if (!button) return;
+  const item = button.closest('.audio-item[data-audio-src]');
+  const source = item && item.dataset.audioSrc;
+  if (!source) return;
+  event.preventDefault();
+  window.location.href = 'audio.html?track=' + encodeURIComponent(source);
+});
+</script>
 </body>
 </html>
