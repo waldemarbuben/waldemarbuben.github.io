@@ -2277,76 +2277,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });     
 </script>
 
-    <script>
-      document.addEventListener("DOMContentLoaded", () => {
-        const contentBar = document.querySelector('.content');
-        if (!contentBar) return;
-
-        const canvas = document.createElement('canvas');
-        canvas.id = 'web1-canvas';
-        canvas.style.position = 'absolute';
-        canvas.style.top = '0';
-        canvas.style.left = '0';
-        canvas.style.width = '100%';
-        canvas.style.height = '100%';
-        canvas.style.pointerEvents = 'none'; 
-        canvas.style.zIndex = '-1'; 
-        
-        if (window.getComputedStyle(contentBar).position === 'static') {
-          contentBar.style.position = 'relative';
-        }
-
-        contentBar.insertBefore(canvas, contentBar.firstChild);
-
-        const ctx = canvas.getContext('2d');
-        
-        function resize() {
-          canvas.width = contentBar.offsetWidth;
-          canvas.height = contentBar.offsetHeight;
-        }
-        resize();
-        window.addEventListener('resize', resize);
-        new ResizeObserver(() => resize()).observe(contentBar);
-
-        let mouse = { x: -1000, y: -1000 };
-        contentBar.addEventListener('mousemove', (e) => {
-          const rect = contentBar.getBoundingClientRect();
-          mouse.x = e.clientX - rect.left;
-          mouse.y = e.clientY - rect.top;
-        });
-        contentBar.addEventListener('mouseleave', () => { mouse.x = -1000; mouse.y = -1000; });
-
-        function drawNoise() {
-          if (canvas.width === 0 || canvas.height === 0) {
-            requestAnimationFrame(drawNoise);
-            return;
-          }
-
-          ctx.clearRect(0, 0, canvas.width, canvas.height);
-          ctx.fillStyle = '#d4af37'; 
-          const step = 6; 
-
-          for (let x = 0; x < canvas.width; x += step) {
-            for (let y = 0; y < canvas.height; y += step) {
-              const dx = x - mouse.x;
-              const dy = y - mouse.y;
-              const dist = Math.sqrt(dx * dx + dy * dy);
-              
-              let rand = Math.random();
-              if (dist < 90) { 
-                rand += (1 - dist / 90) * 0.5; 
-              } 
-              
-              if (rand > 0.95) { 
-                ctx.fillRect(x, y, 2, 2); 
-              }
-            }
-          }
-          requestAnimationFrame(drawNoise);
-        }
-        drawNoise();
-      });
-    </script>
+   
 
    <script>
   document.querySelectorAll('.unique-loop-player').forEach(item => {
@@ -2378,201 +2309,135 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 </script>
 
-    <script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const flowerImages = [
-            'flower3.webp',
-            'flower4.webp',
-            'flower5.webp',
-            'flower7.webp',
-            'flower8.webp',
-            'flower12.webp',
-            'flower13.webp',
-        ];
+     <script>
+  document.addEventListener('DOMContentLoaded', () => {
+    document.documentElement.style.scrollBehavior = "smooth";
 
-      
-        flowerImages.forEach(src => {
-            const img = new Image();
-            img.src = src;
-        });
+    const flowerImages = [
+        'flower3.webp',
+        'flower4.webp',
+        'flower5.webp',
+        'flower7.webp',
+        'flower8.webp',
+        'flower12.webp',
+        'flower13.webp',
+    ];
 
-        const contentBar = document.querySelector('.content');
+    // Предзагрузка изображений
+    flowerImages.forEach(src => {
+        const img = new Image();
+        img.src = src;
+    });
 
-       
-        let contentRect = contentBar ? contentBar.getBoundingClientRect() : null;
-        function refreshRect() {
-            if (contentBar) contentRect = contentBar.getBoundingClientRect();
-        }
-        window.addEventListener('scroll', refreshRect, { passive: true });
-        window.addEventListener('resize', refreshRect, { passive: true });
-        if (contentBar && 'ResizeObserver' in window) {
-            new ResizeObserver(refreshRect).observe(contentBar);
-        }
+    const MAX_FLOWERS = 18;
+    const flowers = [];
+    let rafId = null;
+    let lastTime = 0;
 
-        const MAX_FLOWERS = 18;
-        const flowers = [];
-        let rafId = null;
-        let lastTime = 0;
+    function tick(now) {
+        const dt = Math.min((now - lastTime) / 16.667, 3) || 1;
+        lastTime = now;
 
-      
-        function tick(now) {
-            const dt = Math.min((now - lastTime) / 16.667, 3) || 1;
-            lastTime = now;
-
-            for (let i = flowers.length - 1; i >= 0; i--) {
-                if (!flowers[i].step(dt)) {
-                    flowers[i].el.remove();
-                    flowers.splice(i, 1);
-                }
-            }
-
-            if (flowers.length > 0) {
-                rafId = requestAnimationFrame(tick);
-            } else {
-                rafId = null;
+        for (let i = flowers.length - 1; i >= 0; i--) {
+            if (!flowers[i].step(dt)) {
+                flowers[i].el.remove();
+                flowers.splice(i, 1);
             }
         }
 
-        function ensureLoop() {
-            if (rafId === null) {
-                lastTime = performance.now();
-                rafId = requestAnimationFrame(tick);
-            }
+        if (flowers.length > 0) {
+            rafId = requestAnimationFrame(tick);
+        } else {
+            rafId = null;
         }
+    }
 
-        function createFlower() {
-            if (flowers.length >= MAX_FLOWERS) return;
+    function ensureLoop() {
+        if (rafId === null) {
+            lastTime = performance.now();
+            rafId = requestAnimationFrame(tick);
+        }
+    }
 
-            const el = document.createElement('img');
-            el.src = flowerImages[Math.floor(Math.random() * flowerImages.length)];
+    function createFlower() {
+        if (flowers.length >= MAX_FLOWERS) return;
+
+        const el = document.createElement('img');
+        el.src = flowerImages[Math.floor(Math.random() * flowerImages.length)];
 
         
-            el.style.animation = 'none';
-            el.style.position = 'fixed';
-            el.style.left = '0';
-            el.style.top = '0';
-            el.style.zIndex = '100';
-            el.style.pointerEvents = 'none';
-            el.style.willChange = 'transform';
-            el.style.backfaceVisibility = 'hidden';
-            el.style.transform = 'translate3d(0,0,0)';
+        el.style.position = 'fixed';
+        el.style.left = '0';
+        el.style.top = '0';
+        el.style.zIndex = '100';
+        el.style.pointerEvents = 'none';
+        el.style.userSelect = 'none';
+        el.style.willChange = 'transform, opacity';
+        el.style.transform = 'translate3d(0,0,0)';
+        el.style.visibility = 'hidden';
 
-            
-            const size = 30 + Math.random() * 40;
-            el.style.width  = size + 'px';
-            el.style.height = 'auto';
-            el.style.opacity = (0.5 + Math.random() * 0.4).toString();
-            el.style.visibility = 'hidden';
+        const size = 30 + Math.random() * 40;
+        el.style.width = size + 'px';
+        el.style.height = 'auto';
+        el.style.opacity = (0.5 + Math.random() * 0.4).toString();
 
-            el.className = 'falling-flower';
+        el.className = 'falling-flower';
+
+        if (el.complete) {
+            el.style.visibility = 'visible';
+        } else {
+            el.onload = () => { el.style.visibility = 'visible'; };
+        }
+
+        document.body.appendChild(el);
+
+        const state = {
+            el,
+            size,
+            x: Math.random() * window.innerWidth,
+            y: -size - 20,
+            speedY: 1.5 + Math.random() * 2,
+            swaySpeed: 0.02 + Math.random() * 0.03,
+            swayAmp: 1 + Math.random() * 2,
+            swayStep: Math.random() * 100,
+            rot: Math.random() * 360,
+            rotSpeed: (Math.random() - 0.5) * 1.2,
+        };
+
+       
+        state.step = function (dt) {
+            this.y += this.speedY * dt;
+            this.swayStep += this.swaySpeed * dt;
+            this.x += Math.sin(this.swayStep) * this.swayAmp * dt;
+            this.rot += this.rotSpeed * dt;
+
           
+            this.el.style.transform = `translate3d(${this.x.toFixed(1)}px, ${this.y.toFixed(1)}px, 0) rotate(${this.rot.toFixed(1)}deg)`;
 
-            if (el.complete) {
-                el.style.visibility = 'visible';
-            } else {
-                el.onload = () => { el.style.visibility = 'visible'; };
-            }
+           
+            return this.y <= window.innerHeight + 40;
+        };
 
-            document.body.appendChild(el);
+        flowers.push(state);
+        ensureLoop();
+    }
 
-            const state = {
-                el,
-                size,
-                x: Math.random() * window.innerWidth,
-                y: -size,
-                speedY: 1.5 + Math.random() * 2,
-                swaySpeed: 0.02 + Math.random() * 0.03,
-                swayAmp: 1 + Math.random() * 2,
-                swayStep: Math.random() * 100,
-                mode: 'falling',          
-                sitTimer: 0,
-                crawlDir: Math.random() > 0.5 ? 1 : -1,
-                rot: 0,
-                rotSpeed: (Math.random() - 0.5) * 1.2,
-            };
-
-            state.step = function (dt) {
-                const rect = contentRect;
-                const s = this.size;
-
-                if (this.mode === 'falling') {
-                    this.y += this.speedY * dt;
-                    this.swayStep += this.swaySpeed * dt;
-                    this.x += Math.sin(this.swayStep) * this.swayAmp * dt;
-                    this.rot += this.rotSpeed * dt;
-
-                    if (rect) {
-                        const bottom = this.y + s;
-                        const cx = this.x + s / 2;
-                        if (bottom >= rect.top && this.y < rect.top &&
-                            cx >= rect.left && cx <= rect.right) {
-                            if (Math.random() < 0.6) {
-                                this.mode = 'sitting';
-                                this.y = rect.top - s + 2;
-                                this.sitTimer = 200 + Math.floor(Math.random() * 400);
-                            }
-                        }
-                    }
-                } else if (this.mode === 'sitting') {
-                    this.sitTimer -= dt;
-                    if (this.sitTimer <= 0) {
-                        const dice = Math.random();
-                        if (dice < 0.4) {
-                            this.mode = 'crawling';
-                            this.sitTimer = 100 + Math.floor(Math.random() * 200);
-                        } else if (dice < 0.7) {
-                            this.mode = 'falling';
-                            this.y += 5;
-                        } else {
-                            this.sitTimer = 200 + Math.floor(Math.random() * 300);
-                        }
-                    }
-                    if (rect) this.y = rect.top - s + 2;
-                } else if (this.mode === 'crawling') {
-                    this.sitTimer -= dt;
-                    this.x += this.crawlDir * 0.5 * dt;
-
-                    if (rect) {
-                        this.y = rect.top - s + 2;
-                        if (this.x + s / 2 < rect.left || this.x + s / 2 > rect.right) {
-                            this.mode = 'falling';
-                        }
-                    }
-                    if (this.sitTimer <= 0) {
-                        this.mode = 'sitting';
-                        this.sitTimer = 100 + Math.floor(Math.random() * 200);
-                    }
-                }
-
-                this.el.style.transform =
-                    'translate3d(' + this.x.toFixed(2) + 'px,' +
-                                     this.y.toFixed(2) + 'px,0) rotate(' +
-                                     this.rot.toFixed(2) + 'deg)';
-
-                if (this.y > window.innerHeight + 30) return false;
-                return true;
-            };
-
-            flowers.push(state);
-            ensureLoop();
+    function spawnWave() {
+        const count = Math.floor(Math.random() * 3) + 1;
+        for (let i = 0; i < count; i++) {
+            setTimeout(createFlower, Math.random() * 2500);
         }
 
-        function spawnWave() {
-            const count = Math.floor(Math.random() * 3) + 1;
-            for (let i = 0; i < count; i++) {
-                setTimeout(createFlower, Math.random() * 2500);
-            }
+        const isLongDelay = Math.random() > 0.5;
+        const nextDelay = isLongDelay
+            ? (14000 + Math.random() * 8000)
+            : (4000 + Math.random() * 4000);
 
-            const isLongDelay = Math.random() > 0.5;
-            const nextDelay = isLongDelay
-                ? (14000 + Math.random() * 8000)
-                : (4000 + Math.random() * 4000);
+        setTimeout(spawnWave, nextDelay);
+    }
 
-            setTimeout(spawnWave, nextDelay);
-        }
-
-        setTimeout(spawnWave, 1000);
-    });
+    setTimeout(spawnWave, 1000);
+});
     </script>
 
     <script>
