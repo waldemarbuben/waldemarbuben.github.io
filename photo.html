@@ -1132,8 +1132,26 @@ body .floral-side-left,body .floral-side-right{width:220px;height:auto;top:0;bot
 .lb-btn:hover{filter:brightness(1.35)}
 .lb-prev{left:-24px;top:50%;margin-top:-25px}.lb-next{right:-24px;top:50%;margin-top:-25px}.lb-close{right:-22px;top:-22px;width:44px;height:44px;font-size:18px}
 .lb-count{position:absolute;left:50%;transform:translateX(-50%);bottom:-34px;color:#e2b75a;font-weight:900;letter-spacing:.2em;text-shadow:0 2px 3px #000}
-</style>
 
+/* ===== ТЕХНИЧЕСКИЕ ИСПРАВЛЕНИЯ: слои при листании, обратная сторона листа, вёрстка страницы, свайп =====
+   Внешний вид, размеры и масштаб не затронуты. */
+.album-book{touch-action:pan-y pinch-zoom;-webkit-user-select:none;user-select:none}
+.leaf{will-change:transform;-webkit-transform-style:preserve-3d}
+/* вложенные слои (картинки с filter, анимация тени) тоже прячутся, когда лист повёрнут спиной,
+   иначе обратная сторона просвечивает зеркально поверх текста и фото */
+.face *:not(.orn){-webkit-backface-visibility:hidden;backface-visibility:hidden}
+/* сторона листа, которая не видна, реально скрывается (visibility), а не только «повёрнута спиной» */
+.leaf .face{transition:visibility 0s linear 0s}
+.leaf .face.back{visibility:hidden;transition-delay:1.05s}
+.leaf.flipped .face.back{visibility:visible;transition-delay:0s}
+.leaf.flipped .face.front{visibility:hidden;transition-delay:1.05s}
+.no-anim .face{transition:none!important}
+/* два снимка + разделитель точно делят высоту страницы и не налезают друг на друга и на рамку */
+.page-body>.mount{height:auto;flex:1 1 0;min-height:0;min-width:0}
+.page-body>.divider{flex:0 0 auto}
+.print{max-width:100%}
+.print img{max-width:412px}
+</style>
 <style>@media (max-width:1099px){html{min-width:1880px}}</style>
 </head>
 <body>
@@ -1182,13 +1200,19 @@ body .floral-side-left,body .floral-side-right{width:220px;height:auto;top:0;bot
       elFirst=document.getElementById('ab-first'),elLast=document.getElementById('ab-last'),
       elCount=document.getElementById('ab-count'),elSub=document.getElementById('ab-sub'),
       ribbon=document.getElementById('album-ribbon'),tabs=[].slice.call(document.querySelectorAll('.album-index button'));
-  var STEP=420, MAXLIFT=300;
+  var STEP=420, MAXLIFT=200, FLIP_MS=1050;
 
   function zFor(i,flipped){ return flipped ? 100+i : 100-i; }
   function settle(){ leaves.forEach(function(l,i){ l.style.zIndex=zFor(i,l.classList.contains('flipped')); }); }
+  // летящий лист всегда выше неподвижных; несколько летящих листов сохраняют верный порядок
+  // (вперёд — выше больший номер, назад — меньший); таймер у каждого листа свой и берёт актуальное состояние
   function lift(l,i,flipped){
-    l.style.zIndex=MAXLIFT; l.classList.add('turning');
-    setTimeout(function(){ l.classList.remove('turning'); l.style.zIndex=zFor(i,flipped); },1050);
+    clearTimeout(l._t);
+    l.style.zIndex=MAXLIFT+zFor(i,flipped); l.classList.add('turning');
+    l._t=setTimeout(function(){
+      l._t=null; l.classList.remove('turning');
+      l.style.zIndex=zFor(i,l.classList.contains('flipped'));
+    },FLIP_MS);
   }
   function pageLabel(s){
     var L=2*s-1, R=2*s, last=2*N-1;
@@ -1220,8 +1244,9 @@ body .floral-side-left,body .floral-side-right{width:220px;height:auto;top:0;bot
   function go(s,instant){
     s=Math.max(0,Math.min(N,s)); target=s;
     if(instant){
+      clearTimeout(timer); timer=null;
       book.classList.add('no-anim');
-      leaves.forEach(function(l,i){ l.classList.toggle('flipped',i<s); });
+      leaves.forEach(function(l,i){ clearTimeout(l._t); l._t=null; l.classList.remove('turning'); l.classList.toggle('flipped',i<s); });
       cur=s; settle(); ui();
       void book.offsetWidth; requestAnimationFrame(function(){ book.classList.remove('no-anim'); });
       return;
@@ -1241,12 +1266,18 @@ body .floral-side-left,body .floral-side-right{width:220px;height:auto;top:0;bot
   tabs.forEach(function(t){ t.onclick=function(){ go(+t.dataset.spread); }; });
 
   // свайп
-  var sx=null,sy=0;
-  book.addEventListener('pointerdown',function(e){ if(e.target.closest('button')) return; sx=e.clientX; sy=e.clientY; });
+  var sx=null,sy=0,swiped=false;
+  book.addEventListener('pointerdown',function(e){ if(e.target.closest('.curl,.goto')) return; sx=e.clientX; sy=e.clientY; });
   window.addEventListener('pointerup',function(e){
     if(sx===null) return; var dx=e.clientX-sx, dy=e.clientY-sy; sx=null;
-    if(Math.abs(dx)>60&&Math.abs(dx)>Math.abs(dy)*1.4) go(dx<0?target+1:target-1);
+    if(Math.abs(dx)>60&&Math.abs(dx)>Math.abs(dy)*1.4){
+      swiped=true; setTimeout(function(){ swiped=false; },60);
+      go(dx<0?target+1:target-1);
+    }
   });
+  window.addEventListener('pointercancel',function(){ sx=null; });
+  // свайп, начатый на снимке, не должен заодно открывать увеличение
+  book.addEventListener('click',function(e){ if(swiped){ e.stopPropagation(); e.preventDefault(); swiped=false; } },true);
   book.addEventListener('dragstart',function(e){ e.preventDefault(); });
 
   // увеличение снимка
