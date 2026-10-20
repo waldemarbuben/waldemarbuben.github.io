@@ -983,7 +983,7 @@ outline:2px solid #805b22;box-shadow:0 0 0 4px #090301,0 10px 22px #000,inset 0 
 На брусчатке мощенной грибами, на пруду - заволоченном рвами
 Отпускала Цирцея зубо-скаленных Львов!</p></div>
 <section class="wireless-radio" id="wireless-radio" aria-label="Отдельное беспроволочное радио">
-<h2>✥ БЕСПРОВОЛОЧНОЕ РАДIО ✥</h2><p class="radio-intro">Две самостоятельныя волны. Включайте одну станцию; другая при этом остановится.</p>
+<h2> БЕСПРОВОЛОЧНОЕ </h2><p class="radio-intro">Две самостоятельныя волны. Включайте одну станцию; другая при этом остановится.</p>
 <div class="radio-station" id="radio-literature"><div class="radio-station-head"><span class="radio-station-name">ЛИТѢРАТУРА ПО БѢСПРОВОЛОЧНОМУ</span><span class="radio-state" id="radio-literature-state">ПРИЁМЪ ОЖИДАЕТЪ</span></div><div class="radio-actions"><button class="radio-toggle" type="button" data-radio="literature">▶ СЛУШАТЬ</button><label class="radio-fallback">Громкость <input class="radio-volume" type="range" min="0" max="1" step="0.01" value="0.8" data-radio-volume="literature"></label><a class="radio-fallback" href="http://195.91.237.50:8000/ices128" target="_blank" rel="noopener noreferrer">Открыть исходный IP-поток ↗</a></div><audio id="radio-literature-audio" preload="none" src="http://195.91.237.50:8000/ices128"></audio></div>
 <div class="radio-station" id="radio-music"><div class="radio-station-head"><span class="radio-station-name">МѢЛОДIИ ПО БѢСПРОВОЛОЧНОМУ</span><span class="radio-state" id="radio-music-state">ПРИЁМЪ ОЖИДАЕТЪ</span></div><div class="radio-actions"><button class="radio-toggle" type="button" data-radio="music">▶ СЛУШАТЬ</button><label class="radio-fallback">Громкость <input class="radio-volume" type="range" min="0" max="1" step="0.01" value="0.8" data-radio-volume="music"></label><a class="radio-fallback" href="http://195.91.237.50:8000/music128" target="_blank" rel="noopener noreferrer">Открыть исходный IP-поток ↗</a></div><audio id="radio-music-audio" preload="none" src="http://195.91.237.50:8000/music128"></audio></div>
 <p class="radio-note">Если не заигрывает - выключи VPN - и/или - Открой исходный поток по ссылкам выше</p></section>
@@ -1030,7 +1030,7 @@ outline:2px solid #805b22;box-shadow:0 0 0 4px #090301,0 10px 22px #000,inset 0 
     ipProgress.value=player.duration?Math.round(player.currentTime/player.duration*1000):0;
     ipProgress.style.background=`linear-gradient(90deg,#d9b15e 0%,#a4772b ${ipProgress.value/10}%,#241507 ${ipProgress.value/10}%,#241507 100%)`;
     ipLamp.textContent=player.paused?'ОЖИДАЕТ':'ВРАЩАЕТСЯ';
-    ipState.textContent=player.paused?'МЕХАНИЗМЪ ОСТАНОВЛЕНЪ':'ВОСПРОИЗВЕДЕНIЕ';
+    ipState.textContent=player.paused?'ОСТАНОВЛЕНЪ':'ВОСПРОИЗВЕДЕНIЕ';
     ipTrack.textContent=selected?labelFor(selected).toLocaleUpperCase('ru-RU'):'НЕ ВЫБРАНА';
   }
   ipPlay.addEventListener('click',()=>{if(!selected){status.textContent='Сначала выберите запись из каталога.';return;} if(player.paused) player.play().catch(()=>{}); else player.pause();});
