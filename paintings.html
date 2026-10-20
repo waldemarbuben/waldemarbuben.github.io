@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
 <title>Картины — Вальдѣмаръ Бубѣнъ</title>
 <meta name="theme-color" content="#120502">
 <style>
@@ -708,7 +708,7 @@ a{color:#ffd269;text-decoration:none;border-bottom:1px dashed rgba(255,210,105,.
         }
     </style>
 <style id="skeuo-deepening">
-
+/* ===== УГЛУБЛЕНИЕ СКЕВОМОРФИЗМА: слой поверх исходного дизайна ===== */
 :root{
  --tack:radial-gradient(circle,#fff6cf 0 1px,#d9b45a 2px,#6e4710 3.6px,#1a0a02 4.4px,transparent 5px);
  --ros:radial-gradient(circle,#fff6d4 0 1.5px,#d9b45a 2.5px 4px,#5a3a0e 5px 6px,#150801 6.5px 7px,transparent 7.5px);
@@ -717,20 +717,20 @@ a{color:#ffd269;text-decoration:none;border-bottom:1px dashed rgba(255,210,105,.
  --tuft:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='34' height='34'%3E%3Cdefs%3E%3CradialGradient id='b' cx='.35' cy='.35' r='.7'%3E%3Cstop offset='0' stop-color='%23fff0b0'/%3E%3Cstop offset='.6' stop-color='%23a67a2a'/%3E%3Cstop offset='1' stop-color='%232a1504'/%3E%3C/radialGradient%3E%3CradialGradient id='p'%3E%3Cstop offset='0' stop-color='%23ff9a70' stop-opacity='.07'/%3E%3Cstop offset='1' stop-color='%23000' stop-opacity='0'/%3E%3C/radialGradient%3E%3C/defs%3E%3Cpath d='M0 0L34 34M34 0L0 34' stroke='%23000' stroke-opacity='.4' stroke-width='1.4'/%3E%3Cpath d='M0 1L33 34M34 1L1 34' stroke='%23ffb48a' stroke-opacity='.08'/%3E%3Ccircle cx='17' cy='0' r='11' fill='url(%23p)'/%3E%3Ccircle cx='17' cy='34' r='11' fill='url(%23p)'/%3E%3Ccircle cx='0' cy='17' r='11' fill='url(%23p)'/%3E%3Ccircle cx='34' cy='17' r='11' fill='url(%23p)'/%3E%3Cg fill='url(%23b)' stroke='%23000' stroke-opacity='.7' stroke-width='.6'%3E%3Ccircle cx='17' cy='17' r='2.6'/%3E%3Ccircle cx='0' cy='0' r='2.6'/%3E%3Ccircle cx='34' cy='0' r='2.6'/%3E%3Ccircle cx='0' cy='34' r='2.6'/%3E%3Ccircle cx='34' cy='34' r='2.6'/%3E%3C/g%3E%3C/svg%3E");
 }
 
-
+/* Стена: дубовая доска с вертикальными стыками панелей + стекло витрины и виньетка */
 body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.7;
  background:var(--grain),repeating-linear-gradient(90deg,transparent 0 238px,rgba(0,0,0,.6) 238px 240px,rgba(212,167,72,.16) 240px 241px)}
 body::after{content:"";position:fixed;inset:0;z-index:998;pointer-events:none;
  background:linear-gradient(112deg,transparent 0 34%,rgba(255,236,190,.04) 34.2%,rgba(255,236,190,.09) 38%,transparent 38.3% 46%,rgba(255,236,190,.035) 46.2% 49%,transparent 49.3%);
  box-shadow:inset 0 0 170px 24px rgba(0,0,0,.7)}
 
-
+/* Золочёный филёнчатый кант внутри рам, розетки по углам */
 .content::after,.sidebar-left::after,.sidebar-right::after,.skeuo-frame::before{content:"";position:absolute;inset:17px;pointer-events:none;z-index:2;
  border:1px solid rgba(255,225,140,.5);
  box-shadow:0 0 0 3px rgba(0,0,0,.55),0 0 0 4px rgba(212,167,72,.4),inset 0 0 0 1px #000,inset 0 1px 0 rgba(255,235,170,.4);
  background:var(--ros) top 3px left 3px/16px 16px no-repeat,var(--ros) top 3px right 3px/16px 16px no-repeat,var(--ros) bottom 3px left 3px/16px 16px no-repeat,var(--ros) bottom 3px right 3px/16px 16px no-repeat}
 
-
+/* Винты: латунные, с шайбой, шлицы повёрнуты вразнобой */
 body .skeuo-screw{width:18px;height:18px;border:1px solid #120601;
  background:radial-gradient(circle at 34% 30%,#fffbe6 0,#f0cf7a 24%,#b98a35 52%,#5a350a 82%,#1a0a02 100%);
  box-shadow:0 0 0 2px #2a1606,0 0 0 3px #b8893a,0 0 0 4px #1a0a02,0 3px 5px 2px rgba(0,0,0,.95),inset 0 1px 1px rgba(255,255,255,.85),inset 0 -2px 3px rgba(0,0,0,.8)}
@@ -740,16 +740,16 @@ body .skeuo-screw.tr::before{transform:rotate(71deg)}
 body .skeuo-screw.bl::before{transform:rotate(118deg)}
 body .skeuo-screw.br::before{transform:rotate(164deg)}
 
-
+/* Заглавие: литые латунные литеры с выдавленной тенью */
 body .skeuo-frame h1{color:#f6e2a8!important;
  text-shadow:0 1px 0 #fff4c4,0 2px 0 #d9b45a,0 3px 0 #a87a2c,0 4px 0 #7a5018,0 5px 0 #4b2f0c,0 6px 0 #2a1604,0 7px 0 #150801,0 13px 14px #000,0 0 38px rgba(212,175,55,.55)!important}
 
-
+/* Бегущая строка: латунная планка с обойными гвоздями */
 body marquee{border:0!important;padding:17px 10px!important;color:#ffe29a!important;
  background:var(--tack) 0 3px/24px 10px repeat-x,var(--tack) 0 calc(100% - 3px)/24px 10px repeat-x,linear-gradient(180deg,rgba(0,0,0,.75) 0 9px,transparent 9px calc(100% - 9px),rgba(0,0,0,.75) calc(100% - 9px)),linear-gradient(180deg,rgba(255,255,255,.14),transparent 45%,rgba(0,0,0,.55)),linear-gradient(90deg,#160802,#4a270b 25%,#160802 50%,#4a270b 75%,#160802)!important;
  box-shadow:0 -2px 0 #e2b75a,0 -5px 0 #2a1506,0 2px 0 #6b4512,0 5px 0 #0a0402,0 14px 26px #000,inset 0 3px 8px #000,inset 0 -3px 8px #000!important}
 
-
+/* Записи: стёганый капитоне с пуговицами, латунные уголки, гвоздики по кромке */
 body .post{border:3px solid;border-color:#f0d584 #6b4512 #2a1506 #caa148;border-radius:2px;
  background:var(--tack) 0 6px/20px 12px repeat-x,var(--tack) 0 calc(100% - 6px)/20px 12px repeat-x,var(--tuft) left top/18px 18px repeat-y,var(--tuft) right top/18px 18px repeat-y,linear-gradient(180deg,rgba(255,245,215,.07),transparent 20%,rgba(0,0,0,.6)),radial-gradient(ellipse at 50% 20%,#3a1209 0,#12060a 85%);
  box-shadow:0 0 0 2px #060201,0 0 0 5px #7d5923,0 0 0 6px #1a0a02,0 12px 28px #000,inset 0 2px 3px rgba(255,235,170,.35),inset 0 0 45px #000}
@@ -759,18 +759,18 @@ body .post::after{padding:5px 26px 4px;color:#2a1405;border:2px solid;border-col
  background:var(--pin) left 9px center/9px 9px no-repeat,var(--pin) right 9px center/9px 9px no-repeat,linear-gradient(180deg,#f6dd92,#c9983c 45%,#8a6020 55%,#d9b25a);
  text-shadow:0 1px 0 rgba(255,244,190,.85);box-shadow:0 4px 0 #1a0802,0 8px 14px #000}
 
-
+/* Дата: гравированная латунная табличка на двух заклёпках */
 body .post .date{display:inline-block;padding:7px 36px 6px;margin-bottom:26px;font-size:1.1em;letter-spacing:.2em;color:#2b1503!important;
  border:2px solid;border-color:#fff4c4 #6b4512 #2a1506 #e2b75a;border-radius:2px;
  background:var(--pin) left 8px center/10px 10px no-repeat,var(--pin) right 8px center/10px 10px no-repeat,repeating-linear-gradient(90deg,rgba(255,255,255,.07) 0 1px,transparent 1px 3px),linear-gradient(180deg,#f6dd92 0,#d3a548 38%,#9a6f22 52%,#c9a050 100%);
  text-shadow:0 1px 0 rgba(255,244,190,.8),0 -1px 0 rgba(60,30,6,.5)!important;
  box-shadow:0 3px 0 #1a0802,0 6px 10px #000,inset 0 0 8px rgba(90,50,8,.55)}
 
-
+/* Буквица: выпуклая литая, как в рукописной книге */
 body .post p:first-of-type::first-letter{float:left;font-size:3.5em;line-height:.82;font-weight:900;padding:.04em .1em 0 0;color:#f2d682;
  text-shadow:0 1px 0 #fff6cf,0 2px 0 #b8893a,0 3px 0 #7a5018,0 4px 0 #4b2f0c,0 5px 0 #2a1604,0 9px 10px #000,0 0 18px rgba(255,200,80,.5)}
 
-
+/* Ярлыки каталожных ящиков: бумажная карточка в латунной рамке с отверстиями для штанги */
 body .track-title{position:relative;display:block;margin:0 auto 14px;padding:9px 30px;color:#2b1707!important;font-size:.98em;letter-spacing:.06em;line-height:1.35;
  border:3px solid;border-color:#fff0b8 #6b4512 #2a1506 #e2b75a;border-radius:2px;
  background:radial-gradient(circle at 12% 30%,rgba(120,70,20,.35) 0,transparent 14%),radial-gradient(circle at 88% 78%,rgba(120,70,20,.3) 0,transparent 16%),repeating-linear-gradient(0deg,rgba(90,55,15,.06) 0 1px,transparent 1px 3px),linear-gradient(180deg,#e9d6a2,#cdb27a 60%,#b99a5e);
@@ -781,7 +781,7 @@ body .track-title::before,body .track-title::after{content:"";position:absolute;
 body .track-title::before{left:8px}
 body .track-title::after{right:8px}
 
-
+/* Кнопки: рубиновая сигнальная лампа-кабошон слева */
 body .play-btn{padding:11px 20px 11px 42px;border-radius:6px}
 body .play-btn::before{content:"";position:absolute;left:13px;top:50%;width:12px;height:12px;margin-top:-8px;border-radius:50%;
  background:radial-gradient(circle at 34% 30%,#ffd9c8 0,#ff4a2a 28%,#8a0f06 62%,#2a0402 100%);
@@ -790,27 +790,27 @@ body .play-btn::before{content:"";position:absolute;left:13px;top:50%;width:12px
 body .play-btn:hover::before{box-shadow:0 0 0 2px #0a0402,0 0 18px 3px rgba(255,90,40,.9),inset 0 -2px 3px rgba(0,0,0,.4)}
 body .play-btn:active::before{filter:brightness(1.5)}
 
-
+/* Ссылки-кнопки в боковых колонках: фаска и литой бортик */
 :is(.sidebar-left,.sidebar-right) a[target=_blank]{border-radius:4px;
  box-shadow:0 0 0 2px #060201,0 0 0 3px #8a6428,0 5px 10px #000,inset 0 1px 1px rgba(255,240,180,.55),inset 0 -3px 5px rgba(0,0,0,.7)!important}
 
-
+/* Репродукции: фаска рамы, паспарту из бордового бархата, лаковая кромка */
 body .divine-image{box-sizing:border-box;padding:10px;border:6px solid;border-color:#f0d584 #6b4512 #2a1506 #caa148;outline:2px solid #0a0402;outline-offset:0;
  background:linear-gradient(135deg,rgba(255,255,255,.1),transparent 40%),radial-gradient(circle,#3a1209,#0e0508);
  box-shadow:0 0 0 4px #8a6428,0 0 0 5px #0a0402,0 14px 30px #000,inset 0 0 0 1px #000,inset 0 0 14px #000}
 
-
+/* Врезанная канавка между пунктами списка вместо плоской линии */
 .audio-item{border-bottom:2px solid rgba(0,0,0,.85);box-shadow:0 1px 0 rgba(255,225,150,.28)}
 .audio-item[style*="border-bottom: none"]{box-shadow:none}
 
-
+/* Алхимический ларец: кожаная прострочка и латунные уголки */
 .alchemy-manifest{position:relative}
 .alchemy-manifest::before{content:"";position:absolute;inset:0;pointer-events:none;filter:drop-shadow(0 2px 2px #000);
  background:linear-gradient(135deg,#ffe9a0 0 50%,transparent 50%) top left/26px 26px no-repeat,linear-gradient(225deg,#c99a40 0 50%,transparent 50%) top right/26px 26px no-repeat,linear-gradient(45deg,#8a6020 0 50%,transparent 50%) bottom left/26px 26px no-repeat,linear-gradient(315deg,#5a3a10 0 50%,transparent 50%) bottom right/26px 26px no-repeat}
 .alchemy-manifest::after{content:"";position:absolute;inset:9px;pointer-events:none;border:2px dashed rgba(236,200,120,.55);border-radius:2px;box-shadow:0 1px 0 #000,inset 0 1px 0 #000}
 
 
-
+/* Полоса прокрутки: латунный ползунок с рифлением и кнопки-шляпки */
 ::-webkit-scrollbar{width:16px}
 ::-webkit-scrollbar-thumb{border-radius:2px;
  background:repeating-linear-gradient(0deg,transparent 0 3px,rgba(0,0,0,.55) 3px 4px,rgba(255,240,170,.6) 4px 5px) center/60% 26px no-repeat,linear-gradient(90deg,#4a2d0b,#fff2be 30%,#caa148 55%,#7a5018 100%)}
@@ -819,14 +819,14 @@ body .divine-image{box-sizing:border-box;padding:10px;border:6px solid;border-co
 :focus-visible{outline:2px solid #fff2be;outline-offset:3px}
 @media (prefers-reduced-motion:reduce){.falling-flower{display:none}}
 
-
+/* Текст записей: контрастнее, без рисунка под строками */
 body .post p{color:#fff4df;text-shadow:0 1px 0 #000,0 2px 5px #000,0 0 10px rgba(0,0,0,.9)}
 
-
+/* ===== КИОТ: барочный позолоченный иконостас ===== */
 :root{--damask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40'%3E%3Cpath d='M20 4C26 12 28 14 36 20 28 26 26 28 20 36 14 28 12 26 4 20 12 14 14 12 20 4Z' fill='none' stroke='%23d4af37' stroke-opacity='.3'/%3E%3Ccircle cx='20' cy='20' r='2.4' fill='%23d4af37' fill-opacity='.3'/%3E%3C/svg%3E")}
 body .sacrum-tabernaculum{isolation:isolate}
 
-
+/* Витые соломоновы колонны с капителью и базой */
 .kiot-column{position:absolute;top:100px;bottom:52px;width:34px;z-index:3;border-radius:5px;
  background:linear-gradient(90deg,rgba(0,0,0,.9),transparent 26%,rgba(255,245,190,.6) 40%,transparent 58%,rgba(0,0,0,.92)),repeating-linear-gradient(64deg,#6b4512 0 7px,#f0cf74 7px 13px,#8a6020 13px 18px,#2a1504 18px 21px);
  box-shadow:0 0 0 2px #0a0402,0 0 0 3px #8a6428,0 10px 24px #000}
@@ -835,36 +835,36 @@ body .sacrum-tabernaculum{isolation:isolate}
  background:linear-gradient(180deg,#fff2be,#c9983c 45%,#6b4512);box-shadow:0 0 0 2px #0a0402,0 4px 6px #000}
 .kiot-column::before{top:-14px}.kiot-column::after{bottom:-14px;transform:scaleY(-1)}
 
-
+/* Фронтон: золочёный наклонный карниз и полка-венчание */
 body .tabernacle-pediment::before{content:"";position:absolute;left:-34px;right:-34px;top:-82px;height:70px;z-index:-1;
  background:linear-gradient(90deg,#6b4512,#f0d070 30%,#fff2be 50%,#d9b45a 70%,#6b4512);
  clip-path:polygon(evenodd,50% 0,100% 100%,0 100%,50% 0,50% 26%,7% 90%,93% 90%,50% 26%)}
 body .tabernacle-pediment::after{content:"";position:absolute;left:-34px;right:-34px;top:-12px;height:10px;
  background:linear-gradient(180deg,#fff2be,#c9983c 40%,#6b4512 70%,#1a0a02);box-shadow:0 0 0 2px #0a0402,0 6px 10px #000}
 
-
+/* Картуш с почтой: латунные заклёпки, ящик-щель для писем */
 body .votive-cartouche{
  background:var(--pin) top 9px left 9px/10px 10px no-repeat,var(--pin) top 9px right 9px/10px 10px no-repeat,var(--pin) bottom 9px left 9px/10px 10px no-repeat,var(--pin) bottom 9px right 9px/10px 10px no-repeat,linear-gradient(180deg,rgba(255,240,190,.18),transparent 25%,rgba(0,0,0,.8)),radial-gradient(ellipse at 50% 30%,rgba(85,45,14,.99),rgba(24,9,2,.99) 85%),#080301;
  box-shadow:0 0 0 2px #060201,0 0 0 5px #7d5923,0 0 0 6px #1a0a02,0 12px 30px #000,inset 0 1px 4px rgba(255,240,180,.8),inset 0 0 35px rgba(184,134,11,.55)}
 body .cartouche-mail-link{display:inline-block;margin-top:6px;padding:7px 22px;border:2px solid;border-color:#2a1506 #caa148 #fff2bd #6b4512;border-radius:2px;
  background:linear-gradient(180deg,#050201,#241103);box-shadow:inset 0 4px 8px #000,0 1px 0 rgba(255,240,170,.4)}
 
-
+/* Антаблемент: зубчики-дентикулы */
 body .entablature-divider{border:0;height:26px;
  background:linear-gradient(180deg,#fff2be 0 3px,#a87a2c 3px 7px,#2a1504 7px) 0 0/100% 9px no-repeat,repeating-linear-gradient(90deg,#d9b45a 0 9px,#1a0a02 9px 12px) 0 9px/100% 8px no-repeat,linear-gradient(180deg,#6b4512 0 3px,#caa148 3px 6px,#2a1504 6px) 0 17px/100% 9px no-repeat;
  box-shadow:0 8px 14px #000}
 
-
+/* Скрижаль канона: заклёпки и латунные торцы */
 body .nocturne-liturgy-canon{border-top:3px solid #6b4512;border-bottom:3px solid #caa148;
  background:var(--pin) top 10px left 12px/10px 10px no-repeat,var(--pin) top 10px right 12px/10px 10px no-repeat,var(--pin) bottom 10px left 12px/10px 10px no-repeat,var(--pin) bottom 10px right 12px/10px 10px no-repeat,linear-gradient(180deg,rgba(255,240,190,.08),transparent 20%,rgba(0,0,0,.7)),rgba(14,5,2,.8)}
 
-
+/* Престол: парчовый покров с дамасским узором и золотой бахромой */
 body .tabernacle-altar-mensa{
  background:var(--damask) 0 0/40px 40px,radial-gradient(ellipse at 50% 100%,rgba(212,165,65,.32),transparent 72%),linear-gradient(180deg,rgba(0,0,0,0),rgba(14,5,2,.85) 35%,rgba(32,12,4,1))}
 body .tabernacle-altar-mensa::after{content:"";position:absolute;left:0;right:0;bottom:-15px;height:15px;pointer-events:none;
  background:repeating-linear-gradient(90deg,#f0d070 0 2px,#7a5018 2px 3px,transparent 3px 6px);filter:drop-shadow(0 3px 3px #000)}
 
-
+/* Икона под стеклом, с висящей лампадой на цепи */
 .kiot-glass{position:absolute;inset:14px;z-index:5;pointer-events:none;
  background:linear-gradient(118deg,rgba(255,255,255,.16) 0 18%,transparent 18.2% 30%,rgba(255,255,255,.07) 30.2% 36%,transparent 36.2%),linear-gradient(180deg,rgba(255,240,200,.1),transparent 30%,rgba(0,0,0,.25));
  box-shadow:inset 0 0 0 2px rgba(0,0,0,.6),inset 0 0 14px rgba(0,0,0,.8)}
@@ -876,14 +876,14 @@ body .icon-reliquary-shrine::after{content:"";position:absolute;top:-54px;left:5
  background:repeating-linear-gradient(180deg,#e2b75a 0 3px,#3a2208 3px 5px);box-shadow:0 0 0 1px #0a0402}
 @keyframes kiotFlame{from{filter:brightness(.92)}to{filter:brightness(1.3) saturate(1.2)}}
 
-
+/* Предэллa: латунная надписная плита, текст гравирован */
 body .tabernacle-predella-vow{margin-top:44px;padding:20px 34px 18px;color:#2a1405;letter-spacing:.26em;line-height:1.9;
  border:3px solid;border-color:#fff2bd #6b4512 #2a1506 #e2b75a;border-radius:2px;
  background:var(--pin) top 8px left 8px/10px 10px no-repeat,var(--pin) top 8px right 8px/10px 10px no-repeat,var(--pin) bottom 8px left 8px/10px 10px no-repeat,var(--pin) bottom 8px right 8px/10px 10px no-repeat,repeating-linear-gradient(90deg,rgba(255,255,255,.06) 0 1px,transparent 1px 3px),linear-gradient(180deg,#f0d684,#c9983c 45%,#9a6f22 55%,#d3a548);
  text-shadow:0 1px 0 rgba(255,244,190,.8);box-shadow:0 0 0 2px #060201,0 0 0 5px #7d5923,0 10px 22px #000,inset 0 0 12px rgba(90,50,8,.5)}
 @media (prefers-reduced-motion:reduce){.icon-reliquary-shrine::before{animation:none}}
 
-
+/* ===== МАСШТАБ ПОД НОУТБУКИ: страница считает себя холстом ~1880px и сжимается под окно ===== */
 :root{--z:1}
 @media (min-width:1100px) and (max-width:1299px){:root{--z:.6}}
 @media (min-width:1300px) and (max-width:1439px){:root{--z:.69}}
@@ -893,9 +893,9 @@ body .tabernacle-predella-vow{margin-top:44px;padding:20px 34px 18px;color:#2a14
 body{zoom:var(--z);max-width:1440px}
 .content{max-width:730px}
 body .skeuo-frame,body marquee,body .sacrum-tabernaculum{max-width:1390px!important}
-
+/* цветочные полосы уже и не наезжают на панели */
 body .floral-side-left,body .floral-side-right{width:220px;height:auto;top:0;bottom:0}
-
+/* полноэкранные слои и падающие цветы остаются в натуральном масштабе */
 #balabanov-cinema-gate,#candle-behind-wall,#glitch-overlay,#crash-screen,#video-overlay,.falling-flower{zoom:calc(1/var(--z))}
 #balabanov-cinema-gate,#candle-behind-wall,#glitch-overlay,#crash-screen,#video-overlay{width:auto!important;height:auto!important;right:0!important;bottom:0!important}
 </style>
@@ -914,7 +914,7 @@ body .floral-side-left,body .floral-side-right{width:220px;height:auto;top:0;bot
 @media(max-width:560px){.archive-nav-wrap{margin:18px 0 25px;padding:8px}.archive-nav{gap:6px}.archive-nav a{min-height:40px;padding:8px 3px;font-size:clamp(.68rem,2.7vw,.86rem);letter-spacing:.02em}.archive-nav a:after{right:3px;font-size:7px}.archive-nav-wrap:before,.archive-nav-wrap:after{letter-spacing:0;font-size:8px}}
 </style>
 <style id="audio-page-responsive-tuning">
-
+/* Адаптация аудиоархива к той же раме и пропорциям, что и index-4.html */
 @media (max-width:760px){
   body{margin:20px auto;padding:0 12px 40px;}
   .floral-side-left,.floral-side-right{width:45px!important;opacity:.25!important;}
@@ -937,15 +937,15 @@ body .floral-side-left,body .floral-side-right{width:220px;height:auto;top:0;bot
 <body>
 <div class="floral-side-left" aria-hidden="true"></div><div class="floral-side-right" aria-hidden="true"></div>
 <nav class="archive-nav-wrap" aria-label="Разделы сайта"><div class="archive-nav">
-<a href="index.html#articles" >Главная</a><a href="video.html" >Видео</a><a href="photo.html" >Фото</a><a href="paintings.html" class="active" aria-current="page">Картины</a>
+<a href="index.html#articles"  target="_blank" rel="noopener noreferrer">Статьи</a><a href="video.html"  target="_blank" rel="noopener noreferrer">Видео</a><a href="photo.html"  target="_blank" rel="noopener noreferrer">Фото</a><a href="paintings.html" class="active" aria-current="page" target="_blank" rel="noopener noreferrer">Картины</a>
 </div></nav>
 <main class="skeuo-frame">
 <div class="skeuo-screw tl"></div><div class="skeuo-screw tr"></div><div class="skeuo-screw bl"></div><div class="skeuo-screw br"></div>
-<header class="page-heading"><span class="eyebrow">==ТОТ, КТО ИДЕТ ПРОТИВ ДНЯ, НЕ ДОЛЖЕН БОЯТЬСЯ НОЧИ==</span><h1>Картины</h1><p>О, капли рос, о, исцели мне сердце</p></header>
+<header class="page-heading"><span class="eyebrow">✶ Храм памяти моей валькирии ✶</span><h1>Картины</h1><p>Закрытая галерея · вход после подтверждения</p></header>
 <div class="section-ribbon">Галерея · закрытый зал</div>
-<div class="painting-warning">ЭТИ КАРТИНЫ НЕЛЬЗЯ СКАЧИВАТЬ ДЛЯ РАСПРОСТРАНЕНИЯ, ПЕРЕСЫЛАТЬ ИЛИ ДАВАТЬ СМОТРЕТЬ ВСЕМ ЛЮБОПЫТСТВУЮЩИМ. ОНИ ПРЕДНАЗНАЧЕНЫ ТОЛЬКО ДЛЯ ******* ****. КТО НЕ ПОСКУПИЛСЯ НА УВАЖЕНИЕ И ПОЧИТАНИЕ ПУСТЬ СМОТРИТ. КТО ПОЛУЧИЛ ИХ НИЧЕГО НЕ ЗАТРАТИВ, ПУСТЬ ЗАКРОЕТ ЭТОТ САЙТ. ИБО ЗАПЕЧАТАНЫ ОНИ СЛОВАМИ АДЕПТОВ. И ЛЮБОГО КОСНЕТСЯ ПРОКЛЯТИЕ, КТО ОСЛУШАЕТСЯ ЭТОГО ПРЕДУПРЕЖДЕНИЯ.</div>
+<div class="painting-warning">ЭТИ КАРТИНЫ НЕЛЬЗЯ СКАЧИВАТЬ ДЛЯ РАСПРОСТРАНЕНИЯ, ПЕРЕСЫЛАТЬ ИЛИ ДАВАТЬ СМОТРЕТЬ ВСЕМ ЛЮБОПЫТСТВУЮЩИМ. Сохраните уважение к предупреждению, прежде чем войти в галерею.</div>
 <section id="painting-consent" class="painting-consent"><h2>Каково ваше решение?</h2><p>Картины откроются только после вашего согласия.</p><button id="painting-agree" class="metal-button" type="button">Да, я согласен</button></section>
-<section id="painting-gallery" hidden><div class="section-ribbon">Картины / собрание</div><div class="painting-stack"><figure class="painting-card"><img data-src="picGODD.webp" alt="Картина из закрытой галереи, работа 1" loading="lazy" decoding="async"></figure><figure class="painting-card"><img data-src="pic0312.webp" alt="Картина из закрытой галереи, работа 2" loading="lazy" decoding="async"></figure><figure class="painting-card"><img data-src="pichora.webp" alt="Картина из закрытой галереи, работа 3" loading="lazy" decoding="async"></figure><figure class="painting-card"><img data-src="picBACKSIDE.webp" alt="Картина из закрытой галереи, работа 4" loading="lazy" decoding="async"></figure><figure class="painting-card"><img data-src="picGOL.webp" alt="Картина из закрытой галереи, работа 5" loading="lazy" decoding="async"></figure><figure class="painting-card"><img data-src="picMAM.webp" alt="Картина из закрытой галереи, работа 6" loading="lazy" decoding="async"></figure><figure class="painting-card"><img data-src="picFOOT.webp" alt="Картина из закрытой галереи, работа 7" loading="lazy" decoding="async"></figure><figure class="painting-card"><img data-src="picCAM.webp" alt="Картина из закрытой галереи, работа 8" loading="lazy" decoding="async"></figure><figure class="painting-card"><img data-src="pic1.webp" alt="Картина из закрытой галереи, работа 9" loading="lazy" decoding="async"></figure><figure class="painting-card"><img data-src="pic2.webp" alt="Картина из закрытой галереи, работа 10" loading="lazy" decoding="async"></figure><figure class="painting-card"><img data-src="pic3.webp" alt="Картина из закрытой галереи, работа 11" loading="lazy" decoding="async"></figure><figure class="painting-card"><img data-src="pic4.webp" alt="Картина из закрытой галереи, работа 12" loading="lazy" decoding="async"></figure><figure class="painting-card"><img data-src="pic5.webp" alt="Картина из закрытой галереи, работа 13" loading="lazy" decoding="async"></figure><figure class="painting-card"><img data-src="pic6.webp" alt="Картина из закрытой галереи, работа 14" loading="lazy" decoding="async"></figure><figure class="painting-card"><img data-src="pic7.webp" alt="Картина из закрытой галереи, работа 15" loading="lazy" decoding="async"></figure><figure class="painting-card"><img data-src="pic8.webp" alt="Картина из закрытой галереи, работа 16" loading="lazy" decoding="async"></figure><figure class="painting-card"><img data-src="pic9.webp" alt="Картина из закрытой галереи, работа 17" loading="lazy" decoding="async"></figure><figure class="painting-card"><img data-src="pic10.webp" alt="Картина из закрытой галереи, работа 18" loading="lazy" decoding="async"></figure><figure class="painting-card"><img data-src="pic11.webp" alt="Картина из закрытой галереи, работа 19" loading="lazy" decoding="async"></figure><figure class="painting-card"><img data-src="pic12.webp" alt="Картина из закрытой галереи, работа 20" loading="lazy" decoding="async"></figure><figure class="painting-card"><img data-src="pic9996.webp" alt="Картина из закрытой галереи, работа 21" loading="lazy" decoding="async"></figure></div></section>
+<section id="painting-gallery" hidden><div class="section-ribbon">Картины · собрание</div><div class="painting-stack"><figure class="painting-card"><img data-src="picGODD.webp" alt="Картина из закрытой галереи, работа 1" loading="lazy" decoding="async"></figure><figure class="painting-card"><img data-src="pic0312.webp" alt="Картина из закрытой галереи, работа 2" loading="lazy" decoding="async"></figure><figure class="painting-card"><img data-src="pichora.webp" alt="Картина из закрытой галереи, работа 3" loading="lazy" decoding="async"></figure><figure class="painting-card"><img data-src="picBACKSIDE.webp" alt="Картина из закрытой галереи, работа 4" loading="lazy" decoding="async"></figure><figure class="painting-card"><img data-src="picGOL.webp" alt="Картина из закрытой галереи, работа 5" loading="lazy" decoding="async"></figure><figure class="painting-card"><img data-src="picMAM.webp" alt="Картина из закрытой галереи, работа 6" loading="lazy" decoding="async"></figure><figure class="painting-card"><img data-src="picFOOT.webp" alt="Картина из закрытой галереи, работа 7" loading="lazy" decoding="async"></figure><figure class="painting-card"><img data-src="picCAM.webp" alt="Картина из закрытой галереи, работа 8" loading="lazy" decoding="async"></figure><figure class="painting-card"><img data-src="pic1.webp" alt="Картина из закрытой галереи, работа 9" loading="lazy" decoding="async"></figure><figure class="painting-card"><img data-src="pic2.webp" alt="Картина из закрытой галереи, работа 10" loading="lazy" decoding="async"></figure><figure class="painting-card"><img data-src="pic3.webp" alt="Картина из закрытой галереи, работа 11" loading="lazy" decoding="async"></figure><figure class="painting-card"><img data-src="pic4.webp" alt="Картина из закрытой галереи, работа 12" loading="lazy" decoding="async"></figure><figure class="painting-card"><img data-src="pic5.webp" alt="Картина из закрытой галереи, работа 13" loading="lazy" decoding="async"></figure><figure class="painting-card"><img data-src="pic6.webp" alt="Картина из закрытой галереи, работа 14" loading="lazy" decoding="async"></figure><figure class="painting-card"><img data-src="pic7.webp" alt="Картина из закрытой галереи, работа 15" loading="lazy" decoding="async"></figure><figure class="painting-card"><img data-src="pic8.webp" alt="Картина из закрытой галереи, работа 16" loading="lazy" decoding="async"></figure><figure class="painting-card"><img data-src="pic9.webp" alt="Картина из закрытой галереи, работа 17" loading="lazy" decoding="async"></figure><figure class="painting-card"><img data-src="pic10.webp" alt="Картина из закрытой галереи, работа 18" loading="lazy" decoding="async"></figure><figure class="painting-card"><img data-src="pic11.webp" alt="Картина из закрытой галереи, работа 19" loading="lazy" decoding="async"></figure><figure class="painting-card"><img data-src="pic12.webp" alt="Картина из закрытой галереи, работа 20" loading="lazy" decoding="async"></figure><figure class="painting-card"><img data-src="pic9996.webp" alt="Картина из закрытой галереи, работа 21" loading="lazy" decoding="async"></figure></div></section>
 <script>
 (function(){
   const consent = document.getElementById('painting-consent');
@@ -960,5 +960,5 @@ body .floral-side-left,body .floral-side-right{width:220px;height:auto;top:0;bot
 })();
 </script>
 </main>
-<footer class="page-footer"><a href="index.html#articles">Вернуться к дневнику</a><span>✥</span><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">К началу страницы</a></footer>
+<footer class="page-footer"><a href="index.html#articles" target="_blank" rel="noopener noreferrer">Вернуться к дневнику</a><span>✥</span><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">К началу страницы</a></footer>
 </body></html>
