@@ -2,6 +2,7 @@
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=1880">
 <title>Видео — Вальдѣмаръ Бубѣнъ</title>
 <meta name="theme-color" content="#120502">
 <style>
@@ -930,6 +931,155 @@ body .floral-side-left,body .floral-side-right{width:220px;height:auto;top:0;bot
 }
 @media (min-width:761px){.skeuo-frame{width:100%;}}
 </style>
+<style id="skeuo-tv">
+/* ================= ТЕЛЕВИЗОР «РУБИН-А6» ================= */
+.tv-stage{position:relative;margin:36px auto 10px;padding:150px 20px 46px;box-sizing:border-box;text-align:center;overflow:visible;
+ background:radial-gradient(ellipse at 50% 35%,rgba(255,170,80,.16),transparent 62%),linear-gradient(180deg,rgba(8,3,1,.55),rgba(8,3,1,.82)),url('kover.webp') center/cover,linear-gradient(135deg,#3a0f07,#1a0603);
+ border-top:8px solid #e2b75a;border-left:8px solid #caa148;border-right:8px solid #6b4512;border-bottom:10px solid #361f06;
+ box-shadow:0 0 0 3px #080301,0 0 0 6px #7d5923,0 22px 40px #000,inset 0 0 90px #000,inset 0 3px 4px rgba(255,235,170,.35)}
+.tv-set{position:relative;display:inline-block;text-align:left}
+.tv-set:after{content:"";position:absolute;left:4%;right:4%;bottom:-62px;height:46px;border-radius:50%;background:radial-gradient(ellipse,rgba(0,0,0,.85),transparent 70%);z-index:-1}
+
+/* антенна-«усы» */
+.antenna{position:absolute;left:50%;top:0;width:0;height:0;z-index:0}
+.antenna .rod{position:absolute;bottom:0;left:-3px;width:6px;height:150px;transform-origin:50% 100%;border-radius:3px;
+ background:linear-gradient(90deg,#5a3a0e,#fff2be 35%,#d4a748 55%,#6b4512);box-shadow:2px 0 4px rgba(0,0,0,.8)}
+.antenna .rod:after{content:"";position:absolute;top:-9px;left:-5px;width:16px;height:16px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff6d9,#d4a748 50%,#4a2d0b);box-shadow:0 3px 5px #000}
+.antenna .rod.a{transform:rotate(-31deg)}.antenna .rod.b{transform:rotate(27deg)}
+.antenna .dome{position:absolute;left:-34px;bottom:-8px;width:68px;height:34px;border-radius:68px 68px 0 0;background:radial-gradient(ellipse at 40% 20%,#fff2be,#b98a35 45%,#3b2306);box-shadow:0 -2px 6px rgba(0,0,0,.6),inset 0 2px 3px rgba(255,255,255,.5)}
+.tv-book{position:absolute;top:-34px;left:46px;width:170px;z-index:12;pointer-events:none;filter:drop-shadow(0 16px 22px rgba(0,0,0,.95));border:none!important;box-shadow:none!important;outline:none!important}
+
+/* корпус */
+.tv-cabinet{position:relative;z-index:2;display:flex;gap:22px;align-items:stretch;box-sizing:border-box;width:1004px;padding:46px 30px 30px 30px;border-radius:12px;
+ background:repeating-linear-gradient(90deg,rgba(0,0,0,.18) 0 2px,transparent 2px 7px),repeating-linear-gradient(0deg,rgba(255,200,130,.035) 0 1px,transparent 1px 5px),radial-gradient(ellipse at 40% 20%,#4a2b1a 0%,#22120a 70%,#100603 100%);
+ border-top:18px solid #6a4327;border-left:18px solid #4e301d;border-right:18px solid #1f0f08;border-bottom:26px solid #120703;
+ box-shadow:0 60px 100px rgba(0,0,0,.95),24px 24px 0 rgba(0,0,0,.65),inset 6px 6px 20px rgba(255,255,255,.1),inset -10px -10px 24px rgba(0,0,0,.9)}
+.tv-cabinet:before{content:"";position:absolute;inset:8px;border:2px solid rgba(226,183,90,.55);border-radius:6px;pointer-events:none;box-shadow:0 0 0 3px rgba(0,0,0,.45),inset 0 0 0 2px rgba(0,0,0,.5)}
+.tv-cabinet .skeuo-screw{z-index:30}
+.tv-legs{position:relative;z-index:1;height:48px;margin:0 70px}
+.tv-legs i{position:absolute;top:-4px;width:46px;height:52px;background:linear-gradient(90deg,#1a0b05,#5a3820 45%,#1a0b05);clip-path:polygon(0 0,100% 0,78% 100%,22% 100%);box-shadow:inset 0 -6px 8px #000}
+.tv-legs i:first-child{left:0}.tv-legs i:last-child{right:0}
+.tv-main{flex:1;min-width:0;position:relative}
+.tv-bezel{position:relative;background:#0d0a08;padding:16px;border-top:10px solid #080605;border-left:10px solid #0a0807;border-right:8px solid #1a1410;border-bottom:6px solid #241c16;
+ box-shadow:inset 14px 14px 35px #000,inset -12px -12px 28px rgba(255,255,255,.03),0 0 0 2px #000}
+.tv-screen{position:relative;width:100%;aspect-ratio:4/3;border:6px solid #050505;background:#000;overflow:hidden;border-radius:40px/20px;
+ box-shadow:0 0 40px #000,inset 0 0 60px rgba(0,0,0,.95);--b:.88;--c:1.25;--s:.2}
+.tv-screen video,.tv-screen iframe{position:absolute;inset:0;width:100%;height:100%;border:0;background:#000;display:none}
+.tv-screen video{object-fit:contain;filter:contrast(var(--c)) brightness(var(--b)) sepia(var(--s))}
+.tv-screen iframe{filter:contrast(var(--c)) brightness(var(--b)) sepia(var(--s))}
+.tv-screen.show-video video,.tv-screen.show-frame iframe{display:block}
+#tv-noise{position:absolute;inset:0;width:100%;height:100%;image-rendering:pixelated;opacity:0;pointer-events:none;z-index:3;filter:contrast(1.4) sepia(.3)}
+.tv-screen.noisy #tv-noise{opacity:.95}
+.tv-scan{position:absolute;inset:0;z-index:4;pointer-events:none;
+ background:linear-gradient(rgba(18,16,16,0) 50%,rgba(0,0,0,.38) 50%),linear-gradient(90deg,rgba(255,0,0,.05),rgba(0,255,0,.02),rgba(0,0,255,.05)),radial-gradient(circle at 35% 30%,rgba(255,255,255,.15) 0%,transparent 60%);
+ background-size:100% 5px,6px 100%,100% 100%}
+.tv-glare{position:absolute;inset:0;z-index:5;pointer-events:none;background:linear-gradient(120deg,rgba(255,255,255,.14) 0%,rgba(255,255,255,.03) 30%,transparent 31%),radial-gradient(ellipse at 50% 50%,transparent 55%,rgba(0,0,0,.65))}
+.tv-screen.off:before{content:"";position:absolute;inset:0;z-index:2;background:radial-gradient(ellipse at 30% 25%,rgba(255,235,200,.1),transparent 55%),#050403}
+.tv-standby{position:absolute;inset:0;z-index:2;display:none;align-items:center;justify-content:center;flex-direction:column;gap:10px;text-align:center;
+ font-family:'B52-Soviet','Courier New',monospace;color:#FF8C00;letter-spacing:3px;text-transform:uppercase;line-height:1.5;
+ text-shadow:-2px -2px 0 #000,2px -2px 0 #000,-2px 2px 0 #000,2px 2px 0 #000,0 0 18px rgba(255,140,0,.7),3px 3px 0 #000;
+ background:repeating-linear-gradient(90deg,#c8b57a 0 12.5%,#d8d03a 12.5% 25%,#2fb0b0 25% 37.5%,#38a838 37.5% 50%,#b838a8 50% 62.5%,#c03030 62.5% 75%,#3040b8 75% 87.5%,#101010 87.5% 100%) top/100% 62% no-repeat,#0d0a08}
+.tv-screen.standby .tv-standby{display:flex}
+.tv-standby b{margin-top:auto;padding:14px 10px 16px;width:100%;background:rgba(5,3,2,.88);font-weight:normal;font-size:1.05em}
+.tv-standby small{display:block;font-size:.6em;letter-spacing:2px;opacity:.9}
+.tv-osd{position:absolute;top:22px;right:34px;z-index:6;font:1.7em/1 'B52-Soviet','Courier New',monospace;color:#FF8C00;letter-spacing:3px;opacity:0;transition:opacity .4s;pointer-events:none;
+ text-shadow:-2px -2px 0 #000,2px -2px 0 #000,-2px 2px 0 #000,2px 2px 0 #000,0 0 14px rgba(255,140,0,.8)}
+.tv-osd.on{opacity:1}
+.crt-flash{position:absolute;inset:0;z-index:7;pointer-events:none;opacity:0;background:#fff}
+.tv-screen.warm .crt-flash{animation:crtOn .75s ease-out}
+@keyframes crtOn{0%{opacity:1;clip-path:inset(49.6% 48% 49.6% 48%)}35%{opacity:1;clip-path:inset(49.6% 0 49.6% 0)}70%{opacity:.7;clip-path:inset(0)}100%{opacity:0;clip-path:inset(0)}}
+.tv-screen.cool .crt-flash{animation:crtOff .5s ease-in forwards}
+@keyframes crtOff{0%{opacity:.9;clip-path:inset(0)}60%{opacity:1;clip-path:inset(49.6% 0 49.6% 0)}100%{opacity:0;clip-path:inset(49.6% 48% 49.6% 48%)}}
+.gum{position:absolute;bottom:25px;left:25px;width:18px;height:14px;background:#ff94b8;border-radius:60% 40% 50% 50%/40% 50% 40% 60%;box-shadow:inset -2px -2px 4px #d1527a,inset 2px 2px 3px #ffccd1,2px 2px 3px rgba(0,0,0,.8);z-index:5;transform:rotate(-15deg);pointer-events:none}
+
+/* пульт под экраном */
+.tv-deck{display:flex;align-items:center;gap:10px;margin-top:14px;padding:9px 12px;
+ background:linear-gradient(180deg,#2e180f,#190c07);border-top:4px solid #140b07;border-left:5px solid #170d08;border-right:4px solid #361e12;border-bottom:4px solid #3d2215;
+ box-shadow:inset 5px 5px 14px rgba(0,0,0,.75),inset -2px -2px 10px rgba(255,255,255,.03)}
+.tv-btn{flex:0 0 auto;cursor:pointer;min-width:38px;height:34px;padding:0 10px;font:900 .9rem Georgia,serif;color:#FFFDD0;border-radius:3px;
+ background:linear-gradient(180deg,#221109,#060201);border-top:2px solid #ffb356;border-left:2px solid #cc6600;border-right:2px solid #663300;border-bottom:4px solid #331500;
+ text-shadow:0 -1px 1px #000,0 0 10px rgba(255,128,0,.8);box-shadow:0 4px 8px #000,inset 0 1px 2px rgba(255,255,255,.3);transition:all .15s}
+.tv-btn:hover:not(:disabled){filter:brightness(1.3)}.tv-btn:active:not(:disabled){transform:translateY(2px);box-shadow:0 1px 2px #000,inset 0 2px 6px #000}
+.tv-btn:disabled{opacity:.4;cursor:default}
+.tv-seek{flex:1;min-width:0;-webkit-appearance:none;appearance:none;height:14px;border-radius:7px;background:linear-gradient(90deg,#d48b48 var(--p,0%),#0a0503 var(--p,0%));border:2px solid #000;box-shadow:inset 0 2px 4px #000,0 1px 0 rgba(255,255,255,.08);cursor:pointer;outline:none}
+.tv-seek::-webkit-slider-thumb{-webkit-appearance:none;width:18px;height:22px;border-radius:4px;background:linear-gradient(180deg,#fff2be,#d4a748 45%,#6b4512);border:1px solid #1a0a02;box-shadow:0 2px 4px #000}
+.tv-seek::-moz-range-thumb{width:18px;height:22px;border-radius:4px;background:linear-gradient(180deg,#fff2be,#d4a748 45%,#6b4512);border:1px solid #1a0a02}
+.tv-seek:disabled{opacity:.45;cursor:default}
+.tv-time{flex:0 0 auto;min-width:92px;text-align:center;color:#c98e60;font:700 .72rem monospace;letter-spacing:1.5px;text-shadow:0 0 6px rgba(201,142,96,.45)}
+
+/* табличка передачи */
+.tv-nameplate{margin-top:14px;padding:7px 20px 8px;text-align:center;color:#2b1707;position:relative;
+ background:radial-gradient(circle at 12% 30%,rgba(120,70,20,.35),transparent 14%),repeating-linear-gradient(0deg,rgba(90,55,15,.06) 0 1px,transparent 1px 3px),linear-gradient(180deg,#e9d6a2,#cdb27a 60%,#b99a5e);
+ border:3px solid;border-color:#fff0b8 #6b4512 #2a1506 #e2b75a;border-radius:2px;box-shadow:0 0 0 2px #0a0402,0 0 0 4px #8a6428,0 6px 10px #000,inset 0 0 14px rgba(80,45,10,.6);text-shadow:0 1px 0 rgba(255,250,225,.7)}
+.tv-nameplate b{display:block;font-size:1.05rem;letter-spacing:.06em;line-height:1.35}
+.tv-nameplate span{display:block;min-height:1.2em;font-size:.82rem;font-style:italic}
+
+/* правая панель управления */
+.tv-panel{position:relative;flex:0 0 150px;display:flex;flex-direction:column;align-items:center;padding:20px 10px 16px;box-sizing:border-box;
+ background:linear-gradient(180deg,#2e180f,#190c07);border-top:4px solid #140b07;border-left:5px solid #170d08;border-right:4px solid #361e12;border-bottom:4px solid #3d2215;
+ box-shadow:inset 5px 5px 14px rgba(0,0,0,.75),inset -2px -2px 10px rgba(255,255,255,.03),3px 0 0 rgba(255,255,255,.03)}
+.tv-polaroid{position:absolute;bottom:118px;right:-15px;width:55px;height:75px;border:1px solid #000;transform:rotate(8deg);box-shadow:5px 5px 12px rgba(0,0,0,.9);z-index:12;opacity:.92;filter:contrast(1.1) sepia(.2);pointer-events:none;background:#1a0f08}
+.tv-polaroid img{width:100%;height:100%;object-fit:cover;display:block;border:none!important}
+.tv-polaroid:after{content:"";position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,.2),transparent 50%,rgba(0,0,0,.18))}
+.tv-model{color:#c98e60;font:700 .65rem monospace;border:1px solid #4a3020;padding:2px 6px;margin-bottom:12px;letter-spacing:1.5px;background:#120904;box-shadow:inset 0 0 5px #000,0 1px 0 rgba(255,255,255,.05);text-shadow:0 0 6px rgba(201,142,96,.45)}
+.tv-lcd{width:100%;margin-bottom:12px;padding:5px 4px 4px;text-align:center;background:#060302;border:2px solid #000;box-shadow:inset 0 0 8px #000,0 1px 0 rgba(255,255,255,.07);color:#FF8C00;font:1.25rem/1 'B52-Soviet','Courier New',monospace;letter-spacing:3px;text-shadow:0 0 10px rgba(255,140,0,.85)}
+.tv-lcd small{display:block;margin-top:3px;font:700 .5rem monospace;letter-spacing:1px;color:#a86c47;text-shadow:none}
+.tv-lcd.dim{color:#2a1608;text-shadow:none}
+.knob-well{position:relative;width:78px;height:78px;margin-bottom:6px;background:#0c0603;border-top:4px solid #050201;border-left:4px solid #050201;border-right:3px solid #2b180f;border-bottom:3px solid #3b2114;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:inset 5px 5px 12px #000}
+.knob-well.sm{width:54px;height:54px}
+.knob-ticks{position:absolute;inset:-14px;pointer-events:none}
+.knob-ticks i{position:absolute;left:50%;top:50%;width:2px;height:6px;margin:-3px 0 0 -1px;background:#a86c47;transform:rotate(var(--a)) translateY(-45px);box-shadow:0 0 3px rgba(168,108,71,.6)}
+.knob-well.sm .knob-ticks i{transform:rotate(var(--a)) translateY(-35px)}
+.knob{position:relative;width:54px;height:54px;border-radius:50%;cursor:grab;touch-action:none;outline:none;
+ background:radial-gradient(circle at 35% 35%,#6a4630 0%,#2a170e 55%,#0a0402 100%),repeating-conic-gradient(#000 0 4deg,transparent 4deg 12deg);background-blend-mode:normal;
+ border:2px solid #000;box-shadow:4px 4px 10px rgba(0,0,0,.95),inset 1px 1px 2px rgba(255,255,255,.25);transition:transform .35s cubic-bezier(.3,1.4,.5,1)}
+.knob.drag{transition:none;cursor:grabbing}
+.knob-well.sm .knob{width:38px;height:38px}
+.knob:before{content:"";position:absolute;left:50%;top:2px;width:5px;height:18px;margin-left:-2.5px;background:linear-gradient(90deg,#d48b48,#8a4816);border-radius:2px;box-shadow:0 1px 3px #000}
+.knob-well.sm .knob:before{height:13px}
+.knob:focus-visible{box-shadow:0 0 0 3px #ffd977,4px 4px 10px #000}
+.tv-cap{margin:0 0 14px;color:#8a5a38;font:700 .55rem monospace;letter-spacing:2px;text-transform:uppercase;text-shadow:0 1px 0 #000}
+.tv-mini{display:flex;gap:7px;margin-bottom:6px;background:#130904;padding:6px;border:1px solid #2e1b10;box-shadow:inset 0 0 6px #000}
+.mini{position:relative;width:26px;height:26px;padding:0;cursor:pointer;background:#0f0805;border:2px dashed #422817;border-radius:50%;box-shadow:inset 0 0 4px #000;transition:transform .25s}
+.mini:before{content:"";position:absolute;left:50%;top:0;width:2px;height:10px;margin-left:-1px;background:#c98a5d;box-shadow:0 0 4px rgba(255,140,0,.6)}
+.mini:hover{filter:brightness(1.5)}
+.tv-mini-cap{display:flex;gap:7px;margin-bottom:14px}.tv-mini-cap span{width:26px;text-align:center;color:#8a5a38;font:700 .46rem monospace;letter-spacing:.5px;text-transform:uppercase}
+.tv-grille{width:90px;flex:1 1 auto;min-height:80px;display:flex;flex-direction:column;gap:4px;background:#0a0503;padding:10px 6px;border-top:3px solid #050201;border-left:3px solid #050201;border-right:2px solid #2b180d;border-bottom:2px solid #3b2114;box-shadow:inset 6px 6px 14px rgba(0,0,0,.95);margin-bottom:14px}
+.tv-grille i{display:block;height:4px;background:#1f110a;border-bottom:2px solid #4a2b1b;box-shadow:inset 0 2px 3px #000}
+.tv-playing .tv-grille i{animation:grille 1.1s ease-in-out infinite alternate}
+.tv-playing .tv-grille i:nth-child(2n){animation-delay:.18s}.tv-playing .tv-grille i:nth-child(3n){animation-delay:.33s}
+@keyframes grille{from{transform:scaleX(1);border-bottom-color:#4a2b1b}to{transform:scaleX(.9);border-bottom-color:#8a5a38}}
+.tv-power{position:relative;width:100%;cursor:pointer;padding:11px 5px 11px 22px;font:700 .82em 'Times',Georgia,serif;letter-spacing:.06em;text-transform:uppercase;color:#FFFDD0;
+ background:linear-gradient(180deg,#221109,#060201);border-top:2px solid #ffb356;border-left:2px solid #cc6600;border-right:2px solid #663300;border-bottom:4px solid #331500;
+ text-shadow:0 -1px 1px #000,0 0 10px rgba(255,128,0,.8);box-shadow:0 5px 12px #000,inset 0 1px 2px rgba(255,255,255,.3);transition:all .2s}
+.tv-power:hover{filter:brightness(1.3)}.tv-power:active{transform:translateY(2px)}
+.tv-power:before{content:"";position:absolute;left:8px;top:50%;width:9px;height:9px;margin-top:-4.5px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#8a6a50,#2a1208 70%);box-shadow:0 0 0 2px #0a0402}
+.tv-on .tv-power:before{background:radial-gradient(circle at 35% 30%,#ffd9c8,#ff4a2a 30%,#8a0f06 70%);box-shadow:0 0 0 2px #0a0402,0 0 10px 2px rgba(255,80,30,.85)}
+
+/* телепрограмма: клавиши */
+.tv-guide{position:relative;z-index:3;width:1004px;margin:34px auto 0;padding:18px 24px 22px;box-sizing:border-box;text-align:center;
+ background:linear-gradient(180deg,rgba(255,245,205,.2),transparent 18%),repeating-linear-gradient(0deg,rgba(255,235,170,.035) 0 1px,transparent 1px 4px),linear-gradient(90deg,#100501,#3b1d08 18%,#160802 50%,#3b1d08 82%,#100501);
+ border-top:7px solid #f0d584;border-left:7px solid #caa148;border-right:7px solid #6b4512;border-bottom:9px solid #2a1405;outline:2px solid #090301;
+ box-shadow:0 0 0 3px #5e4016,0 0 0 6px #100501,0 16px 28px #000,inset 0 2px 3px rgba(255,255,255,.4),inset 0 -5px 8px #000,inset 0 0 25px rgba(212,175,55,.3)}
+.tv-guide h3{margin:0 0 14px;color:#f7dfa5;font-size:1rem;letter-spacing:.3em;text-transform:uppercase;text-shadow:0 2px 4px #000,0 0 14px rgba(212,175,55,.5)}
+.tv-keys{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:10px}
+.tv-key{position:relative;cursor:pointer;display:flex;align-items:center;gap:10px;text-align:left;padding:10px 12px 10px 10px;min-height:56px;color:#ffdf8b;border-radius:3px;
+ border-top:2px solid #fff0bc;border-left:2px solid #d6ac50;border-right:3px solid #65400e;border-bottom:5px solid #211003;
+ background:linear-gradient(180deg,rgba(255,255,255,.34) 0,rgba(255,255,255,.06) 29%,transparent 31%),repeating-linear-gradient(90deg,rgba(255,228,153,.05) 0 1px,transparent 1px 3px),linear-gradient(180deg,#56300f,#2c1205 45%,#100501);
+ box-shadow:0 0 0 1px #050201,0 3px 0 #8b6223,0 6px 9px #000,inset 0 1px 2px rgba(255,245,205,.45),inset 0 -4px 7px rgba(0,0,0,.9);transition:all .15s;font-family:Georgia,serif}
+.tv-key:hover{filter:brightness(1.25);transform:translateY(-2px)}
+.tv-key .no{flex:0 0 auto;width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font:900 .95rem Georgia,serif;color:#2a1605;
+ background:radial-gradient(circle at 35% 30%,#fff6d9,#d4a748 55%,#6b4512);box-shadow:0 0 0 2px #0a0402,0 2px 3px #000;text-shadow:0 1px 0 rgba(255,250,225,.7)}
+.tv-key .tt{display:block;min-width:0;font-weight:900;font-size:.82rem;line-height:1.25;letter-spacing:.04em;text-shadow:0 -1px #000,0 2px 3px #000}
+.tv-key .tt small{display:block;font-weight:400;font-style:italic;font-size:.72rem;color:#d9c48a;letter-spacing:.02em}
+.tv-key .led{position:absolute;right:9px;top:8px;width:8px;height:8px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#6a4a30,#241208);box-shadow:0 0 0 2px #0a0402}
+.tv-key.on{transform:translateY(3px);border-bottom-width:2px;color:#2a1605;background:linear-gradient(180deg,#fff0b0,#d5ac54 42%,#a47528 56%,#e2c274);border-color:#fff5c9 #71501c #2b1605 #f1ce75;
+ box-shadow:0 0 0 1px #080301,0 2px 0 #5b3b11,0 4px 8px #000,0 0 16px rgba(255,211,105,.4),inset 0 0 11px rgba(255,251,216,.35)}
+.tv-key.on .tt{text-shadow:0 1px rgba(255,248,214,.7)}.tv-key.on .tt small{color:#4a2d0b}
+.tv-key.on .led{background:radial-gradient(circle at 35% 30%,#ffd9c8,#ff4a2a 30%,#8a0f06 70%);box-shadow:0 0 0 2px #0a0402,0 0 9px 2px rgba(255,80,30,.85)}
+.tv-tip{margin:16px 0 0;text-align:center;color:#a58850;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase}
+</style>
+<style>@media (max-width:1099px){html{min-width:1880px}}</style>
 </head>
 <body>
 <div class="floral-side-left" aria-hidden="true"></div><div class="floral-side-right" aria-hidden="true"></div>
@@ -939,23 +1089,195 @@ body .floral-side-left,body .floral-side-right{width:220px;height:auto;top:0;bot
 <main class="skeuo-frame">
 <div class="skeuo-screw tl"></div><div class="skeuo-screw tr"></div><div class="skeuo-screw bl"></div><div class="skeuo-screw br"></div>
 <header class="page-heading"><span class="eyebrow">==ТОТ, КТО ИДЕТ ПРОТИВ ДНЯ, НЕ ДОЛЖЕН БОЯТЬСЯ НОЧИ==</span><h1>Видео</h1><p>«Свѣту положены предѣлы; въ безсрочномъ, въ безпредѣльномъ ночь царитъ. Сонъ длится вѣчно. Сонъ святой, не обездоливай надолго причастныхъ ночи въ тягостяхъ земного дня.»</p></header>
-<div class="section-ribbon">Видеотека / записи и фрагменты</div><div class="section-copy"><p>«Свѣту положены предѣлы; въ безсрочномъ, въ безпредѣльномъ ночь царитъ. Сонъ длится вѣчно. Сонъ святой, не обездоливай надолго причастныхъ ночи въ тягостяхъ земного дня.»</p></div><section class="media-card" id="video-1"><h2>Мое прение</h2><p class="media-description"></p><iframe loading="lazy" width="200" height="200" src="https://www.youtube.com/embed/joKnt76mjsY?si=zfBiLu7XP55Q1uwg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="border: 3px ridge #caa148; margin-top: 10px; box-shadow: 0 6px 15px #000;"></iframe></section>
-<section class="media-card" id="video-2"><h2>Госпожа Тартола Валенсия</h2><p class="media-description"></p><video controls width="300" preload="none" style="border: 4px solid #140702; outline: 2px solid #caa148; box-shadow: 0 12px 30px rgba(0,0,0,1); margin: 15px 0;">
-                    <source src="IMG_0005.MP4" type="video/mp4">
-                </video></section>
-<section class="media-card" id="video-3"><h2>Холодный Воздух</h2><p class="media-description">Константин Ступин</p><video controls width="300" preload="none" style="border: 4px solid #140702; outline: 2px solid #caa148; box-shadow: 0 12px 30px rgba(0,0,0,1); margin: 15px 0;">
-                    <source src="kstupa.mp4" type="video/mp4">
-                </video></section>
-<section class="media-card" id="video-4"><h2>Прогулка</h2><p class="media-description"> </p><video controls width="300" preload="none" style="border: 4px solid #140702; outline: 2px solid #caa148; box-shadow: 0 12px 30px rgba(0,0,0,1); margin: 15px 0;">
-                    <source src="eburg.MP4" type="video/mp4">
-                </video></section>
-<section class="media-card" id="video-5"><h2>Волчьи Ягоды</h2><p class="media-description"> </p><video controls width="300" preload="none" style="border: 4px solid #140702; outline: 2px solid #caa148; box-shadow: 0 12px 30px rgba(0, 0, 0, 1); margin: 15px 0;">
-      <source src="les.mp4" type="video/mp4">
-    </video></section>
-<section class="media-card" id="video-6"><h2>Свою Возлюбленную стоит искать либо в сказке, либо во сне</h2><p class="media-description"></p><iframe loading="lazy" width="300" height="300" src="https://www.youtube.com/embed/NvRgJGFErHE?si=kKbPYaIetG_Bw8nh" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="border: 3px ridge #caa148; margin-top: 10px; box-shadow: 0 6px 15px #000;"></iframe></section>
-<section class="media-card" id="video-7"><h2>Камень</h2><p class="media-description">Евгений Головин</p><video controls width="199" preload="none" style="border: 3px solid #140702; outline: 2px solid #caa148; box-shadow: 0 8px 18px #000; margin: 0 auto; display: block;">
-                        <source src="golovakamen.mp4" type="video/mp4">
-                    </video></section>
+<div class="section-ribbon">Видеотека / записи и фрагменты</div><div class="section-copy"><p>«Свѣту положены предѣлы; въ безсрочномъ, въ безпредѣльномъ ночь царитъ. Сонъ длится вѣчно. Сонъ святой, не обездоливай надолго причастныхъ ночи въ тягостяхъ земного дня.»</p></div><section class="tv-stage" id="tv-stage" aria-label="Телевизор">
+<div class="tv-set" id="tv-set">
+<div class="antenna" aria-hidden="true"><i class="rod a"></i><i class="rod b"></i><i class="dome"></i></div>
+<img class="tv-book" src="book.webp" alt="" onerror="this.remove()">
+<div class="tv-cabinet">
+<div class="skeuo-screw tl"></div><div class="skeuo-screw tr"></div><div class="skeuo-screw bl"></div><div class="skeuo-screw br"></div>
+<div class="tv-main">
+<div class="tv-bezel"><div class="tv-screen off" id="tv-screen">
+<video id="tv-video" playsinline preload="none"></video>
+<iframe id="tv-frame" title="Видео" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<div class="tv-standby"><b>Нѣтъ сигнала<small>проверьте антенну</small></b></div>
+<canvas id="tv-noise" width="160" height="120"></canvas>
+<div class="tv-scan"></div><div class="tv-glare"></div><div class="tv-osd" id="tv-osd"></div><div class="crt-flash"></div>
+</div><i class="gum"></i></div>
+<div class="tv-deck">
+<button type="button" class="tv-btn" id="tv-prev" aria-label="Предыдущий канал">◀◀</button>
+<button type="button" class="tv-btn" id="tv-play" aria-label="Пауза / воспроизведение" disabled>▶</button>
+<button type="button" class="tv-btn" id="tv-next" aria-label="Следующий канал">▶▶</button>
+<input type="range" class="tv-seek" id="tv-seek" min="0" max="100" step="0.1" value="0" disabled aria-label="Перемотка">
+<span class="tv-time" id="tv-time">--:-- / --:--</span>
+<button type="button" class="tv-btn" id="tv-mute" aria-label="Звук" disabled>🔊</button>
+<button type="button" class="tv-btn" id="tv-fs" aria-label="На весь экран" disabled>⛶</button>
+</div>
+<div class="tv-nameplate"><b id="tv-np-t">Телевизоръ выключенъ</b><span id="tv-np-s">&nbsp;</span></div>
+</div>
+<aside class="tv-panel">
+<div class="tv-polaroid"><img src="girl.webp" alt="" onerror="this.parentNode.remove()"></div>
+<div class="tv-model">РУБИН-A6</div>
+<div class="tv-lcd dim" id="tv-lcd">-- --<small id="tv-lcd-s">ОЖИДАНІЕ</small></div>
+<div class="knob-well"><div class="knob-ticks"><i style="--a:-120deg"></i><i style="--a:-80deg"></i><i style="--a:-40deg"></i><i style="--a:0deg"></i><i style="--a:40deg"></i><i style="--a:80deg"></i><i style="--a:120deg"></i></div><div class="knob" id="knob-chan" role="slider" tabindex="0" aria-label="Переключатель каналов" aria-valuemin="1" aria-valuemax="7" aria-valuenow="1"></div></div>
+<p class="tv-cap">канал</p>
+<div class="knob-well sm"><div class="knob-ticks"><i style="--a:-135deg"></i><i style="--a:-90deg"></i><i style="--a:-45deg"></i><i style="--a:0deg"></i><i style="--a:45deg"></i><i style="--a:90deg"></i><i style="--a:135deg"></i></div><div class="knob" id="knob-vol" role="slider" tabindex="0" aria-label="Громкость" aria-valuemin="0" aria-valuemax="100" aria-valuenow="80"></div></div>
+<p class="tv-cap">звукъ</p>
+<div class="tv-mini"><button type="button" class="mini" data-k="b" aria-label="Яркость"></button><button type="button" class="mini" data-k="c" aria-label="Контраст"></button><button type="button" class="mini" data-k="s" aria-label="Сепія"></button></div>
+<div class="tv-mini-cap"><span>ярк</span><span>конт</span><span>сеп</span></div>
+<div class="tv-grille"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+<button type="button" class="tv-power" id="tv-power">Включить</button>
+</aside>
+</div>
+<div class="tv-legs" aria-hidden="true"><i></i><i></i></div>
+</div>
+<div class="tv-guide"><h3>✥ Телепрограмма ✥</h3><div class="tv-keys"><button type="button" class="tv-key" id="video-1" aria-pressed="false"><span class="no">1</span><span class="tt">Мое прение</span><i class="led"></i></button><button type="button" class="tv-key" id="video-2" aria-pressed="false"><span class="no">2</span><span class="tt">Госпожа Тартола Валенсия</span><i class="led"></i></button><button type="button" class="tv-key" id="video-3" aria-pressed="false"><span class="no">3</span><span class="tt">Холодный Воздух<small>Константин Ступин</small></span><i class="led"></i></button><button type="button" class="tv-key" id="video-4" aria-pressed="false"><span class="no">4</span><span class="tt">Прогулка</span><i class="led"></i></button><button type="button" class="tv-key" id="video-5" aria-pressed="false"><span class="no">5</span><span class="tt">Волчьи Ягоды</span><i class="led"></i></button><button type="button" class="tv-key" id="video-6" aria-pressed="false"><span class="no">6</span><span class="tt">Свою Возлюбленную стоит искать либо в сказке, либо во сне</span><i class="led"></i></button><button type="button" class="tv-key" id="video-7" aria-pressed="false"><span class="no">7</span><span class="tt">Камень<small>Евгений Головин</small></span><i class="led"></i></button></div></div>
+<p class="tv-tip">Включите телевизоръ · вращайте ручку канала · нажимайте клавиши программы</p>
+</section>
 </main>
 <footer class="page-footer"><a href="index.html#articles">Вернуться к дневнику</a><span>✥</span><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">К началу страницы</a></footer>
+<script id="tv-script">
+(function(){
+  var YT='?autoplay=1&enablejsapi=1&rel=0&playsinline=1';
+  var CH=[
+    {id:'video-1',t:'Мое прение',s:'',yt:'https://www.youtube.com/embed/joKnt76mjsY'},
+    {id:'video-2',t:'Госпожа Тартола Валенсия',s:'',f:'IMG_0005.MP4'},
+    {id:'video-3',t:'Холодный Воздух',s:'Константин Ступин',f:'kstupa.mp4'},
+    {id:'video-4',t:'Прогулка',s:'',f:'eburg.MP4'},
+    {id:'video-5',t:'Волчьи Ягоды',s:'',f:'les.mp4'},
+    {id:'video-6',t:'Свою Возлюбленную стоит искать либо в сказке, либо во сне',s:'',yt:'https://www.youtube.com/embed/NvRgJGFErHE'},
+    {id:'video-7',t:'Камень',s:'Евгений Головин',f:'golovakamen.mp4'}
+  ];
+  var $=function(i){return document.getElementById(i);};
+  var set=$('tv-set'); if(!set) return;
+  var scr=$('tv-screen'),vid=$('tv-video'),fr=$('tv-frame'),cv=$('tv-noise'),osd=$('tv-osd'),lcd=$('tv-lcd'),lcdS=$('tv-lcd-s'),
+      npT=$('tv-np-t'),npS=$('tv-np-s'),seek=$('tv-seek'),tm=$('tv-time'),bPlay=$('tv-play'),bMute=$('tv-mute'),bFs=$('tv-fs'),bPow=$('tv-power'),
+      kChan=$('knob-chan'),kVol=$('knob-vol'),keys=[].slice.call(document.querySelectorAll('.tv-key')),minis=[].slice.call(document.querySelectorAll('.mini'));
+  var on=false,ch=0,vol=.8,muted=false,paused=true,noiseT=null,osdT=null,ctx=null;
+
+  /* ---------- звук ---------- */
+  function audio(){ try{ if(!ctx) ctx=new (window.AudioContext||window.webkitAudioContext)(); if(ctx.state==='suspended') ctx.resume(); }catch(e){ ctx=null; } return ctx; }
+  function hiss(dur,gain){
+    var a=audio(); if(!a) return;
+    try{ var n=Math.floor(a.sampleRate*dur),b=a.createBuffer(1,n,a.sampleRate),d=b.getChannelData(0);
+      for(var i=0;i<n;i++) d[i]=(Math.random()*2-1)*(1-i/n);
+      var s=a.createBufferSource(),g=a.createGain(); s.buffer=b; g.gain.value=gain*vol; s.connect(g); g.connect(a.destination); s.start(); }catch(e){}
+  }
+  function click(){
+    var a=audio(); if(!a) return;
+    try{ var o=a.createOscillator(),g=a.createGain(); o.type='square'; o.frequency.value=140; g.gain.setValueAtTime(.12,a.currentTime); g.gain.exponentialRampToValueAtTime(.001,a.currentTime+.07);
+      o.connect(g); g.connect(a.destination); o.start(); o.stop(a.currentTime+.08); }catch(e){}
+  }
+
+  /* ---------- помехи ---------- */
+  var cx=cv.getContext('2d'),img=cx.createImageData(cv.width,cv.height),raf=0;
+  function frame(){
+    var d=img.data; for(var i=0;i<d.length;i+=4){ var v=Math.random()*255|0; d[i]=d[i+1]=d[i+2]=v; d[i+3]=255; }
+    cx.putImageData(img,0,0); raf=scr.classList.contains('noisy')?requestAnimationFrame(frame):0;
+  }
+  function noise(ms,after){
+    scr.classList.add('noisy'); if(!raf) frame(); hiss(ms/1000,.22);
+    clearTimeout(noiseT); noiseT=setTimeout(function(){ scr.classList.remove('noisy'); if(after) after(); },ms);
+  }
+
+  /* ---------- вывод ---------- */
+  function two(n){ return (n<10?'0':'')+n; }
+  function fmt(t){ if(!isFinite(t)) return '--:--'; t=Math.floor(t); return two(Math.floor(t/60))+':'+two(t%60); }
+  function showOsd(){ osd.textContent='К-'+(ch+1); osd.classList.add('on'); clearTimeout(osdT); osdT=setTimeout(function(){ osd.classList.remove('on'); },2600); }
+  function ytCmd(fn,args){ try{ fr.contentWindow.postMessage(JSON.stringify({event:'command',func:fn,args:args||[]}),'*'); }catch(e){} }
+  function applyVol(){
+    vid.volume=vol; vid.muted=muted||vol===0; if(CH[ch].yt) ytCmd(muted||vol===0?'mute':'unMute'),ytCmd('setVolume',[Math.round(vol*100)]);
+    bMute.textContent=(muted||vol===0)?'🔇':'🔊'; kVol.style.transform='rotate('+(-135+vol*270)+'deg)'; kVol.setAttribute('aria-valuenow',Math.round(vol*100));
+  }
+  function updateInfo(){
+    var c=CH[ch]; npT.textContent=on?c.t:'Телевизоръ выключенъ'; npS.textContent=on?(c.s||' '):' ';
+    lcd.firstChild.nodeValue=on?'К-'+(ch+1):'-- --'; lcd.classList.toggle('dim',!on); lcdS.textContent=on?(c.yt?'ЭФИРЪ · YOUTUBE':'ЗАПИСЬ'):'ОЖИДАНІЕ';
+    keys.forEach(function(k,i){ k.classList.toggle('on',on&&i===ch); k.setAttribute('aria-pressed',on&&i===ch?'true':'false'); });
+    kChan.style.transform='rotate('+(-120+ch*40)+'deg)'; kChan.setAttribute('aria-valuenow',ch+1);
+    set.classList.toggle('tv-on',on); set.classList.toggle('tv-playing',on&&!paused);
+    bPow.textContent=on?'Выключить':'Включить';
+    [bPlay,seek,bMute,bFs].forEach(function(b){ b.disabled=!on; });
+    seek.disabled=!on||!!c.yt; bPlay.textContent=paused?'▶':'❚❚';
+  }
+  function stopMedia(){
+    vid.pause(); vid.removeAttribute('src'); vid.load();
+    fr.removeAttribute('src'); scr.classList.remove('show-video','show-frame');
+    seek.value=0; seek.style.setProperty('--p','0%'); tm.textContent='--:-- / --:--';
+  }
+  function load(){
+    var c=CH[ch]; stopMedia(); scr.classList.remove('standby');
+    if(c.yt){ fr.src=c.yt+YT; scr.classList.add('show-frame'); paused=false; tm.textContent='ЭФИРЪ'; setTimeout(applyVol,1500); }
+    else { vid.src=c.f; scr.classList.add('show-video'); applyVol();
+      var p=vid.play(); paused=false; if(p&&p.catch) p.catch(function(){ paused=true; updateInfo(); }); }
+    updateInfo();
+  }
+  function tune(i,quiet){
+    i=(i+CH.length)%CH.length; if(i===ch&&on&&!quiet) return; ch=i; click();
+    if(!on){ updateInfo(); return; }
+    stopMedia(); scr.classList.remove('standby'); showOsd();
+    noise(650,load); updateInfo();
+  }
+  function power(v){
+    if(v===on) return; on=v; click();
+    if(on){
+      scr.classList.remove('off','cool'); scr.classList.add('warm'); showOsd();
+      setTimeout(function(){ scr.classList.remove('warm'); },800);
+      noise(800,load); updateInfo();
+    } else {
+      clearTimeout(noiseT); scr.classList.remove('noisy','warm','standby'); scr.classList.add('cool'); stopMedia(); paused=true; osd.classList.remove('on');
+      setTimeout(function(){ scr.classList.add('off'); scr.classList.remove('cool'); },520); updateInfo();
+    }
+  }
+  bPow.onclick=function(){ power(!on); };
+  keys.forEach(function(k,i){ k.onclick=function(){ if(!on){ ch=i; power(true); } else tune(i); }; });
+  $('tv-prev').onclick=function(){ tune(ch-1); }; $('tv-next').onclick=function(){ tune(ch+1); };
+
+  /* ---------- видеоэлемент ---------- */
+  vid.controls=false; vid.disablePictureInPicture=true;
+  vid.addEventListener('timeupdate',function(){
+    if(!vid.duration) return; var p=vid.currentTime/vid.duration*100; seek.value=p; seek.style.setProperty('--p',p+'%');
+    tm.textContent=fmt(vid.currentTime)+' / '+fmt(vid.duration);
+  });
+  vid.addEventListener('loadedmetadata',function(){ tm.textContent='00:00 / '+fmt(vid.duration); });
+  vid.addEventListener('play',function(){ paused=false; updateInfo(); });
+  vid.addEventListener('pause',function(){ if(on&&!vid.ended){ paused=true; updateInfo(); } });
+  vid.addEventListener('ended',function(){ tune(ch+1); });
+  vid.addEventListener('error',function(){ if(on&&CH[ch].f&&vid.getAttribute('src')){ scr.classList.remove('show-video'); scr.classList.add('standby'); tm.textContent='НЕТ СИГНАЛА'; } });
+  seek.addEventListener('input',function(){ if(vid.duration){ vid.currentTime=seek.value/100*vid.duration; seek.style.setProperty('--p',seek.value+'%'); } });
+  bPlay.onclick=function(){
+    if(!on) return; click();
+    if(CH[ch].yt){ paused=!paused; ytCmd(paused?'pauseVideo':'playVideo'); updateInfo(); }
+    else if(vid.paused) vid.play(); else vid.pause();
+  };
+  bMute.onclick=function(){ muted=!muted; applyVol(); click(); };
+  bFs.onclick=function(){ var e=scr; (e.requestFullscreen||e.webkitRequestFullscreen||function(){}).call(e); };
+
+  /* ---------- ручки ---------- */
+  function knob(el,min,max,onAngle,onWheel,onClick){
+    var drag=false,moved=false,sx=0,sy=0;
+    function ang(e){ var r=el.getBoundingClientRect(),cx=r.left+r.width/2,cy=r.top+r.height/2;
+      var a=Math.atan2(e.clientY-cy,e.clientX-cx)*180/Math.PI+90; if(a>180)a-=360; return Math.max(min,Math.min(max,a)); }
+    el.addEventListener('pointerdown',function(e){ drag=true; moved=false; sx=e.clientX; sy=e.clientY; el.classList.add('drag'); try{el.setPointerCapture(e.pointerId);}catch(x){} });
+    el.addEventListener('pointermove',function(e){ if(!drag) return; if(Math.abs(e.clientX-sx)+Math.abs(e.clientY-sy)>5) moved=true; if(moved) onAngle(ang(e),true); });
+    el.addEventListener('pointerup',function(e){ if(!drag) return; drag=false; el.classList.remove('drag'); if(moved) onAngle(ang(e),false); else if(onClick) onClick(); });
+    el.addEventListener('wheel',function(e){ e.preventDefault(); onWheel(e.deltaY<0?1:-1); },{passive:false});
+    el.addEventListener('keydown',function(e){ if(e.key==='ArrowRight'||e.key==='ArrowUp'){ e.preventDefault(); onWheel(1); } else if(e.key==='ArrowLeft'||e.key==='ArrowDown'){ e.preventDefault(); onWheel(-1); } });
+  }
+  knob(kChan,-120,120,function(a,live){ var i=Math.round((a+120)/40); if(!live||i!==ch){ if(!live||true){ if(i!==ch) { if(!on){ ch=i; updateInfo(); } else tune(i); } } } },
+       function(d){ if(!on){ ch=(ch+d+CH.length)%CH.length; updateInfo(); } else tune(ch+d); },
+       function(){ if(!on){ power(true); } else tune(ch+1); });
+  knob(kVol,-135,135,function(a){ vol=(a+135)/270; muted=false; applyVol(); },function(d){ vol=Math.max(0,Math.min(1,vol+d*.1)); muted=false; applyVol(); click(); });
+
+  /* ---------- малые ручки: яркость / контраст / тон ---------- */
+  var LV={b:[.6,.74,.88,1.04,1.2],c:[.9,1.05,1.25,1.45,1.7],s:[0,.1,.2,.5,1]}, idx={b:2,c:2,s:2};
+  minis.forEach(function(m){ m.onclick=function(){ var k=m.dataset.k; idx[k]=(idx[k]+1)%5;
+    scr.style.setProperty('--'+k,LV[k][idx[k]]); m.style.transform='rotate('+((idx[k]-2)*55)+'deg)'; click(); }; });
+
+  /* ---------- переход по ссылке #video-N ---------- */
+  function fromHash(){ var m=/^#video-(\d+)$/.exec(location.hash); if(!m) return; var n=+m[1]-1; if(n<0||n>=CH.length) return; ch=n; updateInfo(); }
+  fromHash(); window.addEventListener('hashchange',fromHash);
+  scr.classList.add('off'); applyVol(); updateInfo();
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape'&&document.fullscreenElement) document.exitFullscreen(); });
+})();
+
+</script>
 </body></html>
