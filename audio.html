@@ -33,6 +33,71 @@ a{color:#ffd269;text-decoration:none;border-bottom:1px dashed rgba(255,210,105,.
 .track-layout{display:grid;grid-template-columns:minmax(280px,.8fr) minmax(0,1.2fr);gap:25px;align-items:start}.player-console{position:sticky;top:16px;padding:22px;background:linear-gradient(180deg,rgba(255,245,205,.13),transparent 30%),linear-gradient(135deg,#311506,#0d0401);border-top:7px solid #f0d584;border-left:7px solid #caa148;border-right:7px solid #6b4512;border-bottom:9px solid #291203;box-shadow:0 0 0 3px #080301,0 0 0 6px #855f26,0 15px 28px #000,inset 0 2px 3px rgba(255,245,205,.4),inset 0 0 22px #000}.player-console h2{margin:0 0 8px;color:#f7dfa5}.player-console audio{display:block;width:100%;margin:15px 0;filter:sepia(.4)}.player-status{min-height:52px;color:#e9d49c;font-style:italic;font-size:.9rem}.track-list{min-width:0}.track-group{margin-bottom:25px}.track-group-title{padding:9px 12px;margin:0 0 14px;color:#2b1707;font-weight:900;text-align:center;letter-spacing:.12em;border:3px solid;border-color:#fff0b8 #6b4512 #2a1506 #e2b75a;background:linear-gradient(180deg,#f0d99d,#d0ad63 55%,#a77b31);box-shadow:0 4px 10px #000}.track-card{display:flex;align-items:center;gap:14px;padding:13px;margin-bottom:15px}.track-number{flex:0 0 32px;text-align:center;color:#2b1605;font-weight:900;background:linear-gradient(180deg,#fff0b0,#c9983c);border:2px solid #5a3a10;box-shadow:0 0 0 2px #080301,0 3px 6px #000}.track-copy{flex:1;min-width:0}.track-copy strong{display:block;color:#f4dda0;font-size:1em;line-height:1.45}.track-copy small{display:block;color:#bfa878;word-break:break-word}.audio-select-btn{flex:0 0 auto;padding:8px 10px;font-size:.72rem;letter-spacing:.04em}.track-card.selected{outline:2px solid #f2d27b;box-shadow:0 0 0 2px #060201,0 0 0 5px #b58a35,0 12px 26px #000,inset 0 0 20px rgba(212,175,55,.2)}
 .page-footer{position:relative;z-index:2;text-align:center;margin:30px auto 0;color:#ad9054;font-size:.85rem}.page-footer a{display:inline-block;margin:0 8px;padding:7px 10px}
 @media(max-width:760px){body{padding:16px 12px 40px}.floral-side-left,.floral-side-right{width:45px;opacity:.25}.site-panel{padding:28px 17px 30px}.photo-grid{grid-template-columns:1fr}.track-layout{grid-template-columns:1fr}.player-console{position:relative;top:auto}.track-card{align-items:flex-start;flex-wrap:wrap}.track-copy{min-width:calc(100% - 50px)}.audio-select-btn{margin-left:46px}.archive-nav{gap:5px}.archive-nav a{min-height:39px;padding:8px 2px;font-size:clamp(.66rem,2.7vw,.86rem);letter-spacing:.01em}.archive-nav a:after{right:3px;font-size:7px}.archive-nav-wrap{padding:8px}.archive-nav-wrap:before,.archive-nav-wrap:after{font-size:8px;letter-spacing:0}.section-copy{font-size:.94rem}}
+
+
+/* Imported brass mixer design from audio-4.html — additive, scoped to volume controls */
+input[type=range].radio-volume,
+input[type=range].ip-volume-range {
+  -webkit-appearance:none;
+  appearance:none;
+  background:transparent;
+  cursor:pointer;
+  vertical-align:middle;
+  accent-color:#c99a43;
+}
+input[type=range].radio-volume::-webkit-slider-runnable-track,
+input[type=range].ip-volume-range::-webkit-slider-runnable-track {
+  height:16px;border-radius:4px;
+  background:repeating-linear-gradient(90deg,rgba(212,167,72,.45) 0 1px,transparent 1px 12px),
+    repeating-linear-gradient(90deg,rgba(255,240,180,.2) 0 1px,transparent 1px 6px),
+    linear-gradient(180deg,#050201 0%,#1c0e05 40%,#2a1506 70%,#080301 100%);
+  border:1px solid #060201;border-top:1px solid #100602;border-bottom:1px solid #d4a748;
+  box-shadow:inset 0 3px 6px #000,inset 0 -1px 2px rgba(255,235,170,.25),0 1px 0 rgba(255,240,180,.3);
+}
+input[type=range].radio-volume::-moz-range-track,
+input[type=range].ip-volume-range::-moz-range-track {
+  height:16px;border-radius:4px;
+  background:repeating-linear-gradient(90deg,rgba(212,167,72,.45) 0 1px,transparent 1px 12px),
+    repeating-linear-gradient(90deg,rgba(255,240,180,.2) 0 1px,transparent 1px 6px),
+    linear-gradient(180deg,#050201 0%,#1c0e05 40%,#2a1506 70%,#080301 100%);
+  border:1px solid #060201;border-top:1px solid #100602;border-bottom:1px solid #d4a748;
+  box-shadow:inset 0 3px 6px #000,inset 0 -1px 2px rgba(255,235,170,.25),0 1px 0 rgba(255,240,180,.3);
+}
+input[type=range].radio-volume::-webkit-slider-thumb,
+input[type=range].ip-volume-range::-webkit-slider-thumb {
+  -webkit-appearance:none;appearance:none;margin-top:-6px;width:18px;height:28px;border-radius:3px;
+  background:linear-gradient(180deg,#d90000 0 2px,transparent 2px 26px,#d90000 26px 28px),
+    repeating-linear-gradient(90deg,rgba(0,0,0,.6) 0 1px,rgba(255,255,255,.4) 1px 2px,transparent 2px 4px),
+    linear-gradient(180deg,#fff3c4 0%,#e2b75a 22%,#9e742e 50%,#d4a748 78%,#56330b 100%);
+  border:1px solid #1a0a02;border-top:1px solid #fff;border-bottom:2px solid #2a1405;
+  box-shadow:0 4px 9px rgba(0,0,0,.95),0 0 0 1px rgba(0,0,0,.85),inset 0 1px 1px rgba(255,255,255,.95),inset 0 -2px 3px rgba(0,0,0,.85);
+  transition:transform .12s,filter .12s;
+}
+input[type=range].radio-volume::-moz-range-thumb,
+input[type=range].ip-volume-range::-moz-range-thumb {
+  width:18px;height:28px;border-radius:3px;
+  background:linear-gradient(180deg,#d90000 0 2px,transparent 2px 26px,#d90000 26px 28px),
+    repeating-linear-gradient(90deg,rgba(0,0,0,.6) 0 1px,rgba(255,255,255,.4) 1px 2px,transparent 2px 4px),
+    linear-gradient(180deg,#fff3c4 0%,#e2b75a 22%,#9e742e 50%,#d4a748 78%,#56330b 100%);
+  border:1px solid #1a0a02;border-top:1px solid #fff;border-bottom:2px solid #2a1405;
+  box-shadow:0 4px 9px rgba(0,0,0,.95),0 0 0 1px rgba(0,0,0,.85),inset 0 1px 1px rgba(255,255,255,.95),inset 0 -2px 3px rgba(0,0,0,.85);
+}
+input[type=range].radio-volume::-webkit-slider-thumb:hover,
+input[type=range].ip-volume-range::-webkit-slider-thumb:hover {filter:brightness(1.22) drop-shadow(0 0 6px #ffd700)}
+input[type=range].radio-volume::-webkit-slider-thumb:active,
+input[type=range].ip-volume-range::-webkit-slider-thumb:active {filter:brightness(1.35);transform:scale(.97)}
+.volume-control-box {
+  display:flex;flex-direction:column;gap:3px;position:relative;padding:4px 6px;
+  background:linear-gradient(180deg,#0d0502,#1b0a04);border:1px solid #3d240c;border-radius:4px;
+  box-shadow:inset 0 2px 5px #000,0 1px 0 rgba(255,235,170,.3);min-width:0;
+}
+.volume-scale-ticks {display:flex;justify-content:space-between;padding:0 4px;color:#caa148;
+  font:bold 9px Georgia,serif;letter-spacing:1px;text-shadow:0 1px 1px #000;user-select:none;}
+.radio-volume-box {width:160px;max-width:100%;}
+.ip-volume-box {width:112px;flex:0 1 112px;}
+.ip-volume-box .ip-volume-range {width:100%;min-width:0;flex:1;}
+@media(max-width:520px){.ip-volume-box{width:88px;flex-basis:88px}.ip-volume-range{display:block!important}}
+
 </style>
 <style>
         @font-face {
@@ -984,8 +1049,8 @@ outline:2px solid #805b22;box-shadow:0 0 0 4px #090301,0 10px 22px #000,inset 0 
 Отпускала Цирцея зубо-скаленных Львов!</p></div>
 <section class="wireless-radio" id="wireless-radio" aria-label="Отдельное беспроволочное радио">
 <h2> БЕСПРОВОЛОЧНОЕ </h2><p class="radio-intro">Две самостоятельныя волны. Включайте одну станцию; другая при этом остановится.</p>
-<div class="radio-station" id="radio-literature"><div class="radio-station-head"><span class="radio-station-name">ЛИТѢРАТУРА ПО БѢСПРОВОЛОЧНОМУ</span><span class="radio-state" id="radio-literature-state">ПРИЁМЪ ОЖИДАЕТЪ</span></div><div class="radio-actions"><button class="radio-toggle" type="button" data-radio="literature">▶ СЛУШАТЬ</button><label class="radio-fallback">Громкость <input class="radio-volume" type="range" min="0" max="1" step="0.01" value="0.8" data-radio-volume="literature"></label><a class="radio-fallback" href="http://195.91.237.50:8000/ices128" target="_blank" rel="noopener noreferrer">Открыть исходный IP-поток ↗</a></div><audio id="radio-literature-audio" preload="none" src="http://195.91.237.50:8000/ices128"></audio></div>
-<div class="radio-station" id="radio-music"><div class="radio-station-head"><span class="radio-station-name">МѢЛОДIИ ПО БѢСПРОВОЛОЧНОМУ</span><span class="radio-state" id="radio-music-state">ПРИЁМЪ ОЖИДАЕТЪ</span></div><div class="radio-actions"><button class="radio-toggle" type="button" data-radio="music">▶ СЛУШАТЬ</button><label class="radio-fallback">Громкость <input class="radio-volume" type="range" min="0" max="1" step="0.01" value="0.8" data-radio-volume="music"></label><a class="radio-fallback" href="http://195.91.237.50:8000/music128" target="_blank" rel="noopener noreferrer">Открыть исходный IP-поток ↗</a></div><audio id="radio-music-audio" preload="none" src="http://195.91.237.50:8000/music128"></audio></div>
+<div class="radio-station" id="radio-literature"><div class="radio-station-head"><span class="radio-station-name">ЛИТѢРАТУРА ПО БѢСПРОВОЛОЧНОМУ</span><span class="radio-state" id="radio-literature-state">ПРИЁМЪ ОЖИДАЕТЪ</span></div><div class="radio-actions"><button class="radio-toggle" type="button" data-radio="literature">▶ СЛУШАТЬ</button><div class="volume-control-box radio-volume-box"><div class="volume-scale-ticks"><span>0</span><span>•</span><span>5</span><span>•</span><span>10</span></div><input class="radio-volume" type="range" min="0" max="1" step="0.01" value="0.8" data-radio-volume="literature" aria-label="Громкость литературы"></div><a class="radio-fallback" href="http://195.91.237.50:8000/ices128" target="_blank" rel="noopener noreferrer">Открыть исходный IP-поток ↗</a></div><audio id="radio-literature-audio" preload="none" src="http://195.91.237.50:8000/ices128"></audio></div>
+<div class="radio-station" id="radio-music"><div class="radio-station-head"><span class="radio-station-name">МѢЛОДIИ ПО БѢСПРОВОЛОЧНОМУ</span><span class="radio-state" id="radio-music-state">ПРИЁМЪ ОЖИДАЕТЪ</span></div><div class="radio-actions"><button class="radio-toggle" type="button" data-radio="music">▶ СЛУШАТЬ</button><div class="volume-control-box radio-volume-box"><div class="volume-scale-ticks"><span>0</span><span>•</span><span>5</span><span>•</span><span>10</span></div><input class="radio-volume" type="range" min="0" max="1" step="0.01" value="0.8" data-radio-volume="music" aria-label="Громкость мелодий"></div><a class="radio-fallback" href="http://195.91.237.50:8000/music128" target="_blank" rel="noopener noreferrer">Открыть исходный IP-поток ↗</a></div><audio id="radio-music-audio" preload="none" src="http://195.91.237.50:8000/music128"></audio></div>
 <p class="radio-note">Если не заигрывает - выключи VPN - и/или - Открой исходный поток по ссылкам выше</p></section>
 <script id="wireless-radio-controls">(function(){const stations={literature:{audio:document.getElementById('radio-literature-audio'),state:document.getElementById('radio-literature-state')},music:{audio:document.getElementById('radio-music-audio'),state:document.getElementById('radio-music-state')}};function update(k,on){stations[k].state.textContent=on?'ЭФИРЪ ПРИНЯТЪ':'ПРИЁМЪ ОЖИДАЕТЪ';const b=document.querySelector('[data-radio="'+k+'"]');if(b)b.textContent=on?'Ⅱ ПАУЗА':'▶ СЛУШАТЬ'}document.querySelectorAll('[data-radio]').forEach(b=>b.addEventListener('click',async()=>{const k=b.dataset.radio,c=stations[k];if(!c.audio.paused){c.audio.pause();update(k,false);return}Object.keys(stations).forEach(o=>{if(o!==k){stations[o].audio.pause();update(o,false)}});try{await c.audio.play();update(k,true)}catch(e){c.state.textContent='ПОТОКЪ НЕДОСТУПЕНЪ'}}));Object.keys(stations).forEach(k=>{const a=stations[k].audio,v=document.querySelector('[data-radio-volume="'+k+'"]');a.volume=v?Number(v.value):.8;if(v)v.addEventListener('input',()=>a.volume=Number(v.value));a.addEventListener('playing',()=>update(k,true));a.addEventListener('pause',()=>update(k,false));a.addEventListener('error',()=>stations[k].state.textContent='НЕТЪ СИГНАЛА')})})();</script>
 <div class="track-layout">
@@ -1000,7 +1065,7 @@ outline:2px solid #805b22;box-shadow:0 0 0 4px #090301,0 10px 22px #000,inset 0 
     <input id="ip-progress" class="ip-range" type="range" min="0" max="1000" value="0" aria-label="Позиция воспроизведения">
     <span class="ip-time" id="ip-duration">0:00</span>
     <button type="button" id="ip-mute" class="ip-control ip-volume" aria-label="Звук">◖))</button>
-    <input id="ip-volume" class="ip-range ip-volume-range" type="range" min="0" max="1" step="0.01" value="0.8" aria-label="Громкость">
+    <div class="volume-control-box ip-volume-box"><div class="volume-scale-ticks"><span>0</span><span>•</span><span>5</span><span>•</span><span>10</span></div><input id="ip-volume" class="ip-range ip-volume-range" type="range" min="0" max="1" step="0.01" value="0.8" aria-label="Громкость"></div>
     <button type="button" id="ip-speed" class="ip-control ip-speed">1×</button>
   </div>
   <div class="ip-bottomline"><span>Звукозаписи — Вальдѣмаръ Бубѣнъ</span><span id="ip-quality">ОЖИДАНИЕ...</span></div>
