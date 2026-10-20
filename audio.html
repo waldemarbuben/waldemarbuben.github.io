@@ -705,7 +705,7 @@ a{color:#ffd269;text-decoration:none;border-bottom:1px dashed rgba(255,210,105,.
         }
     </style>
 <style id="skeuo-deepening">
-/* ===== УГЛУБЛЕНИЕ СКЕВОМОРФИЗМА: слой поверх исходного дизайна ===== */
+
 :root{
  --tack:radial-gradient(circle,#fff6cf 0 1px,#d9b45a 2px,#6e4710 3.6px,#1a0a02 4.4px,transparent 5px);
  --ros:radial-gradient(circle,#fff6d4 0 1.5px,#d9b45a 2.5px 4px,#5a3a0e 5px 6px,#150801 6.5px 7px,transparent 7.5px);
@@ -714,20 +714,20 @@ a{color:#ffd269;text-decoration:none;border-bottom:1px dashed rgba(255,210,105,.
  --tuft:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='34' height='34'%3E%3Cdefs%3E%3CradialGradient id='b' cx='.35' cy='.35' r='.7'%3E%3Cstop offset='0' stop-color='%23fff0b0'/%3E%3Cstop offset='.6' stop-color='%23a67a2a'/%3E%3Cstop offset='1' stop-color='%232a1504'/%3E%3C/radialGradient%3E%3CradialGradient id='p'%3E%3Cstop offset='0' stop-color='%23ff9a70' stop-opacity='.07'/%3E%3Cstop offset='1' stop-color='%23000' stop-opacity='0'/%3E%3C/radialGradient%3E%3C/defs%3E%3Cpath d='M0 0L34 34M34 0L0 34' stroke='%23000' stroke-opacity='.4' stroke-width='1.4'/%3E%3Cpath d='M0 1L33 34M34 1L1 34' stroke='%23ffb48a' stroke-opacity='.08'/%3E%3Ccircle cx='17' cy='0' r='11' fill='url(%23p)'/%3E%3Ccircle cx='17' cy='34' r='11' fill='url(%23p)'/%3E%3Ccircle cx='0' cy='17' r='11' fill='url(%23p)'/%3E%3Ccircle cx='34' cy='17' r='11' fill='url(%23p)'/%3E%3Cg fill='url(%23b)' stroke='%23000' stroke-opacity='.7' stroke-width='.6'%3E%3Ccircle cx='17' cy='17' r='2.6'/%3E%3Ccircle cx='0' cy='0' r='2.6'/%3E%3Ccircle cx='34' cy='0' r='2.6'/%3E%3Ccircle cx='0' cy='34' r='2.6'/%3E%3Ccircle cx='34' cy='34' r='2.6'/%3E%3C/g%3E%3C/svg%3E");
 }
 
-/* Стена: дубовая доска с вертикальными стыками панелей + стекло витрины и виньетка */
+
 body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.7;
  background:var(--grain),repeating-linear-gradient(90deg,transparent 0 238px,rgba(0,0,0,.6) 238px 240px,rgba(212,167,72,.16) 240px 241px)}
 body::after{content:"";position:fixed;inset:0;z-index:998;pointer-events:none;
  background:linear-gradient(112deg,transparent 0 34%,rgba(255,236,190,.04) 34.2%,rgba(255,236,190,.09) 38%,transparent 38.3% 46%,rgba(255,236,190,.035) 46.2% 49%,transparent 49.3%);
  box-shadow:inset 0 0 170px 24px rgba(0,0,0,.7)}
 
-/* Золочёный филёнчатый кант внутри рам, розетки по углам */
+
 .content::after,.sidebar-left::after,.sidebar-right::after,.skeuo-frame::before{content:"";position:absolute;inset:17px;pointer-events:none;z-index:2;
  border:1px solid rgba(255,225,140,.5);
  box-shadow:0 0 0 3px rgba(0,0,0,.55),0 0 0 4px rgba(212,167,72,.4),inset 0 0 0 1px #000,inset 0 1px 0 rgba(255,235,170,.4);
  background:var(--ros) top 3px left 3px/16px 16px no-repeat,var(--ros) top 3px right 3px/16px 16px no-repeat,var(--ros) bottom 3px left 3px/16px 16px no-repeat,var(--ros) bottom 3px right 3px/16px 16px no-repeat}
 
-/* Винты: латунные, с шайбой, шлицы повёрнуты вразнобой */
+
 body .skeuo-screw{width:18px;height:18px;border:1px solid #120601;
  background:radial-gradient(circle at 34% 30%,#fffbe6 0,#f0cf7a 24%,#b98a35 52%,#5a350a 82%,#1a0a02 100%);
  box-shadow:0 0 0 2px #2a1606,0 0 0 3px #b8893a,0 0 0 4px #1a0a02,0 3px 5px 2px rgba(0,0,0,.95),inset 0 1px 1px rgba(255,255,255,.85),inset 0 -2px 3px rgba(0,0,0,.8)}
@@ -737,16 +737,16 @@ body .skeuo-screw.tr::before{transform:rotate(71deg)}
 body .skeuo-screw.bl::before{transform:rotate(118deg)}
 body .skeuo-screw.br::before{transform:rotate(164deg)}
 
-/* Заглавие: литые латунные литеры с выдавленной тенью */
+
 body .skeuo-frame h1{color:#f6e2a8!important;
  text-shadow:0 1px 0 #fff4c4,0 2px 0 #d9b45a,0 3px 0 #a87a2c,0 4px 0 #7a5018,0 5px 0 #4b2f0c,0 6px 0 #2a1604,0 7px 0 #150801,0 13px 14px #000,0 0 38px rgba(212,175,55,.55)!important}
 
-/* Бегущая строка: латунная планка с обойными гвоздями */
+
 body marquee{border:0!important;padding:17px 10px!important;color:#ffe29a!important;
  background:var(--tack) 0 3px/24px 10px repeat-x,var(--tack) 0 calc(100% - 3px)/24px 10px repeat-x,linear-gradient(180deg,rgba(0,0,0,.75) 0 9px,transparent 9px calc(100% - 9px),rgba(0,0,0,.75) calc(100% - 9px)),linear-gradient(180deg,rgba(255,255,255,.14),transparent 45%,rgba(0,0,0,.55)),linear-gradient(90deg,#160802,#4a270b 25%,#160802 50%,#4a270b 75%,#160802)!important;
  box-shadow:0 -2px 0 #e2b75a,0 -5px 0 #2a1506,0 2px 0 #6b4512,0 5px 0 #0a0402,0 14px 26px #000,inset 0 3px 8px #000,inset 0 -3px 8px #000!important}
 
-/* Записи: стёганый капитоне с пуговицами, латунные уголки, гвоздики по кромке */
+
 body .post{border:3px solid;border-color:#f0d584 #6b4512 #2a1506 #caa148;border-radius:2px;
  background:var(--tack) 0 6px/20px 12px repeat-x,var(--tack) 0 calc(100% - 6px)/20px 12px repeat-x,var(--tuft) left top/18px 18px repeat-y,var(--tuft) right top/18px 18px repeat-y,linear-gradient(180deg,rgba(255,245,215,.07),transparent 20%,rgba(0,0,0,.6)),radial-gradient(ellipse at 50% 20%,#3a1209 0,#12060a 85%);
  box-shadow:0 0 0 2px #060201,0 0 0 5px #7d5923,0 0 0 6px #1a0a02,0 12px 28px #000,inset 0 2px 3px rgba(255,235,170,.35),inset 0 0 45px #000}
@@ -756,18 +756,18 @@ body .post::after{padding:5px 26px 4px;color:#2a1405;border:2px solid;border-col
  background:var(--pin) left 9px center/9px 9px no-repeat,var(--pin) right 9px center/9px 9px no-repeat,linear-gradient(180deg,#f6dd92,#c9983c 45%,#8a6020 55%,#d9b25a);
  text-shadow:0 1px 0 rgba(255,244,190,.85);box-shadow:0 4px 0 #1a0802,0 8px 14px #000}
 
-/* Дата: гравированная латунная табличка на двух заклёпках */
+
 body .post .date{display:inline-block;padding:7px 36px 6px;margin-bottom:26px;font-size:1.1em;letter-spacing:.2em;color:#2b1503!important;
  border:2px solid;border-color:#fff4c4 #6b4512 #2a1506 #e2b75a;border-radius:2px;
  background:var(--pin) left 8px center/10px 10px no-repeat,var(--pin) right 8px center/10px 10px no-repeat,repeating-linear-gradient(90deg,rgba(255,255,255,.07) 0 1px,transparent 1px 3px),linear-gradient(180deg,#f6dd92 0,#d3a548 38%,#9a6f22 52%,#c9a050 100%);
  text-shadow:0 1px 0 rgba(255,244,190,.8),0 -1px 0 rgba(60,30,6,.5)!important;
  box-shadow:0 3px 0 #1a0802,0 6px 10px #000,inset 0 0 8px rgba(90,50,8,.55)}
 
-/* Буквица: выпуклая литая, как в рукописной книге */
+
 body .post p:first-of-type::first-letter{float:left;font-size:3.5em;line-height:.82;font-weight:900;padding:.04em .1em 0 0;color:#f2d682;
  text-shadow:0 1px 0 #fff6cf,0 2px 0 #b8893a,0 3px 0 #7a5018,0 4px 0 #4b2f0c,0 5px 0 #2a1604,0 9px 10px #000,0 0 18px rgba(255,200,80,.5)}
 
-/* Ярлыки каталожных ящиков: бумажная карточка в латунной рамке с отверстиями для штанги */
+
 body .track-title{position:relative;display:block;margin:0 auto 14px;padding:9px 30px;color:#2b1707!important;font-size:.98em;letter-spacing:.06em;line-height:1.35;
  border:3px solid;border-color:#fff0b8 #6b4512 #2a1506 #e2b75a;border-radius:2px;
  background:radial-gradient(circle at 12% 30%,rgba(120,70,20,.35) 0,transparent 14%),radial-gradient(circle at 88% 78%,rgba(120,70,20,.3) 0,transparent 16%),repeating-linear-gradient(0deg,rgba(90,55,15,.06) 0 1px,transparent 1px 3px),linear-gradient(180deg,#e9d6a2,#cdb27a 60%,#b99a5e);
@@ -778,7 +778,7 @@ body .track-title::before,body .track-title::after{content:"";position:absolute;
 body .track-title::before{left:8px}
 body .track-title::after{right:8px}
 
-/* Кнопки: рубиновая сигнальная лампа-кабошон слева */
+
 body .play-btn{padding:11px 20px 11px 42px;border-radius:6px}
 body .play-btn::before{content:"";position:absolute;left:13px;top:50%;width:12px;height:12px;margin-top:-8px;border-radius:50%;
  background:radial-gradient(circle at 34% 30%,#ffd9c8 0,#ff4a2a 28%,#8a0f06 62%,#2a0402 100%);
@@ -787,27 +787,27 @@ body .play-btn::before{content:"";position:absolute;left:13px;top:50%;width:12px
 body .play-btn:hover::before{box-shadow:0 0 0 2px #0a0402,0 0 18px 3px rgba(255,90,40,.9),inset 0 -2px 3px rgba(0,0,0,.4)}
 body .play-btn:active::before{filter:brightness(1.5)}
 
-/* Ссылки-кнопки в боковых колонках: фаска и литой бортик */
+
 :is(.sidebar-left,.sidebar-right) a[target=_blank]{border-radius:4px;
  box-shadow:0 0 0 2px #060201,0 0 0 3px #8a6428,0 5px 10px #000,inset 0 1px 1px rgba(255,240,180,.55),inset 0 -3px 5px rgba(0,0,0,.7)!important}
 
-/* Репродукции: фаска рамы, паспарту из бордового бархата, лаковая кромка */
+
 body .divine-image{box-sizing:border-box;padding:10px;border:6px solid;border-color:#f0d584 #6b4512 #2a1506 #caa148;outline:2px solid #0a0402;outline-offset:0;
  background:linear-gradient(135deg,rgba(255,255,255,.1),transparent 40%),radial-gradient(circle,#3a1209,#0e0508);
  box-shadow:0 0 0 4px #8a6428,0 0 0 5px #0a0402,0 14px 30px #000,inset 0 0 0 1px #000,inset 0 0 14px #000}
 
-/* Врезанная канавка между пунктами списка вместо плоской линии */
+
 .audio-item{border-bottom:2px solid rgba(0,0,0,.85);box-shadow:0 1px 0 rgba(255,225,150,.28)}
 .audio-item[style*="border-bottom: none"]{box-shadow:none}
 
-/* Алхимический ларец: кожаная прострочка и латунные уголки */
+
 .alchemy-manifest{position:relative}
 .alchemy-manifest::before{content:"";position:absolute;inset:0;pointer-events:none;filter:drop-shadow(0 2px 2px #000);
  background:linear-gradient(135deg,#ffe9a0 0 50%,transparent 50%) top left/26px 26px no-repeat,linear-gradient(225deg,#c99a40 0 50%,transparent 50%) top right/26px 26px no-repeat,linear-gradient(45deg,#8a6020 0 50%,transparent 50%) bottom left/26px 26px no-repeat,linear-gradient(315deg,#5a3a10 0 50%,transparent 50%) bottom right/26px 26px no-repeat}
 .alchemy-manifest::after{content:"";position:absolute;inset:9px;pointer-events:none;border:2px dashed rgba(236,200,120,.55);border-radius:2px;box-shadow:0 1px 0 #000,inset 0 1px 0 #000}
 
 
-/* Полоса прокрутки: латунный ползунок с рифлением и кнопки-шляпки */
+
 ::-webkit-scrollbar{width:16px}
 ::-webkit-scrollbar-thumb{border-radius:2px;
  background:repeating-linear-gradient(0deg,transparent 0 3px,rgba(0,0,0,.55) 3px 4px,rgba(255,240,170,.6) 4px 5px) center/60% 26px no-repeat,linear-gradient(90deg,#4a2d0b,#fff2be 30%,#caa148 55%,#7a5018 100%)}
@@ -816,14 +816,14 @@ body .divine-image{box-sizing:border-box;padding:10px;border:6px solid;border-co
 :focus-visible{outline:2px solid #fff2be;outline-offset:3px}
 @media (prefers-reduced-motion:reduce){.falling-flower{display:none}}
 
-/* Текст записей: контрастнее, без рисунка под строками */
+
 body .post p{color:#fff4df;text-shadow:0 1px 0 #000,0 2px 5px #000,0 0 10px rgba(0,0,0,.9)}
 
-/* ===== КИОТ: барочный позолоченный иконостас ===== */
+
 :root{--damask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40'%3E%3Cpath d='M20 4C26 12 28 14 36 20 28 26 26 28 20 36 14 28 12 26 4 20 12 14 14 12 20 4Z' fill='none' stroke='%23d4af37' stroke-opacity='.3'/%3E%3Ccircle cx='20' cy='20' r='2.4' fill='%23d4af37' fill-opacity='.3'/%3E%3C/svg%3E")}
 body .sacrum-tabernaculum{isolation:isolate}
 
-/* Витые соломоновы колонны с капителью и базой */
+
 .kiot-column{position:absolute;top:100px;bottom:52px;width:34px;z-index:3;border-radius:5px;
  background:linear-gradient(90deg,rgba(0,0,0,.9),transparent 26%,rgba(255,245,190,.6) 40%,transparent 58%,rgba(0,0,0,.92)),repeating-linear-gradient(64deg,#6b4512 0 7px,#f0cf74 7px 13px,#8a6020 13px 18px,#2a1504 18px 21px);
  box-shadow:0 0 0 2px #0a0402,0 0 0 3px #8a6428,0 10px 24px #000}
@@ -832,36 +832,36 @@ body .sacrum-tabernaculum{isolation:isolate}
  background:linear-gradient(180deg,#fff2be,#c9983c 45%,#6b4512);box-shadow:0 0 0 2px #0a0402,0 4px 6px #000}
 .kiot-column::before{top:-14px}.kiot-column::after{bottom:-14px;transform:scaleY(-1)}
 
-/* Фронтон: золочёный наклонный карниз и полка-венчание */
+
 body .tabernacle-pediment::before{content:"";position:absolute;left:-34px;right:-34px;top:-82px;height:70px;z-index:-1;
  background:linear-gradient(90deg,#6b4512,#f0d070 30%,#fff2be 50%,#d9b45a 70%,#6b4512);
  clip-path:polygon(evenodd,50% 0,100% 100%,0 100%,50% 0,50% 26%,7% 90%,93% 90%,50% 26%)}
 body .tabernacle-pediment::after{content:"";position:absolute;left:-34px;right:-34px;top:-12px;height:10px;
  background:linear-gradient(180deg,#fff2be,#c9983c 40%,#6b4512 70%,#1a0a02);box-shadow:0 0 0 2px #0a0402,0 6px 10px #000}
 
-/* Картуш с почтой: латунные заклёпки, ящик-щель для писем */
+
 body .votive-cartouche{
  background:var(--pin) top 9px left 9px/10px 10px no-repeat,var(--pin) top 9px right 9px/10px 10px no-repeat,var(--pin) bottom 9px left 9px/10px 10px no-repeat,var(--pin) bottom 9px right 9px/10px 10px no-repeat,linear-gradient(180deg,rgba(255,240,190,.18),transparent 25%,rgba(0,0,0,.8)),radial-gradient(ellipse at 50% 30%,rgba(85,45,14,.99),rgba(24,9,2,.99) 85%),#080301;
  box-shadow:0 0 0 2px #060201,0 0 0 5px #7d5923,0 0 0 6px #1a0a02,0 12px 30px #000,inset 0 1px 4px rgba(255,240,180,.8),inset 0 0 35px rgba(184,134,11,.55)}
 body .cartouche-mail-link{display:inline-block;margin-top:6px;padding:7px 22px;border:2px solid;border-color:#2a1506 #caa148 #fff2bd #6b4512;border-radius:2px;
  background:linear-gradient(180deg,#050201,#241103);box-shadow:inset 0 4px 8px #000,0 1px 0 rgba(255,240,170,.4)}
 
-/* Антаблемент: зубчики-дентикулы */
+
 body .entablature-divider{border:0;height:26px;
  background:linear-gradient(180deg,#fff2be 0 3px,#a87a2c 3px 7px,#2a1504 7px) 0 0/100% 9px no-repeat,repeating-linear-gradient(90deg,#d9b45a 0 9px,#1a0a02 9px 12px) 0 9px/100% 8px no-repeat,linear-gradient(180deg,#6b4512 0 3px,#caa148 3px 6px,#2a1504 6px) 0 17px/100% 9px no-repeat;
  box-shadow:0 8px 14px #000}
 
-/* Скрижаль канона: заклёпки и латунные торцы */
+
 body .nocturne-liturgy-canon{border-top:3px solid #6b4512;border-bottom:3px solid #caa148;
  background:var(--pin) top 10px left 12px/10px 10px no-repeat,var(--pin) top 10px right 12px/10px 10px no-repeat,var(--pin) bottom 10px left 12px/10px 10px no-repeat,var(--pin) bottom 10px right 12px/10px 10px no-repeat,linear-gradient(180deg,rgba(255,240,190,.08),transparent 20%,rgba(0,0,0,.7)),rgba(14,5,2,.8)}
 
-/* Престол: парчовый покров с дамасским узором и золотой бахромой */
+
 body .tabernacle-altar-mensa{
  background:var(--damask) 0 0/40px 40px,radial-gradient(ellipse at 50% 100%,rgba(212,165,65,.32),transparent 72%),linear-gradient(180deg,rgba(0,0,0,0),rgba(14,5,2,.85) 35%,rgba(32,12,4,1))}
 body .tabernacle-altar-mensa::after{content:"";position:absolute;left:0;right:0;bottom:-15px;height:15px;pointer-events:none;
  background:repeating-linear-gradient(90deg,#f0d070 0 2px,#7a5018 2px 3px,transparent 3px 6px);filter:drop-shadow(0 3px 3px #000)}
 
-/* Икона под стеклом, с висящей лампадой на цепи */
+
 .kiot-glass{position:absolute;inset:14px;z-index:5;pointer-events:none;
  background:linear-gradient(118deg,rgba(255,255,255,.16) 0 18%,transparent 18.2% 30%,rgba(255,255,255,.07) 30.2% 36%,transparent 36.2%),linear-gradient(180deg,rgba(255,240,200,.1),transparent 30%,rgba(0,0,0,.25));
  box-shadow:inset 0 0 0 2px rgba(0,0,0,.6),inset 0 0 14px rgba(0,0,0,.8)}
@@ -873,14 +873,14 @@ body .icon-reliquary-shrine::after{content:"";position:absolute;top:-54px;left:5
  background:repeating-linear-gradient(180deg,#e2b75a 0 3px,#3a2208 3px 5px);box-shadow:0 0 0 1px #0a0402}
 @keyframes kiotFlame{from{filter:brightness(.92)}to{filter:brightness(1.3) saturate(1.2)}}
 
-/* Предэллa: латунная надписная плита, текст гравирован */
+
 body .tabernacle-predella-vow{margin-top:44px;padding:20px 34px 18px;color:#2a1405;letter-spacing:.26em;line-height:1.9;
  border:3px solid;border-color:#fff2bd #6b4512 #2a1506 #e2b75a;border-radius:2px;
  background:var(--pin) top 8px left 8px/10px 10px no-repeat,var(--pin) top 8px right 8px/10px 10px no-repeat,var(--pin) bottom 8px left 8px/10px 10px no-repeat,var(--pin) bottom 8px right 8px/10px 10px no-repeat,repeating-linear-gradient(90deg,rgba(255,255,255,.06) 0 1px,transparent 1px 3px),linear-gradient(180deg,#f0d684,#c9983c 45%,#9a6f22 55%,#d3a548);
  text-shadow:0 1px 0 rgba(255,244,190,.8);box-shadow:0 0 0 2px #060201,0 0 0 5px #7d5923,0 10px 22px #000,inset 0 0 12px rgba(90,50,8,.5)}
 @media (prefers-reduced-motion:reduce){.icon-reliquary-shrine::before{animation:none}}
 
-/* ===== МАСШТАБ ПОД НОУТБУКИ: страница считает себя холстом ~1880px и сжимается под окно ===== */
+
 :root{--z:1}
 @media (min-width:1100px) and (max-width:1299px){:root{--z:.6}}
 @media (min-width:1300px) and (max-width:1439px){:root{--z:.69}}
@@ -890,9 +890,9 @@ body .tabernacle-predella-vow{margin-top:44px;padding:20px 34px 18px;color:#2a14
 body{zoom:var(--z);max-width:1440px}
 .content{max-width:730px}
 body .skeuo-frame,body marquee,body .sacrum-tabernaculum{max-width:1390px!important}
-/* цветочные полосы уже и не наезжают на панели */
+
 body .floral-side-left,body .floral-side-right{width:220px;height:auto;top:0;bottom:0}
-/* полноэкранные слои и падающие цветы остаются в натуральном масштабе */
+
 #balabanov-cinema-gate,#candle-behind-wall,#glitch-overlay,#crash-screen,#video-overlay,.falling-flower{zoom:calc(1/var(--z))}
 #balabanov-cinema-gate,#candle-behind-wall,#glitch-overlay,#crash-screen,#video-overlay{width:auto!important;height:auto!important;right:0!important;bottom:0!important}
 </style>
@@ -911,7 +911,7 @@ body .floral-side-left,body .floral-side-right{width:220px;height:auto;top:0;bot
 @media(max-width:560px){.archive-nav-wrap{margin:18px 0 25px;padding:8px}.archive-nav{gap:6px}.archive-nav a{min-height:40px;padding:8px 3px;font-size:clamp(.68rem,2.7vw,.86rem);letter-spacing:.02em}.archive-nav a:after{right:3px;font-size:7px}.archive-nav-wrap:before,.archive-nav-wrap:after{letter-spacing:0;font-size:8px}}
 </style>
 <style id="audio-page-responsive-tuning">
-/* Адаптация аудиоархива к той же раме и пропорциям, что и index-4.html */
+
 @media (max-width:760px){
   body{margin:20px auto;padding:0 12px 40px;}
   .floral-side-left,.floral-side-right{width:45px!important;opacity:.25!important;}
@@ -934,16 +934,16 @@ body .floral-side-left,body .floral-side-right{width:220px;height:auto;top:0;bot
 <body>
 <div class="floral-side-left" aria-hidden="true"></div><div class="floral-side-right" aria-hidden="true"></div>
 <nav class="archive-nav-wrap" aria-label="Разделы сайта"><div class="archive-nav">
-<a href="index.html#articles" >Статьи</a><a href="video.html" >Видео</a><a href="photo.html" >Фото</a><a href="paintings.html" >Картины</a>
+<a href="index.html#articles" >Главная</a><a href="video.html" >Видео</a><a href="photo.html" >Фото</a><a href="paintings.html" >Картины</a>
 </div></nav>
 <main class="skeuo-frame">
 <div class="skeuo-screw tl"></div><div class="skeuo-screw tr"></div><div class="skeuo-screw bl"></div><div class="skeuo-screw br"></div>
 <header class="page-heading"><span class="eyebrow"> </span><h1>Звукозаписи</h1><p></p></header>
-<div class="section-ribbon">Музыкальный архив · 48 записей</div>
-<div class="section-copy"><p>Все звуковые записи вынесены из главной страницы в этот отдельный плеер. Кнопки, оставленные на главной странице, открывают здесь соответствующую запись. Загружается только выбранный файл.</p></div>
+<div class="section-ribbon">Музыкальный архив/аудиотека</div>
+<div class="section-copy"><p>ТОТ, КТО ИДЕТ ПРОТИВ ДНЯ, НЕ ДОЛЖЕН БОЯТЬСЯ НОЧИ</p></div>
 <div class="track-layout">
-  <aside class="player-console"><h2 id="now-playing-title">Ничего не выбрано</h2><p class="player-status" id="player-status" aria-live="polite">Выберите запись из списка. При переходе с главной страницы нужная композиция будет отмечена автоматически.</p><audio id="audio-player" controls preload="none"></audio><button class="metal-button" id="play-selected" type="button">Заиграть выбранное</button></aside>
-  <div class="track-list"><section class="track-group"><h2 class="track-group-title">Интерлюдия</h2><div class="track-card" data-track-card="tot1.mp3"><span class="track-number">01</span><div class="track-copy"><strong>Интерлюдия</strong><small>tot1.mp3</small></div><button class="audio-select-btn" type="button" data-track="tot1.mp3">Заиграть</button></div></section><section class="track-group"><h2 class="track-group-title">Мѣлодiи по бѣспроволочному</h2><div class="track-card" data-track-card="otrada.mp3"><span class="track-number">02</span><div class="track-copy"><strong>Живет Моя Отрада</strong><small>otrada.mp3</small></div><button class="audio-select-btn" type="button" data-track="otrada.mp3">Заиграть</button></div><div class="track-card" data-track-card="Идальго.mp3"><span class="track-number">03</span><div class="track-copy"><strong>Идальго</strong><small>Идальго.mp3</small></div><button class="audio-select-btn" type="button" data-track="Идальго.mp3">Заиграть</button></div><div class="track-card" data-track-card="Москва1984.mp3"><span class="track-number">04</span><div class="track-copy"><strong>Москва 1984</strong><small>Москва1984.mp3</small></div><button class="audio-select-btn" type="button" data-track="Москва1984.mp3">Заиграть</button></div><div class="track-card" data-track-card="4A.mp3"><span class="track-number">05</span><div class="track-copy"><strong>Song 4A</strong><small>4A.mp3</small></div><button class="audio-select-btn" type="button" data-track="4A.mp3">Заиграть</button></div><div class="track-card" data-track-card="Нарцисс.mp3"><span class="track-number">06</span><div class="track-copy"><strong>Нарцисс</strong><small>Нарцисс.mp3</small></div><button class="audio-select-btn" type="button" data-track="Нарцисс.mp3">Заиграть</button></div><div class="track-card" data-track-card="Миледи.mp3"><span class="track-number">07</span><div class="track-copy"><strong>Миледи</strong><small>Миледи.mp3</small></div><button class="audio-select-btn" type="button" data-track="Миледи.mp3">Заиграть</button></div><div class="track-card" data-track-card="228SOR.mp3"><span class="track-number">08</span><div class="track-copy"><strong>Сирень</strong><small>228SOR.mp3</small></div><button class="audio-select-btn" type="button" data-track="228SOR.mp3">Заиграть</button></div><div class="track-card" data-track-card="Гарпия.mp3"><span class="track-number">09</span><div class="track-copy"><strong>Гарпия</strong><small>Гарпия.mp3</small></div><button class="audio-select-btn" type="button" data-track="Гарпия.mp3">Заиграть</button></div><div class="track-card" data-track-card="В розовом стакане.mp3"><span class="track-number">10</span><div class="track-copy"><strong>В розовом стакане</strong><small>В розовом стакане.mp3</small></div><button class="audio-select-btn" type="button" data-track="В розовом стакане.mp3">Заиграть</button></div><div class="track-card" data-track-card="platok.mp3"><span class="track-number">11</span><div class="track-copy"><strong>Синий Платочек</strong><small>platok.mp3</small></div><button class="audio-select-btn" type="button" data-track="platok.mp3">Заиграть</button></div><div class="track-card" data-track-card="Аннабель.mp3"><span class="track-number">12</span><div class="track-copy"><strong>Аннабель</strong><small>Аннабель.mp3</small></div><button class="audio-select-btn" type="button" data-track="Аннабель.mp3">Заиграть</button></div><div class="track-card" data-track-card="Агасфер.mp3"><span class="track-number">13</span><div class="track-copy"><strong>Агасфер</strong><small>Агасфер.mp3</small></div><button class="audio-select-btn" type="button" data-track="Агасфер.mp3">Заиграть</button></div><div class="track-card" data-track-card="rio.mp3"><span class="track-number">14</span><div class="track-copy"><strong>Любовь на Рио-Гранде</strong><small>rio.mp3</small></div><button class="audio-select-btn" type="button" data-track="rio.mp3">Заиграть</button></div><div class="track-card" data-track-card="GDETO.mp3"><span class="track-number">15</span><div class="track-copy"><strong>Где-то...</strong><small>GDETO.mp3</small></div><button class="audio-select-btn" type="button" data-track="GDETO.mp3">Заиграть</button></div><div class="track-card" data-track-card="audio1.mp3"><span class="track-number">16</span><div class="track-copy"><strong>Лещенко: Скажите, почему?</strong><small>audio1.mp3</small></div><button class="audio-select-btn" type="button" data-track="audio1.mp3">Заиграть</button></div><div class="track-card" data-track-card="vodared.mp3"><span class="track-number">17</span><div class="track-copy"><strong>Ржавая Вода</strong><small>vodared.mp3</small></div><button class="audio-select-btn" type="button" data-track="vodared.mp3">Заиграть</button></div><div class="track-card" data-track-card="pampas.mp3"><span class="track-number">18</span><div class="track-copy"><strong>Где среди пампасов</strong><small>pampas.mp3</small></div><button class="audio-select-btn" type="button" data-track="pampas.mp3">Заиграть</button></div><div class="track-card" data-track-card="audio2.mp3"><span class="track-number">19</span><div class="track-copy"><strong>Отчего луна так светит...</strong><small>audio2.mp3</small></div><button class="audio-select-btn" type="button" data-track="audio2.mp3">Заиграть</button></div><div class="track-card" data-track-card="timogbi.mp3"><span class="track-number">20</span><div class="track-copy"><strong>Ты Мог бы...</strong><small>timogbi.mp3</small></div><button class="audio-select-btn" type="button" data-track="timogbi.mp3">Заиграть</button></div><div class="track-card" data-track-card="audio3.mp3"><span class="track-number">21</span><div class="track-copy"><strong>Гелиополис</strong><small>audio3.mp3</small></div><button class="audio-select-btn" type="button" data-track="audio3.mp3">Заиграть</button></div><div class="track-card" data-track-card="audio4.mp3"><span class="track-number">22</span><div class="track-copy"><strong>Ах, зачем эта ночь</strong><small>audio4.mp3</small></div><button class="audio-select-btn" type="button" data-track="audio4.mp3">Заиграть</button></div><div class="track-card" data-track-card="audio5.mp3"><span class="track-number">23</span><div class="track-copy"><strong>Blues My Naughty</strong><small>audio5.mp3</small></div><button class="audio-select-btn" type="button" data-track="audio5.mp3">Заиграть</button></div><div class="track-card" data-track-card="koldovstvo.mp3"><span class="track-number">24</span><div class="track-copy"><strong>Страданья</strong><small>koldovstvo.mp3</small></div><button class="audio-select-btn" type="button" data-track="koldovstvo.mp3">Заиграть</button></div><div class="track-card" data-track-card="audio6.mp3"><span class="track-number">25</span><div class="track-copy"><strong>To Many Tears</strong><small>audio6.mp3</small></div><button class="audio-select-btn" type="button" data-track="audio6.mp3">Заиграть</button></div><div class="track-card" data-track-card="audio7.mp3"><span class="track-number">26</span><div class="track-copy"><strong>Зачем унылой думой</strong><small>audio7.mp3</small></div><button class="audio-select-btn" type="button" data-track="audio7.mp3">Заиграть</button></div><div class="track-card" data-track-card="kichman.mp3"><span class="track-number">27</span><div class="track-copy"><strong>С Одесского Кичмана...</strong><small>kichman.mp3</small></div><button class="audio-select-btn" type="button" data-track="kichman.mp3">Заиграть</button></div><div class="track-card" data-track-card="audio8.mp3"><span class="track-number">28</span><div class="track-copy"><strong>Иду Домой</strong><small>audio8.mp3</small></div><button class="audio-select-btn" type="button" data-track="audio8.mp3">Заиграть</button></div><div class="track-card" data-track-card="audio9.mp3"><span class="track-number">29</span><div class="track-copy"><strong>Листики Календаря</strong><small>audio9.mp3</small></div><button class="audio-select-btn" type="button" data-track="audio9.mp3">Заиграть</button></div><div class="track-card" data-track-card="audio10.mp3"><span class="track-number">30</span><div class="track-copy"><strong>Malkhas Akhber</strong><small>audio10.mp3</small></div><button class="audio-select-btn" type="button" data-track="audio10.mp3">Заиграть</button></div><div class="track-card" data-track-card="audio11.mp3"><span class="track-number">31</span><div class="track-copy"><strong>Меня не греет шаль</strong><small>audio11.mp3</small></div><button class="audio-select-btn" type="button" data-track="audio11.mp3">Заиграть</button></div><div class="track-card" data-track-card="audio12.mp3"><span class="track-number">32</span><div class="track-copy"><strong>Где тропа за рекой запорошена..</strong><small>audio12.mp3</small></div><button class="audio-select-btn" type="button" data-track="audio12.mp3">Заиграть</button></div><div class="track-card" data-track-card="VETER.mp3"><span class="track-number">33</span><div class="track-copy"><strong>То не ветер ветку клонит...</strong><small>VETER.mp3</small></div><button class="audio-select-btn" type="button" data-track="VETER.mp3">Заиграть</button></div><div class="track-card" data-track-card="audio13.mp3"><span class="track-number">34</span><div class="track-copy"><strong>Кармен</strong><small>audio13.mp3</small></div><button class="audio-select-btn" type="button" data-track="audio13.mp3">Заиграть</button></div><div class="track-card" data-track-card="audio14.mp3"><span class="track-number">35</span><div class="track-copy"><strong>Иностранка</strong><small>audio14.mp3</small></div><button class="audio-select-btn" type="button" data-track="audio14.mp3">Заиграть</button></div><div class="track-card" data-track-card="audio15.mp3"><span class="track-number">36</span><div class="track-copy"><strong>Мауна Лоа</strong><small>audio15.mp3</small></div><button class="audio-select-btn" type="button" data-track="audio15.mp3">Заиграть</button></div><div class="track-card" data-track-card="audio17.mp3"><span class="track-number">37</span><div class="track-copy"><strong>Былые увлеченья</strong><small>audio17.mp3</small></div><button class="audio-select-btn" type="button" data-track="audio17.mp3">Заиграть</button></div><div class="track-card" data-track-card="audio18.mp3"><span class="track-number">38</span><div class="track-copy"><strong>Спускалась ночная прохлада</strong><small>audio18.mp3</small></div><button class="audio-select-btn" type="button" data-track="audio18.mp3">Заиграть</button></div><div class="track-card" data-track-card="audioDEVi.mp3"><span class="track-number">39</span><div class="track-copy"><strong>Звездочка</strong><small>audioDEVi.mp3</small></div><button class="audio-select-btn" type="button" data-track="audioDEVi.mp3">Заиграть</button></div><div class="track-card" data-track-card="Цыганочка.mp3"><span class="track-number">40</span><div class="track-copy"><strong>Цыганочка</strong><small>Цыганочка.mp3</small></div><button class="audio-select-btn" type="button" data-track="Цыганочка.mp3">Заиграть</button></div><div class="track-card" data-track-card="audioDV.mp3"><span class="track-number">41</span><div class="track-copy"><strong>Ночь темна темнешенька</strong><small>audioDV.mp3</small></div><button class="audio-select-btn" type="button" data-track="audioDV.mp3">Заиграть</button></div><div class="track-card" data-track-card="audioYU.mp3"><span class="track-number">42</span><div class="track-copy"><strong>Утопленник</strong><small>audioYU.mp3</small></div><button class="audio-select-btn" type="button" data-track="audioYU.mp3">Заиграть</button></div></section><section class="track-group"><h2 class="track-group-title">Звуковое сопровождение записей</h2><div class="track-card" data-track-card="audio16.mp3"><span class="track-number">43</span><div class="track-copy"><strong>Аудио-Сопровождение</strong><small>audio16.mp3</small></div><button class="audio-select-btn" type="button" data-track="audio16.mp3">Заиграть</button></div><div class="track-card" data-track-card="katya.mp3"><span class="track-number">44</span><div class="track-copy"><strong>Катя</strong><small>katya.mp3</small></div><button class="audio-select-btn" type="button" data-track="katya.mp3">Заиграть</button></div><div class="track-card" data-track-card="Hans.mp3"><span class="track-number">45</span><div class="track-copy"><strong>Танго СА</strong><small>Hans.mp3</small></div><button class="audio-select-btn" type="button" data-track="Hans.mp3">Заиграть</button></div><div class="track-card" data-track-card="trip.mp3"><span class="track-number">46</span><div class="track-copy"><strong>Триптих - Башлачев</strong><small>trip.mp3</small></div><button class="audio-select-btn" type="button" data-track="trip.mp3">Заиграть</button></div><div class="track-card" data-track-card="oxota.mp3"><span class="track-number">47</span><div class="track-copy"><strong>Охота на Волков</strong><small>oxota.mp3</small></div><button class="audio-select-btn" type="button" data-track="oxota.mp3">Заиграть</button></div><div class="track-card" data-track-card="prosvet.mp3"><span class="track-number">48</span><div class="track-copy"><strong>Несколько Слов</strong><small>prosvet.mp3</small></div><button class="audio-select-btn" type="button" data-track="prosvet.mp3">Заиграть</button></div></section></div>
+  <aside class="player-console"><h2 id="now-playing-title">Ничего не выбрано</h2><p class="player-status" id="player-status" aria-live="polite">«Свѣту положены предѣлы; въ безсрочномъ, въ безпредѣльномъ ночь царитъ. Сонъ длится вѣчно. Сонъ святой, не обездоливай надолго причастныхъ ночи въ тягостяхъ земного дня.»</p><audio id="audio-player" controls preload="none"></audio><button class="metal-button" id="play-selected" type="button">Заиграть выбранное</button></aside>
+  <div class="track-list"><section class="track-group"><h2 class="track-group-title">Интерлюдия</h2><div class="track-card" data-track-card="tot1.mp3"><span class="track-number">01</span><div class="track-copy"><strong>Интерлюдия</strong><small>Евгений Головин</small></div><button class="audio-select-btn" type="button" data-track="tot1.mp3">Заиграть</button></div></section><section class="track-group"><h2 class="track-group-title">Мѣлодiи</h2><div class="track-card" data-track-card="otrada.mp3"><span class="track-number">02</span><div class="track-copy"><strong>Живет Моя Отрада</strong><small>Лидия Русланова</small></div><button class="audio-select-btn" type="button" data-track="otrada.mp3">Заиграть</button></div><div class="track-card" data-track-card="Идальго.mp3"><span class="track-number">03</span><div class="track-copy"><strong>Идальго</strong><small>Ганс Зиверс</small></div><button class="audio-select-btn" type="button" data-track="Идальго.mp3">Заиграть</button></div><div class="track-card" data-track-card="Москва1984.mp3"><span class="track-number">04</span><div class="track-copy"><strong>Москва 1984</strong><small>Ганс Зиверс</small></div><button class="audio-select-btn" type="button" data-track="Москва1984.mp3">Заиграть</button></div><div class="track-card" data-track-card="4A.mp3"><span class="track-number">05</span><div class="track-copy"><strong>Song 4A</strong><small>Dissidenten</small></div><button class="audio-select-btn" type="button" data-track="4A.mp3">Заиграть</button></div><div class="track-card" data-track-card="Нарцисс.mp3"><span class="track-number">06</span><div class="track-copy"><strong>Нарцисс</strong><small>Ганс Зиверс</small></div><button class="audio-select-btn" type="button" data-track="Нарцисс.mp3">Заиграть</button></div><div class="track-card" data-track-card="Миледи.mp3"><span class="track-number">07</span><div class="track-copy"><strong>Миледи</strong><small>Ганс Зиверс</small></div><button class="audio-select-btn" type="button" data-track="Миледи.mp3">Заиграть</button></div><div class="track-card" data-track-card="228SOR.mp3"><span class="track-number">08</span><div class="track-copy"><strong>Сирень</strong><small>Эсфирь Пургалина</small></div><button class="audio-select-btn" type="button" data-track="228SOR.mp3">Заиграть</button></div><div class="track-card" data-track-card="Гарпия.mp3"><span class="track-number">09</span><div class="track-copy"><strong>Гарпия</strong><small>Ганс Зиверс</small></div><button class="audio-select-btn" type="button" data-track="Гарпия.mp3">Заиграть</button></div><div class="track-card" data-track-card="В розовом стакане.mp3"><span class="track-number">10</span><div class="track-copy"><strong>В розовом стакане</strong><small>Ганс Зиверс</small></div><button class="audio-select-btn" type="button" data-track="В розовом стакане.mp3">Заиграть</button></div><div class="track-card" data-track-card="platok.mp3"><span class="track-number">11</span><div class="track-copy"><strong>Синий Платочек</strong><small>Екатерина Юровская</small></div><button class="audio-select-btn" type="button" data-track="platok.mp3">Заиграть</button></div><div class="track-card" data-track-card="Аннабель.mp3"><span class="track-number">12</span><div class="track-copy"><strong>Аннабель</strong><small>Ганс Зиверс</small></div><button class="audio-select-btn" type="button" data-track="Аннабель.mp3">Заиграть</button></div><div class="track-card" data-track-card="Агасфер.mp3"><span class="track-number">13</span><div class="track-copy"><strong>Агасфер</strong><small>Ганс Зиверс</small></div><button class="audio-select-btn" type="button" data-track="Агасфер.mp3">Заиграть</button></div><div class="track-card" data-track-card="rio.mp3"><span class="track-number">14</span><div class="track-copy"><strong>Любовь на Рио-Гранде</strong><small>Евгений Головин</small></div><button class="audio-select-btn" type="button" data-track="rio.mp3">Заиграть</button></div><div class="track-card" data-track-card="GDETO.mp3"><span class="track-number">15</span><div class="track-copy"><strong>Где-то...</strong><small>На стихи Евгения Головина / Исп. Сергей Гражданкин</small></div><button class="audio-select-btn" type="button" data-track="GDETO.mp3">Заиграть</button></div><div class="track-card" data-track-card="audio1.mp3"><span class="track-number">16</span><div class="track-copy"><strong>Скажите, почему?</strong><small>Пётр Лещенко</small></div><button class="audio-select-btn" type="button" data-track="audio1.mp3">Заиграть</button></div><div class="track-card" data-track-card="vodared.mp3"><span class="track-number">17</span><div class="track-copy"><strong>Ржавая Вода</strong><small>Александр Башлачев</small></div><button class="audio-select-btn" type="button" data-track="vodared.mp3">Заиграть</button></div><div class="track-card" data-track-card="pampas.mp3"><span class="track-number">18</span><div class="track-copy"><strong>Где среди пампасов</strong><small>Денис Гарадаев</small></div><button class="audio-select-btn" type="button" data-track="pampas.mp3">Заиграть</button></div><div class="track-card" data-track-card="audio2.mp3"><span class="track-number">19</span><div class="track-copy"><strong>Отчего луна так светит...</strong><small>Евгений Чумаченко / На стихи - Сергея Есенина</small></div><button class="audio-select-btn" type="button" data-track="audio2.mp3">Заиграть</button></div><div class="track-card" data-track-card="timogbi.mp3"><span class="track-number">20</span><div class="track-copy"><strong>Ты Мог бы...</strong><small>КИНО</small></div><button class="audio-select-btn" type="button" data-track="timogbi.mp3">Заиграть</button></div><div class="track-card" data-track-card="audio3.mp3"><span class="track-number">21</span><div class="track-copy"><strong>Гелиополис</strong><small>Ганс Зиверс</small></div><button class="audio-select-btn" type="button" data-track="audio3.mp3">Заиграть</button></div><div class="track-card" data-track-card="audio4.mp3"><span class="track-number">22</span><div class="track-copy"><strong>Ах, зачем эта ночь</strong><small>Читинская Слобода</small></div><button class="audio-select-btn" type="button" data-track="audio4.mp3">Заиграть</button></div><div class="track-card" data-track-card="audio5.mp3"><span class="track-number">23</span><div class="track-copy"><strong>Blues My Naughty</strong><small>Sidney Bechet</small></div><button class="audio-select-btn" type="button" data-track="audio5.mp3">Заиграть</button></div><div class="track-card" data-track-card="koldovstvo.mp3"><span class="track-number">24</span><div class="track-copy"><strong>Страданья</strong><small>Село Никольское Воронежской Области</small></div><button class="audio-select-btn" type="button" data-track="koldovstvo.mp3">Заиграть</button></div><div class="track-card" data-track-card="audio6.mp3"><span class="track-number">25</span><div class="track-copy"><strong>To Many Tears</strong><small>Ambrose & His Orchestra</small></div><button class="audio-select-btn" type="button" data-track="audio6.mp3">Заиграть</button></div><div class="track-card" data-track-card="audio7.mp3"><span class="track-number">26</span><div class="track-copy"><strong>Зачем унылой думой</strong><small>Екатерина Юровская / На стихи - A.C Пушкина</small></div><button class="audio-select-btn" type="button" data-track="audio7.mp3">Заиграть</button></div><div class="track-card" data-track-card="kichman.mp3"><span class="track-number">27</span><div class="track-copy"><strong>С Одесского Кичмана...</strong><small>Денис Гарадаев</small></div><button class="audio-select-btn" type="button" data-track="kichman.mp3">Заиграть</button></div><div class="track-card" data-track-card="audio8.mp3"><span class="track-number">28</span><div class="track-copy"><strong>Иду Домой</strong><small>Евгений Головин</small></div><button class="audio-select-btn" type="button" data-track="audio8.mp3">Заиграть</button></div><div class="track-card" data-track-card="audio9.mp3"><span class="track-number">29</span><div class="track-copy"><strong>Листики Календаря</strong><small>Валерий Агафонов</small></div><button class="audio-select-btn" type="button" data-track="audio9.mp3">Заиграть</button></div><div class="track-card" data-track-card="audio10.mp3"><span class="track-number">30</span><div class="track-copy"><strong>Malkhas Akhber</strong><small>Арто Тунчбояджян & Armenian Navy Band</small></div><button class="audio-select-btn" type="button" data-track="audio10.mp3">Заиграть</button></div><div class="track-card" data-track-card="audio11.mp3"><span class="track-number">31</span><div class="track-copy"><strong>Меня не греет шаль</strong><small>Екатерина Юровская</small></div><button class="audio-select-btn" type="button" data-track="audio11.mp3">Заиграть</button></div><div class="track-card" data-track-card="audio12.mp3"><span class="track-number">32</span><div class="track-copy"><strong>Где тропа за рекой запорошена..</strong><small>Петр Налич</small></div><button class="audio-select-btn" type="button" data-track="audio12.mp3">Заиграть</button></div><div class="track-card" data-track-card="VETER.mp3"><span class="track-number">33</span><div class="track-copy"><strong>То не ветер ветку клонит...</strong><small>Денис Гарадаев</small></div><button class="audio-select-btn" type="button" data-track="VETER.mp3">Заиграть</button></div><div class="track-card" data-track-card="audio13.mp3"><span class="track-number">34</span><div class="track-copy"><strong>Кармен</strong><small>Екатерина Юровская</small></div><button class="audio-select-btn" type="button" data-track="audio13.mp3">Заиграть</button></div><div class="track-card" data-track-card="audio14.mp3"><span class="track-number">35</span><div class="track-copy"><strong>Иностранка</strong><small>Евгений Головин</small></div><button class="audio-select-btn" type="button" data-track="audio14.mp3">Заиграть</button></div><div class="track-card" data-track-card="audio15.mp3"><span class="track-number">36</span><div class="track-copy"><strong>Мауна Лоа</strong><small>Евгений Головин</small></div><button class="audio-select-btn" type="button" data-track="audio15.mp3">Заиграть</button></div><div class="track-card" data-track-card="audio17.mp3"><span class="track-number">37</span><div class="track-copy"><strong>Былые увлеченья</strong><small>Екатерина Юровская</small></div><button class="audio-select-btn" type="button" data-track="audio17.mp3">Заиграть</button></div><div class="track-card" data-track-card="audio18.mp3"><span class="track-number">38</span><div class="track-copy"><strong>Спускалась ночная прохлада</strong><small>Изабелла Юрьева</small></div><button class="audio-select-btn" type="button" data-track="audio18.mp3">Заиграть</button></div><div class="track-card" data-track-card="audioDEVi.mp3"><span class="track-number">39</span><div class="track-copy"><strong>Звездочка</strong><small>Екатерина Юровская</small></div><button class="audio-select-btn" type="button" data-track="audioDEVi.mp3">Заиграть</button></div><div class="track-card" data-track-card="Цыганочка.mp3"><span class="track-number">40</span><div class="track-copy"><strong>Цыганочка</strong><small>Владимир Высоцкий</small></div><button class="audio-select-btn" type="button" data-track="Цыганочка.mp3">Заиграть</button></div><div class="track-card" data-track-card="audioDV.mp3"><span class="track-number">41</span><div class="track-copy"><strong>Ночь темна темнешенька</strong><small>Надежда Плевицкая</small></div><button class="audio-select-btn" type="button" data-track="audioDV.mp3">Заиграть</button></div><div class="track-card" data-track-card="audioYU.mp3"><span class="track-number">42</span><div class="track-copy"><strong>Утопленник</strong><small>Евгений Головин</small></div><button class="audio-select-btn" type="button" data-track="audioYU.mp3">Заиграть</button></div></section><section class="track-group"><h2 class="track-group-title">Звуковое сопровождение записей</h2><div class="track-card" data-track-card="audio16.mp3"><span class="track-number">43</span><div class="track-copy"><strong>Аудио-Сопровождение</strong><small>Юлия Стефанова</small></div><button class="audio-select-btn" type="button" data-track="audio16.mp3">Заиграть</button></div><div class="track-card" data-track-card="katya.mp3"><span class="track-number">44</span><div class="track-copy"><strong>Катя</strong><small>Вальдемар Бубен</small></div><button class="audio-select-btn" type="button" data-track="katya.mp3">Заиграть</button></div><div class="track-card" data-track-card="Hans.mp3"><span class="track-number">45</span><div class="track-copy"><strong>Танго СА</strong><small>Ганс Зиверс</small></div><button class="audio-select-btn" type="button" data-track="Hans.mp3">Заиграть</button></div><div class="track-card" data-track-card="trip.mp3"><span class="track-number">46</span><div class="track-copy"><strong>Триптих - Башлачев</strong><small>Александр Башлачев</small></div><button class="audio-select-btn" type="button" data-track="trip.mp3">Заиграть</button></div><div class="track-card" data-track-card="oxota.mp3"><span class="track-number">47</span><div class="track-copy"><strong>Охота на Волков</strong><small>Владимир Высоцкий</small></div><button class="audio-select-btn" type="button" data-track="oxota.mp3">Заиграть</button></div><div class="track-card" data-track-card="prosvet.mp3"><span class="track-number">48</span><div class="track-copy"><strong>Несколько Слов</strong><small>Вальдемар Бубен</small></div><button class="audio-select-btn" type="button" data-track="prosvet.mp3">Заиграть</button></div></section></div>
 </div>
 <script>
 (function(){
@@ -988,9 +988,9 @@ body .floral-side-left,body .floral-side-right{width:220px;height:auto;top:0;bot
     }
 
     if (automatic) {
-      status.textContent = 'Предыдущая запись завершена. Начинается следующая: ' + labelFor(src) + '.';
+      status.textContent = 'Предыдущая запись завершена. Начинается следующая...: ' + labelFor(src) + '.';
     } else if (autoplay) {
-      status.textContent = 'Запись выбрана. Плеер начинает воспроизведение.';
+      status.textContent = 'Запись выбрана...';
     } else {
       status.textContent = 'Запись выбрана. Нажмите «Заиграть выбранное» или кнопку плеера.';
     }
@@ -1013,7 +1013,7 @@ body .floral-side-left,body .floral-side-right{width:220px;height:auto;top:0;bot
 
   playSelected.addEventListener('click', function(){
     if (!selected) {
-      status.textContent = 'Сначала выберите запись из списка.';
+      status.textContent = 'Выберите запись из списка.';
       return;
     }
     if (player.dataset.loadedTrack !== selected) selectTrack(selected, false, false);
@@ -1042,7 +1042,7 @@ body .floral-side-left,body .floral-side-right{width:220px;height:auto;top:0;bot
     if (nextButton) {
       selectTrack(nextButton.dataset.track, true, true);
     } else {
-      status.textContent = 'Последняя запись завершена. Вы прослушали весь музыкальный архив.';
+      status.textContent = 'Последняя запись завершена. Вы заного послушаете весь музыкальный архив. Люблю Вас - наверное...';
     }
   });
 
