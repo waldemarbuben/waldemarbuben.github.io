@@ -25,17 +25,11 @@
             --rivet-shine: radial-gradient(circle at 35% 35%, #fff6d9 0%, #d4a748 45%, #59350a 85%, #1a0a02 100%);
         }
 
-        
-        html {
-            width: 1340px;
-            min-width: 1340px;
-            margin: 0 auto;
-        }
-
         * {
             box-sizing: border-box;
         }
 
+        
         body {
             background-color: #060201;
             background-image: 
@@ -51,10 +45,8 @@
 
             color: #fcf1d9; 
             font-family: "Georgia", "Palatino Linotype", "Times New Roman", serif;
-            width: 1340px;
-            max-width: 1340px; 
-            margin: 45px auto;
-            padding: 0 25px;
+            margin: 0;
+            padding: 40px 15px 80px 15px;
             line-height: 1.95;
             letter-spacing: 0.035em;
             text-shadow: 
@@ -69,6 +61,7 @@
             text-shadow: 0 0 10px #ffb300, 0 1px 2px #000;
         }
 
+        
         ::-webkit-scrollbar { width: 13px; }
         ::-webkit-scrollbar-track { 
             background: linear-gradient(90deg, #090301, #1a0a03, #090301); 
@@ -85,6 +78,7 @@
                 0 3px 6px rgba(0,0,0,0.9);
         }
 
+        
         .side-photo-repeat {
             position: fixed;
             top: 0;
@@ -111,38 +105,40 @@
             -webkit-mask-image: linear-gradient(to left, rgba(0,0,0,1) 60%, rgba(0,0,0,0) 100%);
         }
 
+        
         .floral-side-left {
             position: fixed;
             left: 0;
             top: 0;
-            width: 270px;
+            width: 180px;
             height: 100vh;
             mix-blend-mode: multiply; 
             background-image: url('IMG_0678.webp'); 
             background-repeat: repeat-y;
             background-size: contain;
-            z-index: 999;
+            z-index: 3;
             pointer-events: none;
-            opacity: 0.92;
-            filter: sepia(45%) saturate(125%) contrast(1.3) brightness(0.85) drop-shadow(18px 0 25px rgba(0,0,0,0.95));
+            opacity: 0.75;
+            filter: sepia(45%) saturate(125%) contrast(1.3) brightness(0.85);
         }
 
         .floral-side-right {
             position: fixed;
             right: 0;
             top: 0;
-            width: 270px;
+            width: 180px;
             height: 100vh;
             mix-blend-mode: multiply;
-            background-image: url('Cvetok8.webp');
+            background-image: url('IMG_1044.jpeg');
             background-repeat: repeat-y;
             background-size: contain;
-            z-index: 999;
+            z-index: 3;
             pointer-events: none;
-            opacity: 0.92;
-            filter: sepia(45%) saturate(125%) contrast(1.3) brightness(0.85) drop-shadow(-18px 0 25px rgba(0,0,0,0.95));
+            opacity: 0.75;
+            filter: sepia(45%) saturate(125%) contrast(1.3) brightness(0.85);
         }
 
+        
         .skeuo-screw {
             position: absolute;
             width: 14px;
@@ -171,8 +167,9 @@
         .skeuo-screw.bl { bottom: 12px; left: 12px; }
         .skeuo-screw.br { bottom: 12px; right: 12px; }
 
+        
         .reader-nav-header {
-            max-width: 1220px;
+            max-width: 960px;
             margin: 0 auto 30px auto;
             display: flex;
             justify-content: space-between;
@@ -234,9 +231,10 @@
             transform: translateY(-1px);
         }
 
+        
         .txt-reader-wrapper {
             position: relative;
-            max-width: 1220px;
+            max-width: 960px;
             margin: 0 auto;
             background: 
               linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.02) 28%, transparent 29%),
@@ -344,6 +342,7 @@
             text-shadow: 0 1px 3px #000;
         }
 
+        
         .book-body-text {
             font-size: 1.05em;
             line-height: 2.05;
@@ -381,8 +380,119 @@
             text-shadow: 0 0 10px #ffd700;
             margin-bottom: 30px;
         }
+
+        
+        @media (max-width: 600px) {
+            body {
+                
+                padding: 10px 4px 40px 4px;
+                line-height: 1.65;
+            }
+
+            
+            .side-photo-repeat {
+                width: 35px;
+                opacity: 0.22;
+            }
+            .floral-side-left, 
+            .floral-side-right {
+                display: none;
+            }
+
+            .reader-nav-header {
+                width: 100%;
+                margin: 0 0 12px 0;
+                padding: 8px 10px;
+                gap: 6px;
+                justify-content: space-around;
+            }
+            .back-link {
+                font-size: 0.72em;
+                letter-spacing: 0.05em;
+            }
+            .audio-mini-btn {
+                padding: 6px 10px;
+                font-size: 0.68em;
+                letter-spacing: 0.05em;
+            }
+
+            
+            .txt-reader-wrapper {
+                width: 100%;
+                max-width: 100%;
+                padding: 30px 10px 40px 10px; 
+                border-top: 6px solid #ecd07a;
+                border-left: 4px solid #caa148;
+                border-right: 4px solid #6b4512;
+                border-bottom: 6px solid #361f06;
+                outline-width: 2px;
+                outline-offset: -7px;
+                box-shadow: 
+                  0 0 0 2px #080301,
+                  0 0 0 4px #9c722e,
+                  0 0 0 6px #180802,
+                  0 20px 45px rgba(0, 0, 0, 1),
+                  inset 0 0 30px rgba(212, 175, 55, 0.25);
+            }
+
+            .txt-reader-wrapper::before {
+                top: -15px;
+                font-size: 10px;
+                letter-spacing: 5px;
+            }
+
+            .skeuo-screw {
+                width: 10px;
+                height: 10px;
+            }
+            .skeuo-screw.tl { top: 6px; left: 6px; }
+            .skeuo-screw.tr { top: 6px; right: 6px; }
+            .skeuo-screw.bl { bottom: 6px; left: 6px; }
+            .skeuo-screw.br { bottom: 6px; right: 6px; }
+
+            .book-title-block {
+                margin-bottom: 22px;
+                padding-bottom: 18px;
+            }
+            .book-author {
+                font-size: 0.85em;
+                letter-spacing: 0.16em;
+            }
+            .book-main-title {
+                font-size: 1.6em;
+                letter-spacing: 0.05em;
+                margin: 6px 0 10px 0;
+            }
+            .book-epigraph {
+                font-size: 0.9em;
+                line-height: 1.55;
+                margin-top: 10px;
+            }
+
+           
+            .book-body-text {
+                font-size: 1.02em;
+                line-height: 1.72;
+                letter-spacing: 0.005em;
+                text-align: left;
+                text-align-last: left;
+                word-break: normal;
+                overflow-wrap: anywhere;
+            }
+
+            .reader-footer {
+                margin-top: 35px;
+                padding-top: 20px;
+            }
+            .end-mark {
+                font-size: 0.82em;
+                letter-spacing: 0.18em;
+                padding: 7px 14px;
+            }
+        }
     </style>
-    <style id="skeuo-deepening">
+<style id="skeuo-deepening">
+/* ===== ЕДИНЫЙ СКЕВОМОРФНЫЙ СЛОЙ (тот же, что на главной) ===== */
 :root{
  --tack:radial-gradient(circle,#fff6cf 0 1px,#d9b45a 2px,#6e4710 3.6px,#1a0a02 4.4px,transparent 5px);
  --ros:radial-gradient(circle,#fff6d4 0 1.5px,#d9b45a 2.5px 4px,#5a3a0e 5px 6px,#150801 6.5px 7px,transparent 7.5px);
@@ -401,12 +511,14 @@ body .skeuo-screw.bl::before{transform:rotate(118deg)}
 body .skeuo-screw.br::before{transform:rotate(164deg)}
 :focus-visible{outline:2px solid #fff2be;outline-offset:3px}
 
+/* ===== ЧИТАЛЬНЯ «ВЕНЕРА ВЪ МѢХАХЪ» ===== */
 body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.7;
  background:var(--grain),repeating-linear-gradient(90deg,transparent 0 238px,rgba(0,0,0,.6) 238px 240px,rgba(212,167,72,.16) 240px 241px)}
 body::after{content:"";position:fixed;inset:0;z-index:998;pointer-events:none;
  background:linear-gradient(112deg,transparent 0 34%,rgba(255,236,190,.04) 34.2%,rgba(255,236,190,.09) 38%,transparent 38.3% 46%,rgba(255,236,190,.035) 46.2% 49%,transparent 49.3%);
  box-shadow:inset 0 0 170px 24px rgba(0,0,0,.7)}
 
+/* Планка управления: латунная, с обойными гвоздями; ссылки — гравированные таблички */
 body .reader-nav-header{padding:18px 28px;border:3px solid;border-color:#f0d584 #6b4512 #2a1506 #caa148;
  background:var(--tack) 0 3px/22px 10px repeat-x,var(--tack) 0 calc(100% - 3px)/22px 10px repeat-x,linear-gradient(180deg,rgba(255,255,255,.08),transparent 40%,rgba(0,0,0,.5)),linear-gradient(180deg,#2a1006,#0d0401);
  box-shadow:0 0 0 2px #060201,0 0 0 5px #7d5923,0 0 0 6px #1a0a02,0 14px 28px #000,inset 0 2px 3px rgba(255,235,170,.35),inset 0 0 30px #000}
@@ -415,12 +527,13 @@ body .back-link{display:inline-block;padding:6px 16px 5px;color:#2b1503;border:2
  box-shadow:0 3px 0 #1a0802,0 6px 10px #000,inset 0 0 8px rgba(90,50,8,.5)}
 body .back-link:hover{color:#000;text-shadow:0 1px 0 #fff;filter:brightness(1.15);transform:translateY(-1px)}
 body .back-link:active{transform:translateY(2px);box-shadow:0 1px 0 #1a0802,inset 0 3px 6px rgba(0,0,0,.6)}
-
+/* Кнопка звука: рубиновая лампа загорается, когда играет музыка */
 body .audio-mini-btn{position:relative;padding:8px 18px 8px 38px;border-radius:5px}
 body .audio-mini-btn::before{content:"";position:absolute;left:12px;top:50%;width:12px;height:12px;margin-top:-8px;border-radius:50%;background:var(--lamp);
  border:2px solid;border-color:#fff2bd #6b4512 #2a1506 #d9b45a;box-shadow:0 0 0 2px #0a0402,inset 0 -2px 3px rgba(0,0,0,.6);filter:brightness(.55)}
 body .audio-mini-btn:hover::before,body .audio-mini-btn[style*="255, 215, 0"]::before{filter:brightness(1.3);box-shadow:0 0 0 2px #0a0402,0 0 16px 3px rgba(255,90,40,.9),inset 0 -2px 3px rgba(0,0,0,.4)}
 
+/* Книга: золочёный кант с розетками, шёлковая закладка, повёрнутые винты */
 .txt-reader-wrapper::after{content:"";position:absolute;inset:38px;pointer-events:none;z-index:2;
  border:1px solid rgba(255,225,140,.5);
  box-shadow:0 0 0 3px rgba(0,0,0,.55),0 0 0 4px rgba(212,167,72,.4),inset 0 0 0 1px #000,inset 0 1px 0 rgba(255,235,170,.4);
@@ -429,6 +542,7 @@ body .audio-mini-btn:hover::before,body .audio-mini-btn[style*="255, 215, 0"]::b
  background:linear-gradient(90deg,#3a0610,#8a1426 35%,#c0344a 50%,#8a1426 65%,#3a0610);
  clip-path:polygon(0 0,100% 0,100% 100%,50% 88%,0 100%)}
 
+/* Титул: литые латунные буквы, табличка автора, врезанная пластина эпиграфа с прострочкой */
 body .book-main-title{color:#f6e2a8;
  text-shadow:0 1px 0 #fff4c4,0 2px 0 #d9b45a,0 3px 0 #a87a2c,0 4px 0 #7a5018,0 5px 0 #4b2f0c,0 6px 0 #2a1604,0 7px 0 #150801,0 13px 14px #000,0 0 38px rgba(212,175,55,.55)}
 body .book-author{display:inline-block;padding:7px 32px 6px;color:#2b1503;letter-spacing:.28em;border:2px solid;border-color:#fff4c4 #6b4512 #2a1506 #e2b75a;border-radius:2px;
@@ -437,37 +551,54 @@ body .book-author{display:inline-block;padding:7px 32px 6px;color:#2b1503;letter
 body .book-epigraph{position:relative;padding:18px 34px;border:2px solid;border-color:#2a1506 #8a6428 #caa148 #1a0a02;background:rgba(10,4,2,.6);box-shadow:inset 0 4px 10px #000,0 1px 0 rgba(255,225,150,.35)}
 body .book-epigraph::before{content:"";position:absolute;inset:5px;border:2px dashed rgba(236,200,120,.45);pointer-events:none}
 
+/* Текст: читаемый, без рисунка под строками; буквица — выпуклая литая */
 .book-body-text .dropcap{font-size:2.6em;line-height:.8;font-weight:900;padding-right:.04em;color:#f2d682;
  text-shadow:0 1px 0 #fff6cf,0 2px 0 #b8893a,0 3px 0 #7a5018,0 4px 0 #4b2f0c,0 5px 0 #2a1604,0 8px 9px #000,0 0 16px rgba(255,200,80,.5)}
 body .book-body-text{color:#fff4df}
 
+/* Конец книги: латунная плита на заклёпках */
 body .reader-footer{border-top:2px solid #000;box-shadow:0 -1px 0 rgba(255,225,150,.3)}
 body .end-mark{padding:10px 40px;color:#2a1405;border:2px solid;border-color:#fff2bd #6b4512 #2a1506 #d9b25a;border-radius:2px;
  background:var(--pin) left 10px center/10px 10px no-repeat,var(--pin) right 10px center/10px 10px no-repeat,linear-gradient(180deg,#f6dd92,#c9983c 45%,#8a6020 55%,#d9b25a);
  text-shadow:0 1px 0 rgba(255,244,190,.85);box-shadow:0 4px 0 #1a0802,0 8px 14px #000}
 
+/* Полоса прокрутки: латунный ползунок с рифлением */
 ::-webkit-scrollbar{width:16px}
 ::-webkit-scrollbar-thumb{border-radius:2px;
  background:repeating-linear-gradient(0deg,transparent 0 3px,rgba(0,0,0,.55) 3px 4px,rgba(255,240,170,.6) 4px 5px) center/60% 26px no-repeat,linear-gradient(90deg,#4a2d0b,#fff2be 30%,#caa148 55%,#7a5018 100%)}
 ::-webkit-scrollbar-button:single-button{display:block;height:16px;border:1px solid #120601;background:radial-gradient(circle at 35% 30%,#fff2be,#a87a2c 55%,#2a1504);box-shadow:inset 0 0 0 1px rgba(255,240,170,.4)}
-    </style>
+
+@media (max-width:600px){
+ .reader-inner::before,.txt-reader-wrapper::after{display:none}
+ body::after{box-shadow:inset 0 0 60px 6px rgba(0,0,0,.5)}
+ body .back-link{padding:5px 10px 4px}
+ body .audio-mini-btn{padding:6px 10px 6px 30px}
+ body .audio-mini-btn::before{left:9px}
+ body .book-author{padding:6px 14px 5px;letter-spacing:.12em}
+ body .book-epigraph{padding:12px 16px}
+}
+</style>
 </head>
 <body>
 
+   
     <div class="side-photo-repeat side-photo-left"></div>
     <div class="side-photo-repeat side-photo-right"></div>
 
+    
     <div class="floral-side-left"></div>
     <div class="floral-side-right"></div>
 
     <audio id="ambient-audio" src="Идальго.mp3" preload="none" loop></audio>
 
+    
     <div class="reader-nav-header">
         <a href="index.html" class="back-link">Вернуться</a>
         <button id="toggle-ambient-btn" class="audio-mini-btn">Аудио-Сопровожденiе</button>
         <a href="mazox.txt" download class="back-link">Загрузiтъ</a>
     </div>
 
+    
     <div class="txt-reader-wrapper">
         <div class="skeuo-screw tl"></div>
         <div class="skeuo-screw tr"></div>
@@ -485,21 +616,9 @@ body .end-mark{padding:10px 40px;color:#2a1405;border:2px solid;border-color:#ff
                 </div>
             </div>
 
+            
             <div class="book-body-text">	
-
-
-Леопольд фон Захер-Мазох
-
-Венера в мехах
-
-
-«И покарал его Господь и отдал его в руки женщины». 
-
-Кн. Юдифи, 16, гл. 7.
-
-
-
-У меня была очаровательная гостья. 
+<span class="dropcap">У</span> меня была очаровательная гостья. 
 
 Перед большим камином в стиле «Ренессанс», прямо против меня, сидела Венера. Но это не была какая-нибудь дама полусвета, ведущая под этим именем войну с враждебным полом – вроде какой-нибудь мадмуазель Клеопатры, – а настоящая, подлинная богиня любви. 
 
@@ -4315,43 +4434,48 @@ body .end-mark{padding:10px 40px;color:#2a1405;border:2px solid;border-color:#ff
 Ваша честь принадлежит мне, как и ваша кровь, ваш дух, ваша рабочая сила, я – госпожа над вашей жизнью и смертью. Когда вы не сможете более выносить моего господства, когда цепи станут для вас слишком тяжелыми, тогда вы должны убить себя сами, свободу я вам не верну никогда. 
 
 «Своим честным словом я обязуюсь быть рабом г-жи Ванды фон Дунаевой в точности так, как она этого желает, и, не противясь, покориться тому, что она мне присудит. Д-р Леопольд Кавалер фон Захер-Мазох».
-
-
-
-
-
-
-notes
-
+----------
 Примечания
 
-
-
-1
+(1)
 
 Так называет женщин Артур Шопенгауэр. 
 
-
-
-2
+(2)
 
 Диоген бросил ощипанного петуха в школу Платона и воскликнул: «Вот вам человек Платона».
 
+                ----
+                waldemarbuben.space
+                ----
 
-
-- waldemarbuben.space -  я северин
-
-
-
-                
             </div>
 
             <div class="reader-footer">
-                <div class="end-mark">Конецъ</div>
+                <div class="end-mark">КОНЕЦЪ</div>
+                <br>
+                <a href="index.html" class="back-link">⟵ ВЕРНУТЬСЯ НА ГЛАВНУЮ СТРАНИЦУ</a>
             </div>
 
         </div>
     </div>
+
+    <script>
+      const audio = document.getElementById('ambient-audio');
+      const btn = document.getElementById('toggle-ambient-btn');
+
+      btn.addEventListener('click', () => {
+        if (audio.paused) {
+          audio.play();
+          btn.textContent = 'Аудио: Играет ';
+          btn.style.boxShadow = '0 0 15px #ffd700';
+        } else {
+          audio.pause();
+          btn.textContent = 'Аудио-Сопровожденiе';
+          btn.style.boxShadow = 'none';
+        }
+      });
+    </script>
 
 </body>
 </html>
