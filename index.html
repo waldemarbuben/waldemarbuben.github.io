@@ -2,6 +2,7 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=1880">
     <title>Вальдѣмаръ Бубѣнъ</title>
 
 <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
@@ -912,6 +913,82 @@ body .floral-side-left,body .floral-side-right{width:220px;height:auto;top:0;bot
 .media-relocation{display:inline-block;padding:9px 17px;color:#ffdf8b!important;font-weight:900;text-transform:uppercase;letter-spacing:.08em;border-top:2px solid #fff0bc;border-left:2px solid #d6ac50;border-right:3px solid #65400e;border-bottom:4px solid #211003;background:linear-gradient(180deg,#56300f,#100501);box-shadow:0 5px 9px #000,inset 0 1px 2px rgba(255,245,205,.4)}
 @media(max-width:560px){.archive-nav-wrap{margin:18px 0 25px;padding:8px}.archive-nav{gap:6px}.archive-nav a{min-height:40px;padding:8px 3px;font-size:clamp(.68rem,2.7vw,.86rem);letter-spacing:.02em}.archive-nav a:after{right:3px;font-size:7px}.archive-nav-wrap:before,.archive-nav-wrap:after{letter-spacing:0;font-size:8px}}
 </style>
+<style id="edge-shelves-style">
+/* ===== Боковые полки: фильмы (слева) и книги (справа) ===== */
+.edge-shelf{
+  position:absolute; top:0; z-index:1001;
+  width:178px; height:1060px; box-sizing:border-box;
+  padding:30px 20px 28px !important;
+  display:flex; flex-direction:column;
+}
+.edge-shelf.edge-left{ right:calc(100% + 30px); }
+.edge-shelf.edge-right{ left:calc(100% + 30px); }
+.edge-shelf > .track-title{ flex:0 0 auto; margin-bottom:12px; font-size:.8em; padding:7px 16px; }
+.edge-shelf > .track-title::before{left:5px} .edge-shelf > .track-title::after{right:5px}
+
+/* прокручиваемая внутренность */
+.edge-shelf-scroll{
+  position:relative; z-index:3; flex:1 1 auto; min-height:0;
+  overflow-y:auto; overflow-x:hidden; padding:4px 6px 8px 2px;
+  scrollbar-width:thin; scrollbar-color:#caa148 #140702;
+}
+.edge-shelf-scroll::-webkit-scrollbar{ width:9px; }
+.edge-shelf-scroll::-webkit-scrollbar-track{ background:linear-gradient(90deg,#090301,#1a0a03,#090301); border-left:1px solid #4a2f0c; box-shadow:inset 0 0 6px #000; }
+.edge-shelf-scroll::-webkit-scrollbar-thumb{ background:linear-gradient(180deg,#caa148 0%,#fff2be 30%,#9e742e 70%,#4a2d0b 100%); border:1px solid #140601; border-radius:3px; box-shadow:inset 1px 1px 1px rgba(255,255,255,.8),inset -1px -1px 2px rgba(0,0,0,.8); }
+
+.shelf-item{
+  display:block; text-align:center; text-decoration:none !important;
+  margin:0 0 20px; padding-bottom:16px;
+  border-bottom:1px solid rgba(125,89,35,.8);
+  box-shadow:0 1px 0 rgba(0,0,0,.9);
+  color:#f7dfa5;
+}
+.shelf-item:last-child{ margin-bottom:0; border-bottom:0; box-shadow:none; }
+.shelf-cover{
+  position:relative; display:block; width:100%; aspect-ratio:2/3; overflow:hidden; box-sizing:border-box;
+  border:4px solid; border-color:#f0d584 #6b4512 #2a1506 #caa148;
+  outline:2px solid #0a0402; outline-offset:0;
+  background:linear-gradient(135deg,rgba(255,255,255,.1),transparent 40%),radial-gradient(circle at 50% 35%,#4a1f0b,#0e0508);
+  box-shadow:0 0 0 3px #8a6428,0 0 0 4px #0a0402,0 10px 18px #000,inset 0 0 0 1px #000,inset 0 0 14px #000;
+  transition:all .35s cubic-bezier(.2,.8,.2,1);
+}
+.shelf-cover > span{ /* заглушка, пока нет обложки */
+  position:absolute; inset:0; display:flex; align-items:center; justify-content:center;
+  font-size:2.4em; font-weight:900; color:#d9b45a; text-shadow:0 0 14px rgba(255,215,0,.5),0 2px 3px #000;
+}
+.shelf-cover > img{
+  position:absolute; inset:0; width:100%; height:100%; object-fit:fill; display:block;
+  filter:sepia(35%) contrast(1.15) brightness(.92); transition:filter .35s;
+}
+.shelf-item:hover .shelf-cover{ transform:translateY(-3px); box-shadow:0 0 0 3px #d4a748,0 0 0 4px #0a0402,0 14px 24px #000,0 0 22px rgba(255,215,0,.55),inset 0 0 0 1px #000,inset 0 0 14px #000; }
+.shelf-item:hover .shelf-cover > img{ filter:sepia(8%) contrast(1.2) brightness(1.03); }
+.shelf-name{
+  display:block; margin-top:14px; font-size:.84em; font-weight:900; line-height:1.35; letter-spacing:.05em;
+  color:#f7dfa5; text-shadow:0 1px 0 rgba(255,235,170,.45),0 2px 4px #000,0 0 12px rgba(212,175,55,.5);
+}
+.shelf-sub{ display:block; margin-top:3px; font-size:.72em; font-style:italic; letter-spacing:.03em; color:#e8d39a; text-shadow:0 1px 2px #000; }
+
+.edge-shelf.is-open{ height:auto; }
+.edge-shelf.is-open .edge-shelf-scroll{ overflow:visible; }
+.shelf-item{ cursor:pointer; }
+.edge-shelf.is-open .shelf-item{ cursor:alias; }
+.shelf-item.is-picked .shelf-cover{ box-shadow:0 0 0 3px #ffe38f,0 0 0 4px #0a0402,0 14px 24px #000,0 0 28px rgba(255,215,0,.8),inset 0 0 0 1px #000,inset 0 0 14px #000; }
+.shelf-toggle{
+  flex:0 0 auto; position:relative; z-index:3; margin:12px auto 0; display:block; cursor:pointer;
+  font-family:"Georgia",serif; font-weight:900; font-size:.74em; letter-spacing:.1em; text-transform:uppercase; color:#fff2b8;
+  padding:7px 12px; border-radius:4px;
+  background:linear-gradient(180deg,rgba(255,255,255,.35) 0%,rgba(255,255,255,.06) 40%,transparent 42%),linear-gradient(180deg,#5a3112 0%,#381a07 20%,#160802 52%,#2d1205 85%,#0e0401 100%);
+  border-top:2px solid #fff6d4; border-left:2px solid #d4a748; border-right:2px solid #5a350e; border-bottom:4px solid #241103;
+  outline:2px solid #060201; outline-offset:1px;
+  text-shadow:0 -1px 1px #000,0 0 10px rgba(255,215,0,.5);
+  box-shadow:0 5px 10px #000,inset 0 0 12px rgba(184,134,11,.4);
+  transition:all .18s;
+}
+.shelf-toggle:hover{ color:#fff; filter:brightness(1.25); transform:translateY(-1px); }
+.shelf-toggle:active{ transform:translateY(2px); }
+/* узкие экраны: страница сохраняет десктопную ширину, полки остаются на месте и ничего не перекрывают */
+@media (max-width:1099px){ html{ min-width:1880px; } }
+</style>
 </head>
 <body>
 
@@ -1375,6 +1452,94 @@ document.addEventListener("DOMContentLoaded", () => {
 </script>
 
     <div class="main-container" id="articles">
+        <!-- ЛЮБИМЫЕ ФИЛЬМЫ: чтобы добавить, скопируйте блок <a class="shelf-item">…</a> и поменяйте href, название, подпись и путь к обложке -->
+        <div class="sidebar-left edge-shelf edge-left">
+            <div class="skeuo-screw tl"></div>
+            <div class="skeuo-screw tr"></div>
+            <div class="skeuo-screw bl"></div>
+            <div class="skeuo-screw br"></div>
+            <div class="track-title">Любимыя фильмы</div>
+            <div class="edge-shelf-scroll">
+                <a class="shelf-item" href="https://ru.wikipedia.org/wiki/Сталкер_(фильм)" target="_blank" rel="noopener noreferrer">
+                    <span class="shelf-cover"><span>С</span><img src="film-1.webp" alt="" loading="lazy" onerror="this.remove()"></span>
+                    <span class="shelf-name">Сталкеръ</span><span class="shelf-sub">Андрей Тарковский, 1979</span>
+                </a>
+                <a class="shelf-item" href="https://ru.wikipedia.org/wiki/Зеркало_(фильм,_1975)" target="_blank" rel="noopener noreferrer">
+                    <span class="shelf-cover"><span>З</span><img src="film-2.webp" alt="" loading="lazy" onerror="this.remove()"></span>
+                    <span class="shelf-name">Зеркало</span><span class="shelf-sub">Андрей Тарковский, 1975</span>
+                </a>
+                <a class="shelf-item" href="https://ru.wikipedia.org/wiki/Андрей_Рублёв_(фильм)" target="_blank" rel="noopener noreferrer">
+                    <span class="shelf-cover"><span>А</span><img src="film-3.webp" alt="" loading="lazy" onerror="this.remove()"></span>
+                    <span class="shelf-name">Андрей Рублёвъ</span><span class="shelf-sub">Андрей Тарковский, 1966</span>
+                </a>
+                <a class="shelf-item" href="https://ru.wikipedia.org/wiki/Носферату,_симфония_ужаса" target="_blank" rel="noopener noreferrer">
+                    <span class="shelf-cover"><span>В</span><img src="film-4.webp" alt="" loading="lazy" onerror="this.remove()"></span>
+                    <span class="shelf-name">Вампиръ Носферату</span><span class="shelf-sub">Ф. В. Мурнау, 1922</span>
+                </a>
+                <a class="shelf-item" href="https://ru.wikipedia.org/wiki/Брат_(фильм)" target="_blank" rel="noopener noreferrer">
+                    <span class="shelf-cover"><span>Б</span><img src="film-5.webp" alt="" loading="lazy" onerror="this.remove()"></span>
+                    <span class="shelf-name">Братъ</span><span class="shelf-sub">Алексей Балабанов, 1997</span>
+                </a>
+                <a class="shelf-item" href="https://ru.wikipedia.org/wiki/Про_уродов_и_людей" target="_blank" rel="noopener noreferrer">
+                    <span class="shelf-cover"><span>П</span><img src="film-6.webp" alt="" loading="lazy" onerror="this.remove()"></span>
+                    <span class="shelf-name">Про уродовъ и людей</span><span class="shelf-sub">Алексей Балабанов, 1998</span>
+                </a>
+                <a class="shelf-item" href="https://ru.wikipedia.org/wiki/Седьмая_печать" target="_blank" rel="noopener noreferrer">
+                    <span class="shelf-cover"><span>С</span><img src="film-7.webp" alt="" loading="lazy" onerror="this.remove()"></span>
+                    <span class="shelf-name">Седьмая печать</span><span class="shelf-sub">Ингмар Бергман, 1957</span>
+                </a>
+                <a class="shelf-item" href="https://ru.wikipedia.org/wiki/Тени_забытых_предков_(фильм)" target="_blank" rel="noopener noreferrer">
+                    <span class="shelf-cover"><span>Т</span><img src="film-8.webp" alt="" loading="lazy" onerror="this.remove()"></span>
+                    <span class="shelf-name">Тѣни забытыхъ предковъ</span><span class="shelf-sub">Сергей Параджанов, 1965</span>
+                </a>
+            </div>
+            <button type="button" class="shelf-toggle" aria-expanded="false">Развернуть всѣ ▾</button>
+        </div>
+
+        <!-- ЛЮБИМЫЕ КНИГИ -->
+        <div class="sidebar-left edge-shelf edge-right">
+            <div class="skeuo-screw tl"></div>
+            <div class="skeuo-screw tr"></div>
+            <div class="skeuo-screw bl"></div>
+            <div class="skeuo-screw br"></div>
+            <div class="track-title">Любимыя книги</div>
+            <div class="edge-shelf-scroll">
+                <a class="shelf-item" href="https://ru.wikipedia.org/wiki/Мастер_и_Маргарита" target="_blank" rel="noopener noreferrer">
+                    <span class="shelf-cover"><span>М</span><img src="book-1.webp" alt="" loading="lazy" onerror="this.remove()"></span>
+                    <span class="shelf-name">Мастеръ и Маргарита</span><span class="shelf-sub">Михаил Булгаков</span>
+                </a>
+                <a class="shelf-item" href="https://ru.wikipedia.org/wiki/Преступление_и_наказание" target="_blank" rel="noopener noreferrer">
+                    <span class="shelf-cover"><span>П</span><img src="book-2.webp" alt="" loading="lazy" onerror="this.remove()"></span>
+                    <span class="shelf-name">Преступленiе и наказанiе</span><span class="shelf-sub">Фёдор Достоевский</span>
+                </a>
+                <a class="shelf-item" href="https://ru.wikipedia.org/wiki/Вий_(повесть)" target="_blank" rel="noopener noreferrer">
+                    <span class="shelf-cover"><span>В</span><img src="book-3.webp" alt="" loading="lazy" onerror="this.remove()"></span>
+                    <span class="shelf-name">Вiй</span><span class="shelf-sub">Николай Гоголь</span>
+                </a>
+                <a class="shelf-item" href="https://ru.wikipedia.org/wiki/Серебряный_голубь" target="_blank" rel="noopener noreferrer">
+                    <span class="shelf-cover"><span>С</span><img src="book-4.webp" alt="" loading="lazy" onerror="this.remove()"></span>
+                    <span class="shelf-name">Серебряный голубь</span><span class="shelf-sub">Андрей Белый</span>
+                </a>
+                <a class="shelf-item" href="https://ru.wikipedia.org/wiki/Лолита_(роман)" target="_blank" rel="noopener noreferrer">
+                    <span class="shelf-cover"><span>Л</span><img src="book-5.webp" alt="" loading="lazy" onerror="this.remove()"></span>
+                    <span class="shelf-name">Лолита</span><span class="shelf-sub">Владимир Набоков</span>
+                </a>
+                <a class="shelf-item" href="https://ru.wikipedia.org/wiki/Алые_паруса" target="_blank" rel="noopener noreferrer">
+                    <span class="shelf-cover"><span>А</span><img src="book-6.webp" alt="" loading="lazy" onerror="this.remove()"></span>
+                    <span class="shelf-name">Алые паруса</span><span class="shelf-sub">Александр Грин</span>
+                </a>
+                <a class="shelf-item" href="https://ru.wikipedia.org/wiki/Петербург_(роман)" target="_blank" rel="noopener noreferrer">
+                    <span class="shelf-cover"><span>П</span><img src="book-7.webp" alt="" loading="lazy" onerror="this.remove()"></span>
+                    <span class="shelf-name">Петербургъ</span><span class="shelf-sub">Андрей Белый</span>
+                </a>
+                <a class="shelf-item" href="https://ru.wikipedia.org/wiki/Цветы_зла" target="_blank" rel="noopener noreferrer">
+                    <span class="shelf-cover"><span>Ц</span><img src="book-8.webp" alt="" loading="lazy" onerror="this.remove()"></span>
+                    <span class="shelf-name">Цвѣты зла</span><span class="shelf-sub">Шарль Бодлер</span>
+                </a>
+            </div>
+            <button type="button" class="shelf-toggle" aria-expanded="false">Развернуть всѣ ▾</button>
+        </div>
+
         <div class="sidebar-left">
             <div class="skeuo-screw tl"></div>
             <div class="skeuo-screw tr"></div>
@@ -2954,6 +3119,34 @@ document.addEventListener('click', function(event) {
     document.body.appendChild(notice);
   }
 });
+</script>
+
+<script id="edge-shelves-script">
+(function(){
+  document.querySelectorAll('.edge-shelf').forEach(function(shelf){
+    var btn=shelf.querySelector('.shelf-toggle');
+    function set(open){
+      shelf.classList.toggle('is-open',open);
+      btn.setAttribute('aria-expanded',open?'true':'false');
+      btn.textContent=open?'Свернуть ▴':'Развернуть всѣ ▾';
+    }
+    btn.addEventListener('click',function(){
+      var wasOpen=shelf.classList.contains('is-open');
+      set(!wasOpen);
+      if(wasOpen){ shelf.querySelector('.edge-shelf-scroll').scrollTop=0; }
+    });
+    shelf.querySelectorAll('.shelf-item').forEach(function(item){
+      item.addEventListener('click',function(e){
+        if(shelf.classList.contains('is-open')) return;   // уже развёрнуто — обычный переход по ссылке
+        e.preventDefault();                                // первый клик: развернуть и показать выбранную
+        set(true);
+        shelf.querySelectorAll('.shelf-item.is-picked').forEach(function(x){x.classList.remove('is-picked');});
+        item.classList.add('is-picked');
+        item.scrollIntoView({block:'center'});
+      });
+    });
+  });
+})();
 </script>
 </body>
 </html>
