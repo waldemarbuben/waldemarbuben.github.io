@@ -2,7 +2,6 @@
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=1880">
 <title>Фото — Вальдѣмаръ Бубѣнъ</title>
 <meta name="theme-color" content="#120502">
 <style>
@@ -706,7 +705,7 @@ a{color:#ffd269;text-decoration:none;border-bottom:1px dashed rgba(255,210,105,.
         }
     </style>
 <style id="skeuo-deepening">
-
+/* ===== УГЛУБЛЕНИЕ СКЕВОМОРФИЗМА: слой поверх исходного дизайна ===== */
 :root{
  --tack:radial-gradient(circle,#fff6cf 0 1px,#d9b45a 2px,#6e4710 3.6px,#1a0a02 4.4px,transparent 5px);
  --ros:radial-gradient(circle,#fff6d4 0 1.5px,#d9b45a 2.5px 4px,#5a3a0e 5px 6px,#150801 6.5px 7px,transparent 7.5px);
@@ -715,20 +714,20 @@ a{color:#ffd269;text-decoration:none;border-bottom:1px dashed rgba(255,210,105,.
  --tuft:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='34' height='34'%3E%3Cdefs%3E%3CradialGradient id='b' cx='.35' cy='.35' r='.7'%3E%3Cstop offset='0' stop-color='%23fff0b0'/%3E%3Cstop offset='.6' stop-color='%23a67a2a'/%3E%3Cstop offset='1' stop-color='%232a1504'/%3E%3C/radialGradient%3E%3CradialGradient id='p'%3E%3Cstop offset='0' stop-color='%23ff9a70' stop-opacity='.07'/%3E%3Cstop offset='1' stop-color='%23000' stop-opacity='0'/%3E%3C/radialGradient%3E%3C/defs%3E%3Cpath d='M0 0L34 34M34 0L0 34' stroke='%23000' stroke-opacity='.4' stroke-width='1.4'/%3E%3Cpath d='M0 1L33 34M34 1L1 34' stroke='%23ffb48a' stroke-opacity='.08'/%3E%3Ccircle cx='17' cy='0' r='11' fill='url(%23p)'/%3E%3Ccircle cx='17' cy='34' r='11' fill='url(%23p)'/%3E%3Ccircle cx='0' cy='17' r='11' fill='url(%23p)'/%3E%3Ccircle cx='34' cy='17' r='11' fill='url(%23p)'/%3E%3Cg fill='url(%23b)' stroke='%23000' stroke-opacity='.7' stroke-width='.6'%3E%3Ccircle cx='17' cy='17' r='2.6'/%3E%3Ccircle cx='0' cy='0' r='2.6'/%3E%3Ccircle cx='34' cy='0' r='2.6'/%3E%3Ccircle cx='0' cy='34' r='2.6'/%3E%3Ccircle cx='34' cy='34' r='2.6'/%3E%3C/g%3E%3C/svg%3E");
 }
 
-
+/* Стена: дубовая доска с вертикальными стыками панелей + стекло витрины и виньетка */
 body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.7;
  background:var(--grain),repeating-linear-gradient(90deg,transparent 0 238px,rgba(0,0,0,.6) 238px 240px,rgba(212,167,72,.16) 240px 241px)}
 body::after{content:"";position:fixed;inset:0;z-index:998;pointer-events:none;
  background:linear-gradient(112deg,transparent 0 34%,rgba(255,236,190,.04) 34.2%,rgba(255,236,190,.09) 38%,transparent 38.3% 46%,rgba(255,236,190,.035) 46.2% 49%,transparent 49.3%);
  box-shadow:inset 0 0 170px 24px rgba(0,0,0,.7)}
 
-
+/* Золочёный филёнчатый кант внутри рам, розетки по углам */
 .content::after,.sidebar-left::after,.sidebar-right::after,.skeuo-frame::before{content:"";position:absolute;inset:17px;pointer-events:none;z-index:2;
  border:1px solid rgba(255,225,140,.5);
  box-shadow:0 0 0 3px rgba(0,0,0,.55),0 0 0 4px rgba(212,167,72,.4),inset 0 0 0 1px #000,inset 0 1px 0 rgba(255,235,170,.4);
  background:var(--ros) top 3px left 3px/16px 16px no-repeat,var(--ros) top 3px right 3px/16px 16px no-repeat,var(--ros) bottom 3px left 3px/16px 16px no-repeat,var(--ros) bottom 3px right 3px/16px 16px no-repeat}
 
-
+/* Винты: латунные, с шайбой, шлицы повёрнуты вразнобой */
 body .skeuo-screw{width:18px;height:18px;border:1px solid #120601;
  background:radial-gradient(circle at 34% 30%,#fffbe6 0,#f0cf7a 24%,#b98a35 52%,#5a350a 82%,#1a0a02 100%);
  box-shadow:0 0 0 2px #2a1606,0 0 0 3px #b8893a,0 0 0 4px #1a0a02,0 3px 5px 2px rgba(0,0,0,.95),inset 0 1px 1px rgba(255,255,255,.85),inset 0 -2px 3px rgba(0,0,0,.8)}
@@ -738,16 +737,16 @@ body .skeuo-screw.tr::before{transform:rotate(71deg)}
 body .skeuo-screw.bl::before{transform:rotate(118deg)}
 body .skeuo-screw.br::before{transform:rotate(164deg)}
 
-
+/* Заглавие: литые латунные литеры с выдавленной тенью */
 body .skeuo-frame h1{color:#f6e2a8!important;
  text-shadow:0 1px 0 #fff4c4,0 2px 0 #d9b45a,0 3px 0 #a87a2c,0 4px 0 #7a5018,0 5px 0 #4b2f0c,0 6px 0 #2a1604,0 7px 0 #150801,0 13px 14px #000,0 0 38px rgba(212,175,55,.55)!important}
 
-
+/* Бегущая строка: латунная планка с обойными гвоздями */
 body marquee{border:0!important;padding:17px 10px!important;color:#ffe29a!important;
  background:var(--tack) 0 3px/24px 10px repeat-x,var(--tack) 0 calc(100% - 3px)/24px 10px repeat-x,linear-gradient(180deg,rgba(0,0,0,.75) 0 9px,transparent 9px calc(100% - 9px),rgba(0,0,0,.75) calc(100% - 9px)),linear-gradient(180deg,rgba(255,255,255,.14),transparent 45%,rgba(0,0,0,.55)),linear-gradient(90deg,#160802,#4a270b 25%,#160802 50%,#4a270b 75%,#160802)!important;
  box-shadow:0 -2px 0 #e2b75a,0 -5px 0 #2a1506,0 2px 0 #6b4512,0 5px 0 #0a0402,0 14px 26px #000,inset 0 3px 8px #000,inset 0 -3px 8px #000!important}
 
-
+/* Записи: стёганый капитоне с пуговицами, латунные уголки, гвоздики по кромке */
 body .post{border:3px solid;border-color:#f0d584 #6b4512 #2a1506 #caa148;border-radius:2px;
  background:var(--tack) 0 6px/20px 12px repeat-x,var(--tack) 0 calc(100% - 6px)/20px 12px repeat-x,var(--tuft) left top/18px 18px repeat-y,var(--tuft) right top/18px 18px repeat-y,linear-gradient(180deg,rgba(255,245,215,.07),transparent 20%,rgba(0,0,0,.6)),radial-gradient(ellipse at 50% 20%,#3a1209 0,#12060a 85%);
  box-shadow:0 0 0 2px #060201,0 0 0 5px #7d5923,0 0 0 6px #1a0a02,0 12px 28px #000,inset 0 2px 3px rgba(255,235,170,.35),inset 0 0 45px #000}
@@ -757,18 +756,18 @@ body .post::after{padding:5px 26px 4px;color:#2a1405;border:2px solid;border-col
  background:var(--pin) left 9px center/9px 9px no-repeat,var(--pin) right 9px center/9px 9px no-repeat,linear-gradient(180deg,#f6dd92,#c9983c 45%,#8a6020 55%,#d9b25a);
  text-shadow:0 1px 0 rgba(255,244,190,.85);box-shadow:0 4px 0 #1a0802,0 8px 14px #000}
 
-
+/* Дата: гравированная латунная табличка на двух заклёпках */
 body .post .date{display:inline-block;padding:7px 36px 6px;margin-bottom:26px;font-size:1.1em;letter-spacing:.2em;color:#2b1503!important;
  border:2px solid;border-color:#fff4c4 #6b4512 #2a1506 #e2b75a;border-radius:2px;
  background:var(--pin) left 8px center/10px 10px no-repeat,var(--pin) right 8px center/10px 10px no-repeat,repeating-linear-gradient(90deg,rgba(255,255,255,.07) 0 1px,transparent 1px 3px),linear-gradient(180deg,#f6dd92 0,#d3a548 38%,#9a6f22 52%,#c9a050 100%);
  text-shadow:0 1px 0 rgba(255,244,190,.8),0 -1px 0 rgba(60,30,6,.5)!important;
  box-shadow:0 3px 0 #1a0802,0 6px 10px #000,inset 0 0 8px rgba(90,50,8,.55)}
 
-
+/* Буквица: выпуклая литая, как в рукописной книге */
 body .post p:first-of-type::first-letter{float:left;font-size:3.5em;line-height:.82;font-weight:900;padding:.04em .1em 0 0;color:#f2d682;
  text-shadow:0 1px 0 #fff6cf,0 2px 0 #b8893a,0 3px 0 #7a5018,0 4px 0 #4b2f0c,0 5px 0 #2a1604,0 9px 10px #000,0 0 18px rgba(255,200,80,.5)}
 
-
+/* Ярлыки каталожных ящиков: бумажная карточка в латунной рамке с отверстиями для штанги */
 body .track-title{position:relative;display:block;margin:0 auto 14px;padding:9px 30px;color:#2b1707!important;font-size:.98em;letter-spacing:.06em;line-height:1.35;
  border:3px solid;border-color:#fff0b8 #6b4512 #2a1506 #e2b75a;border-radius:2px;
  background:radial-gradient(circle at 12% 30%,rgba(120,70,20,.35) 0,transparent 14%),radial-gradient(circle at 88% 78%,rgba(120,70,20,.3) 0,transparent 16%),repeating-linear-gradient(0deg,rgba(90,55,15,.06) 0 1px,transparent 1px 3px),linear-gradient(180deg,#e9d6a2,#cdb27a 60%,#b99a5e);
@@ -779,7 +778,7 @@ body .track-title::before,body .track-title::after{content:"";position:absolute;
 body .track-title::before{left:8px}
 body .track-title::after{right:8px}
 
-
+/* Кнопки: рубиновая сигнальная лампа-кабошон слева */
 body .play-btn{padding:11px 20px 11px 42px;border-radius:6px}
 body .play-btn::before{content:"";position:absolute;left:13px;top:50%;width:12px;height:12px;margin-top:-8px;border-radius:50%;
  background:radial-gradient(circle at 34% 30%,#ffd9c8 0,#ff4a2a 28%,#8a0f06 62%,#2a0402 100%);
@@ -788,27 +787,27 @@ body .play-btn::before{content:"";position:absolute;left:13px;top:50%;width:12px
 body .play-btn:hover::before{box-shadow:0 0 0 2px #0a0402,0 0 18px 3px rgba(255,90,40,.9),inset 0 -2px 3px rgba(0,0,0,.4)}
 body .play-btn:active::before{filter:brightness(1.5)}
 
-
+/* Ссылки-кнопки в боковых колонках: фаска и литой бортик */
 :is(.sidebar-left,.sidebar-right) a[target=_blank]{border-radius:4px;
  box-shadow:0 0 0 2px #060201,0 0 0 3px #8a6428,0 5px 10px #000,inset 0 1px 1px rgba(255,240,180,.55),inset 0 -3px 5px rgba(0,0,0,.7)!important}
 
-
+/* Репродукции: фаска рамы, паспарту из бордового бархата, лаковая кромка */
 body .divine-image{box-sizing:border-box;padding:10px;border:6px solid;border-color:#f0d584 #6b4512 #2a1506 #caa148;outline:2px solid #0a0402;outline-offset:0;
  background:linear-gradient(135deg,rgba(255,255,255,.1),transparent 40%),radial-gradient(circle,#3a1209,#0e0508);
  box-shadow:0 0 0 4px #8a6428,0 0 0 5px #0a0402,0 14px 30px #000,inset 0 0 0 1px #000,inset 0 0 14px #000}
 
-
+/* Врезанная канавка между пунктами списка вместо плоской линии */
 .audio-item{border-bottom:2px solid rgba(0,0,0,.85);box-shadow:0 1px 0 rgba(255,225,150,.28)}
 .audio-item[style*="border-bottom: none"]{box-shadow:none}
 
-
+/* Алхимический ларец: кожаная прострочка и латунные уголки */
 .alchemy-manifest{position:relative}
 .alchemy-manifest::before{content:"";position:absolute;inset:0;pointer-events:none;filter:drop-shadow(0 2px 2px #000);
  background:linear-gradient(135deg,#ffe9a0 0 50%,transparent 50%) top left/26px 26px no-repeat,linear-gradient(225deg,#c99a40 0 50%,transparent 50%) top right/26px 26px no-repeat,linear-gradient(45deg,#8a6020 0 50%,transparent 50%) bottom left/26px 26px no-repeat,linear-gradient(315deg,#5a3a10 0 50%,transparent 50%) bottom right/26px 26px no-repeat}
 .alchemy-manifest::after{content:"";position:absolute;inset:9px;pointer-events:none;border:2px dashed rgba(236,200,120,.55);border-radius:2px;box-shadow:0 1px 0 #000,inset 0 1px 0 #000}
 
 
-
+/* Полоса прокрутки: латунный ползунок с рифлением и кнопки-шляпки */
 ::-webkit-scrollbar{width:16px}
 ::-webkit-scrollbar-thumb{border-radius:2px;
  background:repeating-linear-gradient(0deg,transparent 0 3px,rgba(0,0,0,.55) 3px 4px,rgba(255,240,170,.6) 4px 5px) center/60% 26px no-repeat,linear-gradient(90deg,#4a2d0b,#fff2be 30%,#caa148 55%,#7a5018 100%)}
@@ -817,14 +816,14 @@ body .divine-image{box-sizing:border-box;padding:10px;border:6px solid;border-co
 :focus-visible{outline:2px solid #fff2be;outline-offset:3px}
 @media (prefers-reduced-motion:reduce){.falling-flower{display:none}}
 
-
+/* Текст записей: контрастнее, без рисунка под строками */
 body .post p{color:#fff4df;text-shadow:0 1px 0 #000,0 2px 5px #000,0 0 10px rgba(0,0,0,.9)}
 
-
+/* ===== КИОТ: барочный позолоченный иконостас ===== */
 :root{--damask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40'%3E%3Cpath d='M20 4C26 12 28 14 36 20 28 26 26 28 20 36 14 28 12 26 4 20 12 14 14 12 20 4Z' fill='none' stroke='%23d4af37' stroke-opacity='.3'/%3E%3Ccircle cx='20' cy='20' r='2.4' fill='%23d4af37' fill-opacity='.3'/%3E%3C/svg%3E")}
 body .sacrum-tabernaculum{isolation:isolate}
 
-
+/* Витые соломоновы колонны с капителью и базой */
 .kiot-column{position:absolute;top:100px;bottom:52px;width:34px;z-index:3;border-radius:5px;
  background:linear-gradient(90deg,rgba(0,0,0,.9),transparent 26%,rgba(255,245,190,.6) 40%,transparent 58%,rgba(0,0,0,.92)),repeating-linear-gradient(64deg,#6b4512 0 7px,#f0cf74 7px 13px,#8a6020 13px 18px,#2a1504 18px 21px);
  box-shadow:0 0 0 2px #0a0402,0 0 0 3px #8a6428,0 10px 24px #000}
@@ -833,36 +832,36 @@ body .sacrum-tabernaculum{isolation:isolate}
  background:linear-gradient(180deg,#fff2be,#c9983c 45%,#6b4512);box-shadow:0 0 0 2px #0a0402,0 4px 6px #000}
 .kiot-column::before{top:-14px}.kiot-column::after{bottom:-14px;transform:scaleY(-1)}
 
-
+/* Фронтон: золочёный наклонный карниз и полка-венчание */
 body .tabernacle-pediment::before{content:"";position:absolute;left:-34px;right:-34px;top:-82px;height:70px;z-index:-1;
  background:linear-gradient(90deg,#6b4512,#f0d070 30%,#fff2be 50%,#d9b45a 70%,#6b4512);
  clip-path:polygon(evenodd,50% 0,100% 100%,0 100%,50% 0,50% 26%,7% 90%,93% 90%,50% 26%)}
 body .tabernacle-pediment::after{content:"";position:absolute;left:-34px;right:-34px;top:-12px;height:10px;
  background:linear-gradient(180deg,#fff2be,#c9983c 40%,#6b4512 70%,#1a0a02);box-shadow:0 0 0 2px #0a0402,0 6px 10px #000}
 
-
+/* Картуш с почтой: латунные заклёпки, ящик-щель для писем */
 body .votive-cartouche{
  background:var(--pin) top 9px left 9px/10px 10px no-repeat,var(--pin) top 9px right 9px/10px 10px no-repeat,var(--pin) bottom 9px left 9px/10px 10px no-repeat,var(--pin) bottom 9px right 9px/10px 10px no-repeat,linear-gradient(180deg,rgba(255,240,190,.18),transparent 25%,rgba(0,0,0,.8)),radial-gradient(ellipse at 50% 30%,rgba(85,45,14,.99),rgba(24,9,2,.99) 85%),#080301;
  box-shadow:0 0 0 2px #060201,0 0 0 5px #7d5923,0 0 0 6px #1a0a02,0 12px 30px #000,inset 0 1px 4px rgba(255,240,180,.8),inset 0 0 35px rgba(184,134,11,.55)}
 body .cartouche-mail-link{display:inline-block;margin-top:6px;padding:7px 22px;border:2px solid;border-color:#2a1506 #caa148 #fff2bd #6b4512;border-radius:2px;
  background:linear-gradient(180deg,#050201,#241103);box-shadow:inset 0 4px 8px #000,0 1px 0 rgba(255,240,170,.4)}
 
-
+/* Антаблемент: зубчики-дентикулы */
 body .entablature-divider{border:0;height:26px;
  background:linear-gradient(180deg,#fff2be 0 3px,#a87a2c 3px 7px,#2a1504 7px) 0 0/100% 9px no-repeat,repeating-linear-gradient(90deg,#d9b45a 0 9px,#1a0a02 9px 12px) 0 9px/100% 8px no-repeat,linear-gradient(180deg,#6b4512 0 3px,#caa148 3px 6px,#2a1504 6px) 0 17px/100% 9px no-repeat;
  box-shadow:0 8px 14px #000}
 
-
+/* Скрижаль канона: заклёпки и латунные торцы */
 body .nocturne-liturgy-canon{border-top:3px solid #6b4512;border-bottom:3px solid #caa148;
  background:var(--pin) top 10px left 12px/10px 10px no-repeat,var(--pin) top 10px right 12px/10px 10px no-repeat,var(--pin) bottom 10px left 12px/10px 10px no-repeat,var(--pin) bottom 10px right 12px/10px 10px no-repeat,linear-gradient(180deg,rgba(255,240,190,.08),transparent 20%,rgba(0,0,0,.7)),rgba(14,5,2,.8)}
 
-
+/* Престол: парчовый покров с дамасским узором и золотой бахромой */
 body .tabernacle-altar-mensa{
  background:var(--damask) 0 0/40px 40px,radial-gradient(ellipse at 50% 100%,rgba(212,165,65,.32),transparent 72%),linear-gradient(180deg,rgba(0,0,0,0),rgba(14,5,2,.85) 35%,rgba(32,12,4,1))}
 body .tabernacle-altar-mensa::after{content:"";position:absolute;left:0;right:0;bottom:-15px;height:15px;pointer-events:none;
  background:repeating-linear-gradient(90deg,#f0d070 0 2px,#7a5018 2px 3px,transparent 3px 6px);filter:drop-shadow(0 3px 3px #000)}
 
-
+/* Икона под стеклом, с висящей лампадой на цепи */
 .kiot-glass{position:absolute;inset:14px;z-index:5;pointer-events:none;
  background:linear-gradient(118deg,rgba(255,255,255,.16) 0 18%,transparent 18.2% 30%,rgba(255,255,255,.07) 30.2% 36%,transparent 36.2%),linear-gradient(180deg,rgba(255,240,200,.1),transparent 30%,rgba(0,0,0,.25));
  box-shadow:inset 0 0 0 2px rgba(0,0,0,.6),inset 0 0 14px rgba(0,0,0,.8)}
@@ -874,14 +873,14 @@ body .icon-reliquary-shrine::after{content:"";position:absolute;top:-54px;left:5
  background:repeating-linear-gradient(180deg,#e2b75a 0 3px,#3a2208 3px 5px);box-shadow:0 0 0 1px #0a0402}
 @keyframes kiotFlame{from{filter:brightness(.92)}to{filter:brightness(1.3) saturate(1.2)}}
 
-
+/* Предэллa: латунная надписная плита, текст гравирован */
 body .tabernacle-predella-vow{margin-top:44px;padding:20px 34px 18px;color:#2a1405;letter-spacing:.26em;line-height:1.9;
  border:3px solid;border-color:#fff2bd #6b4512 #2a1506 #e2b75a;border-radius:2px;
  background:var(--pin) top 8px left 8px/10px 10px no-repeat,var(--pin) top 8px right 8px/10px 10px no-repeat,var(--pin) bottom 8px left 8px/10px 10px no-repeat,var(--pin) bottom 8px right 8px/10px 10px no-repeat,repeating-linear-gradient(90deg,rgba(255,255,255,.06) 0 1px,transparent 1px 3px),linear-gradient(180deg,#f0d684,#c9983c 45%,#9a6f22 55%,#d3a548);
  text-shadow:0 1px 0 rgba(255,244,190,.8);box-shadow:0 0 0 2px #060201,0 0 0 5px #7d5923,0 10px 22px #000,inset 0 0 12px rgba(90,50,8,.5)}
 @media (prefers-reduced-motion:reduce){.icon-reliquary-shrine::before{animation:none}}
 
-
+/* ===== МАСШТАБ ПОД НОУТБУКИ: страница считает себя холстом ~1880px и сжимается под окно ===== */
 :root{--z:1}
 @media (min-width:1100px) and (max-width:1299px){:root{--z:.6}}
 @media (min-width:1300px) and (max-width:1439px){:root{--z:.69}}
@@ -891,9 +890,9 @@ body .tabernacle-predella-vow{margin-top:44px;padding:20px 34px 18px;color:#2a14
 body{zoom:var(--z);max-width:1440px}
 .content{max-width:730px}
 body .skeuo-frame,body marquee,body .sacrum-tabernaculum{max-width:1390px!important}
-
+/* цветочные полосы уже и не наезжают на панели */
 body .floral-side-left,body .floral-side-right{width:220px;height:auto;top:0;bottom:0}
-
+/* полноэкранные слои и падающие цветы остаются в натуральном масштабе */
 #balabanov-cinema-gate,#candle-behind-wall,#glitch-overlay,#crash-screen,#video-overlay,.falling-flower{zoom:calc(1/var(--z))}
 #balabanov-cinema-gate,#candle-behind-wall,#glitch-overlay,#crash-screen,#video-overlay{width:auto!important;height:auto!important;right:0!important;bottom:0!important}
 </style>
@@ -931,383 +930,20 @@ body .floral-side-left,body .floral-side-right{width:220px;height:auto;top:0;bot
 }
 @media (min-width:761px){.skeuo-frame{width:100%;}}
 </style>
-<style id="skeuo-photo-album">
-
-:root{
- --pw:520px; --ph:700px;
- --gilt:linear-gradient(180deg,#fff2be 0%,#d4a748 38%,#8a6428 62%,#e2b75a 100%);
- --paper-grain:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260'%3E%3Cfilter id='p'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' seed='7'/%3E%3CfeColorMatrix values='0 0 0 0 .55 0 0 0 0 .36 0 0 0 0 .16 0 0 0 .5 -.12'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23p)'/%3E%3C/svg%3E");
- --leather-grain:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='l'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.95' numOctaves='3' seed='4'/%3E%3CfeColorMatrix values='0 0 0 0 .06 0 0 0 0 .01 0 0 0 0 0 0 0 0 .95 -.28'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23l)'/%3E%3C/svg%3E");
- --marble:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='520' height='700'%3E%3Cfilter id='m'%3E%3CfeTurbulence type='turbulence' baseFrequency='.008 .02' numOctaves='4' seed='12'/%3E%3CfeColorMatrix values='0 0 0 0 .62 0 0 0 0 .16 0 0 0 0 .08 0 0 0 2.4 -.55'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23m)'/%3E%3C/svg%3E");
-}
-
-
-.album-stage{position:relative;margin:40px auto 18px;padding:22px 8px 34px;box-sizing:border-box;
- background:radial-gradient(ellipse at 50% 30%,rgba(255,190,95,.22),transparent 62%),radial-gradient(ellipse at 50% 120%,rgba(0,0,0,.9),transparent 60%),
-  repeating-linear-gradient(90deg,rgba(0,0,0,.35) 0 2px,transparent 2px 60px),
-  linear-gradient(180deg,#24100a,#120502);
- border-top:8px solid #e2b75a;border-left:8px solid #caa148;border-right:8px solid #6b4512;border-bottom:10px solid #361f06;
- box-shadow:0 0 0 3px #080301,0 0 0 6px #7d5923,0 22px 40px #000,inset 0 0 70px #000,inset 0 0 0 2px rgba(0,0,0,.8),inset 0 3px 4px rgba(255,235,170,.35)}
-.album-stage:before,.album-stage:after{content:"";position:absolute;top:50%;width:12px;height:12px;margin-top:-6px;border-radius:50%;
- background:radial-gradient(circle at 35% 35%,#fff6d9,#d4a748 45%,#59350a 85%,#1a0a02);box-shadow:0 2px 3px #000}
-.album-stage:before{left:9px}.album-stage:after{right:9px}
-.stage-flower{position:absolute;pointer-events:none;mix-blend-mode:screen;opacity:.8;filter:sepia(35%) drop-shadow(0 8px 12px #000)}
-.stage-flower.l{left:-8px;bottom:-14px;width:120px;transform:rotate(-12deg)}
-.stage-flower.r{right:-8px;bottom:-14px;width:120px;transform:rotate(14deg) scaleX(-1)}
-
-
-.album-index{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin:0 auto 24px;padding:0 10px;position:relative;z-index:3}
-.album-index button{position:relative;cursor:pointer;padding:9px 20px 9px 20px;font:900 .82rem Georgia,serif;letter-spacing:.14em;text-transform:uppercase;color:#ffdf8b;
- border-top:2px solid #fff0bc;border-left:2px solid #d6ac50;border-right:3px solid #65400e;border-bottom:5px solid #211003;border-radius:3px 3px 12px 12px;
- background:linear-gradient(180deg,rgba(255,255,255,.34) 0,rgba(255,255,255,.06) 29%,transparent 31%),repeating-linear-gradient(90deg,rgba(255,228,153,.05) 0 1px,transparent 1px 3px),linear-gradient(180deg,#56300f,#2c1205 45%,#100501);
- box-shadow:0 0 0 1px #050201,0 3px 0 #8b6223,0 6px 9px #000,inset 0 1px 2px rgba(255,245,205,.45),inset 0 -4px 7px rgba(0,0,0,.9);
- text-shadow:0 -1px #000,0 1px 0 rgba(255,240,180,.65),0 3px 4px #000;transition:all .18s}
-.album-index button:before{content:"";position:absolute;left:50%;top:5px;width:7px;height:7px;margin-left:-3.5px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#fff6d9,#b98a35 55%,#1a0a02);box-shadow:0 1px 1px #000}
-.album-index button{padding-top:18px}
-.album-index button:hover{filter:brightness(1.3);transform:translateY(-2px)}
-.album-index button.on{color:#2a1605;background:linear-gradient(180deg,#fff0b0,#d5ac54 42%,#a47528 56%,#e2c274);border-color:#fff5c9 #71501c #2b1605 #f1ce75;text-shadow:0 1px rgba(255,248,214,.7);box-shadow:0 0 0 1px #080301,0 4px 0 #5b3b11,0 8px 14px #000,0 0 16px rgba(255,211,105,.45),inset 0 0 11px rgba(255,251,216,.35)}
-
-
-.album-book{--lw:0px;--rw:22px;position:relative;width:calc(var(--pw)*2 + 78px);margin:0 auto;padding:50px 39px 42px;box-sizing:border-box;border-radius:12px 12px 14px 14px;
- background:
-  linear-gradient(90deg,rgba(0,0,0,.65) 0,transparent 3%,transparent 97%,rgba(0,0,0,.65) 100%),
-  radial-gradient(ellipse at 50% 0,rgba(255,150,90,.18),transparent 55%),
-  var(--leather-grain),linear-gradient(135deg,#5a1a0c 0%,#3a0f07 45%,#4a1509 70%,#2a0a04 100%);
- border:2px solid #0a0301;
- box-shadow:0 0 0 2px #1c0a04,0 38px 50px -12px #000,0 12px 0 -2px #190803,0 16px 0 -2px #0b0301,inset 0 2px 3px rgba(255,190,140,.35),inset 0 -6px 12px rgba(0,0,0,.8),inset 0 0 40px rgba(0,0,0,.65)}
-.album-book:before{content:"";position:absolute;inset:9px;pointer-events:none;border:2px solid rgba(226,183,90,.85);border-radius:6px;
- box-shadow:0 0 0 3px rgba(0,0,0,.45),inset 0 0 0 3px rgba(0,0,0,.45),0 0 8px rgba(255,200,100,.25)}
-.album-book:after{content:"";position:absolute;inset:18px;pointer-events:none;border:2px dashed rgba(255,225,150,.42);border-radius:4px}
-.cover-plate{position:absolute;left:50%;top:15px;transform:translateX(-50%);padding:2px 26px 3px;font:900 .72rem Georgia,serif;letter-spacing:.34em;text-transform:uppercase;white-space:nowrap;color:#2b1707;z-index:5;
- background:linear-gradient(180deg,rgba(255,255,255,.55),transparent 40%),linear-gradient(180deg,#f3d98c,#c99a3c 55%,#8a6428);border:1px solid #3a2406;border-radius:2px;
- box-shadow:0 0 0 2px #1a0a02,0 0 0 3px #b98a35,0 4px 6px #000,inset 0 0 6px rgba(80,45,10,.55);text-shadow:0 1px 0 rgba(255,250,225,.7)}
-.cover-plate:before,.cover-plate:after{content:"";position:absolute;top:50%;width:6px;height:6px;margin-top:-3px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#fff,#6b4512 60%,#1a0a02)}
-.cover-plate:before{left:8px}.cover-plate:after{right:8px}
-.cover-corner{position:absolute;width:58px;height:58px;z-index:6;pointer-events:none;
- background:radial-gradient(circle at 18px 18px,#fff6d9 0 2px,#8a6428 3px 5px,#1a0a02 6px 7px,transparent 8px),linear-gradient(135deg,#fff2be 0%,#d4a748 35%,#8a6428 70%,#e2b75a 100%);
- box-shadow:inset 0 0 0 1px rgba(0,0,0,.7)}
-.cover-corner span{position:absolute;color:#4a2d0b;font-size:20px;line-height:1;text-shadow:0 1px 0 rgba(255,245,200,.7)}
-.cover-corner.tl{left:-3px;top:-3px;clip-path:polygon(0 0,100% 0,62% 14%,14% 62%,0 100%);border-radius:12px 0 0 0}
-.cover-corner.tr{right:-3px;top:-3px;clip-path:polygon(100% 0,0 0,38% 14%,86% 62%,100% 100%);border-radius:0 12px 0 0}
-.cover-corner.bl{left:-3px;bottom:-3px;clip-path:polygon(0 100%,100% 100%,62% 86%,14% 38%,0 0);border-radius:0 0 0 14px}
-.cover-corner.br{right:-3px;bottom:-3px;clip-path:polygon(100% 100%,0 100%,38% 86%,86% 38%,100% 0);border-radius:0 0 14px 0}
-.cover-corner.tl span{left:9px;top:3px}.cover-corner.tr span{right:9px;top:3px}.cover-corner.bl span{left:9px;bottom:3px}.cover-corner.br span{right:9px;bottom:3px}
-.cover-corner.tr{background:radial-gradient(circle at calc(100% - 18px) 18px,#fff6d9 0 2px,#8a6428 3px 5px,#1a0a02 6px 7px,transparent 8px),linear-gradient(225deg,#fff2be 0%,#d4a748 35%,#8a6428 70%,#e2b75a 100%)}
-.cover-corner.bl{background:radial-gradient(circle at 18px calc(100% - 18px),#fff6d9 0 2px,#8a6428 3px 5px,#1a0a02 6px 7px,transparent 8px),linear-gradient(45deg,#fff2be 0%,#d4a748 35%,#8a6428 70%,#e2b75a 100%)}
-.cover-corner.br{background:radial-gradient(circle at calc(100% - 18px) calc(100% - 18px),#fff6d9 0 2px,#8a6428 3px 5px,#1a0a02 6px 7px,transparent 8px),linear-gradient(315deg,#fff2be 0%,#d4a748 35%,#8a6428 70%,#e2b75a 100%)}
-
-
-.album-spread{position:relative;width:calc(var(--pw)*2);height:var(--ph);margin:0 auto;z-index:2}
-.stack{position:absolute;top:5px;bottom:5px;pointer-events:none;z-index:0;transition:width .9s ease;
- background:repeating-linear-gradient(90deg,#f7dc8b 0 1px,#8a6428 1px 2px,#d4a748 2px 3px,#5a3a0e 3px 4px);box-shadow:0 0 6px #000,inset 0 0 4px rgba(0,0,0,.8)}
-.stack.l{right:100%;width:var(--lw)}
-.stack.r{left:100%;width:var(--rw)}
-.endpaper{position:absolute;top:0;width:var(--pw);height:var(--ph);background:var(--marble),radial-gradient(circle at 30% 30%,#5a160a,#1a0603);background-blend-mode:soft-light,normal;box-shadow:inset 0 0 0 10px #1a0804,inset 0 0 0 11px rgba(226,183,90,.7),inset 0 0 60px #000}
-.endpaper.l{left:0}.endpaper.r{right:0}
-.endpaper:after{content:"";position:absolute;top:0;bottom:0;width:90px;background:linear-gradient(90deg,transparent,rgba(0,0,0,.7))}
-.endpaper.l:after{right:0}.endpaper.r:after{left:0;transform:scaleX(-1)}
-.leaves{position:absolute;left:50%;top:0;width:var(--pw);height:var(--ph);perspective:2600px;perspective-origin:0 50%;z-index:1}
-.leaf{position:absolute;inset:0;transform-origin:left center;transform-style:preserve-3d;transition:transform 1s cubic-bezier(.42,.04,.22,1)}
-.leaf.flipped{transform:rotateY(-180deg)}
-.no-anim .leaf,.no-anim .stack{transition:none!important}
-.face{position:absolute;inset:0;overflow:hidden;backface-visibility:hidden;-webkit-backface-visibility:hidden;
- background:
-  radial-gradient(circle at 13% 17%,rgba(160,100,40,.28) 0 5px,transparent 22px),radial-gradient(circle at 78% 31%,rgba(150,90,35,.22) 0 3px,transparent 16px),
-  radial-gradient(circle at 36% 86%,rgba(150,90,35,.22) 0 4px,transparent 20px),radial-gradient(circle at 90% 76%,rgba(160,100,40,.25) 0 6px,transparent 26px),
-  radial-gradient(ellipse at 50% 0,rgba(120,70,25,.4),transparent 55%),radial-gradient(ellipse at 50% 100%,rgba(0,0,0,.55),transparent 60%),
-  var(--paper-grain),linear-gradient(135deg,#2c1509,#1b0b05 55%,#26110a)}
-.face.back{transform:rotateY(180deg)}
-.face.front{border-radius:0 5px 5px 0}.face.back{border-radius:5px 0 0 5px}
-.face:before{content:"";position:absolute;top:0;bottom:0;width:80px;pointer-events:none;z-index:4}
-.face.front:before{left:0;background:linear-gradient(90deg,rgba(0,0,0,.72),rgba(0,0,0,.25) 40%,transparent)}
-.face.back:before{right:0;background:linear-gradient(270deg,rgba(0,0,0,.72),rgba(0,0,0,.25) 40%,transparent)}
-.shade{position:absolute;inset:0;pointer-events:none;z-index:6;opacity:0;background:linear-gradient(90deg,rgba(0,0,0,.75),rgba(0,0,0,.05) 70%)}
-.leaf.turning .shade{animation:albumShade 1s ease-in-out}
-@keyframes albumShade{0%{opacity:0}45%{opacity:.85}100%{opacity:0}}
-.page-frame{position:absolute;inset:15px;pointer-events:none;z-index:2;border:1px solid rgba(226,183,90,.55);
- box-shadow:0 0 0 3px rgba(0,0,0,.45),0 0 0 4px rgba(212,167,72,.3),inset 0 0 0 1px #000,inset 0 0 22px rgba(0,0,0,.6)}
-.orn{position:absolute;z-index:3;pointer-events:none;font-style:normal;font-size:20px;line-height:1;color:#e2b75a;text-shadow:0 0 8px rgba(255,200,90,.55),0 2px 2px #000}
-.orn.tl{left:19px;top:17px}.orn.tr{right:19px;top:17px;transform:scaleX(-1)}.orn.bl{left:19px;bottom:17px;transform:scaleY(-1)}.orn.br{right:19px;bottom:17px;transform:scale(-1,-1)}
-.page-body{position:absolute;inset:0;z-index:3;padding:46px 40px 60px;display:flex;flex-direction:column;justify-content:space-between;align-items:center}
-.face.front .page-body{padding-left:52px;padding-right:38px}.face.back .page-body{padding-left:38px;padding-right:52px}
-.page-no{position:absolute;bottom:22px;left:0;right:0;text-align:center;z-index:3;color:#e2b75a;font:900 .82rem Georgia,serif;letter-spacing:.3em;text-shadow:0 0 8px rgba(255,200,90,.5),0 2px 2px #000}
-
-
-.curl{position:absolute;bottom:0;width:30px;height:30px;padding:0;border:0;background:none;cursor:pointer;z-index:8;transition:width .25s,height .25s}
-.curl:hover{width:70px;height:70px}
-.curl:before{content:"";position:absolute;inset:0;transition:all .25s}
-.face.front .curl{right:0}.face.back .curl{left:0}
-.face.front .curl:before{background:linear-gradient(135deg,#6b4a1c 0%,#e9d39a 45%,#f7e6b4 55%,#9a7a38 100%);clip-path:polygon(100% 0,100% 100%,0 100%);box-shadow:-3px -3px 8px #000}
-.face.back .curl:before{background:linear-gradient(225deg,#6b4a1c 0%,#e9d39a 45%,#f7e6b4 55%,#9a7a38 100%);clip-path:polygon(0 0,100% 100%,0 100%)}
-.curl:focus-visible{outline:2px solid #ffd977}
-
-
-.mount{position:relative;margin:0;display:flex;flex-direction:column;align-items:center;justify-content:center;width:100%;height:290px;transform:rotate(var(--t,0deg))}
-.print{position:relative;display:inline-block;padding:9px;border:0;cursor:zoom-in;line-height:0;
- background:linear-gradient(135deg,#f1e4c4,#d7c38f 60%,#bfa56c);
- box-shadow:0 1px 0 #fff4cf inset,0 0 0 1px #3a2406,0 6px 8px rgba(0,0,0,.9),0 14px 22px rgba(0,0,0,.7);transition:transform .3s,box-shadow .3s}
-.print img{display:block;max-width:420px;max-height:216px;width:auto;height:auto;filter:sepia(22%) contrast(1.1) brightness(.96);box-shadow:inset 0 0 0 1px #000,0 0 0 1px rgba(60,35,10,.8);transition:filter .3s;background:#0a0402;min-width:60px;min-height:60px}
-.print:after{content:"";position:absolute;inset:9px;pointer-events:none;background:linear-gradient(115deg,rgba(255,255,255,.28) 0%,rgba(255,255,255,.05) 28%,transparent 30%,transparent 70%,rgba(255,255,255,.1) 100%),radial-gradient(ellipse at 50% 50%,transparent 55%,rgba(0,0,0,.4))}
-.print:hover{transform:translateY(-4px) scale(1.02);box-shadow:0 1px 0 #fff4cf inset,0 0 0 1px #3a2406,0 12px 16px rgba(0,0,0,.9),0 24px 34px rgba(0,0,0,.75),0 0 28px rgba(255,210,105,.5)}
-.print:hover img{filter:sepia(6%) contrast(1.15) brightness(1.05)}
-.pc{position:absolute;width:26px;height:26px;z-index:2;pointer-events:none;
- background:linear-gradient(135deg,#fff2be 0%,#d4a748 40%,#7a5316 100%);box-shadow:0 2px 3px rgba(0,0,0,.8)}
-.pc.tl{left:-3px;top:-3px;clip-path:polygon(0 0,100% 0,0 100%)}
-.pc.tr{right:-3px;top:-3px;clip-path:polygon(0 0,100% 0,100% 100%);background:linear-gradient(225deg,#fff2be,#d4a748 40%,#7a5316)}
-.pc.bl{left:-3px;bottom:-3px;clip-path:polygon(0 0,100% 100%,0 100%);background:linear-gradient(45deg,#fff2be,#d4a748 40%,#7a5316)}
-.pc.br{right:-3px;bottom:-3px;clip-path:polygon(100% 0,100% 100%,0 100%);background:linear-gradient(315deg,#fff2be,#d4a748 40%,#7a5316)}
-.plate{position:relative;margin-top:14px;padding:3px 22px 4px;max-width:92%;text-align:center;line-height:1.25;color:#2b1707;
- background:linear-gradient(180deg,rgba(255,255,255,.5),transparent 42%),linear-gradient(180deg,#f0d99d,#cfab5e 58%,#a98240);
- border:1px solid #3a2406;border-radius:2px;box-shadow:0 0 0 2px #0a0402,0 0 0 3px #8a6428,0 5px 7px #000,inset 0 0 8px rgba(80,45,10,.5);text-shadow:0 1px 0 rgba(255,250,225,.75)}
-.plate:before,.plate:after{content:"";position:absolute;top:50%;width:5px;height:5px;margin-top:-2.5px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#fff,#6b4512 60%,#1a0a02)}
-.plate:before{left:7px}.plate:after{right:7px}
-.plate b{display:block;font-size:.8rem;letter-spacing:.1em;text-transform:uppercase}
-.plate span{display:block;font-size:.72rem;font-style:italic;letter-spacing:.03em}
-.divider{color:#d4a748;font-size:.8rem;letter-spacing:.4em;text-shadow:0 0 8px rgba(255,200,90,.4),0 2px 2px #000;white-space:nowrap}
-
-
-.tp{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;height:100%;width:100%;gap:6px}
-.tp .eyebrow{font:900 .78rem Georgia,serif;letter-spacing:.34em;text-transform:uppercase;color:#ffd977;text-shadow:0 0 10px rgba(255,200,90,.6),0 2px 3px #000}
-.tp .seal{width:128px;height:128px;margin:14px 0 10px;border-radius:50%;position:relative;display:flex;align-items:center;justify-content:center;font-size:54px;color:#3a2406;
- background:radial-gradient(circle,#ffe9a0 0 24%,transparent 25%),repeating-conic-gradient(from 0deg,#fff2be 0 6deg,#b98a35 6deg 12deg);
- box-shadow:0 0 0 3px #1a0a02,0 0 0 7px #d4a748,0 0 0 9px #1a0a02,0 12px 20px #000,0 0 30px rgba(255,200,90,.35),inset 0 0 14px rgba(80,45,10,.7)}
-.tp .seal:after{content:"";position:absolute;inset:16px;border-radius:50%;border:2px solid rgba(60,35,8,.7);box-shadow:inset 0 0 0 3px rgba(255,235,170,.5)}
-.tp .seal i{position:relative;z-index:1;font-style:normal;text-shadow:0 1px 0 rgba(255,245,200,.8)}
-.tp h2{margin:6px 0 0;font:900 2.35rem Georgia,serif;letter-spacing:.14em;text-transform:uppercase;color:#f6e2a8;
- text-shadow:0 1px 0 #fff4c4,0 2px 0 #d9b45a,0 3px 0 #a87a2c,0 4px 0 #4b2f0c,0 9px 10px #000,0 0 28px rgba(212,175,55,.4)}
-.tp .name{font:900 1.05rem Georgia,serif;letter-spacing:.22em;text-transform:uppercase;color:#e8c46c;text-shadow:0 2px 3px #000}
-.tp .rule{margin:12px 0;color:#d4a748;font-size:.8rem;letter-spacing:.2em;text-shadow:0 0 8px rgba(255,200,90,.4)}
-.tp .epi{max-width:340px;margin:0;font-style:italic;font-size:.9rem;line-height:1.7;color:#e8d9b4}
-.tp .year{margin-top:16px;font:900 1rem Georgia,serif;letter-spacing:.5em;color:#ffd977;text-shadow:0 0 10px rgba(255,200,90,.5),0 2px 2px #000}
-.tp .hint{margin-top:18px;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:#a58850}
-.tp .goto{margin-top:18px;cursor:pointer;padding:10px 24px;font:900 .8rem Georgia,serif;letter-spacing:.16em;text-transform:uppercase;color:#fff2b8;
- border-top:2px solid #fff6d4;border-left:2px solid #d4a748;border-right:2px solid #5a350e;border-bottom:4px solid #241103;border-radius:4px;outline:2px solid #060201;outline-offset:1px;
- background:linear-gradient(180deg,rgba(255,255,255,.4) 0%,rgba(255,255,255,.06) 40%,transparent 42%),linear-gradient(180deg,#5a3112,#381a07 20%,#160802 52%,#2d1205 85%,#0e0401);
- box-shadow:0 6px 12px #000,inset 0 0 14px rgba(184,134,11,.4);text-shadow:0 -1px 1px #000,0 0 12px rgba(255,215,0,.5);position:relative;z-index:10}
-.tp .goto:hover{filter:brightness(1.3)}
-.bookplate{padding:26px 30px;text-align:center;color:#2b1707;position:relative;max-width:330px;
- background:radial-gradient(circle at 12% 20%,rgba(120,70,20,.3),transparent 18%),repeating-linear-gradient(0deg,rgba(90,55,15,.06) 0 1px,transparent 1px 3px),linear-gradient(180deg,#e9d6a2,#cdb27a 60%,#b99a5e);
- border:3px solid;border-color:#fff0b8 #6b4512 #2a1506 #e2b75a;box-shadow:0 0 0 3px #0a0402,0 0 0 5px #8a6428,0 14px 22px #000,inset 0 0 22px rgba(80,45,10,.65);text-shadow:0 1px 0 rgba(255,250,225,.7)}
-.bookplate:before{content:"";position:absolute;inset:7px;border:1px solid rgba(60,35,8,.7);box-shadow:inset 0 0 0 3px rgba(255,245,200,.35);pointer-events:none}
-.bookplate .ex{font:italic 900 1.5rem Georgia,serif;letter-spacing:.12em}
-.bookplate .who{margin-top:6px;font:900 .86rem Georgia,serif;letter-spacing:.2em;text-transform:uppercase}
-.bookplate .r{margin:8px 0;font-size:.8rem;letter-spacing:.2em}
-.bookplate .m{font-style:italic;font-size:.8rem;line-height:1.6}
-
-
-.ribbon{position:absolute;left:calc(50% + 70px);top:-16px;width:26px;height:150px;z-index:20;pointer-events:none;transition:opacity .4s;
- background:repeating-linear-gradient(90deg,rgba(0,0,0,.25) 0 1px,transparent 1px 3px),linear-gradient(90deg,#4a0a08,#a3201a 30%,#d0382a 50%,#8a1812 75%,#3a0605);
- clip-path:polygon(0 0,100% 0,100% 100%,50% 88%,0 100%);box-shadow:0 6px 10px #000}
-.ribbon:after{content:"";position:absolute;left:50%;bottom:6px;width:2px;height:20px;background:linear-gradient(#d4a748,#7a5316)}
-
-
-.album-controls{position:relative;z-index:4;display:flex;align-items:center;justify-content:center;gap:14px;margin:34px auto 6px;flex-wrap:wrap}
-.album-controls button{cursor:pointer;min-width:132px;padding:11px 20px;font:900 .88rem Georgia,serif;letter-spacing:.16em;text-transform:uppercase;color:#fff2b8;border-radius:4px;
- border-top:2px solid #fff6d4;border-left:2px solid #d4a748;border-right:2px solid #5a350e;border-bottom:4px solid #241103;outline:2px solid #060201;outline-offset:1px;position:relative;
- background:linear-gradient(180deg,rgba(255,255,255,.45) 0%,rgba(255,255,255,.08) 40%,transparent 42%),linear-gradient(180deg,#5a3112 0%,#381a07 20%,#160802 52%,#2d1205 85%,#0e0401 100%);
- box-shadow:0 1px 1px rgba(255,245,205,.5) inset,0 -3px 1px rgba(0,0,0,.85) inset,0 6px 15px #000,0 2px 4px rgba(0,0,0,.9),inset 0 0 14px rgba(184,134,11,.4);
- text-shadow:0 -1px 1px #000,0 1px 2px rgba(255,235,170,.9),0 0 12px rgba(255,215,0,.5);transition:all .18s cubic-bezier(.2,.8,.2,1)}
-.album-controls button:hover:not(:disabled){color:#fff;filter:brightness(1.3);transform:translateY(-2px)}
-.album-controls button:active:not(:disabled){transform:translateY(2px);box-shadow:0 1px 3px #000,inset 0 3px 8px #000}
-.album-controls button:disabled{opacity:.4;cursor:default;filter:grayscale(.6)}
-.album-controls button.sm{min-width:0;padding:11px 14px}
-.album-counter{min-width:230px;padding:8px 22px;text-align:center;color:#2b1707;font-weight:900;letter-spacing:.08em;line-height:1.35;
- background:radial-gradient(circle at 12% 30%,rgba(120,70,20,.35) 0,transparent 14%),repeating-linear-gradient(0deg,rgba(90,55,15,.06) 0 1px,transparent 1px 3px),linear-gradient(180deg,#e9d6a2,#cdb27a 60%,#b99a5e);
- border:3px solid;border-color:#fff0b8 #6b4512 #2a1506 #e2b75a;border-radius:2px;box-shadow:0 0 0 2px #0a0402,0 0 0 4px #8a6428,0 5px 10px #000,inset 0 0 14px rgba(80,45,10,.6);text-shadow:0 1px 0 rgba(255,250,225,.7)}
-.album-counter small{display:block;font-size:.7rem;font-weight:400;font-style:italic;letter-spacing:.04em}
-.album-tip{text-align:center;margin:14px 0 0;color:#a58850;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase}
-
-
-.album-lb{position:fixed;inset:0;zoom:calc(1/var(--z));z-index:100000;display:none;align-items:center;justify-content:center;background:radial-gradient(ellipse at 50% 40%,rgba(60,28,8,.94),rgba(0,0,0,.97))}
-.album-lb.open{display:flex}
-.lb-frame{position:relative;max-width:min(90vw,1180px);padding:34px 34px 22px;box-sizing:border-box;text-align:center;
- background:radial-gradient(circle at 60% 40%,rgba(80,40,12,.95),rgba(16,5,2,.99) 75%),#0c0502;
- border-top:10px solid #f0d584;border-left:10px solid #caa148;border-right:10px solid #6b4512;border-bottom:12px solid #361f06;outline:3px solid #140702;outline-offset:-14px;
- box-shadow:0 0 0 4px #080301,0 0 0 9px #855f26,0 0 0 13px #180802,0 40px 90px #000,inset 0 0 60px #000,inset 0 0 30px rgba(212,175,55,.35)}
-.lb-img{display:block;margin:0 auto;max-width:min(80vw,1080px);max-height:68vh;width:auto;height:auto;padding:12px;box-sizing:content-box;
- background:linear-gradient(135deg,#f1e4c4,#d7c38f 60%,#bfa56c);box-shadow:0 0 0 1px #3a2406,0 14px 30px #000;filter:sepia(10%) contrast(1.08)}
-.lb-cap{display:inline-block;margin-top:20px}
-.lb-btn{position:absolute;cursor:pointer;width:50px;height:50px;border-radius:50%;font:900 22px Georgia,serif;color:#fff2b8;z-index:3;
- border:2px solid #fff6d4;border-color:#fff6d4 #5a350e #241103 #d4a748;background:radial-gradient(circle at 35% 30%,#7a4a1e,#2d1205 60%,#0e0401);box-shadow:0 0 0 3px #060201,0 8px 14px #000,inset 0 0 10px rgba(184,134,11,.5);text-shadow:0 0 10px rgba(255,215,0,.6)}
-.lb-btn:hover{filter:brightness(1.35)}
-.lb-prev{left:-24px;top:50%;margin-top:-25px}.lb-next{right:-24px;top:50%;margin-top:-25px}.lb-close{right:-22px;top:-22px;width:44px;height:44px;font-size:18px}
-.lb-count{position:absolute;left:50%;transform:translateX(-50%);bottom:-34px;color:#e2b75a;font-weight:900;letter-spacing:.2em;text-shadow:0 2px 3px #000}
-
-
-.album-book{touch-action:pan-y pinch-zoom;-webkit-user-select:none;user-select:none}
-.leaf{will-change:transform;-webkit-transform-style:preserve-3d}
-
-.face *:not(.orn){-webkit-backface-visibility:hidden;backface-visibility:hidden}
-
-.leaf .face{transition:visibility 0s linear 0s}
-.leaf .face.back{visibility:hidden;transition-delay:1.05s}
-.leaf.flipped .face.back{visibility:visible;transition-delay:0s}
-.leaf.flipped .face.front{visibility:hidden;transition-delay:1.05s}
-.no-anim .face{transition:none!important}
-
-.page-body>.mount{height:auto;flex:1 1 0;min-height:0;min-width:0}
-.page-body>.divider{flex:0 0 auto}
-.print{max-width:100%}
-.print img{max-width:412px}
-</style>
-<style>@media (max-width:1099px){html{min-width:1880px}}</style>
 </head>
 <body>
 <div class="floral-side-left" aria-hidden="true"></div><div class="floral-side-right" aria-hidden="true"></div>
 <nav class="archive-nav-wrap" aria-label="Разделы сайта"><div class="archive-nav">
-<a href="index.html" >Главная</a><a href="video.html" >Видео</a><a href="photo.html" class="active" aria-current="page">Фото</a><a href="paintings.html" >Картины</a>
+<a href="index.html#articles" >Главная</a><a href="video.html" >Видео</a><a href="photo.html" class="active" aria-current="page">Фото</a><a href="paintings.html" >Картины</a>
 </div></nav>
 <main class="skeuo-frame">
 <div class="skeuo-screw tl"></div><div class="skeuo-screw tr"></div><div class="skeuo-screw bl"></div><div class="skeuo-screw br"></div>
 <header class="page-heading"><span class="eyebrow">==ТОТ, КТО ИДЕТ ПРОТИВ ДНЯ, НЕ ДОЛЖЕН БОЯТЬСЯ НОЧИ==</span><h1>Фото</h1><p>«Свѣту положены предѣлы; въ безсрочномъ, въ безпредѣльномъ ночь царитъ. Сонъ длится вѣчно. Сонъ святой, не обездоливай надолго причастныхъ ночи въ тягостяхъ земного дня.»</p></header>
-<div class="section-ribbon">Фотоархив / изображения </div><div class="section-copy"><p>Разъедай! Разъедай! - вдохновленное тело.
+<div class="section-ribbon">Фотоархив / изображения дневника</div><div class="section-copy"><p>Разъедай! Разъедай! - вдохновленное тело.
 Разъедай до излишков волос,
 Убегая коснись панцирями бело-саженцев опухающих Роз!
 На брусчатке мощенной грибами, на пруду - заволоченном рвами
-Отпускала Цирцея зубо-скаленных Львов!</p></div><section class="album-stage" id="album" aria-label="Фотоальбом">
-<img class="stage-flower l" src="Cvetok10.webp" alt="" onerror="this.remove()"><img class="stage-flower r" src="Cvetok10.webp" alt="" onerror="this.remove()">
-
-<div class="album-book" id="album-book">
-<div class="cover-plate">Альбомъ</div><div class="cover-corner tl"><span>❦</span></div><div class="cover-corner tr"><span>❦</span></div><div class="cover-corner bl"><span>❦</span></div><div class="cover-corner br"><span>❦</span></div>
-<div class="album-spread">
-<div class="stack l"></div><div class="stack r"></div>
-<div class="endpaper l"></div><div class="endpaper r"></div>
-<div class="leaves"><div class="leaf" data-i="0"><div class="face front"><div class="page-frame"></div><i class="orn tl">❦</i><i class="orn tr">❦</i><i class="orn bl">❦</i><i class="orn br">❦</i><div class="page-body"><div class="tp"><div class="eyebrow"> - </div><div class="seal"><i>❀</i></div><h2>Фото&shy;альбомъ</h2><div class="name">Вальдѣмаръ Бубѣнъ</div><div class="rule">━───❀───⊹⊱ ✿ ⊰⊹───❀───━</div><p class="epi"> <br> </p><div class="year">·  ·</div><div class="hint"> </div></div></div><span class="shade"></span><button class="curl" data-dir="next" aria-label="Следующая страница"></button></div><div class="face back"><div class="page-frame"></div><i class="orn tl">❦</i><i class="orn tr">❦</i><i class="orn bl">❦</i><i class="orn br">❦</i><div class="page-body"><figure class="mount" id="photo-1" style="--t:1.1deg"><button class="print" type="button" data-i="0" aria-label="Открыть: Иллюстрация к записи от 5 сентября"><img src="vera.webp" alt="Иллюстрация к записи от 5 сентября" loading="lazy" decoding="async"><i class="pc tl"></i><i class="pc tr"></i><i class="pc bl"></i><i class="pc br"></i></button><figcaption class="plate"><b>5 Сентября 1916</b><span>Иллюстрация к записи от 5 сентября</span></figcaption></figure><div class="divider">✥ ✥ ✥</div><figure class="mount" id="photo-2" style="--t:-1.0deg"><button class="print" type="button" data-i="1" aria-label="Открыть: Изображение из записи от 19 сентября"><img src="IMG_9022.webp" alt="Изображение из записи от 19 сентября" loading="lazy" decoding="async"><i class="pc tl"></i><i class="pc tr"></i><i class="pc bl"></i><i class="pc br"></i></button><figcaption class="plate"><b>19 Сентября 1916</b><span>Изображение из записи от 19 сентября</span></figcaption></figure></div><div class="page-no">✥ 1 ✥</div><span class="shade"></span><button class="curl" data-dir="prev" aria-label="Предыдущая страница"></button></div></div><div class="leaf" data-i="1"><div class="face front"><div class="page-frame"></div><i class="orn tl">❦</i><i class="orn tr">❦</i><i class="orn bl">❦</i><i class="orn br">❦</i><div class="page-body"><figure class="mount" id="photo-3" style="--t:-1.0deg"><button class="print" type="button" data-i="2" aria-label="Открыть: Изображение из записи от 20 сентября"><img src="IMG_9722.webp" alt="Изображение из записи от 20 сентября" loading="lazy" decoding="async"><i class="pc tl"></i><i class="pc tr"></i><i class="pc bl"></i><i class="pc br"></i></button><figcaption class="plate"><b>20 Сентября 1916</b><span>Изображение из записи от 20 сентября</span></figcaption></figure><div class="divider">✥ ✥ ✥</div><figure class="mount" id="photo-4" style="--t:1.4deg"><button class="print" type="button" data-i="3" aria-label="Открыть: Изображение из записи от 21 сентября"><img src="IMG_0273.webp" alt="Изображение из записи от 21 сентября" loading="lazy" decoding="async"><i class="pc tl"></i><i class="pc tr"></i><i class="pc bl"></i><i class="pc br"></i></button><figcaption class="plate"><b>21 Сентября 1916</b><span>Изображение из записи от 21 сентября</span></figcaption></figure></div><div class="page-no">✥ 2 ✥</div><span class="shade"></span><button class="curl" data-dir="next" aria-label="Следующая страница"></button></div><div class="face back"><div class="page-frame"></div><i class="orn tl">❦</i><i class="orn tr">❦</i><i class="orn bl">❦</i><i class="orn br">❦</i><div class="page-body"><figure class="mount" id="photo-5" style="--t:1.4deg"><button class="print" type="button" data-i="4" aria-label="Открыть: Изображение из записи от 22 сентября"><img src="IMG_4182.webp" alt="Изображение из записи от 22 сентября" loading="lazy" decoding="async"><i class="pc tl"></i><i class="pc tr"></i><i class="pc bl"></i><i class="pc br"></i></button><figcaption class="plate"><b>22 Сентября 1916</b><span>Изображение из записи от 22 сентября</span></figcaption></figure><div class="divider">✥ ✥ ✥</div><figure class="mount" id="photo-6" style="--t:-1.1deg"><button class="print" type="button" data-i="5" aria-label="Открыть: Изображение из записи от 5 октября"><img src="IMG_0397.webp" alt="Изображение из записи от 5 октября" loading="lazy" decoding="async"><i class="pc tl"></i><i class="pc tr"></i><i class="pc bl"></i><i class="pc br"></i></button><figcaption class="plate"><b>5 Октября 1916</b><span>Изображение из записи от 5 октября</span></figcaption></figure></div><div class="page-no">✥ 3 ✥</div><span class="shade"></span><button class="curl" data-dir="prev" aria-label="Предыдущая страница"></button></div></div><div class="leaf" data-i="2"><div class="face front"><div class="page-frame"></div><i class="orn tl">❦</i><i class="orn tr">❦</i><i class="orn bl">❦</i><i class="orn br">❦</i><div class="page-body"><figure class="mount" id="photo-7" style="--t:-1.1deg"><button class="print" type="button" data-i="6" aria-label="Открыть: Изображение из записи от 9 октября"><img src="IMG_0767.webp" alt="Изображение из записи от 9 октября" loading="lazy" decoding="async"><i class="pc tl"></i><i class="pc tr"></i><i class="pc bl"></i><i class="pc br"></i></button><figcaption class="plate"><b>9 Октября 1916</b><span>Изображение из записи от 9 октября</span></figcaption></figure><div class="divider">✥ ✥ ✥</div><figure class="mount" id="photo-8" style="--t:1.1deg"><button class="print" type="button" data-i="7" aria-label="Открыть: Фотография"><img src="MISS.webp" alt="Фотография" loading="lazy" decoding="async"><i class="pc tl"></i><i class="pc tr"></i><i class="pc bl"></i><i class="pc br"></i></button><figcaption class="plate"><b>-</b></figcaption></figure></div><div class="page-no">✥ 4 ✥</div><span class="shade"></span><button class="curl" data-dir="next" aria-label="Следующая страница"></button></div><div class="face back"><div class="page-frame"></div><i class="orn tl">❦</i><i class="orn tr">❦</i><i class="orn bl">❦</i><i class="orn br">❦</i><div class="page-body"><figure class="mount" id="photo-9" style="--t:1.1deg"><button class="print" type="button" data-i="8" aria-label="Открыть: Дагеротип"><img src="VODIKA.webp" alt="Дагеротип" loading="lazy" decoding="async"><i class="pc tl"></i><i class="pc tr"></i><i class="pc bl"></i><i class="pc br"></i></button><figcaption class="plate"><b>-</b></figcaption></figure><div class="divider">✥ ✥ ✥</div><figure class="mount" id="photo-10" style="--t:-1.0deg"><button class="print" type="button" data-i="9" aria-label="Открыть: Старинный снимок"><img src="PGCvetok4.webp" alt="Старинный снимок" loading="lazy" decoding="async"><i class="pc tl"></i><i class="pc tr"></i><i class="pc bl"></i><i class="pc br"></i></button><figcaption class="plate"><b>-</b></figcaption></figure></div><div class="page-no">✥ 5 ✥</div><span class="shade"></span><button class="curl" data-dir="prev" aria-label="Предыдущая страница"></button></div></div><div class="leaf" data-i="3"><div class="face front"><div class="page-frame"></div><i class="orn tl">❦</i><i class="orn tr">❦</i><i class="orn bl">❦</i><i class="orn br">❦</i><div class="page-body"><figure class="mount" id="photo-11" style="--t:-1.0deg"><button class="print" type="button" data-i="10" aria-label="Открыть: Фото из архива"><img src="golova.webp" alt="Фото из архива" loading="lazy" decoding="async"><i class="pc tl"></i><i class="pc tr"></i><i class="pc bl"></i><i class="pc br"></i></button><figcaption class="plate"><b>-</b></figcaption></figure><div class="divider">✥ ✥ ✥</div><figure class="mount" id="photo-12" style="--t:1.4deg"><button class="print" type="button" data-i="11" aria-label="Открыть: Фотографический образ"><img src="VOLK.webp" alt="Фотографический образ" loading="lazy" decoding="async"><i class="pc tl"></i><i class="pc tr"></i><i class="pc bl"></i><i class="pc br"></i></button><figcaption class="plate"><b>-</b></figcaption></figure></div><div class="page-no">✥ 6 ✥</div><span class="shade"></span><button class="curl" data-dir="next" aria-label="Следующая страница"></button></div><div class="face back"><div class="page-frame"></div><i class="orn tl">❦</i><i class="orn tr">❦</i><i class="orn bl">❦</i><i class="orn br">❦</i><div class="page-body"><figure class="mount" id="photo-13" style="--t:1.4deg"><button class="print" type="button" data-i="12" aria-label="Открыть: Архивная фотография"><img src="ugadai.webp" alt="Архивная фотография" loading="lazy" decoding="async"><i class="pc tl"></i><i class="pc tr"></i><i class="pc bl"></i><i class="pc br"></i></button><figcaption class="plate"><b>-я</b></figcaption></figure><div class="divider">✥ ✥ ✥</div><figure class="mount" id="photo-14" style="--t:-1.1deg"><button class="print" type="button" data-i="13" aria-label="Открыть: Снимок"><img src="RETORT.webp" alt="Снимок" loading="lazy" decoding="async"><i class="pc tl"></i><i class="pc tr"></i><i class="pc bl"></i><i class="pc br"></i></button><figcaption class="plate"><b>Снимок</b></figcaption></figure></div><div class="page-no">✥ 7 ✥</div><span class="shade"></span><button class="curl" data-dir="prev" aria-label="Предыдущая страница"></button></div></div><div class="leaf" data-i="4"><div class="face front"><div class="page-frame"></div><i class="orn tl">❦</i><i class="orn tr">❦</i><i class="orn bl">❦</i><i class="orn br">❦</i><div class="page-body"><figure class="mount" id="photo-15" style="--t:-1.1deg"><button class="print" type="button" data-i="14" aria-label="Открыть: Фотография из собрания"><img src="IMG_0108.webp" alt="Фотография из собрания" loading="lazy" decoding="async"><i class="pc tl"></i><i class="pc tr"></i><i class="pc bl"></i><i class="pc br"></i></button><figcaption class="plate"><b>-</b></figcaption></figure><div class="divider">✥ ✥ ✥</div><figure class="mount" id="photo-16" style="--t:1.1deg"><button class="print" type="button" data-i="15" aria-label="Открыть: Образ"><img src="IMG_0413.webp" alt="Образ" loading="lazy" decoding="async"><i class="pc tl"></i><i class="pc tr"></i><i class="pc bl"></i><i class="pc br"></i></button><figcaption class="plate"><b>Образ</b></figcaption></figure></div><div class="page-no">✥ 8 ✥</div><span class="shade"></span><button class="curl" data-dir="next" aria-label="Следующая страница"></button></div><div class="face back"><div class="page-frame"></div><i class="orn tl">❦</i><i class="orn tr">❦</i><i class="orn bl">❦</i><i class="orn br">❦</i><div class="page-body"><figure class="mount" id="photo-17" style="--t:1.1deg"><button class="print" type="button" data-i="16" aria-label="Открыть: Старинная карточка"><img src="IMG_0356.webp" alt="Старинная карточка" loading="lazy" decoding="async"><i class="pc tl"></i><i class="pc tr"></i><i class="pc bl"></i><i class="pc br"></i></button><figcaption class="plate"><b>Старинная карточка</b></figcaption></figure><div class="divider">✥ ✥ ✥</div><figure class="mount" id="photo-18" style="--t:-1.0deg"><button class="print" type="button" data-i="17" aria-label="Открыть: Фото"><img src="IMG_0438.webp" alt="Фото" loading="lazy" decoding="async"><i class="pc tl"></i><i class="pc tr"></i><i class="pc bl"></i><i class="pc br"></i></button><figcaption class="plate"><b>Фото</b></figcaption></figure></div><div class="page-no">✥ 9 ✥</div><span class="shade"></span><button class="curl" data-dir="prev" aria-label="Предыдущая страница"></button></div></div><div class="leaf" data-i="5"><div class="face front"><div class="page-frame"></div><i class="orn tl">❦</i><i class="orn tr">❦</i><i class="orn bl">❦</i><i class="orn br">❦</i><div class="page-body"><figure class="mount" id="photo-19" style="--t:-1.0deg"><button class="print" type="button" data-i="18" aria-label="Открыть: Дагеротипический портрет"><img src="3BB97EFB-274A-49B1-9386-F3CFD26D9F90.webp" alt="Дагеротипический портрет" loading="lazy" decoding="async"><i class="pc tl"></i><i class="pc tr"></i><i class="pc bl"></i><i class="pc br"></i></button><figcaption class="plate"><b>-</b></figcaption></figure><div class="divider">✥ ✥ ✥</div><figure class="mount" id="photo-20" style="--t:1.4deg"><button class="print" type="button" data-i="19" aria-label="Открыть: Фотографическая запись"><img src="IMG_0510.webp" alt="Фотографическая запись" loading="lazy" decoding="async"><i class="pc tl"></i><i class="pc tr"></i><i class="pc bl"></i><i class="pc br"></i></button><figcaption class="plate"><b>-</b></figcaption></figure></div><div class="page-no">✥ 10 ✥</div><span class="shade"></span><button class="curl" data-dir="next" aria-label="Следующая страница"></button></div><div class="face back"><div class="page-frame"></div><i class="orn tl">❦</i><i class="orn tr">❦</i><i class="orn bl">❦</i><i class="orn br">❦</i><div class="page-body"><figure class="mount" id="photo-21" style="--t:1.4deg"><button class="print" type="button" data-i="20" aria-label="Открыть: Архивный снимок"><img src="1D2C4C56-310A-428E-9D24-9F619114DA15.webp" alt="Архивный снимок" loading="lazy" decoding="async"><i class="pc tl"></i><i class="pc tr"></i><i class="pc bl"></i><i class="pc br"></i></button><figcaption class="plate"><b>-</b></figcaption></figure><div class="divider">✥ ✥ ✥</div><figure class="mount" id="photo-22" style="--t:-1.1deg"><button class="print" type="button" data-i="21" aria-label="Открыть: Портрет"><img src="IMG_0100.webp" alt="Портрет" loading="lazy" decoding="async"><i class="pc tl"></i><i class="pc tr"></i><i class="pc bl"></i><i class="pc br"></i></button><figcaption class="plate"><b>Портрет</b></figcaption></figure></div><div class="page-no">✥ 11 ✥</div><span class="shade"></span><button class="curl" data-dir="prev" aria-label="Предыдущая страница"></button></div></div><div class="leaf" data-i="6"><div class="face front"><div class="page-frame"></div><i class="orn tl">❦</i><i class="orn tr">❦</i><i class="orn bl">❦</i><i class="orn br">❦</i><div class="page-body"><figure class="mount" id="photo-23" style="--t:-1.1deg"><button class="print" type="button" data-i="22" aria-label="-"><img src="PGCvetok7.webp" alt="Фотографический фрагмент" loading="lazy" decoding="async"><i class="pc tl"></i><i class="pc tr"></i><i class="pc bl"></i><i class="pc br"></i></button><figcaption class="plate"><b>-</b></figcaption></figure><div class="divider">✥ ✥ ✥</div><figure class="mount" id="photo-24" style="--t:1.1deg"><button class="print" type="button" data-i="23" aria-label="Открыть: Снимок из коллекции"><img src="flower2.webp" alt="Снимок из коллекции" loading="lazy" decoding="async"><i class="pc tl"></i><i class="pc tr"></i><i class="pc bl"></i><i class="pc br"></i></button><figcaption class="plate"><b>Снимок из коллекции</b></figcaption></figure></div><div class="page-no">✥ 12 ✥</div><span class="shade"></span><button class="curl" data-dir="next" aria-label="Следующая страница"></button></div><div class="face back"><div class="page-frame"></div><i class="orn tl">❦</i><i class="orn tr">❦</i><i class="orn bl">❦</i><i class="orn br">❦</i><div class="page-body"><figure class="mount" id="photo-25" style="--t:1.1deg"><button class="print" type="button" data-i="24" aria-label="Открыть: Фотоархив"><img src="IMG_0552.webp" alt="Фотоархив" loading="lazy" decoding="async"><i class="pc tl"></i><i class="pc tr"></i><i class="pc bl"></i><i class="pc br"></i></button><figcaption class="plate"><b>-</b></figcaption></figure><div class="divider">✥ ✥ ✥</div><figure class="mount" id="photo-26" style="--t:-1.0deg"><button class="print" type="button" data-i="25" aria-label="Открыть: Изображение"><img src="luna.webp" alt="Изображение" loading="lazy" decoding="async"><i class="pc tl"></i><i class="pc tr"></i><i class="pc bl"></i><i class="pc br"></i></button><figcaption class="plate"><b>-</b></figcaption></figure></div><div class="page-no">✥ 13 ✥</div><span class="shade"></span><button class="curl" data-dir="prev" aria-label="Предыдущая страница"></button></div></div><div class="leaf" data-i="7"><div class="face front"><div class="page-frame"></div><i class="orn tl">❦</i><i class="orn tr">❦</i><i class="orn bl">❦</i><i class="orn br">❦</i><div class="page-body"><figure class="mount" id="photo-27" style="--t:-1.0deg"><button class="print" type="button" data-i="26" aria-label="Открыть: Старая фотография"><img src="goddess.webp" alt="Старая фотография" loading="lazy" decoding="async"><i class="pc tl"></i><i class="pc tr"></i><i class="pc bl"></i><i class="pc br"></i></button><figcaption class="plate"><b>Старая </b></figcaption></figure><div class="divider">✥ ✥ ✥</div><figure class="mount" id="photo-28" style="--t:1.4deg"><button class="print" type="button" data-i="27" aria-label="Открыть: Карточка"><img src="toet.webp" alt="Карточка" loading="lazy" decoding="async"><i class="pc tl"></i><i class="pc tr"></i><i class="pc bl"></i><i class="pc br"></i></button><figcaption class="plate"><b>Карточка</b></figcaption></figure></div><div class="page-no">✥ 14 ✥</div><span class="shade"></span><button class="curl" data-dir="next" aria-label="Следующая страница"></button></div><div class="face back"><div class="page-frame"></div><i class="orn tl">❦</i><i class="orn tr">❦</i><i class="orn bl">❦</i><i class="orn br">❦</i><div class="page-body"><figure class="mount" id="photo-29" style="--t:1.4deg"><button class="print" type="button" data-i="28" aria-label="Открыть: Фотография без подписи"><img src="2D7D3510-649C-4D5C-993E-51D0CEF39C33.webp" alt="Фотография без подписи" loading="lazy" decoding="async"><i class="pc tl"></i><i class="pc tr"></i><i class="pc bl"></i><i class="pc br"></i></button><figcaption class="plate"><b>-</b></figcaption></figure><div class="divider">✥ ✥ ✥</div><figure class="mount" id="photo-30" style="--t:-1.1deg"><button class="print" type="button" data-i="29" aria-label="Открыть: Дагеротип из собрания"><img src="IMG_0717.webp" alt="-" loading="lazy" decoding="async"><i class="pc tl"></i><i class="pc tr"></i><i class="pc bl"></i><i class="pc br"></i></button><figcaption class="plate"><b>-</b></figcaption></figure></div><div class="page-no">✥ 15 ✥</div><span class="shade"></span><button class="curl" data-dir="prev" aria-label="Предыдущая страница"></button></div></div><div class="leaf" data-i="8"><div class="face front"><div class="page-frame"></div><i class="orn tl">❦</i><i class="orn tr">❦</i><i class="orn bl">❦</i><i class="orn br">❦</i><div class="page-body"><figure class="mount" id="photo-31" style="--t:-1.1deg"><button class="print" type="button" data-i="30" aria-label="-"><img src="IMG_0753.webp" alt="-" loading="lazy" decoding="async"><i class="pc tl"></i><i class="pc tr"></i><i class="pc bl"></i><i class="pc br"></i></button><figcaption class="plate"><b>-</b></figcaption></figure><div class="divider">✥ ✥ ✥</div><figure class="mount" id="photo-32" style="--t:1.1deg"><button class="print" type="button" data-i="31" aria-label="-"><img src="IMG_0511.webp" alt="-" loading="lazy" decoding="async"><i class="pc tl"></i><i class="pc tr"></i><i class="pc bl"></i><i class="pc br"></i></button><figcaption class="plate"><b>-</b></figcaption></figure></div><div class="page-no">✥ 16 ✥</div><span class="shade"></span><button class="curl" data-dir="next" aria-label="Следующая страница"></button></div><div class="face back"><div class="page-frame"></div><i class="orn tl">❦</i><i class="orn tr">❦</i><i class="orn bl">❦</i><i class="orn br">❦</i><div class="page-body"><figure class="mount" id="photo-33" style="--t:1.1deg"><button class="print" type="button" data-i="32" aria-label="Открыть: Снимок без даты"><img src="411F383C-5AE3-4616-AB74-10C2DC342E17.webp" alt="-" loading="lazy" decoding="async"><i class="pc tl"></i><i class="pc tr"></i><i class="pc bl"></i><i class="pc br"></i></button><figcaption class="plate"><b> - </b></figcaption></figure><div class="divider">✥ ✥ ✥</div><figure class="mount" id="photo-34" style="--t:-1.0deg"><button class="print" type="button" data-i="33" aria-label="Открыть: - "><img src="IMG_1044.jpeg" alt="-" loading="lazy" decoding="async"><i class="pc tl"></i><i class="pc tr"></i><i class="pc bl"></i><i class="pc br"></i></button><figcaption class="plate"><b> - </b></figcaption></figure></div><div class="page-no">✥ 17 ✥</div><span class="shade"></span><button class="curl" data-dir="prev" aria-label="Предыдущая страница"></button></div></div><div class="leaf" data-i="9"><div class="face front"><div class="page-frame"></div><i class="orn tl">❦</i><i class="orn tr">❦</i><i class="orn bl">❦</i><i class="orn br">❦</i><div class="page-body"><div class="tp"><div class="eyebrow">✥ Конецъ ✥</div><div class="seal"><i>❦</i></div><h2 style="font-size:1.9rem">Альбомъ<br>законченъ</h2><div class="rule">━───❀───⊹⊱ ✿ ⊰⊹───❀───━</div><p class="epi">Всего снимковъ въ собраніи: 34</p><button class="goto" type="button" data-go="0">Къ началу альбома</button></div></div><span class="shade"></span><button class="curl" data-dir="next" aria-label="Следующая страница"></button></div><div class="face back"><div class="page-frame"></div><i class="orn tl">❦</i><i class="orn tr">❦</i><i class="orn bl">❦</i><i class="orn br">❦</i><div class="page-body"><div class="tp"><div class="bookplate"><div class="ex"></div><div class="r"> ━━━ </div><div class="who">Вальдѣмаръ Бубѣнъ</div><div class="r">✥</div><div class="m">«Свѣту положены предѣлы;<br>въ безсрочномъ, въ безпредѣльномъ<br>ночь царитъ.»</div></div></div></div><span class="shade"></span><button class="curl" data-dir="prev" aria-label="Предыдущая страница"></button></div></div></div>
-<div class="ribbon" id="album-ribbon"></div>
-</div></div>
-<div class="album-controls">
-<button type="button" class="sm" id="ab-first" aria-label="В начало">«</button>
-<button type="button" id="ab-prev">◀ Назадъ</button>
-<div class="album-counter" aria-live="polite"><span id="ab-count">Титулъ</span><small id="ab-sub"></small></div>
-<button type="button" id="ab-next">Впередъ ▶</button>
-<button type="button" class="sm" id="ab-last" aria-label="В конец">»</button>
-</div>
-<p class="album-tip"> - </p>
-</section>
-<div class="album-lb" id="album-lb" role="dialog" aria-modal="true" aria-label="Просмотр снимка"><div class="lb-frame">
-<button class="lb-btn lb-close" type="button" aria-label="Закрыть">✕</button><button class="lb-btn lb-prev" type="button" aria-label="Предыдущий">◀</button><button class="lb-btn lb-next" type="button" aria-label="Следующий">▶</button>
-<img class="lb-img" id="lb-img" alt=""><div class="plate lb-cap" id="lb-cap"></div><div class="lb-count" id="lb-count"></div></div></div>
+Отпускала Цирцея зубо-скаленных Львов!</p></div><div class="photo-grid"><figure class="photo-card" id="photo-1"><img src="vera.webp" alt="Иллюстрация к записи от 5 сентября" loading="lazy" decoding="async"><figcaption class="photo-caption"><strong>5 Сентября 1916</strong><br>Иллюстрация к записи от 5 сентября</figcaption></figure><figure class="photo-card" id="photo-2"><img src="IMG_9022.webp" alt="Изображение из записи от 19 сентября" loading="lazy" decoding="async"><figcaption class="photo-caption"><strong>19 Сентября 1916</strong><br>Изображение из записи от 19 сентября</figcaption></figure><figure class="photo-card" id="photo-3"><img src="IMG_9722.webp" alt="Изображение из записи от 20 сентября" loading="lazy" decoding="async"><figcaption class="photo-caption"><strong>20 Сентября 1916</strong><br>Изображение из записи от 20 сентября</figcaption></figure><figure class="photo-card" id="photo-4"><img src="IMG_0273.webp" alt="Изображение из записи от 21 сентября" loading="lazy" decoding="async"><figcaption class="photo-caption"><strong>21 Сентября 1916</strong><br>Изображение из записи от 21 сентября</figcaption></figure><figure class="photo-card" id="photo-5"><img src="IMG_4182.webp" alt="Изображение из записи от 22 сентября" loading="lazy" decoding="async"><figcaption class="photo-caption"><strong>22 Сентября 1916</strong><br>Изображение из записи от 22 сентября</figcaption></figure><figure class="photo-card" id="photo-6"><img src="IMG_0397.webp" alt="Изображение из записи от 5 октября" loading="lazy" decoding="async"><figcaption class="photo-caption"><strong>5 Октября 1916</strong><br>Изображение из записи от 5 октября</figcaption></figure><figure class="photo-card" id="photo-7"><img src="IMG_0767.webp" alt="Изображение из записи от 9 октября" loading="lazy" decoding="async"><figcaption class="photo-caption"><strong>9 Октября 1916</strong><br>Изображение из записи от 9 октября</figcaption></figure><figure class="photo-card" id="photo-8"><img src="MISS.webp" alt="Фотография" loading="lazy" decoding="async"><figcaption class="photo-caption">Фотография</figcaption></figure><figure class="photo-card" id="photo-9"><img src="VODIKA.webp" alt="Дагеротип" loading="lazy" decoding="async"><figcaption class="photo-caption">Дагеротип</figcaption></figure><figure class="photo-card" id="photo-10"><img src="PGCvetok4.webp" alt="Старинный снимок" loading="lazy" decoding="async"><figcaption class="photo-caption">Старинный снимок</figcaption></figure><figure class="photo-card" id="photo-11"><img src="golova.webp" alt="Фото из архива" loading="lazy" decoding="async"><figcaption class="photo-caption">Фото из архива</figcaption></figure><figure class="photo-card" id="photo-12"><img src="VOLK.webp" alt="Фотографический образ" loading="lazy" decoding="async"><figcaption class="photo-caption">Фотографический образ</figcaption></figure><figure class="photo-card" id="photo-13"><img src="ugadai.webp" alt="Архивная фотография" loading="lazy" decoding="async"><figcaption class="photo-caption">Архивная фотография</figcaption></figure><figure class="photo-card" id="photo-14"><img src="RETORT.webp" alt="Снимок" loading="lazy" decoding="async"><figcaption class="photo-caption">Снимок</figcaption></figure><figure class="photo-card" id="photo-15"><img src="IMG_0108.webp" alt="Фотография из собрания" loading="lazy" decoding="async"><figcaption class="photo-caption">Фотография из собрания</figcaption></figure><figure class="photo-card" id="photo-16"><img src="IMG_0413.webp" alt="Образ" loading="lazy" decoding="async"><figcaption class="photo-caption">Образ</figcaption></figure><figure class="photo-card" id="photo-17"><img src="IMG_0356.webp" alt="Старинная карточка" loading="lazy" decoding="async"><figcaption class="photo-caption">Старинная карточка</figcaption></figure><figure class="photo-card" id="photo-18"><img src="IMG_0438.webp" alt="Фото" loading="lazy" decoding="async"><figcaption class="photo-caption">Фото</figcaption></figure><figure class="photo-card" id="photo-19"><img src="3BB97EFB-274A-49B1-9386-F3CFD26D9F90.webp" alt="Дагеротипический портрет" loading="lazy" decoding="async"><figcaption class="photo-caption">Дагеротипический портрет</figcaption></figure><figure class="photo-card" id="photo-20"><img src="IMG_0510.webp" alt="Фотографическая запись" loading="lazy" decoding="async"><figcaption class="photo-caption">Фотографическая запись</figcaption></figure><figure class="photo-card" id="photo-21"><img src="1D2C4C56-310A-428E-9D24-9F619114DA15.webp" alt="Архивный снимок" loading="lazy" decoding="async"><figcaption class="photo-caption">Архивный снимок</figcaption></figure><figure class="photo-card" id="photo-22"><img src="IMG_0100.webp" alt="Портрет" loading="lazy" decoding="async"><figcaption class="photo-caption">Портрет</figcaption></figure><figure class="photo-card" id="photo-23"><img src="PGCvetok7.webp" alt="Фотографический фрагмент" loading="lazy" decoding="async"><figcaption class="photo-caption">Фотографический фрагмент</figcaption></figure><figure class="photo-card" id="photo-24"><img src="flower2.webp" alt="Снимок из коллекции" loading="lazy" decoding="async"><figcaption class="photo-caption">Снимок из коллекции</figcaption></figure><figure class="photo-card" id="photo-25"><img src="IMG_0552.webp" alt="Фотоархив" loading="lazy" decoding="async"><figcaption class="photo-caption">Фотоархив</figcaption></figure><figure class="photo-card" id="photo-26"><img src="luna.webp" alt="Изображение" loading="lazy" decoding="async"><figcaption class="photo-caption">Изображение</figcaption></figure><figure class="photo-card" id="photo-27"><img src="goddess.webp" alt="Старая фотография" loading="lazy" decoding="async"><figcaption class="photo-caption">Старая фотография</figcaption></figure><figure class="photo-card" id="photo-28"><img src="toet.webp" alt="Карточка" loading="lazy" decoding="async"><figcaption class="photo-caption">Карточка</figcaption></figure><figure class="photo-card" id="photo-29"><img src="2D7D3510-649C-4D5C-993E-51D0CEF39C33.webp" alt="Фотография без подписи" loading="lazy" decoding="async"><figcaption class="photo-caption">Фотография без подписи</figcaption></figure><figure class="photo-card" id="photo-30"><img src="IMG_0717.webp" alt="Дагеротип из собрания" loading="lazy" decoding="async"><figcaption class="photo-caption">Дагеротип из собрания</figcaption></figure><figure class="photo-card" id="photo-31"><img src="IMG_0753.webp" alt="Фотографический отпечаток" loading="lazy" decoding="async"><figcaption class="photo-caption">Фотографический отпечаток</figcaption></figure><figure class="photo-card" id="photo-32"><img src="IMG_0511.webp" alt="Архивная карточка" loading="lazy" decoding="async"><figcaption class="photo-caption">Архивная карточка</figcaption></figure><figure class="photo-card" id="photo-33"><img src="411F383C-5AE3-4616-AB74-10C2DC342E17.webp" alt="Снимок без даты" loading="lazy" decoding="async"><figcaption class="photo-caption">Снимок без даты</figcaption></figure><figure class="photo-card" id="photo-34"><img src="IMG_1044.jpeg" alt="Фотография из архива" loading="lazy" decoding="async"><figcaption class="photo-caption">Фотография из архива</figcaption></figure></div>
 </main>
-<footer class="page-footer"><a href="index.html">Вернуться к дневнику</a><span>✥</span><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">К началу страницы</a></footer>
-<script id="album-script">
-(function(){
-  var book=document.getElementById('album-book'); if(!book) return;
-  var leaves=[].slice.call(book.querySelectorAll('.leaf')), N=leaves.length;
-  var cur=0,target=0,timer=null;
-  var elPrev=document.getElementById('ab-prev'),elNext=document.getElementById('ab-next'),
-      elFirst=document.getElementById('ab-first'),elLast=document.getElementById('ab-last'),
-      elCount=document.getElementById('ab-count'),elSub=document.getElementById('ab-sub'),
-      ribbon=document.getElementById('album-ribbon'),tabs=[].slice.call(document.querySelectorAll('.album-index button'));
-  var STEP=420, MAXLIFT=200, FLIP_MS=1050;
-
-  function zFor(i,flipped){ return flipped ? 100+i : 100-i; }
-  function settle(){ leaves.forEach(function(l,i){ l.style.zIndex=zFor(i,l.classList.contains('flipped')); }); }
-  
-  function lift(l,i,flipped){
-    clearTimeout(l._t);
-    l.style.zIndex=MAXLIFT+zFor(i,flipped); l.classList.add('turning');
-    l._t=setTimeout(function(){
-      l._t=null; l.classList.remove('turning');
-      l.style.zIndex=zFor(i,l.classList.contains('flipped'));
-    },FLIP_MS);
-  }
-  function pageLabel(s){
-    var L=2*s-1, R=2*s, last=2*N-1;
-    
-    function nm(p){ if(p<0||p>last) return null; if(p===0) return 'титулъ'; if(p>=1&&p<=17) return String(p); return p===18?'конецъ':'экслибрисъ'; }
-    var a=nm(L),b=nm(R);
-    if(!a) return [b==='титулъ'?'Титулъ':b,'разворотъ 1 изъ '+(N+1)];
-    if(!b) return [a==='экслибрисъ'?'Экслибрисъ':a,'разворотъ '+(s+1)+' изъ '+(N+1)];
-    return ['Стр. '+a+' — '+b,'разворотъ '+(s+1)+' изъ '+(N+1)];
-  }
-  function ui(){
-    book.style.setProperty('--lw',(cur/N*22).toFixed(1)+'px');
-    book.style.setProperty('--rw',((N-cur)/N*22).toFixed(1)+'px');
-    var pl=pageLabel(cur); elCount.textContent=pl[0]; elSub.textContent=pl[1];
-    elPrev.disabled=elFirst.disabled=(target<=0); elNext.disabled=elLast.disabled=(target>=N);
-    ribbon.style.opacity=cur>=N?0:1;
-    var on=-1; tabs.forEach(function(t,k){ var sp=+t.dataset.spread; if(cur>=sp) on=k; });
-    if(cur>=N) on=tabs.length-1;
-    tabs.forEach(function(t,k){ t.classList.toggle('on',k===on); });
-    for(var k=Math.max(0,cur-2);k<=Math.min(N-1,cur+2);k++){ leaves[k].querySelectorAll('img').forEach(function(im){ im.loading='eager'; }); }
-  }
-  function tick(){
-    if(cur===target){ timer=null; ui(); return; }
-    if(cur<target){ var l=leaves[cur]; l.classList.add('flipped'); lift(l,cur,true); cur++; }
-    else { cur--; var l2=leaves[cur]; l2.classList.remove('flipped'); lift(l2,cur,false); }
-    ui();
-    timer=setTimeout(tick,STEP);
-  }
-  function go(s,instant){
-    s=Math.max(0,Math.min(N,s)); target=s;
-    if(instant){
-      clearTimeout(timer); timer=null;
-      book.classList.add('no-anim');
-      leaves.forEach(function(l,i){ clearTimeout(l._t); l._t=null; l.classList.remove('turning'); l.classList.toggle('flipped',i<s); });
-      cur=s; settle(); ui();
-      void book.offsetWidth; requestAnimationFrame(function(){ book.classList.remove('no-anim'); });
-      return;
-    }
-    if(!timer){ tick(); } else { ui(); }
-  }
-  settle(); ui();
-
-  elNext.onclick=function(){ go(target+1); };
-  elPrev.onclick=function(){ go(target-1); };
-  elFirst.onclick=function(){ go(0); };
-  elLast.onclick=function(){ go(N); };
-  book.addEventListener('click',function(e){
-    var c=e.target.closest('.curl'); if(c){ go(c.dataset.dir==='next'?target+1:target-1); return; }
-    var g=e.target.closest('[data-go]'); if(g){ go(+g.dataset.go); }
-  });
-  tabs.forEach(function(t){ t.onclick=function(){ go(+t.dataset.spread); }; });
-
-  
-  var sx=null,sy=0,swiped=false;
-  book.addEventListener('pointerdown',function(e){ if(e.target.closest('.curl,.goto')) return; sx=e.clientX; sy=e.clientY; });
-  window.addEventListener('pointerup',function(e){
-    if(sx===null) return; var dx=e.clientX-sx, dy=e.clientY-sy; sx=null;
-    if(Math.abs(dx)>60&&Math.abs(dx)>Math.abs(dy)*1.4){
-      swiped=true; setTimeout(function(){ swiped=false; },60);
-      go(dx<0?target+1:target-1);
-    }
-  });
-  window.addEventListener('pointercancel',function(){ sx=null; });
-  
-  book.addEventListener('click',function(e){ if(swiped){ e.stopPropagation(); e.preventDefault(); swiped=false; } },true);
-  book.addEventListener('dragstart',function(e){ e.preventDefault(); });
-
-  
-  var lb=document.getElementById('album-lb'),lbImg=document.getElementById('lb-img'),lbCap=document.getElementById('lb-cap'),lbCount=document.getElementById('lb-count');
-  var prints=[].slice.call(book.querySelectorAll('.print')), li=0;
-  function show(i){
-    li=(i+prints.length)%prints.length; var p=prints[li], im=p.querySelector('img'), fig=p.closest('.mount');
-    lbImg.src=im.currentSrc||im.src; lbImg.alt=im.alt;
-    lbCap.innerHTML=fig.querySelector('figcaption').innerHTML; lbCount.textContent=(li+1)+' / '+prints.length;
-    lb.classList.add('open');
-  }
-  function hide(){ lb.classList.remove('open'); lbImg.removeAttribute('src'); }
-  prints.forEach(function(p,i){ p.addEventListener('click',function(){ show(i); }); });
-  lb.querySelector('.lb-close').onclick=hide;
-  lb.querySelector('.lb-prev').onclick=function(){ show(li-1); };
-  lb.querySelector('.lb-next').onclick=function(){ show(li+1); };
-  lb.addEventListener('click',function(e){ if(e.target===lb) hide(); });
-  document.addEventListener('keydown',function(e){
-    if(lb.classList.contains('open')){
-      if(e.key==='Escape') hide(); else if(e.key==='ArrowLeft') show(li-1); else if(e.key==='ArrowRight') show(li+1); return;
-    }
-    if(e.key==='ArrowRight') go(target+1); else if(e.key==='ArrowLeft') go(target-1);
-  });
-
-  
-  function fromHash(){
-    var m=/^#photo-(\d+)$/.exec(location.hash); if(!m) return;
-    var n=+m[1]; if(n<1||n>prints.length) return;
-    var page=Math.ceil(n/2); go(Math.ceil(page/2), true);
-  }
-  fromHash(); window.addEventListener('hashchange',fromHash);
-})();
-
-</script>
-</body>
-</html>
+<footer class="page-footer"><a href="index.html#articles">Вернуться к дневнику</a><span>✥</span><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">К началу страницы</a></footer>
+</body></html>
