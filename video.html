@@ -1084,7 +1084,7 @@ body .floral-side-left,body .floral-side-right{width:220px;height:auto;top:0;bot
 <body>
 <div class="floral-side-left" aria-hidden="true"></div><div class="floral-side-right" aria-hidden="true"></div>
 <nav class="archive-nav-wrap" aria-label="Разделы сайта"><div class="archive-nav">
-<a href="index.html#articles" >Главная</a><a href="video.html" class="active" aria-current="page">Видео</a><a href="photo.html" >Фото</a><a href="paintings.html" >Картины</a>
+<a href="index.html" >Главная</a><a href="video.html" class="active" aria-current="page">Видео</a><a href="photo.html" >Фото</a><a href="paintings.html" >Картины</a>
 </div></nav>
 <main class="skeuo-frame">
 <div class="skeuo-screw tl"></div><div class="skeuo-screw tr"></div><div class="skeuo-screw bl"></div><div class="skeuo-screw br"></div>
@@ -1130,7 +1130,7 @@ body .floral-side-left,body .floral-side-right{width:220px;height:auto;top:0;bot
 </div>
 <div class="tv-legs" aria-hidden="true"><i></i><i></i></div>
 </div>
-<div class="tv-guide"><h3>Пульть</h3><div class="tv-keys"><button type="button" class="tv-key" id="video-1" aria-pressed="false"><span class="no">1</span><span class="tt">Мое прение</span><i class="led"></i></button><button type="button" class="tv-key" id="video-2" aria-pressed="false"><span class="no">2</span><span class="tt">Госпожа Тартола Валенсия</span><i class="led"></i></button><button type="button" class="tv-key" id="video-3" aria-pressed="false"><span class="no">3</span><span class="tt">Холодный Воздух<small>Константин Ступин</small></span><i class="led"></i></button><button type="button" class="tv-key" id="video-4" aria-pressed="false"><span class="no">4</span><span class="tt">Прогулка</span><i class="led"></i></button><button type="button" class="tv-key" id="video-5" aria-pressed="false"><span class="no">5</span><span class="tt">Волчьи Ягоды</span><i class="led"></i></button><button type="button" class="tv-key" id="video-6" aria-pressed="false"><span class="no">6</span><span class="tt">Свою Возлюбленную стоит искать либо в сказке, либо во сне</span><i class="led"></i></button><button type="button" class="tv-key" id="video-7" aria-pressed="false"><span class="no">7</span><span class="tt">Камень<small>Евгений Головин</small></span><i class="led"></i></button></div></div>
+<div class="tv-guide"><h3>Пульть</h3><div class="tv-keys"><button type="button" class="tv-key" id="video-1" aria-pressed="false"><span class="no">1</span><span class="tt">Мое прение</span><i class="led"></i></button><button type="button" class="tv-key" id="video-2" aria-pressed="false"><span class="no">2</span><span class="tt">Госпожа Тартола Валенсия</span><i class="led"></i></button><button type="button" class="tv-key" id="video-3" aria-pressed="false"><span class="no">3</span><span class="tt">Холодный Воздух<small>Константин Ступин</small></span><i class="led"></i></button><button type="button" class="tv-key" id="video-4" aria-pressed="false"><span class="no">4</span><span class="tt">Прогулка</span><i class="led"></i></button><button type="button" class="tv-key" id="video-5" aria-pressed="false"><span class="no">5</span><span class="tt">Волчьи Ягоды</span><i class="led"></i></button><button type="button" class="tv-key" id="video-6" aria-pressed="false"><span class="no">6</span><span class="tt">Свою Возлюбленную стоит искать либо в сказке, либо во сне</span><i class="led"></i></button><button type="button" class="tv-key" id="video-7" aria-pressed="false"><span class="no">7</span><span class="tt">Камень<small>Евгений Головин</small></span><i class="led"></i></button><i class="led"></i></button><button type="button" class="tv-key" id="video-9" aria-pressed="false"><span class="no">9</span><span class="tt">Nur nicht aus Liebe weinen<small>Zarah Leander</small></span><i class="led"></i></button></div></div>
 <p class="tv-tip">Согласитесь что приятне слышать именно эту изысканную дореволюционную вязь, а не профаническую лексику позднего капитализма...</p>
 </section>
 </main>
@@ -1139,7 +1139,6 @@ body .floral-side-left,body .floral-side-right{width:220px;height:auto;top:0;bot
 (function(){
   var YT='?autoplay=1&enablejsapi=1&rel=0&playsinline=1';
   var CH=[
-    {id:'video-1',t:'Nur nicht aus Liebe weinen',s:'Zarah Leander',f:'balabanov.MP4'},
     {id:'video-2',t:'Мое прение',s:'',yt:'https://www.youtube.com/embed/joKnt76mjsY'},
     {id:'video-3',t:'Госпожа Тартола Валенсия',s:'',f:'IMG_0005.MP4'},
     {id:'video-4',t:'Холодный Воздух',s:'Константин Ступин',f:'kstupa.mp4'},
@@ -1147,6 +1146,7 @@ body .floral-side-left,body .floral-side-right{width:220px;height:auto;top:0;bot
     {id:'video-6',t:'Волчьи Ягоды',s:'',f:'les.mp4'},
     {id:'video-7',t:'Свою Возлюбленную стоит искать либо в сказке, либо во сне',s:'',yt:'https://www.youtube.com/embed/NvRgJGFErHE'},
     {id:'video-8',t:'Камень',s:'Евгений Головин',f:'golovakamen.mp4'}
+    {id:'video-9',t:'Nur nicht aus Liebe weinen',s:'Zarah Leander',f:'balabanov.MP4'},
   ];
   var $=function(i){return document.getElementById(i);};
   var set=$('tv-set'); if(!set) return;
