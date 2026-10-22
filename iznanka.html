@@ -411,7 +411,7 @@
             box-shadow: 0 0 0 4px #14041a, 0 0 0 9px #6b21a8, 0 30px 80px rgba(0, 0, 0, 0.99), 0 0 60px rgba(255, 220, 130, 0);
             transition: box-shadow 2s ease;
         }
-        .light {
+        .gate-light {
             position: absolute; inset: 0; opacity: 0.4; transition: opacity 1.4s ease;
             background: radial-gradient(ellipse 60% 70% at 50% 62%, #fffdf0 0, #ffe9a0 22%, #e0a43e 46%, #7a2f8c 78%, #1a0522 100%);
         }
@@ -489,8 +489,8 @@
         #theatre.exit-2 #room { filter: brightness(0.2); }
         #theatre.exit-2 #spot { animation: none; opacity: 0; transition: opacity 1s ease; }
         #theatre.exit-3 #gates { opacity: 1; visibility: visible; transition: opacity 0.8s ease; }
-        #theatre.exit-4 .light { opacity: 0.8; }
-        #theatre.exit-5 .light { opacity: 1; }
+        #theatre.exit-4 .gate-light { opacity: 0.8; }
+        #theatre.exit-5 .gate-light { opacity: 1; }
         #theatre.exit-5 .rays { opacity: 0.9; }
         #theatre.exit-5 .portal { box-shadow: 0 0 0 4px #14041a, 0 0 0 9px #6b21a8, 0 30px 80px rgba(0, 0, 0, 0.99), 0 0 140px 50px rgba(255, 220, 130, 0.45); }
         #theatre.exit-5 .leaf.l { transform: rotateY(100deg); filter: brightness(0.45); }
@@ -597,7 +597,7 @@
     <!-- ═══ УХОД: ВРАТА ДВОРЦА ═══ -->
     <div id="gates" aria-hidden="true">
         <div class="portal">
-            <div class="light"><div class="rays"></div></div>
+            <div class="gate-light"><div class="rays"></div></div>
             <div class="leaf l">
                 <div class="panel p1">
                     <svg class="orn" viewBox="0 0 100 100"><g fill="none" stroke="url(#gGoldV)" stroke-width="1.6"><circle cx="50" cy="50" r="42"/><circle cx="50" cy="50" r="34" stroke-dasharray="2 3"/><path d="M50 6 Q74 32 94 50 Q74 68 50 94 Q26 68 6 50 Q26 32 50 6Z"/><path d="M50 22 Q62 38 78 50 Q62 62 50 78 Q38 62 22 50 Q38 38 50 22Z"/><path d="M50 6V94M6 50H94" stroke-dasharray="1 3"/></g><circle cx="50" cy="50" r="7" fill="url(#gGoldR)"/></svg>
