@@ -7,7 +7,7 @@
 
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <meta name="theme-color" content="#0a020d">
+    <meta name="theme-color" content="#120502">
 
     <meta property="og:type" content="website">
     <meta property="og:title" content="Вальдѣмаръ Бубѣнъ — Изнанка">
@@ -19,157 +19,192 @@
     </script>
 
     <style>
+        /* Палитра и материалы — те же, что на главной (index.html) */
         :root {
-            --pad: clamp(10px, 3.2vw, 30px);
+            --wood-dark: #120502;
+            --brass-high: #fff2be;
+            --brass-mid: #d4a748;
+            --brass-low: #754f15;
+            --brass-deep: #2e1a05;
+            --rivet-shine: radial-gradient(circle at 35% 35%, #fff6d9 0%, #d4a748 45%, #59350a 85%, #1a0a02 100%);
+
+            --pad: clamp(16px, 3.2vw, 34px);
             --frame: clamp(10px, 2.4vw, 20px);
-            --board: min(calc(100vw - 2 * (24px + var(--pad) + var(--frame) + 8px)), 50vh, 540px);
-            --valance-h: clamp(56px, 11vh, 100px);
+            --board: clamp(216px, min(calc(100vw - 120px), calc(100vh - 440px)), 500px);
             --noise: none;
 
-            --damask: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23d4af37' stroke-width='0.65' stroke-opacity='0.22'%3E%3Cpath d='M40 0 C28 20 20 28 0 40 C20 52 28 60 40 80 C52 60 60 52 80 40 C60 28 52 20 40 0 Z'/%3E%3Ccircle cx='40' cy='40' r='18' stroke-dasharray='3 3'/%3E%3Cpath d='M40 12 Q52 28 68 40 Q52 52 40 68 Q28 52 12 40 Q28 28 40 12 Z' fill='%23caa148' fill-opacity='0.04'/%3E%3C/g%3E%3C/svg%3E");
+            --damask: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23d4af37' stroke-width='0.7' stroke-opacity='0.22'%3E%3Cpath d='M40 0 C28 20 20 28 0 40 C20 52 28 60 40 80 C52 60 60 52 80 40 C60 28 52 20 40 0 Z'/%3E%3Ccircle cx='40' cy='40' r='18' stroke-dasharray='3 3'/%3E%3Cpath d='M40 12 Q52 28 68 40 Q52 52 40 68 Q28 52 12 40 Q28 28 40 12 Z' fill='%23caa148' fill-opacity='0.04'/%3E%3C/g%3E%3C/svg%3E");
+
+            --damask-frame: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0 C22 15 15 22 0 30 C15 38 22 45 30 60 C38 45 45 38 60 30 C45 22 38 15 30 0 Z' fill='none' stroke='%23d4af37' stroke-width='0.6' stroke-opacity='0.2'/%3E%3Ccircle cx='30' cy='30' r='9' fill='none' stroke='%23d4af37' stroke-width='0.5' stroke-opacity='0.16'/%3E%3C/svg%3E");
 
             --wood: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='w' x='0' y='0' width='100%25' height='100%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.012 0.55' numOctaves='4' seed='7'/%3E%3CfeColorMatrix values='0 0 0 0 0.10  0 0 0 0 0.04  0 0 0 0 0.01  0 0 0 1.1 -0.25'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23w)'/%3E%3C/svg%3E");
 
-            --marble: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' preserveAspectRatio='none'%3E%3Cfilter id='m' x='0' y='0' width='100%25' height='100%25'%3E%3CfeTurbulence type='turbulence' baseFrequency='0.010 0.018' numOctaves='4' seed='11'/%3E%3CfeColorMatrix values='0 0 0 0 0.28  0 0 0 0 0.17  0 0 0 0 0.06  0 -2.2 0 0 0.75'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23m)' opacity='0.55'/%3E%3C/svg%3E");
-
-            --stud: radial-gradient(circle at 35% 30%, #fff0b3 0 14%, #d3a43c 34%, #5b3a0a 66%, transparent 70%);
+            --stud: radial-gradient(circle at 35% 30%, #fff6d9 0 14%, #d4a748 36%, #59350a 68%, transparent 72%);
 
             --sprocket: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='56'%3E%3Crect x='18' y='14' width='28' height='28' rx='6' fill='%23f6e7bd'/%3E%3C/svg%3E");
         }
 
         * { box-sizing: border-box; }
         html, body {
-            margin: 0; height: 100%; background: #000; overflow: hidden;
+            margin: 0; height: 100%; background: #050201; overflow: hidden;
             -webkit-text-size-adjust: 100%;
         }
         body {
             font-family: "Georgia", "Palatino Linotype", "Times New Roman", serif;
-            color: #faeed4;
+            color: #fcf1d9;
+            letter-spacing: 0.035em;
             user-select: none; -webkit-user-select: none;
+            text-shadow: 0 -1px 0 rgba(0, 0, 0, 1), 0 1px 1px rgba(255, 235, 170, 0.2), 0 2px 5px rgba(0, 0, 0, 0.95);
         }
-        ::selection { background: #3b074d; color: #ffd977; text-shadow: 0 0 10px #c084fc; }
+        ::selection { background: linear-gradient(180deg, #7a4310, #361c04); color: #fff2b2; text-shadow: 0 0 10px #ffb300, 0 1px 2px #000; }
 
-        #theatre { position: fixed; inset: 0; overflow: hidden; background: #000; isolation: isolate; }
+        #theatre { position: fixed; inset: 0; overflow: hidden; background: #050201; isolation: isolate; }
 
-        /* ───────────── ЗАЛ ───────────── */
+        /* ───────────── ПОМЕЩЕНИЕ: тот же тёмный орех, обои и дамаск, что на главной ───────────── */
         #room {
             position: absolute; inset: 0; z-index: 0;
-            background:
-                radial-gradient(ellipse at 50% 42%, rgba(70, 32, 10, 0.30) 0%, rgba(6, 1, 8, 0.90) 78%),
-                var(--damask) 0 0 / 80px 80px,
-                linear-gradient(rgba(10, 2, 12, 0.55), rgba(10, 2, 12, 0.80)),
-                url('IMG_0721.webp') center / cover no-repeat,
-                #07020a;
+            background-color: #060201;
+            background-image:
+                radial-gradient(ellipse at 50% 20%, rgba(85, 40, 10, 0.6) 0%, rgba(16, 6, 2, 0.92) 55%, #050201 100%),
+                repeating-linear-gradient(0deg, rgba(20, 8, 3, 0.4) 0px, rgba(10, 4, 1, 0.4) 2px, rgba(35, 14, 5, 0.25) 4px, transparent 6px),
+                var(--damask),
+                url('IMG_0721.webp');
+            background-repeat: no-repeat, repeat, repeat, no-repeat;
+            background-size: cover, 100% 12px, 80px 80px, cover;
+            background-position: center, top left, top left, center;
+            background-blend-mode: normal, overlay, overlay, normal;
             transition: filter 1.2s ease;
         }
 
-        #spot {
-            position: absolute; left: 50%; top: -6%;
-            width: min(150vmax, 2600px); height: 118%;
-            transform: translateX(-50%);
-            z-index: 1; pointer-events: none; opacity: 0;
-            mix-blend-mode: screen; filter: blur(10px);
-            background: linear-gradient(180deg, rgba(255, 228, 160, 0.55) 0%, rgba(255, 214, 130, 0.18) 55%, rgba(255, 200, 110, 0) 100%);
-            clip-path: polygon(47% 0, 53% 0, 86% 100%, 14% 100%);
+        /* цветочные боковины — как на главной */
+        .floral-side-left, .floral-side-right {
+            position: absolute; top: 0; height: 100%; width: clamp(60px, 16vw, 270px);
+            mix-blend-mode: multiply; background-repeat: repeat-y; background-size: contain;
+            z-index: 2; pointer-events: none; opacity: 0.92;
         }
-        @keyframes lampStrike {
-            0% { opacity: 0; } 6% { opacity: 0.9; } 9% { opacity: 0.1; } 13% { opacity: 0.8; }
-            17% { opacity: 0.25; } 24% { opacity: 0.85; } 100% { opacity: 0.62; }
+        .floral-side-left {
+            left: 0; background-image: url('IMG_0678.webp');
+            filter: sepia(45%) saturate(125%) contrast(1.3) brightness(0.85) drop-shadow(18px 0 25px rgba(0, 0, 0, 0.95));
         }
-        @keyframes lampHum { from { opacity: 0.58; } to { opacity: 0.70; } }
-        #theatre.open #spot { animation: lampStrike 2.6s linear forwards; }
-        #theatre.ready #spot { animation: lampHum 5s ease-in-out infinite alternate; }
-
-        #dust { position: absolute; inset: 0; z-index: 4; pointer-events: none; opacity: 0; transition: opacity 2s ease 1s; }
-        #theatre.open #dust { opacity: 1; }
-        .mote {
-            position: absolute; border-radius: 50%; opacity: 0;
-            background: radial-gradient(circle, #fff3c4, rgba(255, 225, 150, 0));
-            animation: drift linear infinite;
-        }
-        @keyframes drift {
-            0% { transform: translate(0, 0); opacity: 0; }
-            15% { opacity: 0.85; } 85% { opacity: 0.55; }
-            100% { transform: translate(var(--dx), -130px); opacity: 0; }
+        .floral-side-right {
+            right: 0; background-image: url('Cvetok8.webp');
+            filter: sepia(45%) saturate(125%) contrast(1.3) brightness(0.85) drop-shadow(-18px 0 25px rgba(0, 0, 0, 0.95));
         }
 
-        /* ───────────── ШАХМАТНАЯ СЦЕНА (id сохранён для скрипта) ───────────── */
+        /* ───────────── ШАХМАТНЫЙ ЭКРАН (id сохранены для скрипта) ───────────── */
         #chess-lock-screen {
             position: absolute; inset: 0; z-index: 3;
             display: flex; justify-content: center; align-items: center;
-            padding: calc(var(--valance-h) - 22px) 24px 18px;
-            overflow: auto; opacity: 0; pointer-events: none;
+            padding: 26px 14px; overflow: auto; opacity: 0; pointer-events: none;
             transform-origin: 50% 58%;
             -webkit-overflow-scrolling: touch;
+            scrollbar-color: #caa148 #140702; scrollbar-width: thin;
         }
-        #chess-lock-screen::before {
-            content: ""; position: fixed; inset: 0; pointer-events: none;
-            background: radial-gradient(ellipse 48% 42% at 50% 58%, rgba(255, 210, 120, 0.17), transparent 70%);
-            mix-blend-mode: screen;
+        #chess-lock-screen::-webkit-scrollbar { width: 13px; }
+        #chess-lock-screen::-webkit-scrollbar-track { background: linear-gradient(90deg, #090301, #1a0a03, #090301); border-left: 1px solid #4a2f0c; box-shadow: inset 0 0 8px rgba(0, 0, 0, 1); }
+        #chess-lock-screen::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, #caa148 0%, #fff2be 30%, #9e742e 70%, #4a2d0b 100%);
+            border: 1px solid #140601; border-radius: 3px;
+            box-shadow: inset 1px 1px 1px rgba(255, 255, 255, 0.8), inset -1px -1px 2px rgba(0, 0, 0, 0.8), 0 3px 6px rgba(0, 0, 0, 0.9);
         }
-        #theatre.open #chess-lock-screen { opacity: 1; transition: opacity 1.8s ease 0.6s; }
+        #theatre.open #chess-lock-screen { opacity: 1; transition: opacity 1.6s ease 0.4s; }
         #theatre.ready #chess-lock-screen { pointer-events: auto; }
 
+        /* Резная рама с латунной окантовкой и винтами — .skeuo-frame с главной */
         .chess-container {
-            position: relative; margin: auto;
-            width: calc(var(--board) + 2 * var(--frame) + 2 * var(--pad) + 16px);
-            padding: calc(var(--pad) * 0.9) var(--pad) calc(var(--pad) * 0.8);
-            text-align: center; color: #faebd0;
-            background:
-                linear-gradient(135deg, rgba(167, 139, 250, 0.12) 0%, transparent 38%, rgba(0, 0, 0, 0.78) 100%),
-                radial-gradient(ellipse at 50% 12%, rgba(46, 20, 58, 0.96) 0%, rgba(14, 5, 20, 0.985) 72%, #07010a 100%),
-                var(--damask) 0 0 / 80px 80px;
-            border: 8px ridge #b8860b;
-            outline: 3px solid #1f062a; outline-offset: -11px;
+            position: relative; margin: auto; flex: none;
+            width: calc(var(--board) + 2 * var(--frame) + 2 * var(--pad) + 20px);
+            padding: calc(var(--pad) * 0.8) var(--pad) calc(var(--pad) * 0.75);
+            text-align: center; color: #fcefd6;
+            background-color: #0c0502;
+            background-image:
+                linear-gradient(180deg, rgba(255, 240, 190, 0.15) 0%, rgba(212, 175, 55, 0.05) 2%, transparent 35%, rgba(0, 0, 0, 0.85) 100%),
+                linear-gradient(135deg, rgba(255, 235, 170, 0.08) 0%, transparent 40%, rgba(0, 0, 0, 0.8) 100%),
+                radial-gradient(circle at 60% 40%, rgba(80, 40, 12, 0.95) 0%, rgba(16, 5, 2, 0.99) 75%),
+                var(--damask-frame);
+            border-top: 10px solid #f0d584;
+            border-left: 10px solid #caa148;
+            border-right: 10px solid #6b4512;
+            border-bottom: 12px solid #361f06;
+            outline: 3px solid #140702; outline-offset: -13px;
             box-shadow:
-                0 0 0 4px #07010a, 0 0 0 9px #6b21a8, 0 0 0 13px #180320,
-                0 40px 90px rgba(0, 0, 0, 0.99),
-                inset 0 0 70px rgba(0, 0, 0, 0.95), inset 0 0 30px rgba(192, 132, 252, 0.25);
-            transform: translateY(14px) scale(0.985);
-            transition: transform 2.6s cubic-bezier(.2, .7, .2, 1);
+                0 3px 0 1px #2a1506,
+                0 0 0 4px #080301,
+                0 0 0 9px #855f26,
+                0 0 0 13px #180802,
+                0 40px 90px rgba(0, 0, 0, 1),
+                inset 0 4px 6px rgba(255, 245, 205, 0.6),
+                inset 0 -5px 8px rgba(0, 0, 0, 0.98),
+                inset 0 0 80px rgba(0, 0, 0, 0.99),
+                inset 0 0 35px rgba(212, 175, 55, 0.4);
+            transform: translateY(-22px);
+            transition: transform 2.2s cubic-bezier(.2, .7, .2, 1);
         }
         #theatre.open .chess-container { transform: none; }
 
-        .chess-container h2 {
-            margin: 0; font-size: clamp(13px, 2.3vw, 19px); line-height: 1.45;
-            letter-spacing: 0.12em; text-transform: uppercase; font-weight: 900;
-            color: #ffd977;
-            text-shadow: 0 1px 0 #7d5923, 0 2px 3px #000, 0 0 16px rgba(255, 215, 0, 0.55);
+        .skeuo-screw {
+            position: absolute; width: 14px; height: 14px; border-radius: 50%;
+            background: var(--rivet-shine);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.9), inset 0 1px 1px rgba(255, 255, 255, 0.7), inset 0 -1px 2px rgba(0, 0, 0, 0.8);
+            border: 1px solid #1a0802; z-index: 25; pointer-events: none;
         }
-        .fleuron {
-            position: relative; height: 14px; width: 72%; margin: 11px auto 9px;
-            background: linear-gradient(90deg, transparent, #caa148 25%, #caa148 75%, transparent) center / 100% 1px no-repeat;
+        .skeuo-screw::before {
+            content: ""; position: absolute; top: 50%; left: 15%; right: 15%; height: 2px; margin-top: -1px;
+            background: #100501; box-shadow: 0 1px 0 rgba(255, 235, 170, 0.5); transform: rotate(38deg);
         }
-        .fleuron::after {
-            content: ""; position: absolute; left: 50%; top: 50%; width: 9px; height: 9px;
-            transform: translate(-50%, -50%) rotate(45deg);
-            background: radial-gradient(circle at 35% 30%, #fff0b3, #caa148 55%, #5b3a0a);
-            box-shadow: 0 0 0 2px #14041a, 0 0 10px rgba(255, 215, 0, 0.6);
-        }
-        .chess-hint {
-            margin: 0 0 clamp(12px, 2.4vw, 20px); font-style: italic;
-            font-size: clamp(12px, 1.9vw, 14px); letter-spacing: 0.04em;
-            color: #d8b26e; text-shadow: 0 1px 2px #000;
+        .skeuo-screw.tl { top: 9px; left: 9px; } .skeuo-screw.tr { top: 9px; right: 9px; }
+        .skeuo-screw.bl { bottom: 9px; left: 9px; } .skeuo-screw.br { bottom: 9px; right: 9px; }
+        .skeuo-screw.sm { width: 10px; height: 10px; }
+        .skeuo-screw.sm::before { height: 1.5px; }
+        .skeuo-screw.sm.tl { top: 5px; left: 5px; } .skeuo-screw.sm.tr { top: 5px; right: 5px; }
+        .skeuo-screw.sm.bl { bottom: 5px; left: 5px; } .skeuo-screw.sm.br { bottom: 5px; right: 5px; }
+
+        /* орнаментальные линейки — как в навигации главной */
+        .orn-line {
+            color: #d5ae5b; font-size: 10px; letter-spacing: 2px; line-height: 1.2;
+            text-shadow: 0 2px 2px #000, 0 0 8px #c99a3c; opacity: 0.9;
+            white-space: nowrap; overflow: hidden; text-align: center;
         }
 
-        /* Ореховая рама с латунной инкрустацией и заклёпками */
+        .chess-container h2 {
+            margin: 12px 0 0; font-size: clamp(13px, 2.2vw, 19px); line-height: 1.5;
+            letter-spacing: 0.12em; text-transform: uppercase; font-weight: 900;
+            color: #f7dfa5;
+            text-shadow: 0 1px 0 rgba(255, 235, 170, 0.5), 0 2px 4px #000, 0 0 14px rgba(212, 175, 55, 0.55);
+        }
+        .divider {
+            position: relative; height: 0; margin: 17px 6px 22px;
+            border-bottom: 2px solid rgba(184, 134, 11, 0.35);
+        }
+        .divider::after {
+            content: "❖"; position: absolute; left: 50%; bottom: -9px; transform: translateX(-50%);
+            font-size: 11px; line-height: 1.5; color: #ffd977; background: #0c0502; padding: 0 10px;
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.9), 0 1px 2px #000;
+            border: 1px solid rgba(184, 134, 11, 0.4); border-radius: 50%; box-shadow: 0 2px 4px #000;
+        }
+        .chess-hint {
+            margin: 0 0 clamp(14px, 2.6vw, 22px); font-style: italic;
+            font-size: clamp(12px, 1.9vw, 14px); letter-spacing: 0.06em; color: #d8b26e;
+        }
+
+        /* Ореховая рама доски с латунной инкрустацией и винтами */
         .board-frame {
             position: relative; margin: 0 auto;
-            width: calc(var(--board) + 2 * var(--frame)); padding: var(--frame);
+            width: calc(var(--board) + 2 * var(--frame) + 8px); padding: var(--frame);
             background:
-                var(--stud) left 4px top 4px / 12px 12px no-repeat,
-                var(--stud) right 4px top 4px / 12px 12px no-repeat,
-                var(--stud) left 4px bottom 4px / 12px 12px no-repeat,
-                var(--stud) right 4px bottom 4px / 12px 12px no-repeat,
                 var(--wood),
                 linear-gradient(135deg, #6a3718 0%, #34190a 40%, #552b12 66%, #1d0d05 100%);
-            border: 2px solid #0e0502;
+            border-top: 4px solid #f0d584;
+            border-left: 4px solid #caa148;
+            border-right: 4px solid #6b4512;
+            border-bottom: 4px solid #361f06;
             box-shadow:
-                0 0 0 2px #b8860b, 0 0 0 4px #1a0802, 0 18px 34px rgba(0, 0, 0, 0.9),
-                inset 2px 2px 0 rgba(255, 205, 140, 0.28), inset -3px -3px 7px rgba(0, 0, 0, 0.65);
+                0 0 0 2px #080301, 0 0 0 4px #5e4016, 0 0 0 6px #100501,
+                0 18px 34px rgba(0, 0, 0, 0.9),
+                inset 2px 2px 0 rgba(255, 205, 140, 0.28), inset -3px -3px 7px rgba(0, 0, 0, 0.7);
         }
         .board-frame::before {
-            content: ""; position: absolute; inset: calc(var(--frame) / 2 - 1px);
+            content: ""; position: absolute; inset: calc(var(--frame) / 2 - 2px);
             border: 1px solid #caa148; pointer-events: none;
             box-shadow: 0 0 0 1px #1a0802, inset 0 0 0 1px #1a0802;
         }
@@ -181,12 +216,10 @@
             border: 3px solid #0b0402;
             box-shadow: inset 0 0 14px #000, 0 0 0 1px #8c6a2a, 0 3px 10px rgba(0, 0, 0, 0.8);
         }
-        /* Лак и прожилки поверх всей доски */
+        /* прожилки дерева поверх всей доски (без глянца) */
         #chess-board::before {
             content: ""; position: absolute; inset: 0; z-index: 2; pointer-events: none;
-            background:
-                linear-gradient(118deg, rgba(255, 255, 255, 0.17) 0%, rgba(255, 255, 255, 0) 30%, rgba(255, 255, 255, 0) 62%, rgba(255, 255, 255, 0.07) 100%),
-                var(--marble) 0 0 / 100% 100%;
+            background: var(--wood) 0 0 / 220px 220px; opacity: 0.22; mix-blend-mode: multiply;
         }
         #chess-board.shake { animation: boardShake 0.4s ease-in-out; }
         @keyframes boardShake {
@@ -195,22 +228,16 @@
             40%, 80% { transform: translateX(6px); }
         }
 
-        .chess-cell {
-            position: relative; min-width: 0; min-height: 0;
-            display: flex; justify-content: center; align-items: center;
-        }
+        .chess-cell { position: relative; min-width: 0; min-height: 0; display: flex; justify-content: center; align-items: center; }
         .chess-cell.light {
-            background: linear-gradient(135deg, #e3d0a0 0%, #cbae75 55%, #b4955a 100%);
-            box-shadow: inset 1px 1px 0 rgba(255, 250, 225, 0.55), inset -1px -1px 0 rgba(80, 50, 10, 0.45);
+            background: linear-gradient(135deg, #dcc48f 0%, #c3a165 55%, #a98a4f 100%);
+            box-shadow: inset 1px 1px 0 rgba(255, 250, 225, 0.55), inset -1px -1px 0 rgba(80, 50, 10, 0.5);
         }
         .chess-cell.dark {
             background: linear-gradient(135deg, #3a1a0d 0%, #1d0a04 55%, #0f0502 100%);
             box-shadow: inset 1px 1px 0 rgba(255, 170, 90, 0.18), inset -1px -1px 0 rgba(0, 0, 0, 0.7), inset 0 0 10px rgba(0, 0, 0, 0.8);
         }
-        .chess-cell.drag-over {
-            background: #8a6628 !important;
-            box-shadow: inset 0 0 22px rgba(255, 215, 0, 0.95);
-        }
+        .chess-cell.drag-over { background: #8a6628 !important; box-shadow: inset 0 0 22px rgba(255, 215, 0, 0.85); }
         .chess-cell.denied { box-shadow: inset 0 0 26px rgba(255, 60, 40, 0.95) !important; }
         .chess-cell.sanctum::after {
             content: ""; position: absolute; inset: 0; z-index: 3; pointer-events: none;
@@ -222,11 +249,11 @@
         #chess-board.won { animation: boardWon 1.6s ease-out forwards; }
         @keyframes boardWon {
             0% { box-shadow: inset 0 0 14px #000, 0 0 0 1px #8c6a2a, 0 0 0 rgba(255, 217, 119, 0); }
-            40% { box-shadow: inset 0 0 40px rgba(255, 217, 119, 0.7), 0 0 0 2px #ffd977, 0 0 70px 24px rgba(255, 217, 119, 0.75); }
-            100% { box-shadow: inset 0 0 30px rgba(255, 217, 119, 0.45), 0 0 0 2px #ffd977, 0 0 90px 30px rgba(255, 217, 119, 0.45); }
+            40% { box-shadow: inset 0 0 40px rgba(255, 217, 119, 0.6), 0 0 0 2px #ffd977, 0 0 60px 18px rgba(255, 200, 100, 0.6); }
+            100% { box-shadow: inset 0 0 30px rgba(255, 217, 119, 0.4), 0 0 0 2px #ffd977, 0 0 70px 22px rgba(255, 200, 100, 0.4); }
         }
 
-        /* Слоновая кость с золотом — ферзь */
+        /* Латунный ферзь на сукне */
         .chess-queen {
             position: relative; z-index: 10; width: 100%; height: 100%;
             display: flex; align-items: center; justify-content: center;
@@ -234,77 +261,47 @@
         }
         .chess-queen svg {
             width: 94%; height: 94%; overflow: visible; pointer-events: none;
-            filter: drop-shadow(0 5px 4px rgba(0, 0, 0, 0.75)) drop-shadow(0 0 8px rgba(255, 215, 120, 0.3));
-            animation: queenGlow 3.6s ease-in-out infinite;
-        }
-        @keyframes queenGlow {
-            0%, 100% { filter: drop-shadow(0 5px 4px rgba(0, 0, 0, 0.75)) drop-shadow(0 0 5px rgba(255, 215, 120, 0.22)); }
-            50% { filter: drop-shadow(0 5px 4px rgba(0, 0, 0, 0.75)) drop-shadow(0 0 16px rgba(255, 225, 140, 0.68)); }
+            filter: drop-shadow(0 5px 3px rgba(0, 0, 0, 0.8));
         }
         .chess-queen:active { cursor: grabbing; }
         .chess-queen.lifted { opacity: 0.35; }
         .chess-queen.held { z-index: 60; }
         .chess-queen.whistle-back { transition: transform 0.25s cubic-bezier(0.25, 1, 0.5, 1); }
 
-        /* Табличка с красной сигнальной лампой */
-        .error-slot { min-height: 56px; margin-top: clamp(14px, 2.6vw, 22px); display: flex; align-items: center; justify-content: center; }
+        /* Латунная табличка с сигнальной лампой */
+        .error-slot { min-height: 58px; margin-top: clamp(16px, 2.8vw, 24px); display: flex; align-items: center; justify-content: center; }
         #chess-error {
-            width: 100%; padding: 11px 14px; font-style: italic;
-            font-size: clamp(12px, 1.9vw, 14px); letter-spacing: 0.08em; color: #ff8a73;
-            background: linear-gradient(180deg, #240808, #0e0303);
-            border: 3px ridge #8a5a1a; outline: 1px solid #3a0f0a; outline-offset: -6px;
-            text-shadow: 0 0 9px rgba(255, 70, 50, 0.85), 0 1px 2px #000;
-            box-shadow: inset 0 0 18px rgba(0, 0, 0, 0.95), 0 4px 10px rgba(0, 0, 0, 0.8), 0 0 22px rgba(255, 50, 30, 0.18);
+            position: relative; width: 100%; padding: 12px 14px 12px 46px; text-align: left;
+            font-style: italic; font-size: clamp(12px, 1.9vw, 14px); letter-spacing: 0.06em; color: #ffb09a;
+            background: linear-gradient(180deg, #2a0b07, #0e0403);
+            border-top: 3px solid #f0d584; border-left: 3px solid #caa148; border-right: 3px solid #6b4512; border-bottom: 4px solid #361f06;
+            outline: 1px solid #080301; outline-offset: 0;
+            text-shadow: 0 0 8px rgba(255, 70, 50, 0.75), 0 1px 2px #000;
+            box-shadow: inset 0 0 18px rgba(0, 0, 0, 0.95), 0 0 0 1px #080301, 0 3px 0 #8b6223, 0 8px 12px rgba(0, 0, 0, 0.8);
+        }
+        #chess-error::before {
+            content: ""; position: absolute; left: 12px; top: 50%; width: 20px; height: 20px; margin-top: -10px; border-radius: 50%;
+            background: radial-gradient(circle at 35% 30%, #ffd9cc 0 12%, #ff4a30 34%, #8a0f05 78%);
+            border: 3px solid; border-color: #f0d584 #6b4512 #361f06 #caa148;
+            box-shadow: 0 0 12px rgba(255, 60, 40, 0.9), inset 0 0 3px rgba(0, 0, 0, 0.6);
         }
 
-        /* ───────────── ПРОСЦЕНИУМ, ЗАНАВЕС, ВАЛАНС ───────────── */
-        #curtains { position: absolute; inset: 0; z-index: 5; pointer-events: none; }
-        .curtain {
-            position: absolute; top: 0; bottom: 0; width: 50.6%;
-            background:
-                linear-gradient(180deg, rgba(0, 0, 0, 0.65) 0, transparent 16%, transparent 66%, rgba(0, 0, 0, 0.7) 100%),
-                repeating-linear-gradient(90deg, rgba(255, 190, 255, 0.07) 0 1.6%, transparent 1.6% 5.3%),
-                repeating-linear-gradient(90deg, #14041a 0, #3a0d49 2.2%, #6a2380 3.8%, #3a0d49 5.4%, #14041a 7.6%);
-            transition: transform 3.1s cubic-bezier(.66, 0, .22, 1);
-            will-change: transform;
-        }
-        .curtain::after {
-            content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 30px;
-            background:
-                linear-gradient(180deg, #caa148 0 6px, transparent 6px),
-                repeating-linear-gradient(90deg, #d9b25c 0 2px, transparent 2px 5px);
-            filter: drop-shadow(0 -2px 3px rgba(0, 0, 0, 0.7));
-        }
-        .curtain.cl { left: 0; transform-origin: 0 50%; border-right: 3px solid #caa148; box-shadow: inset -14px 0 18px rgba(0, 0, 0, 0.6); }
-        .curtain.cr { right: 0; transform-origin: 100% 50%; border-left: 3px solid #caa148; box-shadow: inset 14px 0 18px rgba(0, 0, 0, 0.6); transition-delay: 0.14s; }
-        #theatre.open .curtain { transform: scaleX(0.13); }
-
-        .valance {
-            position: absolute; top: 0; left: 0; right: 0; height: var(--valance-h);
-            filter: drop-shadow(0 8px 10px rgba(0, 0, 0, 0.8)); z-index: 2;
-        }
-        .valance svg { width: 100%; height: 100%; display: block; }
-        .tassel { position: absolute; top: 68%; width: 12px; height: clamp(26px, 5vh, 44px); transform: translateX(-50%); }
-        .tassel::before {
-            content: ""; position: absolute; left: 50%; top: 0; width: 2px; height: 40%; transform: translateX(-50%); background: #caa148;
-        }
-        .tassel::after {
-            content: ""; position: absolute; left: 0; right: 0; top: 30%; bottom: 0;
-            background: radial-gradient(ellipse at 40% 20%, #ffe9a6 0 18%, transparent 20%), repeating-linear-gradient(90deg, #d9b25c 0 1px, #6a4710 1px 2.4px);
-            clip-path: polygon(20% 0, 80% 0, 100% 100%, 0 100%);
-        }
-
+        /* ───────────── ПЛАШКА «АНТРАКТЪ» ───────────── */
         #plaque {
-            position: absolute; left: 50%; top: 52%; z-index: 3;
-            transform: translate(-50%, -50%) scale(0.94);
-            padding: 20px 34px 16px; text-align: center; opacity: 0;
-            background: linear-gradient(150deg, #f5e09a 0%, #c99a38 28%, #8a6119 52%, #d8b157 78%, #7d5923 100%);
-            border: 4px ridge #e3bf67; outline: 2px solid #3a2408; outline-offset: -9px; border-radius: 2px;
-            box-shadow: 0 14px 34px rgba(0, 0, 0, 0.9), inset 0 0 14px rgba(70, 40, 5, 0.7), inset 2px 2px 0 rgba(255, 245, 200, 0.7);
+            position: absolute; left: 50%; top: 50%; z-index: 6;
+            transform: translate(-50%, -50%) scale(0.96);
+            padding: 22px 38px 18px; text-align: center; opacity: 0; pointer-events: none;
+            background:
+                linear-gradient(180deg, rgba(255, 255, 255, 0.3) 0%, transparent 18%),
+                linear-gradient(150deg, #f0d584 0%, #c99a38 28%, #8a6119 52%, #d4a748 78%, #7d5923 100%);
+            border-top: 6px solid #fff2be; border-left: 6px solid #e2b75a; border-right: 6px solid #6b4512; border-bottom: 8px solid #361f06;
+            outline: 2px solid #3a2408; outline-offset: -11px;
+            box-shadow: 0 0 0 3px #080301, 0 0 0 6px #5e4016, 0 0 0 9px #100501, 0 24px 50px rgba(0, 0, 0, 0.95),
+                        inset 0 0 14px rgba(70, 40, 5, 0.7), inset 2px 2px 0 rgba(255, 245, 200, 0.7);
             transition: opacity 1s ease, transform 1.2s ease;
         }
         #plaque h1 {
-            margin: 0; font-size: clamp(28px, 6.4vw, 58px); letter-spacing: 0.22em; text-indent: 0.22em;
+            margin: 0; font-size: clamp(26px, 6vw, 54px); letter-spacing: 0.22em; text-indent: 0.22em;
             font-weight: 900; color: #3a2408;
             text-shadow: 0 1px 0 rgba(255, 238, 170, 0.85), 0 -1px 0 rgba(40, 20, 0, 0.5);
         }
@@ -312,30 +309,8 @@
             margin: 6px 0 0; font-style: italic; letter-spacing: 0.16em;
             font-size: clamp(12px, 2.2vw, 17px); color: #4a3009; text-shadow: 0 1px 0 rgba(255, 238, 170, 0.8);
         }
-        #plaque b {
-            position: absolute; width: 11px; height: 11px; border-radius: 50%;
-            background: radial-gradient(circle at 35% 30%, #fff2bd, #a87938 60%, #3b2208); box-shadow: 0 1px 2px #000;
-        }
-        #plaque b::after { content: ""; position: absolute; left: 1px; right: 1px; top: 50%; height: 1.5px; background: #2a1704; transform: rotate(35deg); }
-        #plaque b:nth-of-type(1) { top: 7px; left: 7px; }
-        #plaque b:nth-of-type(2) { top: 7px; right: 7px; }
-        #plaque b:nth-of-type(3) { bottom: 7px; left: 7px; }
-        #plaque b:nth-of-type(4) { bottom: 7px; right: 7px; }
         #theatre.reel-out #plaque { opacity: 1; transform: translate(-50%, -50%) scale(1); }
-        #theatre.open #plaque { opacity: 0; transform: translate(-50%, -50%) scale(1.04); transition: opacity 0.6s ease, transform 0.6s ease; }
-
-        #proscenium {
-            position: absolute; inset: 0; z-index: 7; pointer-events: none;
-            border: 12px ridge #b8860b;
-            box-shadow: inset 0 0 0 3px #1f062a, inset 0 0 0 6px #6b21a8, inset 0 0 0 9px #14041a, inset 0 0 60px rgba(0, 0, 0, 0.9);
-        }
-        .rosette {
-            position: absolute; width: 44px; height: 44px; border-radius: 50%;
-            background: radial-gradient(circle, #fff0b3 0 10%, #caa148 12% 24%, #3b2208 26% 30%, #d6aa4b 32% 54%, #4a300a 56% 62%, #ffe08a 64% 70%, #2a1704 72%);
-            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.9);
-        }
-        .rosette.tl { top: -9px; left: -9px; } .rosette.tr { top: -9px; right: -9px; }
-        .rosette.bl { bottom: -9px; left: -9px; } .rosette.br { bottom: -9px; right: -9px; }
+        #theatre.open #plaque { opacity: 0; transform: translate(-50%, -50%) scale(1.03); transition: opacity 0.6s ease, transform 0.6s ease; }
 
         /* ───────────── ПРИБЫТИЕ: КОНЕЦ ПЛЁНКИ ───────────── */
         #reel {
@@ -397,23 +372,24 @@
         }
         #theatre.reel-end .reel-title { opacity: 1; transition: opacity 0.35s; }
 
-        /* ───────────── УХОД: ВРАТА ДВОРЦА ───────────── */
+        /* ───────────── УХОД: ДУБОВЫЕ ВРАТА ДВОРЦА ───────────── */
         #gates {
             position: absolute; inset: 0; z-index: 9; display: flex; align-items: center; justify-content: center;
-            background: radial-gradient(ellipse at 50% 60%, rgba(60, 20, 70, 0.5), transparent 70%), var(--damask) 0 0 / 80px 80px, #05010a;
+            background: radial-gradient(ellipse at 50% 60%, rgba(85, 40, 10, 0.6), transparent 70%), var(--damask) 0 0 / 80px 80px, #050201;
             opacity: 0; visibility: hidden; overflow: hidden;
             transition: opacity 0.8s ease, visibility 0s linear 0.8s;
         }
         .portal {
             position: relative; width: min(86vw, 700px); height: min(88vh, 960px);
             perspective: 1300px; overflow: hidden; transform-origin: 50% 62%;
-            border: 14px ridge #b8860b; border-radius: 50% 50% 0 0 / 20% 20% 0 0;
-            box-shadow: 0 0 0 4px #14041a, 0 0 0 9px #6b21a8, 0 30px 80px rgba(0, 0, 0, 0.99), 0 0 60px rgba(255, 220, 130, 0);
+            border-top: 14px solid #f0d584; border-left: 14px solid #caa148; border-right: 14px solid #6b4512; border-bottom: 14px solid #361f06;
+            border-radius: 50% 50% 0 0 / 20% 20% 0 0;
+            box-shadow: 0 0 0 4px #080301, 0 0 0 9px #855f26, 0 0 0 13px #180802, 0 30px 80px rgba(0, 0, 0, 0.99), 0 0 60px rgba(255, 220, 130, 0);
             transition: box-shadow 2s ease;
         }
         .gate-light {
             position: absolute; inset: 0; opacity: 0.4; transition: opacity 1.4s ease;
-            background: radial-gradient(ellipse 60% 70% at 50% 62%, #fffdf0 0, #ffe9a0 22%, #e0a43e 46%, #7a2f8c 78%, #1a0522 100%);
+            background: radial-gradient(ellipse 60% 70% at 50% 62%, #fffdf0 0, #ffe9a0 22%, #d4a748 46%, #754f15 78%, #1a0a02 100%);
         }
         .rays {
             position: absolute; inset: -40%; opacity: 0; transition: opacity 2s ease;
@@ -429,7 +405,7 @@
                 linear-gradient(90deg, rgba(0, 0, 0, 0.55), transparent 18%, transparent 82%, rgba(0, 0, 0, 0.55)),
                 repeating-linear-gradient(90deg, rgba(0, 0, 0, 0.25) 0 1px, transparent 1px 9px),
                 var(--wood), #2a1207;
-            border: 5px ridge #a87938;
+            border-top: 5px solid #e2b75a; border-left: 5px solid #caa148; border-right: 5px solid #6b4512; border-bottom: 5px solid #361f06;
             box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.9);
             transition: transform 2.3s cubic-bezier(.62, 0, .25, 1), filter 2.3s ease;
         }
@@ -437,13 +413,13 @@
         .leaf.r { right: 0; transform-origin: 100% 50%; }
         .panel {
             position: absolute; left: 9%; right: 9%;
-            border: 4px ridge #caa148;
+            border-top: 4px solid #d4a748; border-left: 4px solid #b88a30; border-right: 4px solid #5a350e; border-bottom: 4px solid #2a1506;
             background: radial-gradient(ellipse at 50% 40%, #3a1a0c, #1a0a04);
             box-shadow: inset 0 0 40px #000, 0 0 0 2px #120602;
         }
         .panel.p1 { top: 6%; height: 44%; display: flex; align-items: center; justify-content: center; border-radius: 40% 40% 0 0 / 22% 22% 0 0; }
         .panel.p2 { top: 55%; bottom: 6%; }
-        .panel .orn { width: 78%; max-height: 90%; filter: drop-shadow(0 0 6px rgba(255, 215, 120, 0.4)); }
+        .panel .orn { width: 78%; max-height: 90%; filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.8)); }
         .ring {
             position: absolute; top: 56%; width: 46px; height: 46px; border-radius: 50%;
             border: 7px solid; border-color: #f4d98a #b8862b #6a4710 #d6aa4b;
@@ -452,7 +428,7 @@
         .leaf.l .ring { right: 7px; } .leaf.r .ring { left: 7px; }
         .ring::before {
             content: ""; position: absolute; top: -17px; left: 50%; width: 20px; height: 20px; transform: translateX(-50%);
-            border-radius: 50%; background: radial-gradient(circle at 35% 30%, #fff0b3, #b8862b 60%, #3b2208); box-shadow: 0 2px 4px #000;
+            border-radius: 50%; background: var(--rivet-shine); box-shadow: 0 2px 4px #000;
         }
 
         #fade { position: absolute; inset: 0; z-index: 10; background: #fff4cf; opacity: 0; pointer-events: none; }
@@ -461,7 +437,7 @@
         }
 
         #grain {
-            position: absolute; inset: -60px; z-index: 11; pointer-events: none; opacity: 0.32;
+            position: absolute; inset: -60px; z-index: 11; pointer-events: none; opacity: 0.22;
             background-image: var(--noise); background-size: 128px 128px; mix-blend-mode: overlay;
             animation: grain 0.5s steps(1) infinite;
         }
@@ -473,40 +449,38 @@
         }
         #vignette {
             position: absolute; inset: 0; z-index: 12; pointer-events: none;
-            background: radial-gradient(ellipse at 50% 50%, transparent 52%, rgba(0, 0, 0, 0.72) 100%);
-            animation: flicker 3.3s steps(1) infinite;
-        }
-        @keyframes flicker {
-            0% { opacity: 1; } 7% { opacity: 0.9; } 9% { opacity: 1; } 41% { opacity: 0.94; } 43% { opacity: 1; } 77% { opacity: 0.88; } 79% { opacity: 1; }
+            background: radial-gradient(ellipse at 50% 50%, transparent 55%, rgba(0, 0, 0, 0.7) 100%);
         }
 
         /* ───────────── ЦЕПОЧКА УХОДА (после верного хода) ───────────── */
         #theatre.exit-1 #chess-lock-screen { pointer-events: none; }
         #theatre.exit-2 #chess-lock-screen {
-            transform: scale(1.5); opacity: 0; filter: blur(5px) brightness(1.8);
-            transition: transform 1.3s cubic-bezier(.5, 0, .8, .4), opacity 1.1s ease 0.2s, filter 1.3s ease;
+            transform: scale(1.35); opacity: 0;
+            transition: transform 1.3s cubic-bezier(.5, 0, .8, .4), opacity 1.1s ease 0.2s;
         }
         #theatre.exit-2 #room { filter: brightness(0.2); }
-        #theatre.exit-2 #spot { animation: none; opacity: 0; transition: opacity 1s ease; }
         #theatre.exit-3 #gates { opacity: 1; visibility: visible; transition: opacity 0.8s ease; }
         #theatre.exit-4 .gate-light { opacity: 0.8; }
         #theatre.exit-5 .gate-light { opacity: 1; }
         #theatre.exit-5 .rays { opacity: 0.9; }
-        #theatre.exit-5 .portal { box-shadow: 0 0 0 4px #14041a, 0 0 0 9px #6b21a8, 0 30px 80px rgba(0, 0, 0, 0.99), 0 0 140px 50px rgba(255, 220, 130, 0.45); }
+        #theatre.exit-5 .portal { box-shadow: 0 0 0 4px #080301, 0 0 0 9px #855f26, 0 0 0 13px #180802, 0 30px 80px rgba(0, 0, 0, 0.99), 0 0 140px 50px rgba(255, 220, 130, 0.45); }
         #theatre.exit-5 .leaf.l { transform: rotateY(100deg); filter: brightness(0.45); }
         #theatre.exit-5 .leaf.r { transform: rotateY(-100deg); filter: brightness(0.45); }
         #theatre.exit-6 .portal { transform: scale(2.8); transition: transform 1.7s cubic-bezier(.55, 0, .85, .45), box-shadow 2s ease; }
         #theatre.exit-7 #fade { animation: bloom 1.25s ease-in forwards; }
 
+        @media (max-width: 700px) {
+            .floral-side-left, .floral-side-right { opacity: 0.7; }
+        }
         @media (prefers-reduced-motion: reduce) {
-            #grain, #vignette, .mote, .chess-queen svg, .rays, .film, .sprocket, .rollbar, .scratches { animation: none !important; }
-            .curtain, #chess-lock-screen, .chess-container, .leaf, .portal, #plaque { transition-duration: 0.01s !important; }
+            #grain, .rays, .film, .sprocket, .rollbar, .scratches { animation: none !important; }
+            #chess-lock-screen, .chess-container, .leaf, .portal, #plaque { transition-duration: 0.01s !important; }
         }
     </style>
 </head>
 <body>
 
-<!-- общие градиенты: золото, слоновая кость, бархат -->
+<!-- общие градиенты: латунь -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
     <defs>
         <linearGradient id="gGoldV" x1="0" x2="1" y1="0" y2="0">
@@ -522,64 +496,44 @@
             <stop offset=".4" stop-color="#e8c25f"/>
             <stop offset="1" stop-color="#6a4710"/>
         </radialGradient>
-        <linearGradient id="gVelvet" x1="0" x2="0" y1="0" y2="1">
-            <stop offset="0" stop-color="#14041a"/>
-            <stop offset=".55" stop-color="#4b1460"/>
-            <stop offset="1" stop-color="#220a2d"/>
-        </linearGradient>
     </defs>
 </svg>
 
 <div id="theatre">
 
     <div id="room"></div>
-    <div id="spot"></div>
+    <div class="floral-side-left"></div>
+    <div class="floral-side-right"></div>
 
     <!-- ═══ ШАХМАТНЫЙ ЭКРАН (id и логика сохранены) ═══ -->
     <div id="chess-lock-screen">
         <div class="chess-container">
+            <i class="skeuo-screw tl"></i><i class="skeuo-screw tr"></i><i class="skeuo-screw bl"></i><i class="skeuo-screw br"></i>
+
+            <div class="orn-line">✥ ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ ✥</div>
             <h2>Найди открытый вход в закрытый дворец королевы</h2>
-            <div class="fleuron"></div>
+            <div class="divider"></div>
             <p class="chess-hint">Сделайте убедительный ход для паломничества</p>
+
             <div class="board-frame">
+                <i class="skeuo-screw sm tl"></i><i class="skeuo-screw sm tr"></i><i class="skeuo-screw sm bl"></i><i class="skeuo-screw sm br"></i>
                 <div id="chess-board"></div>
             </div>
+
             <div class="error-slot">
                 <div id="chess-error" style="display: none;">
                     Ход записан. Доступ отклонен.
                 </div>
             </div>
+
+            <div class="orn-line" style="margin-top: 18px;">✥ ━━━━━━━━━━━━━ •1916• ━━━━━━━━━━━━━ ✥</div>
         </div>
     </div>
 
-    <div id="dust"></div>
-
-    <!-- ═══ ЗАНАВЕС, ВАЛАНС, ТАБЛИЧКА «АНТРАКТЪ» ═══ -->
-    <div id="curtains" aria-hidden="true">
-        <div class="curtain cl"></div>
-        <div class="curtain cr"></div>
-        <div class="valance">
-            <svg viewBox="0 0 1000 110" preserveAspectRatio="none">
-                <path d="M0 0 H1000 V40 Q900 120 800 40 Q700 120 600 40 Q500 120 400 40 Q300 120 200 40 Q100 120 0 40 Z"
-                      fill="url(#gVelvet)" stroke="#caa148" stroke-width="3" vector-effect="non-scaling-stroke"/>
-                <path d="M0 33 Q100 113 200 33 Q300 113 400 33 Q500 113 600 33 Q700 113 800 33 Q900 113 1000 33"
-                      fill="none" stroke="#e3bf67" stroke-width="1.5" stroke-dasharray="5 4" vector-effect="non-scaling-stroke"/>
-            </svg>
-            <i class="tassel" style="left:10%"></i>
-            <i class="tassel" style="left:30%"></i>
-            <i class="tassel" style="left:50%"></i>
-            <i class="tassel" style="left:70%"></i>
-            <i class="tassel" style="left:90%"></i>
-        </div>
-        <div id="plaque">
-            <b></b><b></b><b></b><b></b>
-            <h1>Антрактъ</h1>
-            <p>Дѣйствіе второе</p>
-        </div>
-    </div>
-
-    <div id="proscenium" aria-hidden="true">
-        <i class="rosette tl"></i><i class="rosette tr"></i><i class="rosette bl"></i><i class="rosette br"></i>
+    <!-- ═══ ПЛАШКА «АНТРАКТЪ» ═══ -->
+    <div id="plaque" aria-hidden="true">
+        <h1>Антрактъ</h1>
+        <p>Дѣйствіе второе</p>
     </div>
 
     <!-- ═══ ПРИБЫТИЕ: ПЛЁНКА КОНЧИЛАСЬ ═══ -->
@@ -642,19 +596,7 @@
         document.documentElement.style.setProperty('--noise', 'url(' + c.toDataURL() + ')');
     } catch (e) {}
 
-    /* пылинки в луче прожектора */
-    var dust = document.getElementById('dust');
-    for (var m = 0; m < 18; m++) {
-        var s = document.createElement('i'), sz = 2 + Math.random() * 2.5;
-        s.className = 'mote';
-        s.style.cssText = 'left:' + (22 + Math.random() * 56) + '%;top:' + (30 + Math.random() * 55) + '%;' +
-            'width:' + sz + 'px;height:' + sz + 'px;' +
-            'animation-duration:' + (12 + Math.random() * 14) + 's;animation-delay:-' + (Math.random() * 20) + 's;' +
-            '--dx:' + ((Math.random() * 80) - 40) + 'px';
-        dust.appendChild(s);
-    }
-
-    /* прибытие: плёнка кончилась → ирис → антракт → занавес расходится */
+    /* прибытие: плёнка кончилась → ирис → антракт → рама опускается */
     function openHall() {
         cls('open');
         at(2200, function () { cls('ready'); });
@@ -694,7 +636,7 @@
 })();
 </script>
 
-<!-- Шахматы: логика допуска и редиректа на index.html -->
+<!-- Шахматы: логика допуска и редиректа на index.html (без изменений) -->
 <script>
 document.addEventListener("DOMContentLoaded", () => {
   const lockScreen = document.getElementById('chess-lock-screen');
@@ -766,21 +708,21 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  /* ферзь: слоновая кость и золото */
+  /* ферзь: литая латунь на красном сукне */
   const queen = document.createElement('div');
   queen.className = 'chess-queen';
   queen.innerHTML =
     '<svg viewBox="0 0 100 100" aria-hidden="true">' +
-      '<ellipse cx="50" cy="89" rx="30" ry="7" fill="#1d3318" stroke="#0b1608" stroke-width="1"/>' +
-      '<path d="M24 84 C24 90 76 90 76 84 C76 78 66 76 50 76 C34 76 24 78 24 84Z" fill="url(#gGoldV)" stroke="#5b3a0a" stroke-width=".8"/>' +
-      '<ellipse cx="50" cy="76.5" rx="20" ry="3.5" fill="url(#gGoldV)" stroke="#5b3a0a" stroke-width=".6"/>' +
-      '<path d="M33 78 C38 66 42 56 44 44 L56 44 C58 56 62 66 67 78 C60 81 40 81 33 78Z" fill="url(#gGoldV)" stroke="#5b3a0a" stroke-width=".7"/>' +
-      '<ellipse cx="50" cy="62" rx="12" ry="3" fill="url(#gGoldV)" stroke="#5b3a0a" stroke-width=".6"/>' +
-      '<ellipse cx="50" cy="44" rx="15" ry="4" fill="url(#gGoldV)" stroke="#5b3a0a" stroke-width=".7"/>' +
-      '<path d="M38 44 C34 36 34 30 36 26 L64 26 C66 30 66 36 62 44Z" fill="url(#gGoldV)" stroke="#5b3a0a" stroke-width=".7"/>' +
-      '<path d="M36 27 L31 12 L41 21 L50 9 L59 21 L69 12 L64 27Z" fill="url(#gGoldV)" stroke="#5b3a0a" stroke-width=".7"/>' +
-      '<circle cx="31" cy="11" r="3" fill="url(#gGoldR)"/><circle cx="50" cy="8" r="3.2" fill="url(#gGoldR)"/><circle cx="69" cy="11" r="3" fill="url(#gGoldR)"/>' +
-      '<path d="M42 74 C45 62 46 54 47 46" fill="none" stroke="rgba(255,255,230,.55)" stroke-width="2.2" stroke-linecap="round"/>' +
+      '<ellipse cx="50" cy="89" rx="30" ry="7" fill="#4a1109" stroke="#1a0402" stroke-width="1"/>' +
+      '<path d="M24 84 C24 90 76 90 76 84 C76 78 66 76 50 76 C34 76 24 78 24 84Z" fill="url(#gGoldV)" stroke="#2e1a05" stroke-width="1"/>' +
+      '<ellipse cx="50" cy="76.5" rx="20" ry="3.5" fill="url(#gGoldV)" stroke="#2e1a05" stroke-width=".8"/>' +
+      '<path d="M33 78 C38 66 42 56 44 44 L56 44 C58 56 62 66 67 78 C60 81 40 81 33 78Z" fill="url(#gGoldV)" stroke="#2e1a05" stroke-width="1"/>' +
+      '<ellipse cx="50" cy="62" rx="12" ry="3" fill="url(#gGoldV)" stroke="#2e1a05" stroke-width=".8"/>' +
+      '<ellipse cx="50" cy="44" rx="15" ry="4" fill="url(#gGoldV)" stroke="#2e1a05" stroke-width="1"/>' +
+      '<path d="M38 44 C34 36 34 30 36 26 L64 26 C66 30 66 36 62 44Z" fill="url(#gGoldV)" stroke="#2e1a05" stroke-width="1"/>' +
+      '<path d="M36 27 L31 12 L41 21 L50 9 L59 21 L69 12 L64 27Z" fill="url(#gGoldV)" stroke="#2e1a05" stroke-width="1"/>' +
+      '<circle cx="31" cy="11" r="3" fill="url(#gGoldR)" stroke="#2e1a05" stroke-width=".6"/><circle cx="50" cy="8" r="3.2" fill="url(#gGoldR)" stroke="#2e1a05" stroke-width=".6"/><circle cx="69" cy="11" r="3" fill="url(#gGoldR)" stroke="#2e1a05" stroke-width=".6"/>' +
+      '<path d="M42 74 C45 62 46 54 47 46" fill="none" stroke="rgba(255,255,230,.5)" stroke-width="2.2" stroke-linecap="round"/>' +
     '</svg>';
   queen.setAttribute('draggable', 'true');
 
@@ -880,7 +822,7 @@ document.addEventListener("DOMContentLoaded", () => {
       targetCellElement.classList.add('sanctum');
       board.classList.add('won');
       try { sessionStorage.setItem('site_unlocked', 'true'); } catch (e) {}
-      // кинематографичный уход через врата дворца, затем переход на index.html
+      // уход через врата дворца, затем переход на index.html
       if (window.__cinematicExit) {
         window.__cinematicExit();
       } else {
