@@ -2978,75 +2978,7 @@ document.addEventListener("DOMContentLoaded", () => {
     </script>
 
 
-    <script>
-    document.addEventListener("DOMContentLoaded", () => {
-        const gate = document.getElementById('balabanov-cinema-gate');
-        const startBtn = document.getElementById('balabanov-start-btn');
-        const wrapper = document.getElementById('balabanov-player-wrapper');
-        const video = document.getElementById('balabanov-video');
-        const textInstruction = document.getElementById('cinema-instruction-text');
-        const adminGirlImg = document.querySelector('img[src="kover.webp"]');
-
-        if (sessionStorage.getItem('balabanov_watched') === 'true' || sessionStorage.getItem('site_unlocked') === 'true') {
-            if (gate) gate.remove();
-            return; 
-        }
-
-        function skipToIznanka() {
-            if (!gate) return;
-            if (video) { video.pause(); }
-            sessionStorage.setItem('balabanov_watched', 'true');
-            window.location.href = 'iznanka.html';
-        }
-
-        if (adminGirlImg) {
-            let clickCount = 0;
-            let lastClickTime = 0;
-            adminGirlImg.style.pointerEvents = 'auto'; 
-            adminGirlImg.style.cursor = 'default'; 
-
-            adminGirlImg.addEventListener('click', (e) => {
-                e.preventDefault(); 
-                const currentTime = new Date().getTime();
-                if (currentTime - lastClickTime > 1500) { clickCount = 0; }
-                clickCount++;
-                lastClickTime = currentTime;
-
-                if (clickCount === 6) {
-                    clickCount = 0; 
-                    skipToIznanka(); 
-                }
-            });
-        }
-
-        if (gate && startBtn && video) {
-            video.controls = false;
-            video.disablePictureInPicture = true;
-
-            startBtn.addEventListener('click', () => {
-                startBtn.style.display = 'none';
-                wrapper.style.display = 'block';
-                
-                if (textInstruction) {
-                    textInstruction.innerText = "......";
-                }
-                
-                video.muted = false;
-                video.volume = 1.0;
-                video.play().catch(() => {
-                    video.muted = true;
-                    video.play();
-                });
-            });
-
-            video.addEventListener('ended', () => {
-                sessionStorage.setItem('balabanov_watched', 'true'); 
-                window.location.href = 'iznanka.html'; 
-            });
-        }
-    });
-    </script>
-
+   
 <script>
 document.addEventListener("DOMContentLoaded", () => {
     if (localStorage.getItem('shrine_eternal_ban') === 'true') {
