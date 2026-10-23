@@ -947,10 +947,10 @@ html body .post::before{
   -webkit-mask-image:none;
 }
 
-/* текст */
+
 html body .post p{ color:#fcefd6; text-shadow:0 1px 0 #000,0 2px 5px #000,0 0 10px rgba(0,0,0,.9); position:relative; z-index:2; }
 html body .post p a{ color:#ffd269 !important; }
-/* буквица: золотая в эмалевой раме */
+
 html body .post p:first-of-type::first-letter{
   float:left; font-size:3.2em; line-height:.9; font-weight:900; padding:.04em .1em .02em;margin:.05em .14em 0 0;
   color:#f6dc86;
@@ -959,7 +959,7 @@ html body .post p:first-of-type::first-letter{
   text-shadow:0 1px 0 #fff6cf,0 2px 0 #b8893a,0 3px 0 #5a3a10,0 5px 5px #000;
 }
 
-/* ДАТА: эмалевый картуш с золотой вставкой и лавровыми ветвями */
+
 html body .post .date{
   position:relative; z-index:3; display:table; box-sizing:border-box;
   margin:0 auto 34px; padding:8px 46px 7px;
@@ -991,7 +991,7 @@ html body .post .date::after{
 html body .post .date::before{ left:6px; background-image:url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2044%2026'%20width='44'%20height='26'%3E%3Cdefs%3E%3ClinearGradient%20id='g'%20x1='0'%20y1='0'%20x2='1'%20y2='1'%3E%3Cstop%20offset='0'%20stop-color='%23fff4c4'/%3E%3Cstop%20offset='.35'%20stop-color='%23e2b75a'/%3E%3Cstop%20offset='.7'%20stop-color='%23a87a2c'/%3E%3Cstop%20offset='1'%20stop-color='%235a3a10'/%3E%3C/linearGradient%3E%3ClinearGradient%20id='r'%20x1='0'%20y1='0'%20x2='0'%20y2='1'%3E%3Cstop%20offset='0'%20stop-color='%23ff6a4a'/%3E%3Cstop%20offset='1'%20stop-color='%235a0a06'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cg%20fill='url(%23g)'%20stroke='%231a0a02'%20stroke-width='.6'%3E%3Cpath%20d='M43%2013H3'%20stroke='url(%23g)'%20stroke-width='1.8'%20fill='none'/%3E%3Cpath%20d='M36%2013C34%206%2027%204%2024%205C25%2010%2030%2014%2036%2013Z'/%3E%3Cpath%20d='M36%2013C34%2020%2027%2022%2024%2021C25%2016%2030%2012%2036%2013Z'/%3E%3Cpath%20d='M24%2013C22%207%2016%205%2013%206C14%2010%2018%2014%2024%2013Z'/%3E%3Cpath%20d='M24%2013C22%2019%2016%2021%2013%2020C14%2016%2018%2012%2024%2013Z'/%3E%3Cpath%20d='M13%2013C10%209%206%209%203%2011C5%2014%209%2015%2013%2013Z'/%3E%3C/g%3E%3C/svg%3E"); }
 html body .post .date::after{ right:6px; background-image:url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2044%2026'%20width='44'%20height='26'%3E%3Cdefs%3E%3ClinearGradient%20id='g'%20x1='0'%20y1='0'%20x2='1'%20y2='1'%3E%3Cstop%20offset='0'%20stop-color='%23fff4c4'/%3E%3Cstop%20offset='.35'%20stop-color='%23e2b75a'/%3E%3Cstop%20offset='.7'%20stop-color='%23a87a2c'/%3E%3Cstop%20offset='1'%20stop-color='%235a3a10'/%3E%3C/linearGradient%3E%3ClinearGradient%20id='r'%20x1='0'%20y1='0'%20x2='0'%20y2='1'%3E%3Cstop%20offset='0'%20stop-color='%23ff6a4a'/%3E%3Cstop%20offset='1'%20stop-color='%235a0a06'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cg%20transform='translate(44%200)%20scale(-1%201)'%3E%3Cg%20fill='url(%23g)'%20stroke='%231a0a02'%20stroke-width='.6'%3E%3Cpath%20d='M43%2013H3'%20stroke='url(%23g)'%20stroke-width='1.8'%20fill='none'/%3E%3Cpath%20d='M36%2013C34%206%2027%204%2024%205C25%2010%2030%2014%2036%2013Z'/%3E%3Cpath%20d='M36%2013C34%2020%2027%2022%2024%2021C25%2016%2030%2012%2036%2013Z'/%3E%3Cpath%20d='M24%2013C22%207%2016%205%2013%206C14%2010%2018%2014%2024%2013Z'/%3E%3Cpath%20d='M24%2013C22%2019%2016%2021%2013%2020C14%2016%2018%2012%2024%2013Z'/%3E%3Cpath%20d='M13%2013C10%209%206%209%203%2011C5%2014%209%2015%2013%2013Z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"); }
 
-/* ПОДПИСЬ: золочёная табличка-эскутчон с акантовыми крыльями, на нижнем багете */
+
 html body .post::after{
   content:"♦ Вальдѣмаръ Бубѣнъ ♦";
   box-sizing:border-box; position:absolute; z-index:4; left:50%; right:auto; bottom:-19px; transform:translateX(-50%); max-width:calc(100% + 6px);
@@ -1031,7 +1031,7 @@ html body .post::after{
 @media(max-width:560px){.archive-nav-wrap{margin:18px 0 25px;padding:8px}.archive-nav{gap:6px}.archive-nav a{min-height:40px;padding:8px 3px;font-size:clamp(.68rem,2.7vw,.86rem);letter-spacing:.02em}.archive-nav a:after{right:3px;font-size:7px}.archive-nav-wrap:before,.archive-nav-wrap:after{letter-spacing:0;font-size:8px}}
 </style>
 <style id="edge-shelves-style">
-/* ===== фильмы - лево / книги - право ===== */
+
 .edge-shelf{
   position:absolute; top:0; z-index:1001;
   width:178px; height:1060px; box-sizing:border-box;
