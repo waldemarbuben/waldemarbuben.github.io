@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <script>
     // Если человек пришел со страницы квеста, помечаем, что всё пройдено
-    if (document.referrer && document.referrer.includes('изнанка')) {
+    if (document.referrer && document.referrer.includes('iznanka')) {
         sessionStorage.setItem('questCompleted', 'true');
     }
 
     // Если отметки нет — отправляем на квест
     if (!sessionStorage.getItem('questCompleted')) {
-        window.location.href = "изнанка.html";
+        window.location.href = "iznanka.html";
     }
 </script>
 
