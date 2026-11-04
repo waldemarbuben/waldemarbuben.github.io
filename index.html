@@ -3,12 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <script>
-    // Проверяем, есть ли в памяти отметка о прохождении квеста
-    if (!localStorage.getItem('questCompleted')) {
-        // Если отметки НЕТ, моментально отправляем на квест
-        window.location.href = "iznanka.html";
+    // Если человек пришел со страницы квеста, помечаем, что всё пройдено
+    if (document.referrer && document.referrer.includes('изнанка')) {
+        sessionStorage.setItem('questCompleted', 'true');
+    }
+
+    // Если отметки нет — отправляем на квест
+    if (!sessionStorage.getItem('questCompleted')) {
+        window.location.href = "изнанка.html";
     }
 </script>
+
 
     <meta name="viewport" content="width=1880">
     <title>Вальдѣмаръ Бубѣнъ</title>
