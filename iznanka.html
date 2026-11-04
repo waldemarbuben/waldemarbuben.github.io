@@ -13,13 +13,13 @@
     <meta property="og:title" content="Вальдѣмаръ Бубѣнъ — Изнанка">
     <meta property="og:description" content="Свету положены пределы; в бессрочном, в беспредельном ночь царит. Изнанка сакрального собора.">
 
-    <!-- Если шахматы уже пройдены в этой сессии — сразу на главную -->
+    
     <script>
         try { if (sessionStorage.getItem('site_unlocked') === 'true') { location.replace('index.html'); } } catch (e) {}
     </script>
 
     <style>
-        /* Палитра и материалы — те же, что на главной (index.html) */
+        
         :root {
             --wood-dark: #120502;
             --brass-high: #fff2be;
@@ -60,7 +60,7 @@
 
         #theatre { position: fixed; inset: 0; overflow: hidden; background: #050201; isolation: isolate; }
 
-        /* ───────────── ПОМЕЩЕНИЕ: тот же тёмный орех, обои и дамаск, что на главной ───────────── */
+        
         #room {
             position: absolute; inset: 0; z-index: 0;
             background-color: #060201;
@@ -76,7 +76,7 @@
             transition: filter 1.2s ease;
         }
 
-        /* цветочные боковины — как на главной */
+        
         .floral-side-left, .floral-side-right {
             position: absolute; top: 0; height: 100%; width: clamp(60px, 16vw, 270px);
             mix-blend-mode: multiply; background-repeat: repeat-y; background-size: contain;
@@ -91,7 +91,7 @@
             filter: sepia(45%) saturate(125%) contrast(1.3) brightness(0.85) drop-shadow(-18px 0 25px rgba(0, 0, 0, 0.95));
         }
 
-        /* ───────────── ШАХМАТНЫЙ ЭКРАН (id сохранены для скрипта) ───────────── */
+  
         #chess-lock-screen {
             position: absolute; inset: 0; z-index: 3;
             display: flex; justify-content: center; align-items: center;
@@ -110,7 +110,7 @@
         #theatre.open #chess-lock-screen { opacity: 1; transition: opacity 1.6s ease 0.4s; }
         #theatre.ready #chess-lock-screen { pointer-events: auto; }
 
-        /* Резная рама с латунной окантовкой и винтами — .skeuo-frame с главной */
+        
         .chess-container {
             position: relative; margin: auto; flex: none;
             width: calc(var(--board) + 2 * var(--frame) + 2 * var(--pad) + 20px);
@@ -159,7 +159,7 @@
         .skeuo-screw.sm.tl { top: 5px; left: 5px; } .skeuo-screw.sm.tr { top: 5px; right: 5px; }
         .skeuo-screw.sm.bl { bottom: 5px; left: 5px; } .skeuo-screw.sm.br { bottom: 5px; right: 5px; }
 
-        /* орнаментальные линейки — как в навигации главной */
+       
         .orn-line {
             color: #d5ae5b; font-size: 10px; letter-spacing: 2px; line-height: 1.2;
             text-shadow: 0 2px 2px #000, 0 0 8px #c99a3c; opacity: 0.9;
@@ -187,7 +187,7 @@
             font-size: clamp(12px, 1.9vw, 14px); letter-spacing: 0.06em; color: #d8b26e;
         }
 
-        /* Ореховая рама доски с латунной инкрустацией и винтами */
+        
         .board-frame {
             position: relative; margin: 0 auto;
             width: calc(var(--board) + 2 * var(--frame) + 8px); padding: var(--frame);
@@ -216,7 +216,7 @@
             border: 3px solid #0b0402;
             box-shadow: inset 0 0 14px #000, 0 0 0 1px #8c6a2a, 0 3px 10px rgba(0, 0, 0, 0.8);
         }
-        /* прожилки дерева поверх всей доски (без глянца) */
+       
         #chess-board::before {
             content: ""; position: absolute; inset: 0; z-index: 2; pointer-events: none;
             background: var(--wood) 0 0 / 220px 220px; opacity: 0.22; mix-blend-mode: multiply;
@@ -253,7 +253,7 @@
             100% { box-shadow: inset 0 0 30px rgba(255, 217, 119, 0.4), 0 0 0 2px #ffd977, 0 0 70px 22px rgba(255, 200, 100, 0.4); }
         }
 
-        /* Латунный ферзь на сукне */
+        
         .chess-queen {
             position: relative; z-index: 10; width: 100%; height: 100%;
             display: flex; align-items: center; justify-content: center;
@@ -268,7 +268,7 @@
         .chess-queen.held { z-index: 60; }
         .chess-queen.whistle-back { transition: transform 0.25s cubic-bezier(0.25, 1, 0.5, 1); }
 
-        /* Латунная табличка с сигнальной лампой */
+        
         .error-slot { min-height: 58px; margin-top: clamp(16px, 2.8vw, 24px); display: flex; align-items: center; justify-content: center; }
         #chess-error {
             position: relative; width: 100%; padding: 12px 14px 12px 46px; text-align: left;
@@ -286,7 +286,7 @@
             box-shadow: 0 0 12px rgba(255, 60, 40, 0.9), inset 0 0 3px rgba(0, 0, 0, 0.6);
         }
 
-        /* ───────────── ПЛАШКА «АНТРАКТЪ» ───────────── */
+        
         #plaque {
             position: absolute; left: 50%; top: 50%; z-index: 6;
             transform: translate(-50%, -50%) scale(0.96);
@@ -312,7 +312,7 @@
         #theatre.reel-out #plaque { opacity: 1; transform: translate(-50%, -50%) scale(1); }
         #theatre.open #plaque { opacity: 0; transform: translate(-50%, -50%) scale(1.03); transition: opacity 0.6s ease, transform 0.6s ease; }
 
-        /* ───────────── ПРИБЫТИЕ: КОНЕЦ ПЛЁНКИ ───────────── */
+       
         #reel {
             position: absolute; inset: 0; z-index: 8; background: #000; overflow: hidden;
             clip-path: circle(150vmax at 50% 50%);
@@ -372,7 +372,7 @@
         }
         #theatre.reel-end .reel-title { opacity: 1; transition: opacity 0.35s; }
 
-        /* ───────────── УХОД: ДУБОВЫЕ ВРАТА ДВОРЦА ───────────── */
+       
         #gates {
             position: absolute; inset: 0; z-index: 9; display: flex; align-items: center; justify-content: center;
             background: radial-gradient(ellipse at 50% 60%, rgba(85, 40, 10, 0.6), transparent 70%), var(--damask) 0 0 / 80px 80px, #050201;
@@ -452,7 +452,7 @@
             background: radial-gradient(ellipse at 50% 50%, transparent 55%, rgba(0, 0, 0, 0.7) 100%);
         }
 
-        /* ───────────── ЦЕПОЧКА УХОДА (после верного хода) ───────────── */
+       
         #theatre.exit-1 #chess-lock-screen { pointer-events: none; }
         #theatre.exit-2 #chess-lock-screen {
             transform: scale(1.35); opacity: 0;
@@ -480,7 +480,7 @@
 </head>
 <body>
 
-<!-- общие градиенты: латунь -->
+
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
     <defs>
         <linearGradient id="gGoldV" x1="0" x2="1" y1="0" y2="0">
@@ -505,7 +505,7 @@
     <div class="floral-side-left"></div>
     <div class="floral-side-right"></div>
 
-    <!-- ═══ ШАХМАТНЫЙ ЭКРАН (id и логика сохранены) ═══ -->
+    
     <div id="chess-lock-screen">
         <div class="chess-container">
             <i class="skeuo-screw tl"></i><i class="skeuo-screw tr"></i><i class="skeuo-screw bl"></i><i class="skeuo-screw br"></i>
@@ -530,13 +530,13 @@
         </div>
     </div>
 
-    <!-- ═══ ПЛАШКА «АНТРАКТЪ» ═══ -->
+   
     <div id="plaque" aria-hidden="true">
         <h1>Антрактъ</h1>
         <p>Дѣйствіе второе</p>
     </div>
 
-    <!-- ═══ ПРИБЫТИЕ: ПЛЁНКА КОНЧИЛАСЬ ═══ -->
+    
     <div id="reel" aria-hidden="true">
         <div class="film">
             <div class="frame-light"></div>
@@ -548,7 +548,7 @@
         </div>
     </div>
 
-    <!-- ═══ УХОД: ВРАТА ДВОРЦА ═══ -->
+    
     <div id="gates" aria-hidden="true">
         <div class="portal">
             <div class="gate-light"><div class="rays"></div></div>
@@ -574,7 +574,7 @@
     <div id="vignette"></div>
 </div>
 
-<!-- Кинематография: прибытие и уход -->
+
 <script>
 (function () {
     var theatre = document.getElementById('theatre');
@@ -584,7 +584,7 @@
     function cls(c) { theatre.classList.add(c); }
     function at(ms, fn) { timers.push(setTimeout(fn, ms)); }
 
-    /* зерно плёнки */
+   
     try {
         var c = document.createElement('canvas'); c.width = c.height = 128;
         var cx = c.getContext('2d'), d = cx.createImageData(128, 128);
@@ -596,7 +596,7 @@
         document.documentElement.style.setProperty('--noise', 'url(' + c.toDataURL() + ')');
     } catch (e) {}
 
-    /* прибытие: плёнка кончилась → ирис → антракт → рама опускается */
+    
     function openHall() {
         cls('open');
         at(2200, function () { cls('ready'); });
@@ -618,7 +618,7 @@
         window.addEventListener('keydown', skip);
     }
 
-    /* уход: врата дворца королевы → на главную */
+   
     var exiting = false;
     window.__cinematicExit = function () {
         if (exiting) return; exiting = true;
@@ -636,7 +636,7 @@
 })();
 </script>
 
-<!-- Шахматы: логика допуска и редиректа на index.html (без изменений) -->
+
 <script>
 document.addEventListener("DOMContentLoaded", () => {
   const lockScreen = document.getElementById('chess-lock-screen');
@@ -708,7 +708,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  /* ферзь: литая латунь на красном сукне */
+  
   const queen = document.createElement('div');
   queen.className = 'chess-queen';
   queen.innerHTML =
@@ -822,7 +822,7 @@ document.addEventListener("DOMContentLoaded", () => {
       targetCellElement.classList.add('sanctum');
       board.classList.add('won');
       try { sessionStorage.setItem('site_unlocked', 'true'); } catch (e) {}
-      // уход через врата дворца, затем переход на index.html
+     
       if (window.__cinematicExit) {
         window.__cinematicExit();
       } else {
