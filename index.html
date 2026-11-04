@@ -2,6 +2,14 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
+    <script>
+    // Проверяем, есть ли в памяти отметка о прохождении квеста
+    if (!localStorage.getItem('questCompleted')) {
+        // Если отметки НЕТ, моментально отправляем на квест
+        window.location.href = "iznanka.html";
+    }
+</script>
+
     <meta name="viewport" content="width=1880">
     <title>Вальдѣмаръ Бубѣнъ</title>
 
@@ -3241,8 +3249,7 @@ body .kyb-tier .skeuo-frame,body .kyb-tier marquee,body .kyb-tier .archive-nav-w
 @media (prefers-reduced-motion:reduce){.kyb-stage *,.kyb-stage *::before,.kyb-stage *::after,.kyb-meander,.kyb-dots{animation:none !important}.kyb-tower,.kyb-sky{translate:none !important}}
 </style>
 <style id="painting-skin">
-/* ═══ ЯЗЫК КАРТИНЫ НА ВСЁМ САЙТЕ: латунь снаружи → оранжевый кант → оливковая линия → тёмная глубина (как рама картины).
-   Блок самодостаточен: его можно вставить в любую другую страницу сайта. ═══ */
+
 html body .skeuo-frame{ border-top:9px solid #f7b25a; border-left:9px solid #e8782a; border-right:9px solid #a8481a; border-bottom:11px solid #6a2a0c; outline:3px solid #5e6e22; outline-offset:-12px; }
 html body .sidebar-left,html body .sidebar-right{ border-top-color:#f7b25a; border-left-color:#e8782a; border-right-color:#a8481a; border-bottom-color:#6a2a0c; outline-color:#5e6e22; }
 html body .content{ border-top:10px solid #f7b25a !important; border-left:10px solid #e8782a !important; border-right:10px solid #a8481a !important; border-bottom:12px solid #6a2a0c !important; outline:4px solid #5e6e22 !important; outline-offset:-14px !important; }
