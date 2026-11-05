@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
+<script>
+try { if (localStorage.getItem('altMode') === '2000') location.replace('2000.html'); } catch(e){}
+</script>
     <meta charset="UTF-8">
      <script>
     
@@ -1396,6 +1399,19 @@ html body .floral-side-left,html body .floral-side-right{
     <a href="audio.html" target="_blank" rel="noopener noreferrer">Аудио</a>
   </div>
 </nav>
+<div style="text-align:center; margin:14px 0;">
+  <a href="2000.html"
+     onclick="try{localStorage.setItem('altMode','2000')}catch(e){}"
+     style="display:inline-block; padding:9px 20px; color:#ffd977;
+            font-weight:bold; letter-spacing:0.1em; text-decoration:none;
+            background:linear-gradient(180deg,#301708,#140602);
+            border-top:2px solid #ffd977; border-left:2px solid #caa148;
+            border-right:2px solid #5a350e; border-bottom:4px solid #1a0802;
+            border-radius:4px;">
+    Режимъ 2001 года
+  </a>
+</div>
+
 
 <div class="skeuo-frame" style="text-align: center; margin: 40px auto 25px auto; padding: 40px 25px 34px 25px;">
     <div class="skeuo-screw tl"></div>
