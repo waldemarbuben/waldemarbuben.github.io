@@ -1368,11 +1368,11 @@ html{background-image:none !important;background-color:#060201 !important;text-r
  @keyframes kn-walk-t{to{transform:translateX(calc(105cqw + 60px))}}
 }
 
-/* анимированные filter — на GPU-слой */
+
 .kyb-mandorla,.kyb-crown,.kyb-eclipse{will-change:filter}
 img[style*="butterfly-maximalism"]{will-change:transform}
 
-/* пауза всего декора, когда он вне экрана (включает ::before/::after) */
+
 .kyb-paused,.kyb-paused *,.kyb-paused::before,.kyb-paused::after,.kyb-paused *::before,.kyb-paused *::after{animation-play-state:paused !important}
 </style>
 </head>
@@ -3695,7 +3695,7 @@ html body .skeuo-frame h1{text-shadow:0 1px 0 #fff4c4,0 2px 0 #e8a85a,0 3px 0 #a
   var rm=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var g=document.querySelector('.kyb-gloss');
   if(!g||rm)return;
-  /* пятно света: двигаем transform'ом маленького слоя */
+  
   var spot=g.querySelector('.spot');
   if(spot){
     spot.style.left='0';spot.style.top='0';
@@ -3704,7 +3704,7 @@ html body .skeuo-frame h1{text-shadow:0 1px 0 #fff4c4,0 2px 0 #e8a85a,0 3px 0 #a
     paint();
     addEventListener('pointermove',function(e){x=e.clientX;y=e.clientY;if(!pend){pend=true;requestAnimationFrame(paint);}},{passive:true});
   }
-  /* искры: список видимых элементов ведёт IntersectionObserver, layout не дёргаем */
+  
   var layer=document.createElement('div');layer.className='kyb-glints';layer.style.cssText='position:fixed;inset:0;pointer-events:none;z-index:99991';
   document.body.appendChild(layer);
   var sel='.skeuo-frame,.archive-nav a,.sidebar-left,.sidebar-right,.content,.post .date,.track-title,.play-btn,.kyb-tower i,.edge-shelf,.sacrum-tabernaculum';
