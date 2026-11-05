@@ -60,7 +60,7 @@ function nope() {
 </script>
 <style type="text/css">
 <!--
-html, body { min-width: 1880px; width: 1880px; margin: 0; padding: 0; }
+html, body { margin: 0; padding: 0; }
 html { scrollbar-color: #DC8241 #2C2216; }
 body { scrollbar-face-color: #DC8241; scrollbar-track-color: #2C2216; scrollbar-arrow-color: #3D3B1C; scrollbar-highlight-color: #F4C28A; scrollbar-3dlight-color: #3D3B1C; scrollbar-darkshadow-color: #140C06; scrollbar-shadow-color: #8A4A1C; }
 td, p { line-height: 150%; }
@@ -74,7 +74,8 @@ input:hover { background-color: #EDA668; }
 -->
 </style>
 </head>
-<body background="O2000.webp" text="#2B1A0C" bgcolor="#FFFFFF" link="#0B5F63" vlink="#6B2D5C" alink="#C2281A" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<body background="2000.webp" text="#2B1A0C" bgcolor="#FFFFFF" link="#0B5F63" vlink="#6B2D5C" alink="#C2281A" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<div id="fit">
 <audio id="snd" preload="none"></audio>
 <center><br><font face="Georgia, 'Times New Roman', serif" size="2"><img src="p2000-dot.png" width="16" height="16" align="absmiddle" alt=""> <a href="index.html" onclick="try{localStorage.removeItem('altMode')}catch(e){}"><font color="#F3DFA0">[ вернуться ]</font></a> <img src="p2000-dot.png" width="16" height="16" align="absmiddle" alt=""></font><br><br></center>
 <center>
@@ -457,5 +458,25 @@ input:hover { background-color: #EDA668; }
 </table>
 </center>
 <br><br>
+</div>
+<script type="text/javascript">
+(function () {
+    var W = 1680;
+    function fit() {
+        var f = document.getElementById('fit');
+        if (!f) return;
+        var s = Math.min(1, window.innerWidth / W);
+        if (window.CSS && CSS.supports && CSS.supports('zoom', '1')) {
+            f.style.zoom = s;
+        } else {
+            f.style.transformOrigin = '0 0';
+            f.style.transform = 'scale(' + s + ')';
+            f.style.width = (window.innerWidth / s) + 'px';
+        }
+    }
+    fit();
+    window.addEventListener('resize', fit);
+})();
+</script>
 </body>
 </html>
