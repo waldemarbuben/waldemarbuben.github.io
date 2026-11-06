@@ -31,6 +31,7 @@ td[data-track-card] { border: 3px ridge #00A6D6; }
 </style>
 </head>
 <body background="blackspace.jpg" text="#3A1A00" bgcolor="#000000" link="#0A5FD0" vlink="#8E1FA8" alink="#FF0000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<div id="fit">
 <a name="top"></a>
 <center><br><font face="'Arial Black', Impact, sans-serif" size="3"><img src="p2000-dot.png" width="16" height="16" align="absmiddle" alt=""> <a class="btn" href="index.html" onclick="try{localStorage.removeItem('altMode')}catch(e){}"><font color="#FFF3A0"><b>[ вернуться ]</b></font></a> <img src="p2000-dot.png" width="16" height="16" align="absmiddle" alt=""></font><br><br></center>
 <center>
@@ -187,5 +188,25 @@ window.onhashchange = fromHash;
 <tr><td align="center" bgcolor="#FFE98A"><font face="Tahoma, Verdana, sans-serif" size="2"><a href="2000.html">Вернуться к дневнику</a> | <a href="#top">К началу страницы</a></font><table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td height="112" background="p2000-vineh.png" style="filter:hue-rotate(300deg)"><img src="p2000-s.gif" width="1" height="112" alt=""></td></tr></table></td></tr>
 </table></td><td width="46" background="p2000-fm-r.png" style="filter:hue-rotate(300deg)"><img src="p2000-s.gif" width="46" height="1" alt=""></td></tr><tr><td width="46" height="46" background="p2000-fm-bl.png" style="filter:hue-rotate(300deg)"><img src="p2000-s.gif" width="46" height="46" alt=""></td><td background="p2000-fm-b.png" style="filter:hue-rotate(300deg)"><img src="p2000-s.gif" width="1" height="46" alt=""></td><td width="46" background="p2000-fm-br.png" style="filter:hue-rotate(300deg)"><img src="p2000-s.gif" width="46" height="46" alt=""></td></tr></table>
 </center>
+</div>
+<script type="text/javascript">
+(function () {
+    var W = 1480;
+    function fit() {
+        var f = document.getElementById('fit');
+        if (!f) return;
+        var s = Math.min(1, window.innerWidth / W);
+        if (window.CSS && CSS.supports && CSS.supports('zoom', '1')) {
+            f.style.zoom = s;
+        } else {
+            f.style.transformOrigin = '0 0';
+            f.style.transform = 'scale(' + s + ')';
+            f.style.width = (window.innerWidth / s) + 'px';
+        }
+    }
+    fit();
+    window.addEventListener('resize', fit);
+})();
+</script>
 </body>
 </html>

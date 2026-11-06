@@ -31,6 +31,7 @@ td[data-track-card] { border: 3px ridge #FF8A00; }
 </style>
 </head>
 <body background="darkgreen.jpg" text="#183318" bgcolor="#0E3B1B" link="#0A5CBA" vlink="#8E1FA8" alink="#FF3300" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<div id="fit">
 <a name="top"></a>
 <center><br><font face="Impact, Haettenschweiler, 'Arial Black', sans-serif" size="3"><img src="p2000-dot.png" width="16" height="16" align="absmiddle" alt=""> <a class="btn" href="index.html" onclick="try{localStorage.removeItem('altMode')}catch(e){}"><font color="#FFF45C"><b>[ вернуться ]</b></font></a> <img src="p2000-dot.png" width="16" height="16" align="absmiddle" alt=""></font><br><br></center>
 <center>
@@ -120,6 +121,26 @@ function openGallery() {
 }
 document.getElementById('painting-agree').onclick = openGallery;
 if (/[?&]agreed=1(&|$)/.test(window.location.search)) openGallery();
+</script>
+</div>
+<script type="text/javascript">
+(function () {
+    var W = 1480;
+    function fit() {
+        var f = document.getElementById('fit');
+        if (!f) return;
+        var s = Math.min(1, window.innerWidth / W);
+        if (window.CSS && CSS.supports && CSS.supports('zoom', '1')) {
+            f.style.zoom = s;
+        } else {
+            f.style.transformOrigin = '0 0';
+            f.style.transform = 'scale(' + s + ')';
+            f.style.width = (window.innerWidth / s) + 'px';
+        }
+    }
+    fit();
+    window.addEventListener('resize', fit);
+})();
 </script>
 </body>
 </html>
