@@ -164,6 +164,92 @@ html.gated{overflow:hidden}
   .hint{padding:14px 16px 16px;font-size:14px}
 }
 @media (prefers-reduced-motion:reduce){.glass.dead::before{animation:none}}
+
+/* ===== ШАМАНСКАЯ ПЛЯСКА 2.0 (включается JS-ом через html.dancing) ===== */
+:root{--beat:.46s;--f:1}
+html.dancing.tangle{--beat:.24s}
+.poem{position:relative}
+.lm{position:absolute;z-index:9;display:block;pointer-events:none;transform-origin:50% 0;scale:0;transition:scale .5s cubic-bezier(.3,1.7,.5,1)}
+html.dancing .lm{scale:1}
+.lm.arm,.lm.fore,.lm.leg,.lm.shin{background:linear-gradient(90deg,#7a5018,#f6dd92 38%,#c9983c 62%,#5a3a0e);border:max(1px,calc(var(--f)*2px)) solid #1a0a02;border-radius:calc(var(--f)*9px);box-shadow:0 2px 3px rgba(0,0,0,.55)}
+.lm.arm{width:calc(var(--f)*13px);height:calc(var(--f)*58px);top:34%}
+.lm.arm.l{left:calc(var(--f)*-7px)}
+.lm.arm.r{left:calc(100% - var(--f)*6px)}
+.lm.fore{width:calc(var(--f)*11px);height:calc(var(--f)*52px);left:calc(50% - var(--f)*5.5px);top:calc(100% - var(--f)*4px)}
+.lm.hand{width:calc(var(--f)*24px);height:calc(var(--f)*24px);left:calc(50% - var(--f)*12px);top:calc(100% - var(--f)*6px);border-radius:50%;
+  background:radial-gradient(circle at 35% 30%,#fffdf2,#f3e3b0 55%,#b8893a);border:max(1px,calc(var(--f)*2px)) solid #1a0a02}
+.lm.leg{width:calc(var(--f)*16px);height:calc(var(--f)*62px);top:calc(100% - var(--f)*10px)}
+.lm.leg.l{left:calc(30% - var(--f)*8px)}
+.lm.leg.r{left:calc(70% - var(--f)*8px)}
+.lm.shin{width:calc(var(--f)*14px);height:calc(var(--f)*58px);left:calc(50% - var(--f)*7px);top:calc(100% - var(--f)*5px)}
+.lm.foot{width:calc(var(--f)*30px);height:calc(var(--f)*15px);top:calc(100% - var(--f)*4px);border-radius:50% 50% 35% 35%;
+  background:linear-gradient(#6a2c14,#1a0803);border:max(1px,calc(var(--f)*2px)) solid #caa148}
+.lm.leg.l .foot{left:calc(50% - var(--f)*22px)}
+.lm.leg.r .foot{left:calc(50% - var(--f)*8px)}
+/* глазки */
+.lm.eye{z-index:10;transform-origin:50% 50%;width:calc(var(--f)*34px);height:calc(var(--f)*34px);top:calc(var(--f)*8px);border-radius:50%;
+  background:radial-gradient(circle at 40% 35%,#fff,#f4ecd0 70%,#bba76a);border:max(1px,calc(var(--f)*2px)) solid #1a0a02;box-shadow:0 2px 3px rgba(0,0,0,.5)}
+.lm.eye.l{left:calc(28% - var(--f)*17px)}
+.lm.eye.r{left:calc(72% - var(--f)*17px)}
+.lm.pup{transform-origin:50% 50%;width:44%;height:44%;left:28%;top:28%;border-radius:50%;background:radial-gradient(circle at 35% 30%,#666,#000 60%)}
+
+@keyframes armL{0%,100%{transform:rotate(22deg)}50%{transform:rotate(155deg)}}
+@keyframes armR{0%,100%{transform:rotate(-22deg)}50%{transform:rotate(-155deg)}}
+@keyframes spinL{to{transform:rotate(360deg)}}
+@keyframes spinR{to{transform:rotate(-360deg)}}
+@keyframes foreL{0%{transform:rotate(-35deg)}100%{transform:rotate(60deg)}}
+@keyframes foreR{0%{transform:rotate(35deg)}100%{transform:rotate(-60deg)}}
+@keyframes legA{0%,100%{transform:rotate(-36deg)}50%{transform:rotate(36deg)}}
+@keyframes jackL{0%,100%{transform:rotate(5deg)}50%{transform:rotate(38deg)}}
+@keyframes jackR{0%,100%{transform:rotate(-5deg)}50%{transform:rotate(-38deg)}}
+@keyframes shinA{0%,100%{transform:rotate(4deg)}50%{transform:rotate(-58deg)}}
+@keyframes shinB{0%,100%{transform:rotate(-4deg)}50%{transform:rotate(58deg)}}
+@keyframes holdL{0%,100%{transform:rotate(76deg)}50%{transform:rotate(106deg)}}
+@keyframes holdR{0%,100%{transform:rotate(-76deg)}50%{transform:rotate(-106deg)}}
+@keyframes sd{0%,100%{transform:translate(0,0) rotate(-1.6deg)}25%{transform:translate(-4px,-10px) rotate(2.4deg)}50%{transform:translate(3px,0) rotate(-2.4deg)}75%{transform:translate(4px,-10px) rotate(1.8deg)}}
+@keyframes medspin{to{transform:rotate(360deg)}}
+@keyframes pup{0%{transform:translate(-28%,-18%)}25%{transform:translate(30%,12%)}50%{transform:translate(-8%,34%)}75%{transform:translate(26%,-30%)}100%{transform:translate(-30%,22%)}}
+@keyframes hue{from{filter:hue-rotate(0deg) saturate(1.5)}to{filter:hue-rotate(360deg) saturate(1.5)}}
+@keyframes psyspin{to{transform:rotate(360deg)}}
+
+html.dancing .lm.arm.l{animation:armL calc(var(--beat)*var(--ma)) ease-in-out infinite;animation-delay:calc(var(--d)*-1s)}
+html.dancing .lm.arm.r{animation:armR calc(var(--beat)*var(--ma)) ease-in-out infinite;animation-delay:calc(var(--d)*-1s - var(--beat)*var(--ma)*.5)}
+html.dancing .dv1>.lm.arm.r{animation-delay:calc(var(--d)*-1s)}
+html.dancing .dv2>.lm.arm.l{animation-name:spinL;animation-timing-function:linear;animation-duration:calc(var(--beat)*2)}
+html.dancing .dv2>.lm.arm.r{animation-name:spinR;animation-timing-function:linear;animation-duration:calc(var(--beat)*2);animation-delay:calc(var(--d)*-1s)}
+html.dancing .lm.arm.l .fore{animation:foreL calc(var(--beat)*var(--ma)*.5) ease-in-out infinite alternate}
+html.dancing .lm.arm.r .fore{animation:foreR calc(var(--beat)*var(--ma)*.5) ease-in-out infinite alternate}
+
+html.dancing .lm.leg.l{animation:legA calc(var(--beat)*var(--ml)*2) ease-in-out infinite;animation-delay:calc(var(--d)*-1s)}
+html.dancing .lm.leg.r{animation:legA calc(var(--beat)*var(--ml)*2) ease-in-out infinite;animation-delay:calc(var(--d)*-1s - var(--beat)*var(--ml))}
+html.dancing .lv1>.lm.leg.l{animation-name:jackL;animation-duration:calc(var(--beat)*var(--ml))}
+html.dancing .lv1>.lm.leg.r{animation-name:jackR;animation-duration:calc(var(--beat)*var(--ml));animation-delay:calc(var(--d)*-1s)}
+html.dancing .lm.leg.l .shin{animation:shinA calc(var(--beat)*var(--ml)*2) ease-in-out infinite;animation-delay:calc(var(--d)*-1s - var(--beat)*var(--ml)*.5)}
+html.dancing .lm.leg.r .shin{animation:shinB calc(var(--beat)*var(--ml)*2) ease-in-out infinite;animation-delay:calc(var(--d)*-1s - var(--beat)*var(--ml)*1.5)}
+html.dancing .lv1>.lm.leg .shin{animation-duration:calc(var(--beat)*var(--ml))}
+
+/* хоровод: все держатся за руки и топают */
+html.dancing.horo .lm.arm.l{animation:holdL calc(var(--beat)*2) ease-in-out infinite;animation-delay:0s}
+html.dancing.horo .lm.arm.r{animation:holdR calc(var(--beat)*2) ease-in-out infinite;animation-delay:0s}
+html.dancing.horo .lm.leg.l{animation:legA calc(var(--beat)*2) ease-in-out infinite;animation-delay:0s}
+html.dancing.horo .lm.leg.r{animation:legA calc(var(--beat)*2) ease-in-out infinite;animation-delay:calc(var(--beat)*-1)}
+html.dancing.horo .dn{animation:hue 3.2s linear infinite;animation-delay:calc(var(--d)*-1s)}
+
+html.dancing .sd{animation:sd calc(var(--beat)*var(--mb)) ease-in-out infinite;animation-delay:calc(var(--d)*-1s)}
+html.dancing .medal{animation:medspin 1.1s linear infinite}
+html.dancing .row .medal:last-child{animation-direction:reverse}
+html.dancing .lm.pup{animation:pup calc(var(--beat)*1.3) ease-in-out infinite alternate;animation-delay:calc(var(--d)*-1s)}
+html.dancing{-webkit-user-select:none;user-select:none}
+
+/* слой для оторвавшихся плашек и психоделический фон */
+#fly{position:fixed;left:0;top:0;width:100%;height:100%;z-index:5;pointer-events:none}
+#psy,#psy2{position:fixed;left:50%;top:50%;width:145vmax;height:145vmax;margin:-72.5vmax 0 0 -72.5vmax;z-index:1;pointer-events:none;border-radius:50%;
+  opacity:0;visibility:hidden;transition:opacity 1.4s,visibility 0s 1.4s}
+#psy{background:conic-gradient(#ff0080,#ff8c00,#ffe600,#00ff9d,#00b7ff,#7a00ff,#ff0080);animation:psyspin 26s linear infinite}
+#psy2{background:repeating-conic-gradient(#ff2bd6 0 10deg,transparent 10deg 20deg,#19ffb0 20deg 30deg,transparent 30deg 40deg);animation:psyspin 18s linear infinite reverse}
+html.dancing #psy{opacity:.22;visibility:visible;transition:opacity 1.4s}
+html.dancing.horo #psy{opacity:.4}
+html.dancing.horo #psy2{opacity:.3;visibility:visible;transition:opacity 1.4s}
 </style>
 </head>
 <body>
@@ -760,6 +846,286 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 });
+</script>
+<script>
+/* ===== ШАМАНСКАЯ ПЛЯСКА 2.0 =====
+   Через IDLE мс после «Войти» (старт музыки): у блоков отрастают ножки, ручки и глазки;
+   плашки одна за другой отрываются от блоков и летят каждая по своей траектории;
+   потом все сплетаются в кучу и пускаются в хоровод (кольцо → два встречных кольца → спираль) на радужном фоне.
+   Цикл: безумие → куча → хоровод → … пока не нажмут на экран. Нажатие — всё плавно возвращается на места.
+   REARM: после IDLE мс тишины пляска начнётся снова. BEAT (сек) — темп прыжков, подгоните под трек. */
+(function(){
+  var IDLE=20000, REARM=true, BEAT=.46;
+  if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+
+  var root=document.documentElement, body=document.body;
+  function rr(a,b){return a+Math.random()*(b-a);}
+  function pi(n){return Math.floor(Math.random()*n);}
+  function clamp(v,a,b){return v<a?a:v>b?b:v;}
+  function cl(v,lo,hi,mid){return hi<lo?mid:clamp(v,lo,hi);}
+  function shuffle(a){for(var i=a.length-1;i>0;i--){var j=pi(i+1),t=a[i];a[i]=a[j];a[j]=t;}return a;}
+  function div(id){var e=document.createElement('div');e.id=id;body.appendChild(e);return e;}
+  /* позиция элемента на странице без учёта transform (offset-цепочка + рамки родителей) */
+  function pc(n){var x=0,y=0;while(n){x+=n.offsetLeft;y+=n.offsetTop;var p=n.offsetParent;if(p){x+=p.clientLeft;y+=p.clientTop;}n=p;}return [x,y];}
+
+  div('psy');div('psy2');var fly=div('fly');
+
+  var LIMB='<span class="lm arm l"><span class="lm fore"><span class="lm hand"></span></span></span>'+
+           '<span class="lm arm r"><span class="lm fore"><span class="lm hand"></span></span></span>'+
+           '<span class="lm leg l"><span class="lm shin"><span class="lm foot"></span></span></span>'+
+           '<span class="lm leg r"><span class="lm shin"><span class="lm foot"></span></span></span>'+
+           '<span class="lm eye l"><span class="lm pup"></span></span><span class="lm eye r"><span class="lm pup"></span></span>';
+  function dress(el,sub){
+    el.insertAdjacentHTML('beforeend',LIMB);
+    el.classList.add('dn','dv'+pi(3),'lv'+pi(2));
+    if(sub)el.classList.add('sd');
+    el.style.setProperty('--d',rr(0,3).toFixed(2));
+    el.style.setProperty('--ma',[.5,1,1,2][pi(4)]);
+    el.style.setProperty('--ml',[.5,1,1][pi(3)]);
+    el.style.setProperty('--mb',[1,1,2][pi(3)]);
+  }
+
+  var mainEls=[].slice.call(document.querySelectorAll('.stage > .frame'));
+  var subEls=['.plate','.banner','.hint','.board-frame','.bezel','.score','.dpad','.poem'].map(function(q){return document.querySelector(q);}).filter(Boolean);
+  mainEls.forEach(function(e){dress(e,false);});
+  subEls.forEach(function(e){dress(e,true);});
+
+  function mk(el,kind){
+    return {el:el,kind:kind,w:0,h:0,px:0,py:0,sT:.5,hs:.3,x:0,y:0,vx:0,vy:0,r:0,vr:0,s:1,vs:0,tx:0,ty:0,tr:0,ts:1,
+      next:0,ph:Math.random(),amp:0,mode:0,P:null,pt:0,spin:0,spinT:0,ox:rr(-130,130),oy:rr(-100,100),
+      cx:0,cy:0,cr:0,ckx:1,cky:1,launched:kind==='main',at:0,hold:null,par:null,ri:0};
+  }
+  var M=mainEls.map(function(e,i){var d=mk(e,'main');d.ox=Math.cos(i*2.094+.5)*120;d.oy=Math.sin(i*2.094+.5)*90;return d;});
+  var F=subEls.map(function(e){var o=mk(e,'fly');o.par=M.filter(function(m){return m.el.contains(e);})[0]||M[0];return o;});
+  var A=M.concat(F);
+
+  var vw=0,vh=0,state='idle',phase='chaos',phaseT=0,backT=0,clock=0,danceT=0,lastTs=0,raf=0,tmr=0,swallowUntil=0,idleMode=false;
+  var firstChaos=true,horoT=0,horoTh=0,ring=[];
+
+  function measure(){
+    vw=root.clientWidth;vh=root.clientHeight||innerHeight;
+    var md=M.map(function(d){var c=pc(d.el);return [c[0],c[1],d.el.offsetWidth,d.el.offsetHeight];});
+    var fd=F.map(function(f){return f.launched?pc(f.hold):[Math.min(f.el.offsetWidth,f.el.offsetHeight)];});
+    M.forEach(function(d,i){
+      var m=md[i];d.w=m[2];d.h=m[3];d.px=m[0]+m[2]/2;d.py=m[1]+m[3]/2;
+      d.sT=clamp(Math.min(vw*.42/d.w,vh*.5/d.h),.22,.6);
+      d.el.style.setProperty('--f',clamp(Math.min(d.w,d.h)/330,.5,1.1).toFixed(2));
+    });
+    F.forEach(function(f,i){
+      if(f.launched){f.px=fd[i][0]+f.w/2;f.py=fd[i][1]+f.h/2;}
+      else f.el.style.setProperty('--f',clamp(fd[i][0]/330,.3,.7).toFixed(2));
+    });
+  }
+
+  /* ---------- траектории ---------- */
+  function assignMode(o){
+    var list=o.kind==='main'?[0,0,1,5,3,2,6]:[1,2,3,4,5,6,7,1,3,5];
+    var m,t=0;do{m=list[pi(list.length)];t++;}while(m===o.mode&&t<4);
+    o.mode=m;o.pt=rr(0,20);o.spinT=rr(1,3);
+    var tg=pi(M.length);if(o.kind==='main'&&M[tg]===o)tg=(tg+1)%M.length;
+    o.P={a:rr(.55,1.5),b:rr(.7,1.9),p:rr(0,6.28),q:rr(0,6.28),dir:Math.random()<.5?-1:1,sp:rr(.12,.3),k:rr(1,3.2),rad:rr(110,250),tgt:tg,
+      bx:o.x,by:o.y,vx:rr(380,640)*(Math.random()<.5?-1:1),vy:rr(300,560)*(Math.random()<.5?-1:1)};
+  }
+  function path(o,dt){
+    var P=o.P,t=o.pt,s=o.sT,hw=o.w*s*.5+8,hh=o.h*s*.5+8,cx=vw/2,cy=vh/2,ax=Math.max(0,cx-hw),ay=Math.max(0,cy-hh),x,y,u,q,a;
+    switch(o.mode){
+      case 1:x=cx+ax*Math.sin(P.a*t+P.p);y=cy+ay*Math.sin(P.b*t+P.q);break;                       /* Лиссажу */
+      case 2:u=.3+.7*Math.abs(Math.sin(P.a*.4*t+P.p));a=P.a*1.5*t*P.dir+P.q;                      /* дышащая спираль */
+             x=cx+ax*u*Math.cos(a);y=cy+ay*u*Math.sin(a);break;
+      case 3:P.bx+=P.vx*dt;P.by+=P.vy*dt;                                                         /* DVD-отскок */
+             if(P.bx<hw||P.bx>vw-hw){P.vx=-P.vx;P.bx=cl(P.bx,hw,vw-hw,cx);}
+             if(P.by<hh||P.by>vh-hh){P.vy=-P.vy;P.by=cl(P.by,hh,vh-hh,cy);}
+             x=P.bx;y=P.by;break;
+      case 4:u=(t*P.sp*2+P.p)%2;u=u>1?2-u:u;x=hw+(vw-2*hw)*u;y=cy+ay*.8*Math.sin(u*P.k*6.283+P.q);break; /* волна туда-сюда */
+      case 5:q=P.a*t*1.1+P.p;x=cx+ax*Math.sin(q);y=cy+ay*Math.sin(2*q);break;                    /* восьмёрка */
+      case 6:var T=M[P.tgt];a=P.a*1.8*t*P.dir+P.q;x=T.x+Math.cos(a)*P.rad;y=T.y+Math.sin(a)*P.rad*.8;break; /* вокруг другого */
+      default:u=Math.sin(P.a*t*.9+P.p);x=cx+ax*Math.sin(P.a*t*.45+P.q);y=cy-ay+2*ay*u*u;           /* качели-взмах */
+    }
+    o.tx=cl(x,hw,vw-hw,cx);o.ty=cl(y,hh,vh-hh,cy);
+  }
+  function lean(o,dt){
+    o.spinT-=dt;
+    if(o.spinT<=0){if(Math.random()<.5)o.spin+=Math.random()<.5?-360:360;o.spinT=rr(1.2,4.5);}
+    o.tr=o.spin+clamp(o.vx*.045,-38,38)+Math.sin(clock*7+o.ph*6)*9;
+    o.ts=o.sT*(1+.1*Math.sin(clock*4+o.ph*6));
+  }
+  function pick(o){                                   /* прыжки наугад (chaos mode 0) и дрожь в куче */
+    var s=o.sT,tangle=phase==='tangle',hw=o.w*s*.58+6,hh=o.h*s*.58+6;
+    o.spin=360*Math.round(o.r/360);
+    if(tangle){
+      var k=o.kind==='main'?s:1;
+      o.tx=vw/2+o.ox*k+rr(-28,28);o.ty=vh/2+o.oy*k+rr(-28,28);o.tr=o.spin+rr(-50,50);o.ts=s*.92;o.next=rr(.12,.3);
+    }else{
+      o.tx=cl(rr(hw,vw-hw),hw,vw-hw,vw/2);o.ty=cl(rr(hh,vh-hh),hh,vh-hh,vh/2);
+      o.tr=Math.random()<.14?o.r+(Math.random()<.5?-360:360):o.spin+rr(-38,38);
+      o.ts=s*rr(.85,1.12);o.next=rr(.3,.8);
+      if(Math.random()<.3){o.vx+=rr(-700,700);o.vy+=rr(-700,700);}
+    }
+    if(Math.random()<.3)o.el.style.zIndex=String(1+pi(9));
+  }
+
+  /* ---------- хоровод ---------- */
+  function ringPlace(dt){
+    horoT+=dt;
+    var n=ring.length;if(!n)return;
+    var seg=Math.floor(horoT/3.2)%3,R0=Math.min(vw,vh)*.31,w=1.15*Math.sin(horoT*.55+1.2);
+    horoTh+=w*dt;
+    var ne=Math.ceil(n/2),no=n-ne;
+    for(var i=0;i<n;i++){
+      var o=ring[i],R,ang;
+      if(seg===0){R=R0*(1+.13*Math.sin(clock*3.3));ang=horoTh+i*6.2832/n;}
+      else if(seg===1){
+        if(i%2===0){R=R0*.5*(1+.12*Math.sin(clock*3.3));ang=horoTh*1.3+(i>>1)*6.2832/ne;}
+        else{R=R0*1.2*(1+.1*Math.sin(clock*3.3+1));ang=-horoTh+(i>>1)*6.2832/Math.max(1,no);}
+      }else{R=R0*(.22+.95*i/Math.max(1,n-1))*(1+.1*Math.sin(clock*2.5+i));ang=horoTh*1.2+i*.62;}
+      o.tx=vw/2+R*Math.cos(ang);o.ty=vh/2+R*Math.sin(ang);
+      o.tr=o.spin+(i%2?1:-1)*Math.sin(clock*Math.PI/BEAT*.5)*9;
+      o.ts=o.hs;
+    }
+  }
+
+  /* ---------- вылет плашки ---------- */
+  function launch(f){
+    var el=f.el,cs=getComputedStyle(el),w=el.offsetWidth,h=el.offsetHeight,c=pc(el),P=f.par;
+    var ox=c[0]+w/2-P.px,oy=c[1]+h/2-P.py,ta=cs.textAlign;
+    var ph=document.createElement('div');
+    ph.style.cssText='flex:none;pointer-events:none;visibility:hidden;width:'+w+'px;height:'+h+'px;margin:'+cs.margin;
+    el.parentNode.insertBefore(ph,el);
+    f.hold=ph;f.w=w;f.h=h;f.px=c[0]+w/2;f.py=c[1]+h/2;
+    fly.appendChild(el);
+    var st=el.style;
+    st.position='absolute';st.left='0px';st.top='0px';st.width=w+'px';st.height=h+'px';st.margin='0px';
+    st.textAlign=ta;st.transformOrigin='50% 50%';st.willChange='transform';st.zIndex=String(1+pi(9));
+    el.classList.remove('sd');
+    f.sT=clamp(210/Math.max(w,h),.22,.8);
+    st.setProperty('--f',clamp(.4/f.sT,.5,1.5).toFixed(2));
+    var vx=ox*P.ckx,vy=oy*P.cky,a=P.cr*Math.PI/180,co=Math.cos(a),si=Math.sin(a);
+    f.x=P.cx+vx*co-vy*si;f.y=P.cy+vx*si+vy*co;
+    f.r=P.cr;f.s=(P.ckx+P.cky)/2;f.vr=rr(-300,300);f.vs=0;f.amp=0;
+    f.vx=P.vx*.7+rr(-500,500);f.vy=P.vy*.7-rr(350,900);
+    f.spin=360*Math.round(f.r/360);f.launched=true;
+    assignMode(f);f.mode=f.mode||1;f.tx=f.x;f.ty=f.y;f.tr=f.r;f.ts=f.s;
+  }
+  function land(f){
+    var el=f.el,st=el.style,ph=f.hold;
+    ph.parentNode.insertBefore(el,ph);ph.parentNode.removeChild(ph);
+    ['position','left','top','width','height','margin','textAlign','transform','transformOrigin','willChange','zIndex'].forEach(function(k){st[k]='';});
+    el.classList.add('sd');f.launched=false;f.hold=null;
+  }
+
+  /* ---------- фазы ---------- */
+  function setPhase(p){
+    phase=p;root.classList.toggle('tangle',p==='tangle');root.classList.toggle('horo',p==='horo');
+    var live=A.filter(function(o){return o.launched;});
+    if(p==='chaos'){
+      phaseT=firstChaos?rr(9,11):rr(8,11);firstChaos=false;
+      live.forEach(function(o){assignMode(o);o.next=0;if(o.mode===0)pick(o);});
+    }else if(p==='tangle'){
+      phaseT=rr(3,4.5);live.forEach(function(o){o.next=0;pick(o);});
+    }else{
+      phaseT=rr(9,12);horoT=0;horoTh=rr(0,6.28);
+      var n=live.length,R0=Math.min(vw,vh)*.31,spacing=6.2832*R0/Math.max(1,n);
+      ring=shuffle(live.slice());
+      ring.forEach(function(o,i){
+        o.ri=i;o.spin=360*Math.round(o.r/360);
+        o.hs=clamp(Math.min(o.sT*(o.kind==='main'?.7:.85),spacing*.95/o.w,vh*.28/o.h),.14,.6);
+      });
+    }
+  }
+  function nextPhase(){setPhase(phase==='chaos'?'tangle':phase==='tangle'?'horo':'chaos');}
+
+  function sp(d,p,v,t,k,c,h){d[v]+=(k*(t-d[p])-c*d[v])*h;d[p]+=d[v]*h;}
+
+  function start(){
+    if(state!=='idle')return;
+    state='dance';danceT=0;firstChaos=true;measure();
+    var sx=pageXOffset,sy=pageYOffset;
+    M.forEach(function(d){
+      d.x=d.px-sx;d.y=d.py-sy;d.vx=d.vy=d.vr=d.vs=0;d.r=0;d.s=1;d.amp=0;d.ph=Math.random();
+      d.cx=d.x;d.cy=d.y;d.cr=0;d.ckx=d.cky=1;d.el.style.willChange='transform';
+    });
+    var ord=shuffle(F.map(function(_,i){return i;}));
+    F.forEach(function(f,i){f.launched=false;f.at=rr(.9,1.4)+ord[i]*.5;f.amp=0;f.ph=Math.random();});
+    root.classList.add('dancing');
+    setPhase('chaos');
+    lastTs=0;raf=requestAnimationFrame(loop);
+  }
+  function stop(){
+    if(state!=='dance')return;
+    state='back';backT=0;root.classList.remove('dancing','tangle','horo');
+    A.forEach(function(o){o.r-=360*Math.round(o.r/360);});
+  }
+  function finish(){
+    M.forEach(function(d){var s=d.el.style;s.transform='';s.willChange='';s.zIndex='';});
+    F.forEach(function(f){if(f.launched)land(f);});
+    state='idle';raf=0;
+    if(REARM){idleMode=true;arm(IDLE);}
+  }
+  function arm(ms){
+    clearTimeout(tmr);
+    tmr=setTimeout(function(){document.hidden?arm(2000):start();},ms);
+  }
+
+  function loop(ts){
+    var dt=lastTs?Math.min((ts-lastTs)/1000,.034):.016;lastTs=ts;clock+=dt;
+    var dance=state==='dance',sx=pageXOffset,sy=pageYOffset,settled=true,i,o;
+    if(dance){
+      danceT+=dt;phaseT-=dt;if(phaseT<=0)nextPhase();
+      for(i=0;i<F.length;i++)if(!F[i].launched&&danceT>=F[i].at)launch(F[i]);
+      if(phase==='horo')ringPlace(dt);
+    }else backT+=dt;
+    var tangle=phase==='tangle',horo=phase==='horo',h=dt/2;
+    for(i=0;i<A.length;i++){
+      o=A[i];if(!o.launched)continue;
+      var hx=o.px-sx,hy=o.py-sy,K,C,KR=110,CR=14;
+      if(dance){
+        if(phase==='chaos'){
+          if(o.mode===0){o.next-=dt;if(o.next<=0)pick(o);K=105;C=7;KR=150;CR=9;}
+          else{o.pt+=dt;path(o,dt);lean(o,dt);K=o.kind==='main'?70:88;C=o.kind==='main'?8.5:7.2;KR=130;CR=9;}
+        }else if(tangle){o.next-=dt;if(o.next<=0)pick(o);K=170;C=11;KR=150;CR=9;}
+        else{K=125;C=12;KR=120;CR=11;}
+      }else{o.tx=hx;o.ty=hy;o.tr=0;o.ts=1;K=95;C=13;}
+      for(var n=0;n<2;n++){
+        sp(o,'x','vx',o.tx,K,C,h);sp(o,'y','vy',o.ty,K,C,h);
+        sp(o,'r','vr',o.tr,KR,CR,h);sp(o,'s','vs',o.ts,80,12,h);
+      }
+      o.amp+=((dance?1:0)-o.amp)*Math.min(1,dt*5);
+      var a=o.amp,php=(dance&&horo)?0:o.ph,hop=Math.abs(Math.sin(Math.PI*(clock/BEAT+php))),sq=Math.pow(1-hop,4);
+      var jx=tangle?(Math.random()-.5)*5*a:0,jy=tangle?(Math.random()-.5)*5*a:0;
+      var rot=o.r+Math.sin(clock*(tangle?30:15)+o.ph*9)*3.5*a;
+      var kx=o.s*(1+.09*sq*a-.03*hop*a),ky=o.s*(1-.09*sq*a+.05*hop*a);
+      var ex=o.x+jx,ey=o.y-hop*40*o.s*a+jy,tx,ty;
+      if(o.kind==='main'){tx=ex-hx;ty=ey-hy;o.cx=ex;o.cy=ey;o.cr=rot;o.ckx=kx;o.cky=ky;}
+      else{tx=ex-o.w/2;ty=ey-o.h/2;}
+      o.el.style.transform='translate3d('+tx.toFixed(1)+'px,'+ty.toFixed(1)+'px,0) rotate('+rot.toFixed(2)+'deg) scale('+kx.toFixed(3)+','+ky.toFixed(3)+')';
+      if(!dance&&!(Math.abs(o.x-hx)<.6&&Math.abs(o.y-hy)<.6&&Math.abs(o.vx)<5&&Math.abs(o.vy)<5&&Math.abs(o.r)<.4&&Math.abs(o.s-1)<.004&&o.amp<.02))settled=false;
+    }
+    if(!dance&&(backT>3.2||(backT>.3&&settled))){finish();return;}
+    raf=requestAnimationFrame(loop);
+  }
+
+  /* любое нажатие на экран останавливает пляску (и не «проваливается» в игру) */
+  function onDown(e){
+    var now=performance.now();
+    if(state==='dance'){
+      e.stopPropagation();if(e.cancelable)e.preventDefault();
+      swallowUntil=now+450;stop();return;
+    }
+    if(now<swallowUntil){e.stopPropagation();if(e.cancelable)e.preventDefault();return;}
+    if(idleMode&&state==='idle')arm(IDLE);
+  }
+  ['pointerdown','mousedown','touchstart','click'].forEach(function(t){
+    window.addEventListener(t,onDown,{capture:true,passive:false});
+  });
+  window.addEventListener('keydown',function(){
+    if(state==='dance')stop();else if(idleMode&&state==='idle')arm(IDLE);
+  },true);
+  window.addEventListener('resize',function(){if(state!=='idle')measure();});
+
+  /* старт отсчёта — момент включения музыки */
+  var gb=document.getElementById('gate-btn');
+  if(gb)gb.addEventListener('click',function(){arm(IDLE);});
+})();
 </script>
 </body>
 </html>
