@@ -165,7 +165,7 @@ html.gated{overflow:hidden}
 }
 @media (prefers-reduced-motion:reduce){.glass.dead::before{animation:none}}
 
-/* ===== ШАМАНСКАЯ ПЛЯСКА 2.0 (включается JS-ом через html.dancing) ===== */
+
 :root{--beat:.46s;--f:1}
 html.dancing.tangle{--beat:.24s}
 .poem{position:relative}
@@ -186,7 +186,7 @@ html.dancing .lm{scale:1}
   background:linear-gradient(#6a2c14,#1a0803);border:max(1px,calc(var(--f)*2px)) solid #caa148}
 .lm.leg.l .foot{left:calc(50% - var(--f)*22px)}
 .lm.leg.r .foot{left:calc(50% - var(--f)*8px)}
-/* глазки */
+
 .lm.eye{z-index:10;transform-origin:50% 50%;width:calc(var(--f)*34px);height:calc(var(--f)*34px);top:calc(var(--f)*8px);border-radius:50%;
   background:radial-gradient(circle at 40% 35%,#fff,#f4ecd0 70%,#bba76a);border:max(1px,calc(var(--f)*2px)) solid #1a0a02;box-shadow:0 2px 3px rgba(0,0,0,.5)}
 .lm.eye.l{left:calc(28% - var(--f)*17px)}
@@ -228,7 +228,7 @@ html.dancing .lm.leg.l .shin{animation:shinA calc(var(--beat)*var(--ml)*2) ease-
 html.dancing .lm.leg.r .shin{animation:shinB calc(var(--beat)*var(--ml)*2) ease-in-out infinite;animation-delay:calc(var(--d)*-1s - var(--beat)*var(--ml)*1.5)}
 html.dancing .lv1>.lm.leg .shin{animation-duration:calc(var(--beat)*var(--ml))}
 
-/* хоровод: все держатся за руки и топают */
+
 html.dancing.horo .lm.arm.l{animation:holdL calc(var(--beat)*2) ease-in-out infinite;animation-delay:0s}
 html.dancing.horo .lm.arm.r{animation:holdR calc(var(--beat)*2) ease-in-out infinite;animation-delay:0s}
 html.dancing.horo .lm.leg.l{animation:legA calc(var(--beat)*2) ease-in-out infinite;animation-delay:0s}
@@ -241,7 +241,7 @@ html.dancing .row .medal:last-child{animation-direction:reverse}
 html.dancing .lm.pup{animation:pup calc(var(--beat)*1.3) ease-in-out infinite alternate;animation-delay:calc(var(--d)*-1s)}
 html.dancing{-webkit-user-select:none;user-select:none}
 
-/* слой для оторвавшихся плашек и психоделический фон */
+
 #fly{position:fixed;left:0;top:0;width:100%;height:100%;z-index:5;pointer-events:none}
 #psy,#psy2{position:fixed;left:50%;top:50%;width:145vmax;height:145vmax;margin:-72.5vmax 0 0 -72.5vmax;z-index:1;pointer-events:none;border-radius:50%;
   opacity:0;visibility:hidden;transition:opacity 1.4s,visibility 0s 1.4s}
@@ -848,12 +848,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 </script>
 <script>
-/* ===== ШАМАНСКАЯ ПЛЯСКА 2.0 =====
-   Через IDLE мс после «Войти» (старт музыки): у блоков отрастают ножки, ручки и глазки;
-   плашки одна за другой отрываются от блоков и летят каждая по своей траектории;
-   потом все сплетаются в кучу и пускаются в хоровод (кольцо → два встречных кольца → спираль) на радужном фоне.
-   Цикл: безумие → куча → хоровод → … пока не нажмут на экран. Нажатие — всё плавно возвращается на места.
-   REARM: после IDLE мс тишины пляска начнётся снова. BEAT (сек) — темп прыжков, подгоните под трек. */
+
 (function(){
   var IDLE=20000, REARM=true, BEAT=.46;
   if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)return;
@@ -865,7 +860,7 @@ document.addEventListener("DOMContentLoaded", () => {
   function cl(v,lo,hi,mid){return hi<lo?mid:clamp(v,lo,hi);}
   function shuffle(a){for(var i=a.length-1;i>0;i--){var j=pi(i+1),t=a[i];a[i]=a[j];a[j]=t;}return a;}
   function div(id){var e=document.createElement('div');e.id=id;body.appendChild(e);return e;}
-  /* позиция элемента на странице без учёта transform (offset-цепочка + рамки родителей) */
+ 
   function pc(n){var x=0,y=0;while(n){x+=n.offsetLeft;y+=n.offsetTop;var p=n.offsetParent;if(p){x+=p.clientLeft;y+=p.clientTop;}n=p;}return [x,y];}
 
   div('psy');div('psy2');var fly=div('fly');
@@ -917,7 +912,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  /* ---------- траектории ---------- */
+  
   function assignMode(o){
     var list=o.kind==='main'?[0,0,1,5,3,2,6]:[1,2,3,4,5,6,7,1,3,5];
     var m,t=0;do{m=list[pi(list.length)];t++;}while(m===o.mode&&t<4);
@@ -929,17 +924,17 @@ document.addEventListener("DOMContentLoaded", () => {
   function path(o,dt){
     var P=o.P,t=o.pt,s=o.sT,hw=o.w*s*.5+8,hh=o.h*s*.5+8,cx=vw/2,cy=vh/2,ax=Math.max(0,cx-hw),ay=Math.max(0,cy-hh),x,y,u,q,a;
     switch(o.mode){
-      case 1:x=cx+ax*Math.sin(P.a*t+P.p);y=cy+ay*Math.sin(P.b*t+P.q);break;                       /* Лиссажу */
-      case 2:u=.3+.7*Math.abs(Math.sin(P.a*.4*t+P.p));a=P.a*1.5*t*P.dir+P.q;                      /* дышащая спираль */
+      case 1:x=cx+ax*Math.sin(P.a*t+P.p);y=cy+ay*Math.sin(P.b*t+P.q);break;                       
+      case 2:u=.3+.7*Math.abs(Math.sin(P.a*.4*t+P.p));a=P.a*1.5*t*P.dir+P.q;                      
              x=cx+ax*u*Math.cos(a);y=cy+ay*u*Math.sin(a);break;
-      case 3:P.bx+=P.vx*dt;P.by+=P.vy*dt;                                                         /* DVD-отскок */
+      case 3:P.bx+=P.vx*dt;P.by+=P.vy*dt;                                                         
              if(P.bx<hw||P.bx>vw-hw){P.vx=-P.vx;P.bx=cl(P.bx,hw,vw-hw,cx);}
              if(P.by<hh||P.by>vh-hh){P.vy=-P.vy;P.by=cl(P.by,hh,vh-hh,cy);}
              x=P.bx;y=P.by;break;
-      case 4:u=(t*P.sp*2+P.p)%2;u=u>1?2-u:u;x=hw+(vw-2*hw)*u;y=cy+ay*.8*Math.sin(u*P.k*6.283+P.q);break; /* волна туда-сюда */
-      case 5:q=P.a*t*1.1+P.p;x=cx+ax*Math.sin(q);y=cy+ay*Math.sin(2*q);break;                    /* восьмёрка */
-      case 6:var T=M[P.tgt];a=P.a*1.8*t*P.dir+P.q;x=T.x+Math.cos(a)*P.rad;y=T.y+Math.sin(a)*P.rad*.8;break; /* вокруг другого */
-      default:u=Math.sin(P.a*t*.9+P.p);x=cx+ax*Math.sin(P.a*t*.45+P.q);y=cy-ay+2*ay*u*u;           /* качели-взмах */
+      case 4:u=(t*P.sp*2+P.p)%2;u=u>1?2-u:u;x=hw+(vw-2*hw)*u;y=cy+ay*.8*Math.sin(u*P.k*6.283+P.q);break; 
+      case 5:q=P.a*t*1.1+P.p;x=cx+ax*Math.sin(q);y=cy+ay*Math.sin(2*q);break;                    
+      case 6:var T=M[P.tgt];a=P.a*1.8*t*P.dir+P.q;x=T.x+Math.cos(a)*P.rad;y=T.y+Math.sin(a)*P.rad*.8;break; 
+      default:u=Math.sin(P.a*t*.9+P.p);x=cx+ax*Math.sin(P.a*t*.45+P.q);y=cy-ay+2*ay*u*u;           
     }
     o.tx=cl(x,hw,vw-hw,cx);o.ty=cl(y,hh,vh-hh,cy);
   }
@@ -949,7 +944,7 @@ document.addEventListener("DOMContentLoaded", () => {
     o.tr=o.spin+clamp(o.vx*.045,-38,38)+Math.sin(clock*7+o.ph*6)*9;
     o.ts=o.sT*(1+.1*Math.sin(clock*4+o.ph*6));
   }
-  function pick(o){                                   /* прыжки наугад (chaos mode 0) и дрожь в куче */
+  function pick(o){                                   
     var s=o.sT,tangle=phase==='tangle',hw=o.w*s*.58+6,hh=o.h*s*.58+6;
     o.spin=360*Math.round(o.r/360);
     if(tangle){
@@ -964,7 +959,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if(Math.random()<.3)o.el.style.zIndex=String(1+pi(9));
   }
 
-  /* ---------- хоровод ---------- */
+ 
   function ringPlace(dt){
     horoT+=dt;
     var n=ring.length;if(!n)return;
@@ -984,7 +979,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  /* ---------- вылет плашки ---------- */
+ 
   function launch(f){
     var el=f.el,cs=getComputedStyle(el),w=el.offsetWidth,h=el.offsetHeight,c=pc(el),P=f.par;
     var ox=c[0]+w/2-P.px,oy=c[1]+h/2-P.py,ta=cs.textAlign;
@@ -1013,7 +1008,7 @@ document.addEventListener("DOMContentLoaded", () => {
     el.classList.add('sd');f.launched=false;f.hold=null;
   }
 
-  /* ---------- фазы ---------- */
+  
   function setPhase(p){
     phase=p;root.classList.toggle('tangle',p==='tangle');root.classList.toggle('horo',p==='horo');
     var live=A.filter(function(o){return o.launched;});
@@ -1104,7 +1099,7 @@ document.addEventListener("DOMContentLoaded", () => {
     raf=requestAnimationFrame(loop);
   }
 
-  /* любое нажатие на экран останавливает пляску (и не «проваливается» в игру) */
+  
   function onDown(e){
     var now=performance.now();
     if(state==='dance'){
@@ -1122,7 +1117,7 @@ document.addEventListener("DOMContentLoaded", () => {
   },true);
   window.addEventListener('resize',function(){if(state!=='idle')measure();});
 
-  /* старт отсчёта — момент включения музыки */
+ 
   var gb=document.getElementById('gate-btn');
   if(gb)gb.addEventListener('click',function(){arm(IDLE);});
 })();
