@@ -2,7 +2,6 @@
 <html lang="ru">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-      <meta name="viewport" content="width=1880">
 <title>Погреб в разработке — Hermeticum.ru</title>
 <style type="text/css">
 body {
@@ -136,8 +135,8 @@ body {
   border-bottom: 4px outset #420707;
   padding: 8px;
   display: inline-block;
-  max-width: none;
-  width: 760px;
+  max-width: 760px;
+  width: 90%;
 }
 
 .bottom-img {
@@ -156,8 +155,8 @@ body {
   border-bottom: 4px outset #420707;
   padding: 8px;
   display: inline-block;
-  max-width: none;
-  width: 760px;
+  max-width: 760px;
+  width: 90%;
 }
 
 .poem-well {
@@ -197,8 +196,6 @@ a:hover {
 }
 
 /* ===== ПОДВАЛ: атмосфера ===== */
-html,body{min-width:1880px}
-.ie .view{overflow:visible!important;height:auto!important}
 body{background-attachment:fixed}
 #torch{position:fixed;left:0;top:0;width:100%;height:100%;pointer-events:none;z-index:50;
  background:radial-gradient(ellipse at 50% 35%,rgba(255,120,30,0.10) 0%,rgba(0,0,0,0) 38%,rgba(0,0,0,0.55) 78%,rgba(0,0,0,0.92) 100%);
@@ -220,7 +217,7 @@ body{background-attachment:fixed}
 .ie .tb i{float:right;font-style:normal;border:2px outset #e0b040;background:#7a2a10;padding:0 6px;margin-left:3px}
 .ie .menu{background:#2a0606;border-bottom:2px groove #590a0a;font:11px Verdana;color:#c9a888;padding:3px 8px;letter-spacing:1px}
 .ie .addr{background:#1a0303;border:2px inset #3b0606;margin:4px;padding:2px 6px;font:11px "Courier New",monospace;color:#e8c898}
-.ie .view{background:#050101;border:3px inset #290404;margin:4px;padding:10px 0;height:auto;overflow:visible}
+.ie .view{background:#050101;border:3px inset #290404;margin:4px;padding:10px 0;height:760px;overflow:auto}
 .ie .stat{background:#2a0606;border-top:2px groove #590a0a;font:11px Verdana;color:#c9a888;padding:3px 8px}
 .bar-prog{display:inline-block;width:160px;height:11px;border:2px inset #3b0606;background:#0a0101;vertical-align:middle}
 .bar-prog b{display:block;height:11px;width:37%;background:repeating-linear-gradient(90deg,#b82525 0,#b82525 8px,#2a0404 8px,#2a0404 10px)}
@@ -379,6 +376,12 @@ body{background-attachment:fixed}
 .cyb .sk,.cyb .glow,.cyb .cap,.cyb .eso:first-letter,.cyb .lcd,.cyb .new{text-shadow:1px 1px 0 #000}
 .cyb h3,.cyb .t-blood h3,.cyb .t-blood b{text-shadow:none}
 .cyb .btn,.cyb input[type=button]{border-radius:0}
+.cyb .poem-well p{font-family:"Times New Roman",Times,serif;font-size:16px;line-height:1.55;color:#d6c5b3}
+.cyb .exit-link{font-family:"Times New Roman",serif;font-size:13px}
+.cyb .poem-frame{margin-top:0;width:auto;max-width:none;display:block}
+.cyb .picture-frame{width:auto;max-width:none}
+.cyb .ladder-img{margin:6px auto}
+
 </style>
 <script type="text/javascript">
 function enterSite() {
@@ -396,7 +399,7 @@ function enterSite() {
 <div id="torch"></div><div id="grain"></div>
 <audio id="bg-music" src="helene.mp3" loop="loop"></audio>
 
-<table border="0" cellpadding="15" cellspacing="0" width="100%">
+<div align="center"><center><table border="0" cellpadding="15" cellspacing="0">
   <tr>
     <td align="center">
       <br>
@@ -427,41 +430,38 @@ function enterSite() {
 
   
       <div id="main-screen" style="display: none;">
-        <table class="outer-frame" border="0" cellpadding="5" cellspacing="0" width="440" bgcolor="#1c0404">
-          <tr>
-            <td>
-              <table class="inner-chamber" border="0" cellpadding="0" cellspacing="0" width="100%" bgcolor="#0d0202">
-                <tr>
-                  <td class="bar" bgcolor="#4a0808" align="center">
-                    ПОГРЕБ
-                  </td>
-                </tr>
-                <tr>
-                  <td class="text-well">
-                    Погреб в разработке.
-                  </td>
-                </tr>
-              </table>
-            </td>
-          </tr>
-        </table>
+        <div class="hazard" style="width:780px"></div>
+        <div class="constr" style="width:760px;margin:0 auto"><span class="gears">&#9881;</span> <span class="blink">&#9888;</span> ПОГРЕБ В РАЗРАБОТКЕ &mdash; UNDER CONSTRUCTION <span class="blink">&#9888;</span> <span class="gears">&#9881;</span></div>
+        <div class="hazard" style="width:780px;margin-bottom:10px"></div>
+        <div class="cyb"><table class="main" width="760" style="margin:0 auto" border="3" cellpadding="0" cellspacing="0" bordercolor="#7A0808" bgcolor="#0C0101">
+<tr><td colspan="2" align="center" bgcolor="#2A0000"><h1>&#9733; —————— &#9733;</h1>
+<font size="1" color="#F4EAD0">————————— —————— ——— &middot; —————— &middot; —————— &middot; ——— &middot; —— ———— ————</font><br>&nbsp;</td></tr>
+<tr><td colspan="2" bgcolor="#000000"><marquee scrollamount="3"><font color="#FF2010" face="Courier New">——— ————————— ———— ———————— —————— ———————— —— ————————— ———————— ——— ————— ——————— —————— ——— ———————— ——— ————— ———— —————— ————— ——— ————— —— ————————— —— ———————— ——— ——————— —— ————— —— ——————— ——— —————— —————— ————— ——— ————————— ———————— —— ————————— ———— ———</font></marquee></td></tr>
+<tr valign="top"><td width="165" bgcolor="#0A0000"><div class="nv">
+<b>———————</b><a href="#home">—————</a><a href="#profile">—————</a><a href="#origins">—————————</a><a href="#icon">—————</a><a href="#attis">—————— —— —————</a><a href="#galli">—————</a><a href="#fest">—————————</a><a href="#rome">———</a><a href="#greece">——————</a>
+<b>—————</b><a href="#catullus">——————— ——</a><a href="#lit">—————</a><a href="#corybs">—————————</a><a href="#borb">—————————</a><a href="#taur">—————————</a>
+<b>————————</b><a href="#apol">————————</a><a href="#dissolve">—————————</a><a href="#nigredo">——————— ——————</a><a href="#naassene">————————</a><a href="#solve">————— —— ———————</a><a href="#bach">———————</a><a href="#hymns">—————</a>
+<b>———————</b><a href="#cult">————— ————</a><a href="#stages">——————</a><a href="#voice">——————</a>
+<b>—————————</b><a href="#photos">—————————</a><a href="#gal">———————</a><a href="#links">——————</a><a href="#guest">————————</a></div>
+<p align="center"><font size="1" color="#C06050">———————— ——<br><span class="lcd" id="cnt">001337</span><br><br>———————— <a href="#links">———————</a> <a href="#links">————————</a><br><br>————— ————— ———————— —— —— ———<br>——— ————————— —— ————————— ———— ———— ————</font></p></td>
+<td width="595" style="padding:10px">
 
-        <br>
-     
-        <div class="exit-frame">
-          <a href="index.html" class="exit-link">
-            <img src="podval.jpeg" alt="" class="podval-img">
-            Вылезти на hermeticum.ru
-          </a>
-        </div>
-
-        <br>
-        <div class="picture-frame">
-          <img src="feetgod19.webp" alt="" class="bottom-img">
-        </div>
-
-        <br>
-        <div class="poem-frame">
+<a name="podval"></a>
+<div class="t t-blood"><h2><span class="sk">&#9760;</span> Погреб</h2><div class="tc" style="text-align:center">
+<p style="font-size:17px;font-family:'Times New Roman',serif">Погреб в разработке.</p>
+<p><img src="lestnica.WEBP" alt="" class="ladder-img"></p>
+</div></div>
+<a name="exit"></a>
+<div class="t t-blood"><h2><span class="sk">&#9760;</span> Лаз</h2><div class="tc" style="text-align:center">
+<div class="exit-frame"><a href="index.html" class="exit-link"><img src="podval.jpeg" alt="" class="podval-img">Вылезти на hermeticum.ru</a></div>
+</div></div>
+<a name="feet"></a>
+<div class="t t-blood"><h2><span class="sk">&#9760;</span> Икона</h2><div class="tc" style="text-align:center">
+<div class="picture-frame" style="margin-top:0"><img src="feetgod19.webp" alt="" class="bottom-img"></div>
+</div></div>
+<a name="poem"></a>
+<div class="t t-blood"><h2><span class="sk">&#9760;</span> Helene</h2><div class="tc" style="text-align:center">
+<div class="poem-frame">
           <div class="poem-well">
             <p>
               Как прекрасна Helene<br>
@@ -545,30 +545,7 @@ function enterSite() {
             </p>
           </div>
         </div>
-
-        <br>
-        <div class="hazard"></div>
-        <div class="constr"><span class="gears">&#9881;</span> <span class="blink">&#9888;</span> ПОГРЕБ В РАЗРАБОТКЕ &mdash; UNDER CONSTRUCTION <span class="blink">&#9888;</span> <span class="gears">&#9881;</span><br>
-        <font size="1" color="#c9a888">— — — — — — — — — — — —</font></div>
-        <div class="hazard"></div>
-
-        <div class="ie">
-          <div class="tb"><i>_</i><i>&#9633;</i><i>x</i>&#9733; ————— · Microsoft Internet Explorer</div>
-          <div class="menu">Файл &nbsp; Правка &nbsp; Вид &nbsp; Избранное &nbsp; Сервис &nbsp; Справка</div>
-          <div class="addr">Адрес: &nbsp;http://hermeticum.ru/podval/———————.html</div>
-          <div class="view"><div class="cyb"><table class="main" width="760" style="margin:0 auto" border="3" cellpadding="0" cellspacing="0" bordercolor="#7A0808" bgcolor="#0C0101">
-<tr><td colspan="2" align="center" bgcolor="#2A0000"><h1>&#9733; —————— &#9733;</h1>
-<font size="1" color="#F4EAD0">————————— —————— ——— &middot; —————— &middot; —————— &middot; ——— &middot; —— ———— ————</font><br>&nbsp;</td></tr>
-<tr><td colspan="2" bgcolor="#000000"><marquee scrollamount="3"><font color="#FF2010" face="Courier New">——— ————————— ———— ———————— —————— ———————— —— ————————— ———————— ——— ————— ——————— —————— ——— ———————— ——— ————— ———— —————— ————— ——— ————— —— ————————— —— ———————— ——— ——————— —— ————— —— ——————— ——— —————— —————— ————— ——— ————————— ———————— —— ————————— ———— ———</font></marquee></td></tr>
-<tr valign="top"><td width="165" bgcolor="#0A0000"><div class="nv">
-<b>———————</b><a href="#home">—————</a><a href="#profile">—————</a><a href="#origins">—————————</a><a href="#icon">—————</a><a href="#attis">—————— —— —————</a><a href="#galli">—————</a><a href="#fest">—————————</a><a href="#rome">———</a><a href="#greece">——————</a>
-<b>—————</b><a href="#catullus">——————— ——</a><a href="#lit">—————</a><a href="#corybs">—————————</a><a href="#borb">—————————</a><a href="#taur">—————————</a>
-<b>————————</b><a href="#apol">————————</a><a href="#dissolve">—————————</a><a href="#nigredo">——————— ——————</a><a href="#naassene">————————</a><a href="#solve">————— —— ———————</a><a href="#bach">———————</a><a href="#hymns">—————</a>
-<b>———————</b><a href="#cult">————— ————</a><a href="#stages">——————</a><a href="#voice">——————</a>
-<b>—————————</b><a href="#photos">—————————</a><a href="#gal">———————</a><a href="#links">——————</a><a href="#guest">————————</a></div>
-<p align="center"><font size="1" color="#C06050">———————— ——<br><span class="lcd" id="cnt">001337</span><br><br>———————— <a href="#links">———————</a> <a href="#links">————————</a><br><br>————— ————— ———————— —— —— ———<br>——— ————————— —— ————————— ———— ———— ————</font></p></td>
-<td width="595" style="padding:10px">
-
+</div></div>
 <a name="home"></a>
 <div class="t t-blood"><h2><span class="sk">&#9760;</span> —————</h2><div class="tc">
 <p>—— ———————— —— ————————— ——————— ————————— —————— ———— ——————— ——————— ———————— ————— —————— ——————— ———————— —— —————— —————— —————— ——— ————————— —— ————— ————— —————— ——— —————— —— ————————— ————————— ——————— —— —————— —— ——— —————— —— ———— ————————— —————— —— ————— ——————— —— ——— ——— ————— ———————— ——————— —————— ————— ———————— ———— —— ———————— ——— ———————— ————————— —————— —— ——— ———————— —— ——— —————— —— ———— ——————— —————— ————————— —— ————————— —— —————</p>
@@ -789,16 +766,14 @@ function enterSite() {
 <p align="right"><a href="#top">————————</a></p>
 <p align="center"><span class="bdg">———— ——————<br>—— ———</span><span class="bdg">———— ————<br>———————</span><span class="bdg">———<br>———— ————</span><span class="bdg">———— ———<br>——————</span><span class="bdg">—— —————<br>——————</span><span class="bdg">—————————<br>————</span></p><hr><p align="center"><font size="1">&copy; ———— ———— ——————— ——————— ————————— ————————— ————————— ————— ————————— ————————— ————————— ————————— ——————— ———————— —— ————————— ——————— ———————— ——————— —————— ——— ————————— ————————— ——————— ————————— ———————— ————————— —————— ——————— ——————— ————————— ———————— ———————— ————————— —————————</font></p>
 </div></div>
-</td></tr></table></div></div>
-          <div class="stat">Загрузка страницы... <span class="bar-prog"><b></b></span> &nbsp; 37% &nbsp;&nbsp;&nbsp; Готово. Погреб в разработке.</div>
-        </div>
-        <div class="hazard" style="margin-top:20px"></div>
+</td></tr></table></div>
+        <div class="hazard" style="width:780px;margin-top:14px"></div>
 
       </div>
 
     </td>
   </tr>
-</table>
+</table></center></div>
 
 <script type="text/javascript">
 function P(i){i.style.display='none';i.nextSibling.style.display='block'}
