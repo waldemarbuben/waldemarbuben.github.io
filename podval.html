@@ -2,66 +2,141 @@
 <html lang="ru">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>Погреб в разработке</title>
+<title>Погреб в разработке — Hermeticum.ru</title>
 <style type="text/css">
 body {
   background-color: #050101;
   background-image: url("blackspace.jpg");
   background-repeat: repeat;
   color: #d6c5b3;
-  font-family: "Times New Roman", Times, serif;
+  font-family: "Times New Roman", Times, Georgia, serif;
   margin: 0;
   padding: 0;
+  scrollbar-face-color: #4a0808;
+  scrollbar-shadow-color: #140202;
+  scrollbar-highlight-color: #9e1b1b;
+  scrollbar-3dlight-color: #2b0404;
+  scrollbar-darkshadow-color: #000000;
+  scrollbar-track-color: #0a0101;
+  scrollbar-arrow-color: #ff4747;
 }
-.box {
-  background-color: #140303;
-  border: 1px solid #801515;
+
+
+.outer-frame {
+  background-color: #1c0404;
+  border-top: 3px outset #8c1919;
+  border-left: 3px outset #8c1919;
+  border-right: 3px outset #420707;
+  border-bottom: 3px outset #420707;
 }
+
+.inner-chamber {
+  background-color: #0d0202;
+  border-top: 2px inset #290404;
+  border-left: 2px inset #290404;
+  border-right: 2px inset #6e1212;
+  border-bottom: 2px inset #6e1212;
+}
+
+
 .bar {
-  background-color: #540a0a;
-  border-bottom: 1px solid #8a1717;
-  color: #f0d8c0;
-  font-size: 15px;
-  font-weight: bold;
-  padding: 6px 12px;
-}
-.text {
-  padding: 20px 16px;
+  background-color: #4a0808;
+  border-top: 2px ridge #a61e1e;
+  border-bottom: 2px ridge #590a0a;
+  color: #f2dec8;
   font-size: 16px;
-  text-align: center;
+  font-weight: bold;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 7px 12px;
+  text-shadow: 2px 2px 1px #000000;
 }
-.btn-enter {
+
+.ornament {
+  color: #ff3b3b;
+  font-size: 16px;
+}
+
+.text-well {
+  padding: 24px 18px;
+  font-size: 17px;
+  text-align: center;
+  line-height: 1.5;
+  text-shadow: 1px 1px 1px #000000;
+}
+
+
+.btn-skeuo {
   background-color: #540a0a;
-  border: 1px solid #b32424;
-  color: #f0d8c0;
+  border-top: 3px outset #b82525;
+  border-left: 3px outset #b82525;
+  border-right: 3px outset #360505;
+  border-bottom: 3px outset #360505;
+  border-radius: 0px;
+  color: #f5e6d3;
   font-family: "Times New Roman", Times, serif;
   font-size: 15px;
   font-weight: bold;
-  padding: 6px 24px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 8px 28px;
   cursor: pointer;
+  text-shadow: 1px 1px 1px #000000;
 }
-.btn-enter:hover {
-  background-color: #7a1010;
+
+.btn-skeuo:hover {
+  background-color: #6e0e0e;
   color: #ffffff;
+  border-top: 3px outset #d93232;
+  border-left: 3px outset #d93232;
 }
-.footer {
-  padding-top: 14px;
-  font-size: 13px;
-  text-align: center;
+
+.btn-skeuo:active {
+  background-color: #380505;
+  border-top: 3px inset #290303;
+  border-left: 3px inset #290303;
+  border-right: 3px inset #8f1919;
+  border-bottom: 3px inset #8f1919;
+  padding: 9px 27px 7px 29px;
 }
-.bottom-img {
+
+
+.footer-bar {
   margin-top: 16px;
-  border: 1px solid #801515;
+  background-color: #1f0404;
+  border: 2px ridge #7a1414;
+  padding: 6px 14px;
+  font-size: 13px;
+  letter-spacing: 1px;
+  display: inline-block;
 }
+
+
+.picture-frame {
+  margin-top: 18px;
+  background-color: #1a0303;
+  border: 4px ridge #7a1414;
+  padding: 6px;
+  display: inline-block;
+}
+
+.bottom-img {
+  display: block;
+  border: 2px inset #3b0606;
+}
+
 a {
   color: #ff4747;
-  text-decoration: underline;
+  text-decoration: none;
+  font-weight: bold;
+  text-shadow: 1px 1px 1px #000000;
 }
 a:visited {
-  color: #b32424;
+  color: #c92e2e;
 }
 a:hover {
   color: #ffffff;
+  text-decoration: underline;
 }
 </style>
 <script type="text/javascript">
@@ -75,7 +150,7 @@ function enterSite() {
 }
 </script>
 </head>
-<body bgcolor="#050101" background="blackspace.jpg" text="#d6c5b3" link="#ff4747" vlink="#b32424" alink="#ffffff">
+<body bgcolor="#050101" background="blackspace.jpg" text="#d6c5b3" link="#ff4747" vlink="#c92e2e" alink="#ffffff">
 
 <audio id="bg-music" src="helene.mp3" loop="loop"></audio>
 
@@ -84,38 +159,57 @@ function enterSite() {
     <td align="center">
       <br><br>
 
+    
       <div id="gate-screen">
-        <table class="box" border="0" cellpadding="0" cellspacing="0" width="420" bgcolor="#140303">
+        <table class="outer-frame" border="0" cellpadding="5" cellspacing="0" width="440" bgcolor="#1c0404">
           <tr>
-            <td class="bar" bgcolor="#540a0a" align="left">
-              <font color="#ff4747">&#10070;</font> Люк
-            </td>
-          </tr>
-          <tr>
-            <td class="text">
-              Лестница в погреб<br><br>
-              <input type="button" class="btn-enter" value="Войти" onclick="enterSite()">
+            <td>
+              <table class="inner-chamber" border="0" cellpadding="0" cellspacing="0" width="100%" bgcolor="#0d0202">
+                <tr>
+                  <td class="bar" bgcolor="#4a0808" align="center">
+                    <span class="ornament">&#9768;</span> ЛЮК <span class="ornament">&#9768;</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="text-well">
+                    <i>Лестница ведёт в сырую темноту погреба...</i><br><br>
+                    <input type="button" class="btn-skeuo" value="&#10016; ВОЙТИ &#10016;" onclick="enterSite()">
+                  </td>
+                </tr>
+              </table>
             </td>
           </tr>
         </table>
       </div>
 
+  
       <div id="main-screen" style="display: none;">
-        <table class="box" border="0" cellpadding="0" cellspacing="0" width="420" bgcolor="#140303">
+        <table class="outer-frame" border="0" cellpadding="5" cellspacing="0" width="440" bgcolor="#1c0404">
           <tr>
-            <td class="bar" bgcolor="#540a0a" align="left">
-              <font color="#ff4747">&#10070;</font> Погреб
-            </td>
-          </tr>
-          <tr>
-            <td class="text">
-              Погреб в разработке.
+            <td>
+              <table class="inner-chamber" border="0" cellpadding="0" cellspacing="0" width="100%" bgcolor="#0d0202">
+                <tr>
+                  <td class="bar" bgcolor="#4a0808" align="center">
+                    <span class="ornament">&#9733;</span> ПОГРЕБ <span class="ornament">&#9733;</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="text-well">
+                    Погреб в разработке.
+                  </td>
+                </tr>
+              </table>
             </td>
           </tr>
         </table>
 
-        <div class="footer">
-          <a href="index.html">Вылезти на hermeticum.ru</a><br>
+        <br>
+        <div class="footer-bar">
+          <a href="index.html">&#171; Вылезти на hermeticum.ru &#187;</a>
+        </div>
+
+        <br>
+        <div class="picture-frame">
           <img src="feetgod19.webp" alt="" class="bottom-img">
         </div>
       </div>
