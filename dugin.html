@@ -6,6 +6,34 @@
 <meta name="KeyWords" content="Стихи Александра Штернберга, stihi, poetry,manierism,decadence,fin de siecle,poem,Арктогея, Arctogaia">
 <meta name="Microsoft Theme" content="safari 011">
 <title>СТИХИ</title>
+<style type="text/css">
+/* ===== ОБВОДКА ВСЕХ БУКВ В ПОЭЗИИ (по умолчанию, навсегда) =====
+   Всё, что лежит внутри .poetry — и нынешние, и будущие стихи — получает
+   чёрную обводку и скевоморфный объём автоматически.
+   Новое стихотворение просто добавляйте ВНУТРИ ячейки <td class="poetry">
+   (или оберните в <div class="poetry">) — отдельно ничего ставить не нужно. */
+.poetry, .poetry * {
+  /* запасной вариант для старых браузеров: сплошное чёрное кольцо вокруг букв */
+  text-shadow:
+    -2px -2px 0 #000, 0 -2px 0 #000, 2px -2px 0 #000,
+    -2px  0   0 #000,                 2px  0   0 #000,
+    -2px  2px 0 #000, 0  2px 0 #000,  2px  2px 0 #000,
+    -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000,
+     0 3px 3px rgba(0,0,0,.9),        /* объёмная тень под буквами */
+     0 5px 8px rgba(0,0,0,.6);
+}
+@supports (paint-order: stroke fill) {
+  .poetry, .poetry * {
+    -webkit-text-stroke: 3px #000;     /* чёрная обводка */
+    paint-order: stroke fill;          /* обводка снаружи, буквы не истончаются */
+    text-shadow:
+      0 2px 2px rgba(0,0,0,.95),
+      0 4px 7px rgba(0,0,0,.7);        /* скевоморфная глубина */
+  }
+}
+/* ссылки внутри стихов тоже обводятся */
+.poetry a, .poetry a * { -webkit-text-stroke: 3px #000; }
+</style>
 </head>
 
 <body background="dogoin.jpeg" bgcolor="#000000" text="#CCCCCC" link="#CC9933" vlink="#999966" alink="#FFCC33">
@@ -137,7 +165,7 @@
     </font><p align="center"><font face="Arial"><img src="bubena.jpg" alt="bubena.jpg" width="415" height="278"><!--mstheme--></font></p></td>
   </tr>
   <tr>
-    <td valign="TOP"><!--mstheme--><font face="Arial"><a name="1" mstheme=""></a><big><em><strong><font face="Arial">Убийца - ОСЕНЬ&nbsp;</font> </strong></em></big><br>
+    <td valign="TOP" class="poetry"><!--mstheme--><font face="Arial"><a name="1" mstheme=""></a><big><em><strong><font face="Arial">Убийца - ОСЕНЬ&nbsp;</font> </strong></em></big><br>
     &nbsp; <p><font face="Arial">Осветились небеса&nbsp;</font> <br>
     <font face="Arial">светом осени великой&nbsp;</font> <br>
     <font face="Arial">зноем осени последней&nbsp;</font> <br>
@@ -1569,7 +1597,7 @@
     <font face="Arial">Заступай на дежурство в палату
     созвездия Рак. (1998)</font><!--mstheme--></font></p></td>
     <!-- ВАЛЬДЕМАР БУБЕН: стихи -->
-    <td valign="TOP"><!--mstheme--><font face="Arial">
+    <td valign="TOP" class="poetry"><!--mstheme--><font face="Arial">
     <p><a name="b1"></a><font face="Arial">В их волосах - оливковых - разорванные нити,&nbsp;</font> <br>
     <font face="Arial">В них пепел прерий, яд и терпкость темной соли.&nbsp;</font> <br>
     <font face="Arial">Смуглянками зовут их дети лисьи.&nbsp;</font> <br>
