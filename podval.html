@@ -24,108 +24,84 @@ body {
   scrollbar-arrow-color: #ff4747;
 }
 
-.outer-frame {
-  background-color: #1c0404;
-  border-top: 3px outset #8c1919;
-  border-left: 3px outset #8c1919;
-  border-right: 3px outset #420707;
-  border-bottom: 3px outset #420707;
-}
-
-.inner-chamber {
-  background-color: #0d0202;
-  border-top: 2px inset #290404;
-  border-left: 2px inset #290404;
-  border-right: 2px inset #6e1212;
-  border-bottom: 2px inset #6e1212;
-}
-
-.bar {
-  background-color: #4a0808;
-  border-top: 2px ridge #a61e1e;
-  border-bottom: 2px ridge #590a0a;
-  color: #f2dec8;
-  font-size: 16px;
-  font-weight: bold;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  padding: 7px 12px;
-  text-shadow: 2px 2px 1px #000000;
-}
-
-.text-well {
-  padding: 20px 18px;
-  font-size: 17px;
-  text-align: center;
-  line-height: 1.5;
-  text-shadow: 1px 1px 1px #000000;
-}
-
-.ladder-img {
+.ladder-img, .podval-img {
   display: block;
-  margin: 14px auto 18px auto;
-  width: 150px;
   height: auto;
+  border: 2px solid #1a0e02;
+  box-shadow:
+    0 0 0 2px #d9a93a, 0 0 0 3px #1a0e02, 0 0 0 5px #6b4410, 0 0 0 6px #f3d77a, 0 0 0 7px #1a0e02,
+    0 10px 18px rgba(0,0,0,0.9), inset 0 0 10px rgba(0,0,0,0.8);
 }
+.ladder-img { margin: 22px auto 26px auto; width: 150px; }
+.podval-img { margin: 10px auto 20px auto; width: 220px; }
 
 .btn-skeuo {
-  background-color: #540a0a;
-  border-top: 3px outset #b82525;
-  border-left: 3px outset #b82525;
-  border-right: 3px outset #360505;
-  border-bottom: 3px outset #360505;
-  border-radius: 0px;
-  color: #f5e6d3;
+  background: linear-gradient(180deg, #fff6c4 0%, #f3d77a 22%, #d9a93a 50%, #a8761c 74%, #e8c25c 100%);
+  border-top: 3px outset #f3d77a;
+  border-left: 3px outset #f3d77a;
+  border-right: 3px outset #6b4410;
+  border-bottom: 3px outset #6b4410;
+  border-radius: 0;
+  box-shadow: 0 0 0 1px #1a0e02, 0 0 0 3px #a8761c, 0 0 0 4px #1a0e02, 0 6px 10px rgba(0,0,0,0.9), inset 0 0 0 1px rgba(255,255,255,0.5);
+  color: #2a1604;
   font-family: "Times New Roman", Times, serif;
   font-size: 15px;
   font-weight: bold;
   letter-spacing: 2px;
   text-transform: uppercase;
-  padding: 8px 28px;
+  padding: 9px 28px;
   cursor: pointer;
-  text-shadow: 1px 1px 1px #000000;
+  text-shadow: 0 1px 0 #fff6c4;
 }
-
 .btn-skeuo:hover {
-  background-color: #6e0e0e;
-  color: #ffffff;
-  border-top: 3px outset #d93232;
-  border-left: 3px outset #d93232;
+  background: linear-gradient(180deg, #ffffff 0%, #fff0a8 22%, #f3d77a 50%, #c58f2a 74%, #f6d46c 100%);
 }
-
 .btn-skeuo:active {
-  background-color: #380505;
-  border-top: 3px inset #290303;
-  border-left: 3px inset #290303;
-  border-right: 3px inset #8f1919;
-  border-bottom: 3px inset #8f1919;
-  padding: 9px 27px 7px 29px;
+  background: linear-gradient(0deg, #fff6c4 0%, #f3d77a 22%, #d9a93a 50%, #a8761c 74%, #e8c25c 100%);
+  border-top: 3px inset #6b4410;
+  border-left: 3px inset #6b4410;
+  border-right: 3px inset #f3d77a;
+  border-bottom: 3px inset #f3d77a;
+  padding: 10px 27px 8px 29px;
+  box-shadow: 0 0 0 1px #1a0e02, 0 0 0 3px #a8761c, 0 0 0 4px #1a0e02, 0 2px 4px rgba(0,0,0,0.9), inset 0 3px 6px rgba(0,0,0,0.5);
 }
 
-.exit-frame {
-  margin-top: 18px;
-  background-color: #1f0404;
-  border-top: 3px outset #8c1919;
-  border-left: 3px outset #8c1919;
-  border-right: 3px outset #420707;
-  border-bottom: 3px outset #420707;
-  padding: 8px 12px;
-  display: inline-block;
+.plaque {
+  position: relative;
+  margin: 0 0 6px 0;
+  padding: 10px 40px;
   text-align: center;
+  font-family: "Ruslan Display", "UnifrakturCook", "Times New Roman", serif;
+  font-size: 22px;
+  letter-spacing: 5px;
+  color: var(--hi);
+  text-shadow:
+    -1px -1px 0 var(--edge), 1px -1px 0 var(--edge), -1px 1px 0 var(--edge), 1px 1px 0 var(--edge),
+    0 2px 0 var(--l5), 2px 3px 3px #000;
+  background:
+    repeating-linear-gradient(90deg, rgba(255,255,255,0.08) 0 1px, rgba(0,0,0,0.08) 1px 2px),
+    linear-gradient(180deg, var(--l3), var(--l1) 28%, var(--l4) 60%, var(--l2) 84%, var(--l3));
+  border: 2px solid var(--edge);
+  box-shadow:
+    inset 0 0 0 1px var(--hi), inset 0 0 0 3px var(--l4), inset 0 0 0 4px var(--edge),
+    inset 0 5px 7px rgba(255,255,255,0.3), inset 0 -5px 8px rgba(0,0,0,0.6),
+    0 3px 5px rgba(0,0,0,0.9);
 }
+.plaque:before, .plaque:after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 11px;
+  height: 11px;
+  margin-top: -6px;
+  transform: rotate(45deg);
+  background: linear-gradient(135deg, var(--hi), var(--l2) 45%, var(--l5));
+  border: 1px solid var(--edge);
+  box-shadow: inset 0 0 0 1px var(--l1), 0 1px 2px rgba(0,0,0,0.8);
+}
+.plaque:before { left: 14px; }
+.plaque:after { right: 14px; }
 
-.podval-img {
-  display: block;
-  margin: 0 auto 8px auto;
-  width: 220px;
-  height: auto;
-  border: 2px inset #3b0606;
-}
-
-.exit-link {
-  font-size: 13px;
-  letter-spacing: 1px;
-}
 
 .baroque {
   --hi: #fff6c4;
@@ -135,6 +111,8 @@ body {
   --l4: #6b4410;
   --l5: #3a2406;
   --edge: #1a0e02;
+  --pearl: radial-gradient(circle at 34% 28%, var(--hi) 0 1px, var(--l1) 2px, var(--l3) 3.5px, var(--l5) 5px, transparent 5.6px);
+  --med: radial-gradient(circle at 50% 50%, var(--hi) 0 1.5px, var(--l3) 2.5px, var(--edge) 3.5px, var(--l1) 4.5px, var(--l4) 6.5px, var(--edge) 7.5px, var(--l2) 8.5px, var(--hi) 10px, var(--l3) 12px, var(--edge) 13px, var(--l1) 14px, var(--l5) 17px, var(--edge) 18px, var(--l2) 19px, var(--l4) 20.5px, var(--edge) 21.5px, transparent 22px);
   position: relative;
   display: inline-block;
   max-width: 760px;
@@ -174,17 +152,42 @@ body {
   --edge: #0c0e10;
 }
 
+.baroque.ruby {
+  --hi: #ffb4a8;
+  --l1: #d9453d;
+  --l2: #a62323;
+  --l3: #751515;
+  --l4: #470909;
+  --l5: #230404;
+  --edge: #0a0101;
+}
+
+.baroque.bronze {
+  --hi: #ffe8c4;
+  --l1: #e0a868;
+  --l2: #b8773a;
+  --l3: #85491b;
+  --l4: #52290d;
+  --l5: #2a160a;
+  --edge: #120a04;
+}
+
+.baroque.narrow {
+  width: 460px;
+  max-width: 460px;
+}
+
 .baroque:before {
   content: "";
   position: absolute;
   top: 9px; left: 9px; right: 9px; bottom: 9px;
   border-radius: 4px;
   pointer-events: none;
-  background:
-    radial-gradient(circle at 34% 28%, var(--hi) 0 1px, var(--l1) 2px, var(--l3) 3.5px, var(--l5) 5px, transparent 5.6px) 0 0 / 13px 13px repeat-x top,
-    radial-gradient(circle at 34% 28%, var(--hi) 0 1px, var(--l1) 2px, var(--l3) 3.5px, var(--l5) 5px, transparent 5.6px) 0 0 / 13px 13px repeat-x bottom,
-    radial-gradient(circle at 34% 28%, var(--hi) 0 1px, var(--l1) 2px, var(--l3) 3.5px, var(--l5) 5px, transparent 5.6px) 0 0 / 13px 13px repeat-y left,
-    radial-gradient(circle at 34% 28%, var(--hi) 0 1px, var(--l1) 2px, var(--l3) 3.5px, var(--l5) 5px, transparent 5.6px) 0 0 / 13px 13px repeat-y right;
+  z-index: 3;
+  background-image: var(--med), var(--med), var(--med), var(--med), var(--pearl), var(--pearl), var(--pearl), var(--pearl);
+  background-size: 44px 44px, 44px 44px, 44px 44px, 44px 44px, 13px 13px, 13px 13px, 13px 13px, 13px 13px;
+  background-position: 0 0, 100% 0, 0 100%, 100% 100%, 0 0, 0 100%, 0 0, 100% 0;
+  background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, repeat-x, repeat-x, repeat-y, repeat-y;
   filter: drop-shadow(1px 2px 1px rgba(0,0,0,0.9));
 }
 
@@ -300,7 +303,7 @@ body {
   filter: blur(6px);
 }
 
-.poem-well {
+.poem-well, .well {
   position: relative;
   background-color: #3a0a0a;
   background-image: url("fonosizn.jpeg"), url("fonosizn.JPEG"), url("fonosizn.jpg"), url("fonosizn.JPG");
@@ -334,6 +337,23 @@ body {
 
 .poem-well p.last {
   margin-bottom: 0;
+}
+
+.well {
+  text-align: center;
+  font-family: "Times New Roman", Times, Georgia, serif;
+  font-size: 18px;
+  line-height: 1.5;
+  letter-spacing: 2px;
+  color: #f0dcc0;
+  padding: 26px 22px;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000, 0 0 8px #000, 2px 2px 3px #000;
+}
+.well a {
+  display: block;
+  font-size: 16px;
+  letter-spacing: 1px;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000, 0 0 8px #000, 2px 2px 3px #000;
 }
 
 a {
@@ -372,59 +392,46 @@ function enterSite() {
       <br>
 
       <div id="gate-screen">
-        <table class="outer-frame" border="0" cellpadding="5" cellspacing="0" width="380" bgcolor="#1c0404">
-          <tr>
-            <td>
-              <table class="inner-chamber" border="0" cellpadding="0" cellspacing="0" width="100%" bgcolor="#0d0202">
-                <tr>
-                  <td class="bar" bgcolor="#4a0808" align="center">
-                    ЛЮК
-                  </td>
-                </tr>
-                <tr>
-                  <td class="text-well">
-                    Лестница в погреб
-                    <img src="lestnica.WEBP" alt="" class="ladder-img">
-                    <input type="button" class="btn-skeuo" value="ЗАПОЛЗТИ НА КАРАЧКАХ" onclick="enterSite()">
-                  </td>
-                </tr>
-              </table>
-            </td>
-          </tr>
-        </table>
+        <div class="baroque ruby narrow">
+          <div class="baroque-inner">
+            <div class="baroque-fillet">
+              <div class="plaque">ЛЮК</div>
+              <div class="well">
+                Лестница в погреб
+                <img src="lestnica.WEBP" alt="" class="ladder-img">
+                <input type="button" class="btn-skeuo" value="ЗАПОЛЗТИ НА КАРАЧКАХ" onclick="enterSite()">
+              </div>
+            </div>
+          </div>
+          <div class="glare"></div>
+        </div>
       </div>
 
-  
       <div id="main-screen" style="display: none;">
-        <table class="outer-frame" border="0" cellpadding="5" cellspacing="0" width="440" bgcolor="#1c0404">
-          <tr>
-            <td>
-              <table class="inner-chamber" border="0" cellpadding="0" cellspacing="0" width="100%" bgcolor="#0d0202">
-                <tr>
-                  <td class="bar" bgcolor="#4a0808" align="center">
-                    ПОГРЕБ
-                  </td>
-                </tr>
-                <tr>
-                  <td class="text-well">
-                    Погреб в разработке.
-                  </td>
-                </tr>
-              </table>
-            </td>
-          </tr>
-        </table>
-
-        <br>
-     
-        <div class="exit-frame">
-          <a href="index.html" class="exit-link">
-            <img src="podval.jpeg" alt="" class="podval-img">
-            Вылезти на hermeticum.ru
-          </a>
+        <div class="baroque bronze narrow">
+          <div class="baroque-inner">
+            <div class="baroque-fillet">
+              <div class="plaque">ПОГРЕБ</div>
+              <div class="well">Погреб в разработке.</div>
+            </div>
+          </div>
+          <div class="glare"></div>
         </div>
 
-        <br>
+        <div class="baroque ruby narrow">
+          <div class="baroque-inner">
+            <div class="baroque-fillet">
+              <div class="well">
+                <a href="index.html" class="exit-link">
+                  <img src="podval.jpeg" alt="" class="podval-img">
+                  Вылезти на hermeticum.ru
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="glare"></div>
+        </div>
+
         <div class="pop-stage">
           <div class="baroque pop-wrap" id="popwrap">
             <div class="baroque-inner">
