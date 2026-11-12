@@ -1,0 +1,371 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://w3.org">
+<html lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+      <meta name="viewport" content="width=1880">
+<title>Погреб в разработке — Hermeticum.ru</title>
+<style type="text/css">
+body {
+  background-color: #050101;
+  background-image: url("sosopid.jpeg");
+  background-repeat: repeat;
+  color: #d6c5b3;
+  font-family: "Times New Roman", Times, Georgia, serif;
+  margin: 0;
+  padding: 0;
+  scrollbar-face-color: #4a0808;
+  scrollbar-shadow-color: #140202;
+  scrollbar-highlight-color: #9e1b1b;
+  scrollbar-3dlight-color: #2b0404;
+  scrollbar-darkshadow-color: #000000;
+  scrollbar-track-color: #0a0101;
+  scrollbar-arrow-color: #ff4747;
+}
+
+.outer-frame {
+  background-color: #1c0404;
+  border-top: 3px outset #8c1919;
+  border-left: 3px outset #8c1919;
+  border-right: 3px outset #420707;
+  border-bottom: 3px outset #420707;
+}
+
+.inner-chamber {
+  background-color: #0d0202;
+  border-top: 2px inset #290404;
+  border-left: 2px inset #290404;
+  border-right: 2px inset #6e1212;
+  border-bottom: 2px inset #6e1212;
+}
+
+.bar {
+  background-color: #4a0808;
+  border-top: 2px ridge #a61e1e;
+  border-bottom: 2px ridge #590a0a;
+  color: #f2dec8;
+  font-size: 16px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 7px 12px;
+  text-shadow: 2px 2px 1px #000000;
+}
+
+.text-well {
+  padding: 20px 18px;
+  font-size: 17px;
+  text-align: center;
+  line-height: 1.5;
+  text-shadow: 1px 1px 1px #000000;
+}
+
+
+.ladder-img {
+  display: block;
+  margin: 14px auto 18px auto;
+  width: 150px;
+  height: auto;
+}
+
+.btn-skeuo {
+  background-color: #540a0a;
+  border-top: 3px outset #b82525;
+  border-left: 3px outset #b82525;
+  border-right: 3px outset #360505;
+  border-bottom: 3px outset #360505;
+  border-radius: 0px;
+  color: #f5e6d3;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 15px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 8px 28px;
+  cursor: pointer;
+  text-shadow: 1px 1px 1px #000000;
+}
+
+.btn-skeuo:hover {
+  background-color: #6e0e0e;
+  color: #ffffff;
+  border-top: 3px outset #d93232;
+  border-left: 3px outset #d93232;
+}
+
+.btn-skeuo:active {
+  background-color: #380505;
+  border-top: 3px inset #290303;
+  border-left: 3px inset #290303;
+  border-right: 3px inset #8f1919;
+  border-bottom: 3px inset #8f1919;
+  padding: 9px 27px 7px 29px;
+}
+
+
+.exit-frame {
+  margin-top: 18px;
+  background-color: #1f0404;
+  border-top: 3px outset #8c1919;
+  border-left: 3px outset #8c1919;
+  border-right: 3px outset #420707;
+  border-bottom: 3px outset #420707;
+  padding: 8px 12px;
+  display: inline-block;
+  text-align: center;
+}
+
+.podval-img {
+  display: block;
+  margin: 0 auto 8px auto;
+  width: 220px;
+  height: auto;
+  border: 2px inset #3b0606;
+}
+
+.exit-link {
+  font-size: 13px;
+  letter-spacing: 1px;
+}
+
+.picture-frame {
+  margin-top: 20px;
+  background-color: #1a0303;
+  border-top: 4px outset #8c1919;
+  border-left: 4px outset #8c1919;
+  border-right: 4px outset #420707;
+  border-bottom: 4px outset #420707;
+  padding: 8px;
+  display: inline-block;
+  max-width: 760px;
+  width: 90%;
+}
+
+.bottom-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 2px inset #3b0606;
+}
+
+.poem-frame {
+  margin-top: 24px;
+  background-color: #1a0303;
+  border-top: 4px outset #8c1919;
+  border-left: 4px outset #8c1919;
+  border-right: 4px outset #420707;
+  border-bottom: 4px outset #420707;
+  padding: 8px;
+  display: inline-block;
+  max-width: 760px;
+  width: 90%;
+}
+
+.poem-well {
+  background-color: #0d0202;
+  border-top: 2px inset #290404;
+  border-left: 2px inset #290404;
+  border-right: 2px inset #6e1212;
+  border-bottom: 2px inset #6e1212;
+  padding: 24px 28px;
+  text-align: left;
+  font-size: 16px;
+  line-height: 1.55;
+  color: #d6c5b3;
+  text-shadow: 1px 1px 1px #000000;
+}
+
+.poem-well p {
+  margin: 0 0 18px 0;
+}
+
+.poem-well p.last {
+  margin-bottom: 0;
+}
+
+a {
+  color: #ff4747;
+  text-decoration: none;
+  font-weight: bold;
+  text-shadow: 1px 1px 1px #000000;
+}
+a:visited {
+  color: #c92e2e;
+}
+a:hover {
+  color: #ffffff;
+  text-decoration: underline;
+}
+</style>
+<script type="text/javascript">
+function enterSite() {
+  document.getElementById('gate-screen').style.display = 'none';
+  document.getElementById('main-screen').style.display = 'block';
+  var audio = document.getElementById('bg-music');
+  if (audio) {
+    audio.play();
+  }
+}
+</script>
+</head>
+<body bgcolor="#050101" background="blackspace.jpg" text="#d6c5b3" link="#ff4747" vlink="#c92e2e" alink="#ffffff">
+
+<audio id="bg-music" src="helene.mp3" loop="loop"></audio>
+
+<table border="0" cellpadding="15" cellspacing="0" width="100%">
+  <tr>
+    <td align="center">
+      <br>
+
+
+      <div id="gate-screen">
+        <table class="outer-frame" border="0" cellpadding="5" cellspacing="0" width="380" bgcolor="#1c0404">
+          <tr>
+            <td>
+              <table class="inner-chamber" border="0" cellpadding="0" cellspacing="0" width="100%" bgcolor="#0d0202">
+                <tr>
+                  <td class="bar" bgcolor="#4a0808" align="center">
+                    ЛЮК
+                  </td>
+                </tr>
+                <tr>
+                  <td class="text-well">
+                    Лестница в погреб
+                    <img src="lestnica.WEBP" alt="" class="ladder-img">
+                    <input type="button" class="btn-skeuo" value="ЗАПОЛЗТИ НА КАРАЧКАХ" onclick="enterSite()">
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+        </table>
+      </div>
+
+  
+      <div id="main-screen" style="display: none;">
+        <table class="outer-frame" border="0" cellpadding="5" cellspacing="0" width="440" bgcolor="#1c0404">
+          <tr>
+            <td>
+              <table class="inner-chamber" border="0" cellpadding="0" cellspacing="0" width="100%" bgcolor="#0d0202">
+                <tr>
+                  <td class="bar" bgcolor="#4a0808" align="center">
+                    ПОГРЕБ
+                  </td>
+                </tr>
+                <tr>
+                  <td class="text-well">
+                    Погреб в разработке.
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+        </table>
+
+        <br>
+     
+        <div class="exit-frame">
+          <a href="index.html" class="exit-link">
+            <img src="podval.jpeg" alt="" class="podval-img">
+            Вылезти на hermeticum.ru
+          </a>
+        </div>
+
+        <br>
+        <div class="picture-frame">
+          <img src="feetgod19.webp" alt="" class="bottom-img">
+        </div>
+
+        <br>
+        <div class="poem-frame">
+          <div class="poem-well">
+            <p>
+              Как прекрасна Helene<br>
+              Чудо радужных лент<br>
+              В голубом серпантине волос<br>
+              Шаловлива и для<br>
+              Своего корабля<br>
+              Лучше звона зеркальных стрекоз.
+            </p>
+            <p>
+              А на той стороне<br>
+              В темно-синем огне<br>
+              Есть страна фиолетовых фей.<br>
+              Заложите же наш<br>
+              Золотой экипаж<br>
+              И стегните послушных коней.
+            </p>
+            <p>
+              Как прекрасна Helene<br>
+              Чудо детских колен<br>
+              В экипаже лазоревых снов<br>
+              Как лукава и за<br>
+              Голубые глаза<br>
+              Можно спрятать сто тысяч цветов.
+            </p>
+            <p>
+              А на той стороне<br>
+              В темно-синем огне<br>
+              Есть страна фиолетовых фей<br>
+              И все ближе она<br>
+              И большая луна<br>
+              Нас торопит настойчиво к ней.
+            </p>
+            <p>
+              Но Helene, но Helene,<br>
+              Здесь живет Жан Мулен<br>
+              И рогатый Месье Леонард.<br>
+              В фиолетовом зле<br>
+              На огромном козле<br>
+              Они едут навстречу тебе.
+            </p>
+            <p>
+              Ты на той стороне<br>
+              В темно-синем огне<br>
+              Ты в стране фиолетовых фей.<br>
+              Почему же, малыш,<br>
+              Ты так сильно дрожишь<br>
+              От ее волосатых теней?
+            </p>
+            <p>
+              Ах, Helene, ах, Helene,<br>
+              Ou est ta robe de matin?<br>
+              Где твой светло-малиновый бант?<br>
+              Что за редкий порок<br>
+              Меж твоих детских ног<br>
+              Ищет твой саблезубый amant?
+            </p>
+            <p>
+              Ты на той стороне,<br>
+              В темно-синем огне<br>
+              Ты в стране фиолетовых фей.<br>
+              Поцелуй же, enfant,<br>
+              La fesse douce de satan,<br>
+              Короля электрических змей.
+            </p>
+            <p>
+              До свиданья, Helene,<br>
+              Будет вечен твой плен<br>
+              В хороводе волков и гиен...<br>
+              Будут крышки гробов,<br>
+              Будет скрежет зубов,<br>
+              И тягучая детская кровь.
+            </p>
+            <p class="last">
+              Там на той стороне<br>
+              В темно-синем огне<br>
+              Там, в стране фиолетовых фей...<br>
+              Только лучше туда<br>
+              Ни за что, никогда<br>
+              Не пускайте наивных детей.
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+    </td>
+  </tr>
+</table>
+
+</body>
+</html>
