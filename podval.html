@@ -4,6 +4,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
       <meta name="viewport" content="width=1880">
 <title>Погреб в разработке — Hermeticum.ru</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=UnifrakturCook:wght@700&family=Ruslan+Display&display=swap" rel="stylesheet">
 <style type="text/css">
 body {
   background-color: #050101;
@@ -59,7 +61,6 @@ body {
   text-shadow: 1px 1px 1px #000000;
 }
 
-
 .ladder-img {
   display: block;
   margin: 14px auto 18px auto;
@@ -101,7 +102,6 @@ body {
   padding: 9px 27px 7px 29px;
 }
 
-
 .exit-frame {
   margin-top: 18px;
   background-color: #1f0404;
@@ -127,56 +127,220 @@ body {
   letter-spacing: 1px;
 }
 
-.picture-frame {
-  margin-top: 20px;
-  background-color: #1a0303;
-  border-top: 4px outset #8c1919;
-  border-left: 4px outset #8c1919;
-  border-right: 4px outset #420707;
-  border-bottom: 4px outset #420707;
-  padding: 8px;
+.baroque {
+  --hi: #fff6c4;
+  --l1: #f3d77a;
+  --l2: #d9a93a;
+  --l3: #a8761c;
+  --l4: #6b4410;
+  --l5: #3a2406;
+  --edge: #1a0e02;
+  position: relative;
   display: inline-block;
   max-width: 760px;
   width: 90%;
+  margin-top: 40px;
+  padding: 34px;
+  box-sizing: border-box;
+  border-radius: 6px;
+  background:
+    repeating-linear-gradient(90deg, rgba(255,255,255,0.07) 0 1px, rgba(0,0,0,0.08) 1px 2px),
+    repeating-linear-gradient(45deg, rgba(0,0,0,0.16) 0 1px, transparent 1px 4px),
+    linear-gradient(135deg, var(--l5) 0%, var(--l2) 9%, var(--l4) 19%, var(--hi) 30%, var(--l3) 41%, var(--l5) 50%, var(--l1) 60%, var(--l4) 72%, var(--l2) 84%, var(--hi) 92%, var(--l5) 100%);
+  box-shadow:
+    0 0 0 1px var(--edge),
+    0 0 0 3px var(--l2),
+    0 0 0 4px var(--l5),
+    0 0 0 5px var(--l1),
+    0 0 0 7px var(--edge),
+    0 20px 40px rgba(0,0,0,0.95),
+    0 44px 90px rgba(0,0,0,0.8),
+    inset 0 0 0 1px var(--hi),
+    inset 0 0 0 3px var(--l4),
+    inset 0 0 0 4px var(--edge),
+    inset 0 5px 8px rgba(255,255,255,0.45),
+    inset 0 -5px 8px rgba(0,0,0,0.75),
+    inset 5px 0 8px rgba(255,255,255,0.18),
+    inset -5px 0 8px rgba(0,0,0,0.5);
 }
 
+.baroque.silver {
+  --hi: #ffffff;
+  --l1: #eef1f4;
+  --l2: #bcc4cc;
+  --l3: #8b949e;
+  --l4: #565d66;
+  --l5: #272b30;
+  --edge: #0c0e10;
+}
+
+.baroque:before {
+  content: "";
+  position: absolute;
+  top: 9px; left: 9px; right: 9px; bottom: 9px;
+  border-radius: 4px;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 34% 28%, var(--hi) 0 1px, var(--l1) 2px, var(--l3) 3.5px, var(--l5) 5px, transparent 5.6px) 0 0 / 13px 13px repeat-x top,
+    radial-gradient(circle at 34% 28%, var(--hi) 0 1px, var(--l1) 2px, var(--l3) 3.5px, var(--l5) 5px, transparent 5.6px) 0 0 / 13px 13px repeat-x bottom,
+    radial-gradient(circle at 34% 28%, var(--hi) 0 1px, var(--l1) 2px, var(--l3) 3.5px, var(--l5) 5px, transparent 5.6px) 0 0 / 13px 13px repeat-y left,
+    radial-gradient(circle at 34% 28%, var(--hi) 0 1px, var(--l1) 2px, var(--l3) 3.5px, var(--l5) 5px, transparent 5.6px) 0 0 / 13px 13px repeat-y right;
+  filter: drop-shadow(1px 2px 1px rgba(0,0,0,0.9));
+}
+
+.baroque:after {
+  content: "";
+  position: absolute;
+  top: 25px; left: 25px; right: 25px; bottom: 25px;
+  border: 1px solid var(--l5);
+  border-radius: 2px;
+  box-shadow: 0 1px 0 var(--hi), inset 0 1px 0 var(--hi), 0 0 0 1px rgba(0,0,0,0.35);
+  pointer-events: none;
+}
+
+.baroque-inner {
+  position: relative;
+  z-index: 2;
+  padding: 10px;
+  background:
+    repeating-linear-gradient(60deg, rgba(0,0,0,0.5) 0 2px, rgba(255,255,255,0.32) 2px 3px, transparent 3px 6px),
+    linear-gradient(180deg, var(--l3), var(--l1) 28%, var(--l4) 58%, var(--l2) 80%, var(--l3));
+  border: 2px solid var(--edge);
+  box-shadow:
+    inset 0 0 0 1px var(--hi),
+    inset 0 0 0 3px var(--l5),
+    inset 0 0 16px 5px rgba(0,0,0,0.95),
+    0 0 0 1px var(--hi),
+    0 0 0 2px var(--edge);
+}
+
+.baroque-fillet {
+  position: relative;
+  padding: 5px;
+  background:
+    linear-gradient(135deg, var(--hi), var(--l2) 32%, var(--l5) 58%, var(--l1) 82%, var(--l3));
+  box-shadow:
+    inset 0 0 0 1px var(--edge),
+    inset 0 0 0 2px var(--l1),
+    inset 0 0 10px 2px #000,
+    0 0 0 1px var(--edge),
+    0 0 14px rgba(0,0,0,0.9);
+}
+
+.glare {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  z-index: 3;
+  box-sizing: border-box;
+  padding: 48px;
+  pointer-events: none;
+  border-radius: 6px;
+  background: linear-gradient(115deg,
+    transparent 0%, transparent 6%,
+    rgba(255,255,255,0.00) 6%, rgba(255,255,255,0.20) 12%, rgba(255,255,255,0.42) 17%, rgba(255,255,255,0.20) 22%, rgba(255,255,255,0.00) 28%,
+    transparent 28%, transparent 33%,
+    rgba(255,255,255,0.00) 33%, rgba(255,255,255,0.14) 35%, rgba(255,255,255,0.00) 37%,
+    transparent 37%, transparent 58%,
+    rgba(255,255,255,0.00) 58%, rgba(255,255,255,0.16) 64%, rgba(255,255,255,0.30) 68%, rgba(255,255,255,0.16) 72%, rgba(255,255,255,0.00) 78%,
+    transparent 78%, transparent 100%);
+  mix-blend-mode: screen;
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0);
+}
+
+.photo-glare, .poem-glare {
+  position: absolute;
+  top: 5px; left: 5px; right: 5px; bottom: 5px;
+  pointer-events: none;
+  background: linear-gradient(115deg,
+    transparent 0%, transparent 10%,
+    rgba(255,255,255,0.00) 10%, rgba(255,255,255,0.10) 15%, rgba(255,255,255,0.24) 20%, rgba(255,255,255,0.10) 25%, rgba(255,255,255,0.00) 30%,
+    transparent 30%, transparent 34%,
+    rgba(255,255,255,0.00) 34%, rgba(255,255,255,0.10) 36%, rgba(255,255,255,0.00) 38%,
+    transparent 38%, transparent 62%,
+    rgba(255,255,255,0.00) 62%, rgba(255,255,255,0.08) 67%, rgba(255,255,255,0.18) 71%, rgba(255,255,255,0.08) 75%, rgba(255,255,255,0.00) 80%,
+    transparent 80%, transparent 100%);
+  mix-blend-mode: screen;
+}
+.photo-glare {
+  z-index: 9;
+  transform: translateZ(75px) scale(1.07);
+}
+.poem-glare {
+  top: 0; left: 0; right: 0; bottom: 0;
+  z-index: 2;
+}
+
+.pop-stage {
+  perspective: 900px;
+  perspective-origin: 50% 50%;
+}
+.pop-wrap {
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.15s ease-out;
+  will-change: transform;
+}
+.pop-wrap .baroque-fillet {
+  overflow: visible;
+}
 .bottom-img {
   display: block;
   width: 100%;
   height: auto;
   border: 2px inset #3b0606;
+  position: relative;
+  z-index: 6;
+  transform: translateZ(70px) scale(1.07);
+  transform-origin: 50% 50%;
+  box-shadow:
+    0 6px 0 rgba(0,0,0,0.55),
+    0 18px 18px rgba(0,0,0,0.85),
+    0 40px 50px rgba(0,0,0,0.9),
+    0 0 0 2px rgba(255,235,170,0.55);
+  filter: contrast(1.08) saturate(1.1);
 }
-
-.poem-frame {
-  margin-top: 24px;
-  background-color: #1a0303;
-  border-top: 4px outset #8c1919;
-  border-left: 4px outset #8c1919;
-  border-right: 4px outset #420707;
-  border-bottom: 4px outset #420707;
-  padding: 8px;
-  display: inline-block;
-  max-width: 760px;
-  width: 90%;
+.pop-shadow {
+  position: absolute;
+  left: 6%; right: 6%; bottom: -6px;
+  height: 30px;
+  z-index: 4;
+  background: radial-gradient(ellipse at center, rgba(0,0,0,0.9), transparent 70%);
+  filter: blur(6px);
+  transform: translateZ(10px);
 }
 
 .poem-well {
-  background-color: #0d0202;
-  border-top: 2px inset #290404;
-  border-left: 2px inset #290404;
-  border-right: 2px inset #6e1212;
-  border-bottom: 2px inset #6e1212;
-  padding: 24px 28px;
+  position: relative;
+  background-color: #1a0000;
+  background-image: url("fontsizn.jpeg");
+  background-repeat: repeat;  background-position: top left;
+  border-top: 3px inset #290404;
+  border-left: 3px inset #290404;
+  border-right: 3px inset #6e1212;
+  border-bottom: 3px inset #6e1212;
+  box-shadow: inset 0 0 40px 10px rgba(0,0,0,0.9);
+  padding: 30px 34px;
   text-align: left;
-  font-size: 16px;
-  line-height: 1.55;
-  color: #d6c5b3;
-  text-shadow: 1px 1px 1px #000000;
+  font-family: "UnifrakturCook", "UnifrakturMaguntia", "Ruslan Display", "Old English Text MT", "Blackadder ITC", "Times New Roman", serif;
+  font-size: 21px;
+  line-height: 1.5;
+  letter-spacing: 1px;
+  color: #ff2a2a;
 }
 
 .poem-well p {
-  margin: 0 0 18px 0;
+  margin: 0 0 22px 0;
+  color: #ff2a2a;
+  text-shadow:
+    -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000,
+    -2px 0 0 #000, 2px 0 0 #000, 0 -2px 0 #000, 0 2px 0 #000,
+    0 0 8px #000, 0 0 14px #4a0000, 3px 3px 4px #000;
+  -webkit-text-stroke: 0.4px #3a0000;
 }
+.poem-well p:nth-child(odd) { color: #ff3b24; }
+.poem-well p:nth-child(even) { color: #d81414; }
 
 .poem-well p.last {
   margin-bottom: 0;
@@ -205,6 +369,15 @@ function enterSite() {
     audio.play();
   }
 }
+
+document.addEventListener('mousemove', function (e) {
+  var w = document.getElementById('popwrap');
+  if (!w) return;
+  var r = w.getBoundingClientRect();
+  var x = (e.clientX - (r.left + r.width / 2)) / window.innerWidth;
+  var y = (e.clientY - (r.top + r.height / 2)) / window.innerHeight;
+  w.style.transform = 'rotateY(' + (x * 22) + 'deg) rotateX(' + (-y * 18) + 'deg)';
+});
 </script>
 </head>
 <body bgcolor="#050101" background="blackspace.jpg" text="#d6c5b3" link="#ff4747" vlink="#c92e2e" alink="#ffffff">
@@ -215,7 +388,6 @@ function enterSite() {
   <tr>
     <td align="center">
       <br>
-
 
       <div id="gate-screen">
         <table class="outer-frame" border="0" cellpadding="5" cellspacing="0" width="380" bgcolor="#1c0404">
@@ -271,13 +443,25 @@ function enterSite() {
         </div>
 
         <br>
-        <div class="picture-frame">
-          <img src="feetgod19.webp" alt="" class="bottom-img">
+        <div class="pop-stage">
+          <div class="baroque pop-wrap" id="popwrap">
+            <div class="baroque-inner">
+              <div class="baroque-fillet">
+                <img src="feetgod19.webp" alt="" class="bottom-img">
+                <div class="photo-glare"></div>
+              </div>
+            </div>
+            <div class="pop-shadow"></div>
+            <div class="glare"></div>
+          </div>
         </div>
 
         <br>
-        <div class="poem-frame">
+        <div class="baroque silver">
+          <div class="baroque-inner">
+            <div class="baroque-fillet">
           <div class="poem-well">
+            <div class="poem-glare"></div>
             <p>
               Как прекрасна Helene<br>
               Чудо радужных лент<br>
@@ -359,6 +543,9 @@ function enterSite() {
               Не пускайте наивных детей.
             </p>
           </div>
+            </div>
+          </div>
+          <div class="glare"></div>
         </div>
 
       </div>
