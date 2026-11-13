@@ -351,12 +351,38 @@ body {
   padding: 26px 22px;
   text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000, 0 0 8px #000, 2px 2px 3px #000;
 }
-.baroque.wide {
-  display: block;
-  width: 1120px;
-  max-width: 94%;
+.slovar-wrap {
+  position: relative;
+  width: min(1120px, calc(100vw - 580px));
+  min-width: 640px;
   margin: 40px auto 0 auto;
 }
+.baroque.wide {
+  display: block;
+  width: 100%;
+  max-width: none;
+  margin: 0;
+}
+.gif-col {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+.gif-col.left { right: 100%; margin-right: 14px; }
+.gif-col.right { left: 100%; margin-left: 14px; }
+.gif-col img { display: block; width: 250px; height: 250px; }
+.gif-bottom {
+  display: block;
+  width: 250px;
+  height: 250px;
+  margin: 50px auto 30px auto;
+}
+html, body { overflow-x: hidden; }
 .slovar {
   background-image: url("vodaD.jpeg"), url("vodaD.JPEG"), url("vodaD.jpg"), url("vodaD.JPG");
   font-family: "Times New Roman", Times, Georgia, serif;
@@ -541,6 +567,10 @@ function enterSite() {
           </div>
         </div>
 
+        <div class="slovar-wrap">
+          <div class="gif-col left"><img src="gif1.gif" alt=""><img src="gif2.gif" alt=""><img src="gif3.gif" alt=""><img src="gif4.gif" alt=""><img src="gif5.gif" alt=""><img src="gif6.gif" alt=""></div>
+          <div class="gif-col right"><img src="gif7.gif" alt=""><img src="gif8.gif" alt=""><img src="gif9.gif" alt=""><img src="gif10.gif" alt=""><img src="gif11.gif" alt=""><img src="gif12.gif" alt=""></div>
+
         <div class="baroque silver wide">
           <div class="baroque-inner">
             <div class="baroque-fillet">
@@ -575,24 +605,26 @@ function enterSite() {
 <div class="entry" id="e-12"><h3 class="hw">ЦИРКУЛЬ<small>образный ряд XII</small></h3><ol class="sl-ol"><li>Ну? Циркулируй. Циркуль. Лируй. Ну и циркуль-то есть циркулировать. Мне не спец... Мне не случайно в плечо в начальной классе циркуль заехали. Заехали. Циркуль в плечо. Это знакомая одна... Одноклассница. Я не знаю, что я с ней нашёл. Так, прямо в плечо. Ну, это и есть плечку.</li></ol><div class="see">см. также: <a href="#e-2">ДВЕРЬ</a></div><figure class="plate"><img src="slovar12.jpeg" alt=""><figcaption>Рис. 12. Циркуль</figcaption></figure></div>
                 </div>
                 <div class="sl-rule"></div>
-                <div class="sl-title" id="laws">Песочные законы метода</div>
+                <div class="sl-title" id="laws">Универсальные герметические законы метода</div>
                 <div class="sl-rule"></div>
                 <div class="sl-cols">
-<div class="entry"><h3 class="hw">I. Закон Тождества</h3><div class="law-t">Вещь не похожа на другую вещь, а есть она: «это и есть». Тринадцатое есть треуголка, ДДР есть мистер Пропер. Связка «это и есть» отождествляет, и всякий ряд начинается с неё.</div><div class="see">основание: см. <a href="#e-8">ПЯТНИЦА 13-Е</a>, <a href="#e-11">ТРЕУГОЛКА</a>, <a href="#e-3">ДДР</a></div></div>
-<div class="entry"><h3 class="hw">II. Закон Зеркала</h3><div class="law-t">Число и слово читаются в обе стороны: 31 есть 13, Арарат есть Ратан. Обратное чтение истинно наравне с прямым.</div><div class="see">основание: см. <a href="#e-8">ПЯТНИЦА 13-Е</a>, <a href="#e-1">АРАРАТ</a></div></div>
-<div class="entry"><h3 class="hw">III. Закон Числового Распада</h3><div class="law-t">Число раскладывается на части и собирается снова в дату: 6 и 6 дают 12, плюс 1 дают 13; 5 и 5 дают 25, четверть сотни, то есть 1 и 4, а 1 минус 4 дают 3, то есть снова 1 и 3. Всякое число несёт в себе другое.</div><div class="see">основание: см. <a href="#e-7">ПАЛЬЦЫ</a>, <a href="#e-8">ПЯТНИЦА 13-Е</a></div></div>
-<div class="entry"><h3 class="hw">IV. Закон Звукового Расщепления</h3><div class="law-t">Слово ломается по слогам, и каждый слог открывает свой ряд: инк-визитор; Ноябрь, Нои, Арарат, Ратан; циркуль, циркулируй, лируй; д-д-д-дверь. примат фонетики, она же кабала как кабыла, не еврейская каббала.</div><div class="see">основание: см. <a href="#e-4">ИНКВИЗИЦИЯ</a>, <a href="#e-6">НОЯБРЬ</a>, <a href="#e-12">ЦИРКУЛЬ</a>, <a href="#e-2">ДВЕРЬ</a></div></div>
+<div class="entry"><h3 class="hw">I. Закон Тождества</h3><div class="law-t">Вещь не похожа на другую вещь, а есть она: «это и есть». Тринадцатое есть треуголка, ДДР есть мистер Пропер. Связка «это и есть» не сравнивает, а отождествляет, и всякий ряд начинается с неё.</div><div class="see">основание: см. <a href="#e-8">ПЯТНИЦА 13-Е</a>, <a href="#e-11">ТРЕУГОЛКА</a>, <a href="#e-3">ДДР</a></div></div>
+<div class="entry"><h3 class="hw">II. Закон Зеркала</h3><div class="law-t">Число и слово читаются в обе стороны: 31 есть 13, Арарат есть Ратан, «всё наоборот». Обратное чтение истинно наравне с прямым.</div><div class="see">основание: см. <a href="#e-8">ПЯТНИЦА 13-Е</a>, <a href="#e-1">АРАРАТ</a></div></div>
+<div class="entry"><h3 class="hw">III. Закон Числового Распада</h3><div class="law-t">Число раскладывается на части и собирается снова в дату: 6 и 6 дают 12, плюс 1 дают 13; 5 и 5 дают 25, четверть сотни, то есть 1 и 4, а 1 минус 4 дают 3, то есть снова 1 и 3. Всякое число несёт в себе свою пятницу.</div><div class="see">основание: см. <a href="#e-7">ПАЛЬЦЫ</a>, <a href="#e-8">ПЯТНИЦА 13-Е</a></div></div>
+<div class="entry"><h3 class="hw">IV. Закон Звукового Расщепления</h3><div class="law-t">Слово ломается по слогам, и каждый слог открывает свой ряд: инк-визитор; Ноябрь, Нои, Арарат, Ратан; циркуль, циркулируй, лируй; д-д-д-дверь. Звук ведёт дальше смысла.</div><div class="see">основание: см. <a href="#e-4">ИНКВИЗИЦИЯ</a>, <a href="#e-6">НОЯБРЬ</a>, <a href="#e-12">ЦИРКУЛЬ</a>, <a href="#e-2">ДВЕРЬ</a></div></div>
 <div class="entry"><h3 class="hw">V. Закон Круга</h3><div class="law-t">Ход возвращается: «и по кругу», снимаем робу обратно, обратно, обратно. Обратное возвращение есть революция, возвращение ценностей.</div><div class="see">основание: см. <a href="#e-9">РОБА</a>, <a href="#e-8">ПЯТНИЦА 13-Е</a></div></div>
-<div class="entry"><h3 class="hw">VI. Закон Полюсов</h3><div class="law-t">У символа много боков: 1 и 2 это две стороны, а «на той стороне» всегда есть страна, невидимая отсюда.</div><div class="see">основание: см. <a href="#e-10">СИМВОЛ</a>, <a href="#e-3">ДДР</a></div></div>
-<div class="entry"><h3 class="hw">VII. Закон Тела</h3><div class="law-t">Пять пальцев дают пятницу, шесть пальцев дают двенадцать ног, циркуль в плече ведёт к Арму и железу. Символ носят на руках, они же - перста.</div><div class="see">основание: см. <a href="#e-7">ПАЛЬЦЫ</a>, <a href="#e-12">ЦИРКУЛЬ</a>, <a href="#e-1">АРАРАТ</a></div></div>
+<div class="entry"><h3 class="hw">VI. Закон Полюсов</h3><div class="law-t">У символа много боков: 1 и 2 это две стороны, а «на той стороне» всегда есть страна, невидимая отсюда. От «нету ничего» происходит «есть всё».</div><div class="see">основание: см. <a href="#e-10">СИМВОЛ</a>, <a href="#e-3">ДДР</a></div></div>
+<div class="entry"><h3 class="hw">VII. Закон Тела</h3><div class="law-t">Образ закреплён в теле: пять пальцев дают пятницу, шесть пальцев дают двенадцать, циркуль в плече ведёт к Арму и железу. Символ не только мыслят, его носят.</div><div class="see">основание: см. <a href="#e-7">ПАЛЬЦЫ</a>, <a href="#e-12">ЦИРКУЛЬ</a>, <a href="#e-1">АРАРАТ</a></div></div>
 <div class="entry"><h3 class="hw">VIII. Закон Замыкания и Двери</h3><div class="law-t">Ряд копают в одну сторону или в разные, как крот-курот. Когда два хода встречаются, происходит короткое замыкание, и открывается дверь. Открывать надо худшую.</div><div class="see">основание: см. <a href="#e-5">КРОТ-КУРОТ</a>, <a href="#e-2">ДВЕРЬ</a></div></div>
-<div class="entry"><h3 class="hw">IX. Закон Непреднамеренности</h3><div class="law-t">Совпадение невозможно придумать, совподения можно найти т.к Ряд существует прежде говорящего и неисчерпаем.</div><div class="see">основание: см. <a href="#e-8">ПЯТНИЦА 13-Е</a>, <a href="#e-5">КРОТ-КУРОТ</a></div></div>
-<div class="entry"><h3 class="hw">X. Закон Пастуха</h3><div class="law-t">Ряды сходятся к первообразу: Рога, быки, Гермес, Христос, Всякий разбор в конце приходит оттуда откуда начинал.</div><div class="see">основание: см. <a href="#e-1">АРАРАТ</a></div></div>
+<div class="entry"><h3 class="hw">IX. Закон Непреднамеренности</h3><div class="law-t">Совпадение не придумывают, а находят: «её не специально же сделали». Ряд существует прежде говорящего и неисчерпаем.</div><div class="see">основание: см. <a href="#e-8">ПЯТНИЦА 13-Е</a>, <a href="#e-5">КРОТ-КУРОТ</a></div></div>
+<div class="entry"><h3 class="hw">X. Закон Пастуха</h3><div class="law-t">Ряды сходятся к первообразу: Рога, быки, Гермес, Хрисос, «и все были пастухами». Всякий разбор в конце приходит к тому, кто пасёт.</div><div class="see">основание: см. <a href="#e-1">АРАРАТ</a></div></div>
                 </div>
               </div>
             </div>
           </div>
           <div class="glare"></div>
+        </div>
+
         </div>
 
         <br>
@@ -686,6 +718,8 @@ function enterSite() {
           </div>
           <div class="glare"></div>
         </div>
+
+        <img src="gif13.gif" alt="" class="gif-bottom">
 
       </div>
 
