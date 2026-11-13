@@ -353,8 +353,7 @@ body {
 }
 .slovar-wrap {
   position: relative;
-  width: min(1120px, calc(100vw - 580px));
-  min-width: 640px;
+  width: 1120px;
   margin: 40px auto 0 auto;
 }
 .baroque.wide {
@@ -383,6 +382,8 @@ body {
   margin: 50px auto 30px auto;
 }
 html, body { overflow-x: hidden; }
+#page-outer { display: flex; justify-content: center; width: 100%; }
+#page { width: 1880px; flex: 0 0 1880px; }
 .slovar {
   background-image: url("vodaD.jpeg"), url("vodaD.JPEG"), url("vodaD.jpg"), url("vodaD.JPG");
   font-family: "Times New Roman", Times, Georgia, serif;
@@ -493,6 +494,17 @@ a:hover {
 }
 </style>
 <script type="text/javascript">
+function fitPage() {
+  var page = document.getElementById('page');
+  if (!page) return;
+  var w = document.documentElement.clientWidth || window.innerWidth;
+  var z = Math.min(1, w / 1880);
+  page.style.zoom = z;
+}
+window.addEventListener('resize', fitPage);
+window.addEventListener('load', fitPage);
+document.addEventListener('DOMContentLoaded', fitPage);
+
 function enterSite() {
   document.getElementById('gate-screen').style.display = 'none';
   document.getElementById('main-screen').style.display = 'block';
@@ -508,6 +520,7 @@ function enterSite() {
 
 <audio id="bg-music" src="helene.mp3" loop="loop"></audio>
 
+<div id="page-outer"><div id="page">
 <table border="0" cellpadding="15" cellspacing="0" width="100%">
   <tr>
     <td align="center">
@@ -726,6 +739,7 @@ function enterSite() {
     </td>
   </tr>
 </table>
+</div></div>
 
 </body>
 </html>
