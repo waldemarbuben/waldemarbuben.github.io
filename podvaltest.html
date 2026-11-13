@@ -1,0 +1,681 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://w3.org">
+<html lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+      <meta name="viewport" content="width=1880">
+<title>Погреб в разработке — Hermeticum.ru</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=UnifrakturCook:wght@700&family=Ruslan+Display&display=swap" rel="stylesheet">
+<style type="text/css">
+body {
+  background-color: #050101;
+  background-image: url("sosopid.jpeg");
+  background-repeat: repeat;
+  color: #d6c5b3;
+  font-family: "Times New Roman", Times, Georgia, serif;
+  margin: 0;
+  padding: 0;
+  scrollbar-face-color: #4a0808;
+  scrollbar-shadow-color: #140202;
+  scrollbar-highlight-color: #9e1b1b;
+  scrollbar-3dlight-color: #2b0404;
+  scrollbar-darkshadow-color: #000000;
+  scrollbar-track-color: #0a0101;
+  scrollbar-arrow-color: #ff4747;
+}
+
+.ladder-img, .podval-img, .plate img {
+  display: block;
+  height: auto;
+  border: 2px solid #1a0e02;
+  box-shadow:
+    0 0 0 2px #d9a93a, 0 0 0 3px #1a0e02, 0 0 0 5px #6b4410, 0 0 0 6px #f3d77a, 0 0 0 7px #1a0e02,
+    0 10px 18px rgba(0,0,0,0.9), inset 0 0 10px rgba(0,0,0,0.8);
+}
+.ladder-img { margin: 22px auto 26px auto; width: 150px; }
+.podval-img { margin: 10px auto 20px auto; width: 220px; }
+
+.btn-skeuo {
+  background: linear-gradient(180deg, #fff6c4 0%, #f3d77a 22%, #d9a93a 50%, #a8761c 74%, #e8c25c 100%);
+  border-top: 3px outset #f3d77a;
+  border-left: 3px outset #f3d77a;
+  border-right: 3px outset #6b4410;
+  border-bottom: 3px outset #6b4410;
+  border-radius: 0;
+  box-shadow: 0 0 0 1px #1a0e02, 0 0 0 3px #a8761c, 0 0 0 4px #1a0e02, 0 6px 10px rgba(0,0,0,0.9), inset 0 0 0 1px rgba(255,255,255,0.5);
+  color: #2a1604;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 15px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 9px 28px;
+  cursor: pointer;
+  text-shadow: 0 1px 0 #fff6c4;
+}
+.btn-skeuo:hover {
+  background: linear-gradient(180deg, #ffffff 0%, #fff0a8 22%, #f3d77a 50%, #c58f2a 74%, #f6d46c 100%);
+}
+.btn-skeuo:active {
+  background: linear-gradient(0deg, #fff6c4 0%, #f3d77a 22%, #d9a93a 50%, #a8761c 74%, #e8c25c 100%);
+  border-top: 3px inset #6b4410;
+  border-left: 3px inset #6b4410;
+  border-right: 3px inset #f3d77a;
+  border-bottom: 3px inset #f3d77a;
+  padding: 10px 27px 8px 29px;
+  box-shadow: 0 0 0 1px #1a0e02, 0 0 0 3px #a8761c, 0 0 0 4px #1a0e02, 0 2px 4px rgba(0,0,0,0.9), inset 0 3px 6px rgba(0,0,0,0.5);
+}
+
+.plaque {
+  position: relative;
+  margin: 0 0 6px 0;
+  padding: 10px 40px;
+  text-align: center;
+  font-family: "Ruslan Display", "UnifrakturCook", "Times New Roman", serif;
+  font-size: 22px;
+  letter-spacing: 5px;
+  color: var(--hi);
+  text-shadow:
+    -1px -1px 0 var(--edge), 1px -1px 0 var(--edge), -1px 1px 0 var(--edge), 1px 1px 0 var(--edge),
+    0 2px 0 var(--l5), 2px 3px 3px #000;
+  background:
+    repeating-linear-gradient(90deg, rgba(255,255,255,0.08) 0 1px, rgba(0,0,0,0.08) 1px 2px),
+    linear-gradient(180deg, var(--l3), var(--l1) 28%, var(--l4) 60%, var(--l2) 84%, var(--l3));
+  border: 2px solid var(--edge);
+  box-shadow:
+    inset 0 0 0 1px var(--hi), inset 0 0 0 3px var(--l4), inset 0 0 0 4px var(--edge),
+    inset 0 5px 7px rgba(255,255,255,0.3), inset 0 -5px 8px rgba(0,0,0,0.6),
+    0 3px 5px rgba(0,0,0,0.9);
+}
+.plaque:before, .plaque:after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 11px;
+  height: 11px;
+  margin-top: -6px;
+  transform: rotate(45deg);
+  background: linear-gradient(135deg, var(--hi), var(--l2) 45%, var(--l5));
+  border: 1px solid var(--edge);
+  box-shadow: inset 0 0 0 1px var(--l1), 0 1px 2px rgba(0,0,0,0.8);
+}
+.plaque:before { left: 14px; }
+.plaque:after { right: 14px; }
+
+
+.baroque {
+  --hi: #fff6c4;
+  --l1: #f3d77a;
+  --l2: #d9a93a;
+  --l3: #a8761c;
+  --l4: #6b4410;
+  --l5: #3a2406;
+  --edge: #1a0e02;
+  --pearl: radial-gradient(circle at 34% 28%, var(--hi) 0 1px, var(--l1) 2px, var(--l3) 3.5px, var(--l5) 5px, transparent 5.6px);
+  --med: radial-gradient(circle at 50% 50%, var(--hi) 0 1.5px, var(--l3) 2.5px, var(--edge) 3.5px, var(--l1) 4.5px, var(--l4) 6.5px, var(--edge) 7.5px, var(--l2) 8.5px, var(--hi) 10px, var(--l3) 12px, var(--edge) 13px, var(--l1) 14px, var(--l5) 17px, var(--edge) 18px, var(--l2) 19px, var(--l4) 20.5px, var(--edge) 21.5px, transparent 22px);
+  position: relative;
+  display: inline-block;
+  max-width: 760px;
+  width: 90%;
+  margin-top: 40px;
+  padding: 34px;
+  box-sizing: border-box;
+  border-radius: 6px;
+  background:
+    repeating-linear-gradient(90deg, rgba(255,255,255,0.07) 0 1px, rgba(0,0,0,0.08) 1px 2px),
+    repeating-linear-gradient(45deg, rgba(0,0,0,0.16) 0 1px, transparent 1px 4px),
+    linear-gradient(135deg, var(--l5) 0%, var(--l2) 9%, var(--l4) 19%, var(--hi) 30%, var(--l3) 41%, var(--l5) 50%, var(--l1) 60%, var(--l4) 72%, var(--l2) 84%, var(--hi) 92%, var(--l5) 100%);
+  box-shadow:
+    0 0 0 1px var(--edge),
+    0 0 0 3px var(--l2),
+    0 0 0 4px var(--l5),
+    0 0 0 5px var(--l1),
+    0 0 0 7px var(--edge),
+    0 20px 40px rgba(0,0,0,0.95),
+    0 44px 90px rgba(0,0,0,0.8),
+    inset 0 0 0 1px var(--hi),
+    inset 0 0 0 3px var(--l4),
+    inset 0 0 0 4px var(--edge),
+    inset 0 5px 8px rgba(255,255,255,0.45),
+    inset 0 -5px 8px rgba(0,0,0,0.75),
+    inset 5px 0 8px rgba(255,255,255,0.18),
+    inset -5px 0 8px rgba(0,0,0,0.5);
+}
+
+.baroque.silver {
+  --hi: #ffffff;
+  --l1: #eef1f4;
+  --l2: #bcc4cc;
+  --l3: #8b949e;
+  --l4: #565d66;
+  --l5: #272b30;
+  --edge: #0c0e10;
+}
+
+.baroque.ruby {
+  --hi: #ffb4a8;
+  --l1: #d9453d;
+  --l2: #a62323;
+  --l3: #751515;
+  --l4: #470909;
+  --l5: #230404;
+  --edge: #0a0101;
+}
+
+.baroque.bronze {
+  --hi: #ffe8c4;
+  --l1: #e0a868;
+  --l2: #b8773a;
+  --l3: #85491b;
+  --l4: #52290d;
+  --l5: #2a160a;
+  --edge: #120a04;
+}
+
+.baroque.narrow {
+  display: block;
+  width: 460px;
+  max-width: 460px;
+  margin: 40px auto 0 auto;
+}
+
+.baroque:before {
+  content: "";
+  position: absolute;
+  top: 9px; left: 9px; right: 9px; bottom: 9px;
+  border-radius: 4px;
+  pointer-events: none;
+  z-index: 3;
+  background-image: var(--med), var(--med), var(--med), var(--med), var(--pearl), var(--pearl), var(--pearl), var(--pearl);
+  background-size: 44px 44px, 44px 44px, 44px 44px, 44px 44px, 13px 13px, 13px 13px, 13px 13px, 13px 13px;
+  background-position: 0 0, 100% 0, 0 100%, 100% 100%, 0 0, 0 100%, 0 0, 100% 0;
+  background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, repeat-x, repeat-x, repeat-y, repeat-y;
+  filter: drop-shadow(1px 2px 1px rgba(0,0,0,0.9));
+}
+
+.baroque:after {
+  content: "";
+  position: absolute;
+  top: 25px; left: 25px; right: 25px; bottom: 25px;
+  border: 1px solid var(--l5);
+  border-radius: 2px;
+  box-shadow: 0 1px 0 var(--hi), inset 0 1px 0 var(--hi), 0 0 0 1px rgba(0,0,0,0.35);
+  pointer-events: none;
+}
+
+.baroque-inner {
+  position: relative;
+  z-index: 2;
+  padding: 10px;
+  background:
+    repeating-linear-gradient(60deg, rgba(0,0,0,0.5) 0 2px, rgba(255,255,255,0.32) 2px 3px, transparent 3px 6px),
+    linear-gradient(180deg, var(--l3), var(--l1) 28%, var(--l4) 58%, var(--l2) 80%, var(--l3));
+  border: 2px solid var(--edge);
+  box-shadow:
+    inset 0 0 0 1px var(--hi),
+    inset 0 0 0 3px var(--l5),
+    inset 0 0 16px 5px rgba(0,0,0,0.95),
+    0 0 0 1px var(--hi),
+    0 0 0 2px var(--edge);
+}
+
+.baroque-fillet {
+  position: relative;
+  padding: 5px;
+  background:
+    linear-gradient(135deg, var(--hi), var(--l2) 32%, var(--l5) 58%, var(--l1) 82%, var(--l3));
+  box-shadow:
+    inset 0 0 0 1px var(--edge),
+    inset 0 0 0 2px var(--l1),
+    inset 0 0 10px 2px #000,
+    0 0 0 1px var(--edge),
+    0 0 14px rgba(0,0,0,0.9);
+}
+
+.glare {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  z-index: 3;
+  box-sizing: border-box;
+  padding: 48px;
+  pointer-events: none;
+  border-radius: 6px;
+  background: linear-gradient(115deg,
+    transparent 0%, transparent 6%,
+    rgba(255,255,255,0.00) 6%, rgba(255,255,255,0.20) 12%, rgba(255,255,255,0.42) 17%, rgba(255,255,255,0.20) 22%, rgba(255,255,255,0.00) 28%,
+    transparent 28%, transparent 33%,
+    rgba(255,255,255,0.00) 33%, rgba(255,255,255,0.14) 35%, rgba(255,255,255,0.00) 37%,
+    transparent 37%, transparent 58%,
+    rgba(255,255,255,0.00) 58%, rgba(255,255,255,0.16) 64%, rgba(255,255,255,0.30) 68%, rgba(255,255,255,0.16) 72%, rgba(255,255,255,0.00) 78%,
+    transparent 78%, transparent 100%);
+  mix-blend-mode: screen;
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0);
+}
+
+.photo-glare, .poem-glare {
+  position: absolute;
+  top: 5px; left: 5px; right: 5px; bottom: 5px;
+  pointer-events: none;
+  background: linear-gradient(115deg,
+    transparent 0%, transparent 10%,
+    rgba(255,255,255,0.00) 10%, rgba(255,255,255,0.10) 15%, rgba(255,255,255,0.24) 20%, rgba(255,255,255,0.10) 25%, rgba(255,255,255,0.00) 30%,
+    transparent 30%, transparent 34%,
+    rgba(255,255,255,0.00) 34%, rgba(255,255,255,0.10) 36%, rgba(255,255,255,0.00) 38%,
+    transparent 38%, transparent 62%,
+    rgba(255,255,255,0.00) 62%, rgba(255,255,255,0.08) 67%, rgba(255,255,255,0.18) 71%, rgba(255,255,255,0.08) 75%, rgba(255,255,255,0.00) 80%,
+    transparent 80%, transparent 100%);
+  mix-blend-mode: screen;
+}
+.photo-glare {
+  z-index: 9;
+}
+.poem-glare {
+  top: 0; left: 0; right: 0; bottom: 0;
+  z-index: 2;
+}
+
+.pop-wrap {
+  position: relative;
+}
+.pop-wrap .baroque-fillet {
+  overflow: visible;
+}
+.bottom-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 2px inset #3b0606;
+  position: relative;
+  z-index: 6;
+  box-shadow:
+    0 6px 0 rgba(0,0,0,0.55),
+    0 18px 18px rgba(0,0,0,0.85),
+    0 40px 50px rgba(0,0,0,0.9),
+    0 0 0 2px rgba(255,235,170,0.55);
+  filter: contrast(1.08) saturate(1.1);
+}
+.pop-shadow {
+  position: absolute;
+  left: 6%; right: 6%; bottom: -6px;
+  height: 30px;
+  z-index: 4;
+  background: radial-gradient(ellipse at center, rgba(0,0,0,0.9), transparent 70%);
+  filter: blur(6px);
+}
+
+.poem-well, .well {
+  position: relative;
+  background-color: #3a0a0a;
+  background-image: url("fonosizn.jpeg"), url("fonosizn.JPEG"), url("fonosizn.jpg"), url("fonosizn.JPG");
+  background-repeat: repeat;
+  background-position: top left;
+  background-size: auto;
+  border-top: 3px inset #290404;
+  border-left: 3px inset #290404;
+  border-right: 3px inset #6e1212;
+  border-bottom: 3px inset #6e1212;
+  padding: 30px 34px;
+  text-align: left;
+  font-family: "UnifrakturCook", "UnifrakturMaguntia", "Ruslan Display", "Old English Text MT", "Blackadder ITC", "Times New Roman", serif;
+  font-size: 21px;
+  line-height: 1.5;
+  letter-spacing: 1px;
+  color: #ff2a2a;
+}
+
+.poem-well p {
+  margin: 0 0 22px 0;
+  color: #ff2a2a;
+  text-shadow:
+    -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000,
+    -2px 0 0 #000, 2px 0 0 #000, 0 -2px 0 #000, 0 2px 0 #000,
+    0 0 8px #000, 0 0 14px #4a0000, 3px 3px 4px #000;
+  -webkit-text-stroke: 0.4px #3a0000;
+}
+.poem-well p:nth-child(odd) { color: #ff3b24; }
+.poem-well p:nth-child(even) { color: #d81414; }
+
+.poem-well p.last {
+  margin-bottom: 0;
+}
+
+.well {
+  text-align: center;
+  font-family: "Times New Roman", Times, Georgia, serif;
+  font-size: 18px;
+  line-height: 1.5;
+  letter-spacing: 2px;
+  color: #f0dcc0;
+  padding: 26px 22px;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000, 0 0 8px #000, 2px 2px 3px #000;
+}
+.baroque.wide {
+  display: block;
+  width: 1120px;
+  max-width: 94%;
+  margin: 40px auto 0 auto;
+}
+.slovar {
+  background-image: url("vodaD.jpeg"), url("vodaD.JPEG"), url("vodaD.jpg"), url("vodaD.JPG");
+  font-family: "Times New Roman", Times, Georgia, serif;
+  font-size: 17px;
+  line-height: 1.45;
+  letter-spacing: 0;
+  color: #f3e6cf;
+  padding: 34px 42px 40px 42px;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000, 0 0 7px #000, 2px 2px 3px #000;
+}
+.sl-title {
+  text-align: center;
+  font-family: "Ruslan Display", "UnifrakturCook", "Times New Roman", serif;
+  font-size: 34px;
+  line-height: 1.2;
+  letter-spacing: 3px;
+  color: #ffd24a;
+  text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000, 0 0 14px #5a3a00, 3px 4px 5px #000;
+}
+.sl-rule {
+  height: 0;
+  margin: 18px 0;
+  border-top: 6px double #f3d77a;
+  box-shadow: 0 2px 0 #000;
+}
+.sl-index {
+  text-align: center;
+  font-size: 22px;
+  letter-spacing: 14px;
+  font-weight: bold;
+}
+.slovar a { color: #ffd24a; }
+.sl-cols {
+  column-count: 2;
+  column-gap: 52px;
+  column-rule: 5px double rgba(243,215,122,0.75);
+}
+.letter {
+  break-after: avoid;
+  margin: 0 0 14px 0;
+  text-align: center;
+  font-family: "Ruslan Display", "UnifrakturCook", "Times New Roman", serif;
+  font-size: 58px;
+  line-height: 1;
+  color: #ffd24a;
+  border-bottom: 3px double #f3d77a;
+  text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000, 0 0 14px #5a3a00, 3px 4px 5px #000;
+}
+.entry {
+  break-inside: avoid;
+  margin: 0 0 30px 0;
+  padding-bottom: 18px;
+  border-bottom: 3px double rgba(243,215,122,0.6);
+}
+.hw {
+  margin: 0;
+  font-family: "Ruslan Display", "UnifrakturCook", "Times New Roman", serif;
+  font-size: 32px;
+  font-weight: normal;
+  letter-spacing: 2px;
+  line-height: 1.15;
+  color: #ff3b24;
+  text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000, 0 0 10px #4a0000, 3px 3px 4px #000;
+}
+.hw small {
+  margin-left: 14px;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 15px;
+  font-style: italic;
+  letter-spacing: 1px;
+  color: #f0dcc0;
+}
+.sl-ol { margin: 10px 0 0 0; padding: 0 0 0 30px; }
+.sl-ol li { margin: 0 0 9px 0; text-align: justify; }
+.sl-ol li::marker { color: #ffd24a; font-weight: bold; }
+.see { margin-top: 10px; font-size: 15px; font-style: italic; }
+.plate { margin: 20px 0 0 0; text-align: center; }
+.plate img { width: 80%; margin: 0 auto; }
+.plate figcaption { margin-top: 16px; font-size: 14px; font-style: italic; letter-spacing: 1px; }
+.well.bg-roma, .well.bg-purple, .well.bg-grey {
+  background-repeat: repeat;
+  background-position: top left;
+  background-size: auto;
+}
+.well.bg-roma { background-image: url("roma.jpg"); }
+.well.bg-purple { background-image: url("purple.jpg"); }
+.well.bg-grey { background-image: url("grey.jpg"); }
+.well a {
+  display: block;
+  font-size: 16px;
+  letter-spacing: 1px;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000, 0 0 8px #000, 2px 2px 3px #000;
+}
+
+a {
+  color: #ff4747;
+  text-decoration: none;
+  font-weight: bold;
+  text-shadow: 1px 1px 1px #000000;
+}
+a:visited {
+  color: #c92e2e;
+}
+a:hover {
+  color: #ffffff;
+  text-decoration: underline;
+}
+</style>
+<script type="text/javascript">
+function enterSite() {
+  document.getElementById('gate-screen').style.display = 'none';
+  document.getElementById('main-screen').style.display = 'block';
+  var audio = document.getElementById('bg-music');
+  if (audio) {
+    audio.play();
+  }
+}
+
+</script>
+</head>
+<body bgcolor="#050101" background="blackspace.jpg" text="#d6c5b3" link="#ff4747" vlink="#c92e2e" alink="#ffffff">
+
+<audio id="bg-music" src="helene.mp3" loop="loop"></audio>
+
+<table border="0" cellpadding="15" cellspacing="0" width="100%">
+  <tr>
+    <td align="center">
+      <br>
+
+      <div id="gate-screen">
+        <div class="baroque ruby narrow">
+          <div class="baroque-inner">
+            <div class="baroque-fillet">
+              <div class="plaque">ЛЮК</div>
+              <div class="well bg-roma">
+                Лестница в погреб
+                <img src="lestnica.WEBP" alt="" class="ladder-img">
+                <input type="button" class="btn-skeuo" value="ЗАПОЛЗТИ НА КАРАЧКАХ" onclick="enterSite()">
+              </div>
+            </div>
+          </div>
+          <div class="glare"></div>
+        </div>
+      </div>
+
+      <div id="main-screen" style="display: none;">
+        <div class="baroque bronze narrow">
+          <div class="baroque-inner">
+            <div class="baroque-fillet">
+              <div class="plaque">ПОГРЕБ</div>
+              <div class="well bg-purple">Символико-ассоциативно-синтетико-синестический словарь Вальдемара Бубна</div>
+            </div>
+          </div>
+          <div class="glare"></div>
+        </div>
+
+        <div class="baroque ruby narrow">
+          <div class="baroque-inner">
+            <div class="baroque-fillet">
+              <div class="well bg-grey">
+                <a href="index.html" class="exit-link">
+                  <img src="podval.jpeg" alt="" class="podval-img">
+                  Вылезти на hermeticum.ru
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="glare"></div>
+        </div>
+
+        <div class="pop-stage">
+          <div class="baroque pop-wrap" id="popwrap">
+            <div class="baroque-inner">
+              <div class="baroque-fillet">
+                <img src="feetgod19.webp" alt="" class="bottom-img">
+                <div class="photo-glare"></div>
+              </div>
+            </div>
+            <div class="pop-shadow"></div>
+            <div class="glare"></div>
+          </div>
+        </div>
+
+        <div class="baroque silver wide">
+          <div class="baroque-inner">
+            <div class="baroque-fillet">
+              <div class="poem-well slovar">
+                <div class="poem-glare"></div>
+                <div class="sl-title">Символико-ассоциативно-синтетико-синестический словарь Вальдемара Бубна</div>
+                <div class="sl-rule"></div>
+                <div class="sl-index"><a href="#l-А">А</a> <a href="#l-Д">Д</a> <a href="#l-И">И</a> <a href="#l-К">К</a> <a href="#l-Н">Н</a> <a href="#l-П">П</a> <a href="#l-Р">Р</a> <a href="#l-С">С</a> <a href="#l-Т">Т</a> <a href="#l-Ц">Ц</a></div>
+                <div class="sl-rule"></div>
+                <div class="sl-cols">
+<div class="letter" id="l-А">А</div>
+<div class="entry" id="e-1"><h3 class="hw">АРАРАТ<small>образный ряд I</small></h3><ol class="sl-ol"><li>Ну, Арарат, Ратан. Это и есть гора Рога. Это и есть и Пастушевич. У Рога быков и у Гермеса и Хрисос — это и есть они. И все были пастухами. Всё вот так вот, всё в символах.</li><li>Арм. Это и есть железо. Арм. Арм. Арм. Ара. Арарат. Ну? Всё наоборот.</li></ol><div class="see">см. также: <a href="#e-6">НОЯБРЬ</a></div><figure class="plate"><img src="slovar1.jpeg" alt=""><figcaption>Рис. 1. Арарат</figcaption></figure></div>
+<div class="letter" id="l-Д">Д</div>
+<div class="entry" id="e-2"><h3 class="hw">ДВЕРЬ<small>образный ряд II</small></h3><ol class="sl-ol"><li>Ну? Открыть эту худшую дверь надо. Стучить . Ну, дверь. Ну, дверь. Дверь. Дверь. Дверь в дверь. Дверь в то, что она... Дверь есть дверь. Дверь. Д-д-д-дверь. Как твёрдый знак, чтобы убедительно звучало: как будто есть дверь. И дверь всё открыта.</li></ol><div class="see">см. также: <a href="#e-12">ЦИРКУЛЬ</a></div><figure class="plate"><img src="slovar2.jpeg" alt=""><figcaption>Рис. 2. Дверь</figcaption></figure></div>
+<div class="entry" id="e-3"><h3 class="hw">ДДР<small>образный ряд III</small></h3><ol class="sl-ol"><li>Ну и ДДР — это и есть мистер Пропер, это и есть лысая башка. Это она... Она и есть лысая. Но она и есть голый. Гуляк. Ну и то есть денег нету. Денег нету. Нету ничего. Но от того, что нет ничего, есть всё? А от того, что есть всё, то и есть инквизиция.</li></ol><div class="see">см. также: <a href="#e-4">ИНКВИЗИЦИЯ</a></div><figure class="plate"><img src="slovar3.jpeg" alt=""><figcaption>Рис. 3. Ддр</figcaption></figure></div>
+<div class="letter" id="l-И">И</div>
+<div class="entry" id="e-4"><h3 class="hw">ИНКВИЗИЦИЯ<small>образный ряд IV</small></h3><ol class="sl-ol"><li>Помимо того, что в ней был Наполеон, то пятница 13-е — это есть и инквизиция. Инквизиция и... Честно, я забыл, то ли Розенкрейцеров, то ли тамплиеров. Оттуда и пошло «пятница 13-е».</li><li>Это и есть инквизиция. Ну? Она же и инк... Визитор. Инк визитор. Ну, внутри и всё. Визитор внутри, внутренний очиститель.</li></ol><div class="see">см. также: <a href="#e-3">ДДР</a>, <a href="#e-8">ПЯТНИЦА 13-Е</a></div><figure class="plate"><img src="slovar4.jpeg" alt=""><figcaption>Рис. 4. Инквизиция</figcaption></figure></div>
+<div class="letter" id="l-К">К</div>
+<div class="entry" id="e-5"><h3 class="hw">КРОТ-КУРОТ<small>образный ряд V</small></h3><ol class="sl-ol"><li>Ещё могу. Там много, на самом деле. Сколько даже тут можно, даже, ну, неисчерпаемое.</li><li>Ну, можно копать вот в одну сторону. Можно в разные стороны копать. Куда... Сколько там этих... Всё копай. Крот-курот. Ну, это и есть короткое замыкание. Это и есть провод. Это и есть бамбук. Курить бамбук.</li></ol><figure class="plate"><img src="slovar5.jpeg" alt=""><figcaption>Рис. 5. Крот-курот</figcaption></figure></div>
+<div class="letter" id="l-Н">Н</div>
+<div class="entry" id="e-6"><h3 class="hw">НОЯБРЬ<small>образный ряд VI</small></h3><ol class="sl-ol"><li>31-е — это и есть ноябрь. Ноябрь — это и есть ноябрь. Нои. Ноябрь. Нои — это и есть гора Арарат. Ратан.</li></ol><div class="see">см. также: <a href="#e-1">АРАРАТ</a>, <a href="#e-8">ПЯТНИЦА 13-Е</a></div><figure class="plate"><img src="slovar6.jpeg" alt=""><figcaption>Рис. 6. Ноябрь</figcaption></figure></div>
+<div class="letter" id="l-П">П</div>
+<div class="entry" id="e-7"><h3 class="hw">ПАЛЬЦЫ<small>образный ряд VII</small></h3><ol class="sl-ol"><li>Это и есть две руки, две ноги, это и есть шесть пальцев. Один отрубили. У меня и... Ну, мне скоро нужно их найти обратно. У всех сначала было 6 пальцев. Сначала было 6 пальцев. 6 и 6 — это и есть... Это и есть 12. Это и есть... Плюс 1 будет 13 пятницы. Пятница — это и есть 5. 5 пальцев. 5 и 5 — 25. Ну... Это и есть 1/4 сотни. 1/4. 1 и 4. Ну, 1 минус 4 будет 3. Это и есть 1 и 3.</li></ol><div class="see">см. также: <a href="#e-8">ПЯТНИЦА 13-Е</a></div><figure class="plate"><img src="slovar7.jpeg" alt=""><figcaption>Рис. 7. Пальцы</figcaption></figure></div>
+<div class="entry" id="e-8"><h3 class="hw">ПЯТНИЦА 13-Е<small>образный ряд VIII</small></h3><ol class="sl-ol"><li>Ну вот что вы хотите? Вот, пятница, 13-го, 31-е. 31-е и есть 13-е.</li><li>13-е — это и есть 31-е, это и есть 1 и 3.</li><li>Обратное возвращение — это и есть революция. Возвращение ценностей. Это и есть пятница, конец... Ну, её не специально же сделали.</li><li>Ну вот, разбор. Пятница 13-е. 13.</li></ol><div class="see">см. также: <a href="#e-11">ТРЕУГОЛКА</a>, <a href="#e-4">ИНКВИЗИЦИЯ</a>, <a href="#e-6">НОЯБРЬ</a>, <a href="#e-7">ПАЛЬЦЫ</a></div><figure class="plate"><img src="slovar8.jpeg" alt=""><figcaption>Рис. 8. Пятница 13-е</figcaption></figure></div>
+<div class="letter" id="l-Р">Р</div>
+<div class="entry" id="e-9"><h3 class="hw">РОБА<small>образный ряд IX</small></h3><ol class="sl-ol"><li>Робу. Робочего. Роба. Роба. Снимаем робу обратно. Всё, в спячку, в дрёму, в люльку. И по кругу. Ну, разминаем кости, приседаем. Обратно. Обратно. Обратно. Обратно. Я бы не успел оклематься, чтобы ничего не это, не это... Только когда критическая поломка будет, тогда . Так. Оберегаю ещё, чтобы не слетел. А то никуда подальше. Угу . Как же это... Да.</li></ol><figure class="plate"><img src="slovar9.jpeg" alt=""><figcaption>Рис. 9. Роба</figcaption></figure></div>
+<div class="letter" id="l-С">С</div>
+<div class="entry" id="e-10"><h3 class="hw">СИМВОЛ<small>образный ряд X</small></h3><ol class="sl-ol"><li>А на той стороне, в тёмно-синем огне, есть страна фиолетовых фей. Я сейчас это говорю, я же прекрасно... Ничего никто не понимает, что я тут говорю. Это, то есть, даже... Ну, то есть, вещи настолько глубокие, ну, многополярные настолько ... И многосторонние, много боков, много символов. Это и есть символ. 1 и 2 — это и есть 2. Это и есть две стороны. С двух сторон.</li></ol><div class="see">см. также: <a href="#e-7">ПАЛЬЦЫ</a></div><figure class="plate"><img src="slovar10.jpeg" alt=""><figcaption>Рис. 10. Символ</figcaption></figure></div>
+<div class="letter" id="l-Т">Т</div>
+<div class="entry" id="e-11"><h3 class="hw">ТРЕУГОЛКА<small>образный ряд XI</small></h3><ol class="sl-ol"><li>13-е — это и есть треуголка. Треуголка Наполеона Бонапарта, она же самая... Ну, которая является Треуголка, у которой был Наполеон.</li></ol><div class="see">см. также: <a href="#e-8">ПЯТНИЦА 13-Е</a></div><figure class="plate"><img src="slovar11.jpeg" alt=""><figcaption>Рис. 11. Треуголка</figcaption></figure></div>
+<div class="letter" id="l-Ц">Ц</div>
+<div class="entry" id="e-12"><h3 class="hw">ЦИРКУЛЬ<small>образный ряд XII</small></h3><ol class="sl-ol"><li>Ну? Циркулируй. Циркуль. Лируй. Ну и циркуль-то есть циркулировать. Мне не спец... Мне не случайно в плечо в начальной классе циркуль заехали. Заехали. Циркуль в плечо. Это знакомая одна... Одноклассница. Я не знаю, что я с ней нашёл. Так, прямо в плечо. Ну, это и есть плечку.</li></ol><div class="see">см. также: <a href="#e-2">ДВЕРЬ</a></div><figure class="plate"><img src="slovar12.jpeg" alt=""><figcaption>Рис. 12. Циркуль</figcaption></figure></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="glare"></div>
+        </div>
+
+        <br>
+        <div class="baroque silver">
+          <div class="baroque-inner">
+            <div class="baroque-fillet">
+          <div class="poem-well">
+            <div class="poem-glare"></div>
+            <p>
+              Как прекрасна Helene<br>
+              Чудо радужных лент<br>
+              В голубом серпантине волос<br>
+              Шаловлива и для<br>
+              Своего корабля<br>
+              Лучше звона зеркальных стрекоз.
+            </p>
+            <p>
+              А на той стороне<br>
+              В темно-синем огне<br>
+              Есть страна фиолетовых фей.<br>
+              Заложите же наш<br>
+              Золотой экипаж<br>
+              И стегните послушных коней.
+            </p>
+            <p>
+              Как прекрасна Helene<br>
+              Чудо детских колен<br>
+              В экипаже лазоревых снов<br>
+              Как лукава и за<br>
+              Голубые глаза<br>
+              Можно спрятать сто тысяч цветов.
+            </p>
+            <p>
+              А на той стороне<br>
+              В темно-синем огне<br>
+              Есть страна фиолетовых фей<br>
+              И все ближе она<br>
+              И большая луна<br>
+              Нас торопит настойчиво к ней.
+            </p>
+            <p>
+              Но Helene, но Helene,<br>
+              Здесь живет Жан Мулен<br>
+              И рогатый Месье Леонард.<br>
+              В фиолетовом зле<br>
+              На огромном козле<br>
+              Они едут навстречу тебе.
+            </p>
+            <p>
+              Ты на той стороне<br>
+              В темно-синем огне<br>
+              Ты в стране фиолетовых фей.<br>
+              Почему же, малыш,<br>
+              Ты так сильно дрожишь<br>
+              От ее волосатых теней?
+            </p>
+            <p>
+              Ах, Helene, ах, Helene,<br>
+              Ou est ta robe de matin?<br>
+              Где твой светло-малиновый бант?<br>
+              Что за редкий порок<br>
+              Меж твоих детских ног<br>
+              Ищет твой саблезубый amant?
+            </p>
+            <p>
+              Ты на той стороне,<br>
+              В темно-синем огне<br>
+              Ты в стране фиолетовых фей.<br>
+              Поцелуй же, enfant,<br>
+              La fesse douce de satan,<br>
+              Короля электрических змей.
+            </p>
+            <p>
+              До свиданья, Helene,<br>
+              Будет вечен твой плен<br>
+              В хороводе волков и гиен...<br>
+              Будут крышки гробов,<br>
+              Будет скрежет зубов,<br>
+              И тягучая детская кровь.
+            </p>
+            <p class="last">
+              Там на той стороне<br>
+              В темно-синем огне<br>
+              Там, в стране фиолетовых фей...<br>
+              Только лучше туда<br>
+              Ни за что, никогда<br>
+              Не пускайте наивных детей.
+            </p>
+          </div>
+            </div>
+          </div>
+          <div class="glare"></div>
+        </div>
+
+      </div>
+
+    </td>
+  </tr>
+</table>
+
+</body>
+</html>
