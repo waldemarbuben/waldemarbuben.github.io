@@ -443,3 +443,38 @@ html body .kyb-eclipse{filter:brightness(1.08) drop-shadow(0 0 22px rgba(190,205
   html{scroll-behavior:auto}
   .kyb-marquee>span{padding-left:0}
 }
+
+/* ===== широкие фланги ===== */
+html body .kyb-triptych { grid-template-columns: 350px minmax(0px, 1fr) 350px; gap: 32px; }
+html body .kyb-base { grid-template-columns: 350px minmax(0px, 1fr) 350px; gap: 34px; }
+html body .kyb-triptych > :is(.sidebar-left, .sidebar-right) .play-btn { display: block; width: 100%; box-sizing: border-box; }
+html body .kyb-triptych > :is(.sidebar-left, .sidebar-right) .kyb-flank-scroll a[style*="inline-block"] { display: block !important; box-sizing: border-box; }
+
+/* ===== герметическая дымка и виньетка поверх фона ===== */
+:root {
+  --kn-fog-a: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='900' height='900'%3E%3Cfilter id='f' x='0' y='0' width='100%25' height='100%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.0042 .0075' numOctaves='4' seed='7' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.62 0 0 0 0 0.57 0 0 0 0 0.93 0 0 0 3.1 -1.2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23f)'/%3E%3C/svg%3E");
+  --kn-fog-b: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1100' height='1100'%3E%3Cfilter id='f' x='0' y='0' width='100%25' height='100%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.0055 .0100' numOctaves='4' seed='23' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.87 0 0 0 0 0.56 0 0 0 0 0.33 0 0 0 2.9 -1.12'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23f)'/%3E%3C/svg%3E");
+  --kn-dust: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='640' height='640'%3E%3Cdefs%3E%3CradialGradient id='g'%3E%3Cstop offset='0' stop-color='%23fff3b8' stop-opacity='1'/%3E%3Cstop offset='.35' stop-color='%23f2c66a' stop-opacity='.55'/%3E%3Cstop offset='1' stop-color='%23e8782a' stop-opacity='0'/%3E%3C/radialGradient%3E%3C/defs%3E%3Ccircle cx='483' cy='593' r='4' fill='url(%23g)' opacity='1'/%3E%3Ccircle cx='540' cy='214' r='2.6' fill='url(%23g)' opacity='1'/%3E%3Ccircle cx='210' cy='116' r='4' fill='url(%23g)' opacity='0.85'/%3E%3Ccircle cx='165' cy='112' r='5' fill='url(%23g)' opacity='0.55'/%3E%3Ccircle cx='425' cy='483' r='7' fill='url(%23g)' opacity='0.7'/%3E%3Ccircle cx='35' cy='561' r='2.2' fill='url(%23g)' opacity='0.55'/%3E%3Ccircle cx='56' cy='214' r='2.6' fill='url(%23g)' opacity='0.55'/%3E%3Ccircle cx='495' cy='354' r='4' fill='url(%23g)' opacity='0.7'/%3E%3Ccircle cx='551' cy='259' r='7' fill='url(%23g)' opacity='0.85'/%3E%3Ccircle cx='531' cy='24' r='7' fill='url(%23g)' opacity='0.55'/%3E%3Ccircle cx='488' cy='304' r='4' fill='url(%23g)' opacity='0.55'/%3E%3Ccircle cx='280' cy='342' r='2.6' fill='url(%23g)' opacity='0.85'/%3E%3Ccircle cx='50' cy='91' r='5' fill='url(%23g)' opacity='0.55'/%3E%3Ccircle cx='430' cy='130' r='3.2' fill='url(%23g)' opacity='1'/%3E%3Ccircle cx='88' cy='37' r='7' fill='url(%23g)' opacity='0.55'/%3E%3Ccircle cx='238' cy='234' r='2.2' fill='url(%23g)' opacity='1'/%3E%3C/svg%3E");
+}
+
+.kyb-bg::before { content: ""; position: absolute; inset: 0; background: var(--kn-grain); opacity: .5; }
+.kyb-bg::after { content: ""; position: absolute; inset: 0; mix-blend-mode: multiply;
+  background: linear-gradient(180deg, rgba(128, 108, 214, .5) 0%, rgba(255, 255, 255, 0) 42%, rgba(255, 255, 255, 0) 62%, rgba(255, 164, 86, .5) 100%); }
+
+.kyb-film { background:
+  radial-gradient(90% 82% at 50% 46%, transparent 0, transparent 34%, rgba(34, 16, 78, .26) 56%, rgba(14, 7, 40, .56) 76%, rgba(3, 1, 12, .8) 100%),
+  radial-gradient(44% 36% at 0% 0%, rgba(2, 1, 10, .6), transparent 72%),
+  radial-gradient(44% 36% at 100% 0%, rgba(2, 1, 10, .6), transparent 72%),
+  radial-gradient(44% 36% at 0% 100%, rgba(2, 1, 10, .6), transparent 72%),
+  radial-gradient(44% 36% at 100% 100%, rgba(2, 1, 10, .6), transparent 72%),
+  radial-gradient(70% 24% at 50% 108%, rgba(232, 120, 42, .3), transparent 72%),
+  radial-gradient(60% 20% at 50% -6%, rgba(150, 130, 255, .18), transparent 72%),
+  linear-gradient(rgba(10, 5, 34, .3), transparent 24%, transparent 72%, rgba(24, 8, 4, .32)); }
+
+.kyb-film::before, .kyb-film::after { content: ""; position: absolute; inset: -25%; pointer-events: none; will-change: transform, opacity; }
+.kyb-film::before { background: var(--kn-fog-a) 0 0 / 900px 900px; opacity: .5; animation: kn-fog-a 170s ease-in-out infinite alternate; }
+.kyb-film::after { background: var(--kn-dust) 0 0 / 640px 640px, var(--kn-dust) 210px 330px / 980px 980px, var(--kn-fog-b) 0 0 / 1100px 1100px; opacity: .7; animation: kn-fog-b 230s ease-in-out infinite alternate; }
+@keyframes kn-fog-a { from { transform: translate3d(-7%, 2%, 0) scale(1); } to { transform: translate3d(7%, -3%, 0) scale(1.12); } }
+@keyframes kn-fog-b { from { transform: translate3d(6%, -2%, 0) scale(1.1); opacity: .62; } to { transform: translate3d(-6%, 3%, 0) scale(1); opacity: .95; } }
+
+html body .kyb-film .rim { box-shadow: inset 0 0 150px 14px rgba(247, 178, 90, .13), inset 0 0 320px rgba(70, 40, 150, .34), inset 0 0 90px 36px rgba(4, 2, 14, .5); }
