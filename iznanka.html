@@ -161,8 +161,10 @@ body{margin:0;min-width:1760px;min-height:100vh;color:#f0dcb4;font-family:"Times
 #gate{position:fixed;inset:0;z-index:40;display:flex;align-items:center;justify-content:center;overflow:auto;background:var(--noise) 0 0/160px,var(--tuft) 0 0/80px,#2a080b;transition:opacity .9s ease}
 #gate::before{content:"";position:fixed;inset:0;pointer-events:none;background:radial-gradient(ellipse at 50% 50%,transparent 30%,rgba(0,0,0,.85) 100%)}
 #gate.off{opacity:0;pointer-events:none}
-.gate-box{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;width:700px;padding:250px 0}
+.gate-box{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;width:1120px;padding:250px 0}
 .gate-box .knives{margin:34px 0}
+.gate-box .kn{width:540px;height:auto}
+.warn .zash{display:block;margin:26px auto 0;max-width:100%;height:auto;image-rendering:pixelated}
 .warn{position:relative;width:100%;padding:28px 40px 30px;text-align:center;border:9px ridge #b5121b;
   background:
    radial-gradient(circle at 38% 34%,rgba(214,160,140,.55) 0 1.2px,#7a4438 2.8px,#4a2220 5.4px,#1a0807 6.6px,transparent 7.6px) 8px 8px/16px 16px no-repeat,
@@ -176,8 +178,8 @@ body{margin:0;min-width:1760px;min-height:100vh;color:#f0dcb4;font-family:"Times
 .warn b{display:block;font-size:46px;letter-spacing:.12em;color:#c4141c;text-shadow:-2px -2px 0 #ff8a66,3px 3px 0 #000,5px 5px 0 #3a0508}
 .warn p{margin:14px 0 0;font-size:27px;line-height:1.6;color:#f0dcb4;text-shadow:2px 2px 0 #000}
 .warn .wq{font-size:32px;font-weight:700;font-style:italic;color:#e3a437}
-.gbtns{display:flex;gap:44px;margin-top:40px}
-#gate button{position:relative;appearance:none;-webkit-appearance:none;width:300px;height:112px;padding:0;cursor:pointer;font:900 46px "Times New Roman",Georgia,serif;letter-spacing:.1em;color:#f6e3b4;text-shadow:0 -1px 0 rgba(255,230,170,.4),3px 3px 0 #000;
+.gbtns{display:flex;gap:60px;margin-top:40px}
+#gate button{position:relative;appearance:none;-webkit-appearance:none;width:480px;height:130px;padding:0;cursor:pointer;font:900 46px "Times New Roman",Georgia,serif;letter-spacing:.1em;color:#f6e3b4;text-shadow:0 -1px 0 rgba(255,230,170,.4),3px 3px 0 #000;
   background:linear-gradient(180deg,#d4181f,#8b0f14 50%,#5a090d);border:12px outset #b5121b;
   box-shadow:0 0 0 4px #000,0 0 0 8px #c98a26,0 0 0 12px #000,14px 14px 0 12px rgba(0,0,0,.8),inset 0 3px 0 rgba(255,170,150,.55),inset 0 -10px 16px rgba(0,0,0,.5)}
 #gate button#gate-no{background:linear-gradient(180deg,#34191a,#1c0b0c 50%,#0c0405);border-color:#4a3a36;color:#cdb98f}
@@ -349,6 +351,7 @@ body{margin:0;min-width:1760px;min-height:100vh;color:#f0dcb4;font-family:"Times
       <b>Предупреждение</b>
       <p>Дальше опасная зона. Назад дороги не будет.</p>
       <p class="wq">Ты точно уверен что хочешь войти?</p>
+      <img class="zash" src="zashita.gif" alt="">
     </div>
     <div class="gbtns"><button type="button" id="gate-btn">Войти</button><button type="button" id="gate-no">Уйти</button></div>
     <div class="knives"><svg class="kn" viewBox="0 0 600 100"><use href="#knife"/></svg><svg class="kn flip" viewBox="0 0 600 100"><use href="#knife"/></svg></div>
