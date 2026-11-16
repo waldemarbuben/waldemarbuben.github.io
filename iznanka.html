@@ -25,7 +25,7 @@ body{margin:0;min-width:1760px;min-height:100vh;color:#f0dcb4;font-family:"Times
 ::-webkit-scrollbar-track{background:#140505;border-left:2px solid #000}
 ::-webkit-scrollbar-thumb{background:#8b0f14;border:4px outset #b5121b}
 
-.stage{width:1620px;margin:0 auto;padding:150px 0 190px;display:flex;align-items:flex-start;justify-content:space-between}
+.stage{width:1840px;margin:0 auto;padding:110px 0 110px;display:flex;align-items:flex-start;justify-content:space-between}
 
 
 .card{position:relative;flex:none;width:840px;padding:76px 54px 96px;text-align:center;
@@ -109,10 +109,10 @@ body{margin:0;min-width:1760px;min-height:100vh;color:#f0dcb4;font-family:"Times
   border:6px ridge #8b0f14;box-shadow:0 0 0 3px #000,8px 8px 0 3px rgba(0,0,0,.85),inset 0 0 8px rgba(80,40,0,.6)}
 
 
-.aloha2-wrap{width:1760px;margin:0 auto 70px;padding:0 24px}
-.aloha2{display:block;width:100%;height:800px;object-fit:fill;border:4px solid #000;box-shadow:0 0 0 3px #c98a26,0 0 0 6px #000,12px 12px 0 6px rgba(0,0,0,.8)}
-.rcol{position:sticky;top:30px;flex:none;width:720px;display:flex;flex-direction:column;align-items:center}
-.aloha{display:block;width:500px;max-width:100%;height:500px;object-fit:fill;margin:34px 0 0;border:4px solid #000;box-shadow:0 0 0 3px #c98a26,0 0 0 6px #000,10px 10px 0 6px rgba(0,0,0,.8)}
+.aloha2{display:block;flex:none;width:430px;height:500px;object-fit:fill;border:4px solid #000;box-shadow:0 0 0 3px #c98a26,0 0 0 6px #000,12px 12px 0 6px rgba(0,0,0,.8)}
+.rcol{position:sticky;top:30px;flex:none;width:1000px;display:flex;flex-direction:column;align-items:center}
+.pair{display:flex;justify-content:center;align-items:flex-start;gap:40px;width:100%;margin-top:40px}
+.aloha{display:block;flex:none;width:500px;height:500px;object-fit:fill;margin:0;border:4px solid #000;box-shadow:0 0 0 3px #c98a26,0 0 0 6px #000,10px 10px 0 6px rgba(0,0,0,.8)}
 .casement{position:relative;flex:none;width:720px;height:1160px;padding:50px 62px 42px}
 .rod{position:absolute;left:0;right:0;top:8px;height:18px;z-index:3;background:linear-gradient(#f8d77a,#8a5a14 55%,#3a2208);border:3px solid #000;box-shadow:5px 5px 0 rgba(0,0,0,.8),inset 0 2px 0 rgba(255,255,255,.5)}
 .rod::before,.rod::after{content:"";position:absolute;top:-8px;width:30px;height:30px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff1b8,#c98a26 55%,#3a2208);border:3px solid #000}
@@ -220,18 +220,18 @@ body::after{content:"";position:fixed;inset:0;z-index:55;pointer-events:none;bac
 (function(){
   var DESIGN=1880, de=document.documentElement, lastH=0;
   function natural(){
-    var st=document.querySelector('.stage'),wr=document.querySelector('.aloha2-wrap');
-    if(!st||!wr)return 0;
-    return st.offsetHeight+wr.offsetHeight+70;
+    var st=document.querySelector('.stage');
+    return st?st.offsetHeight:0;
   }
   function fit(){
     var coarse=window.matchMedia&&matchMedia('(pointer:coarse)').matches;
     de.style.zoom='1';
     var w=coarse?DESIGN:de.clientWidth, h=de.clientHeight; if(!w||!h)return;
     var z=w/DESIGN, n=natural();
-    if(n>0){lastH=n; z=Math.min(z,h/n);}
+    if(n>0)z=Math.min(z,h/n);
     de.style.zoom=z.toFixed(4);
     de.style.overflow='hidden';
+    lastH=natural();
     window.dispatchEvent(new Event('izn-fit'));
   }
   fit();
@@ -239,10 +239,7 @@ body::after{content:"";position:fixed;inset:0;z-index:55;pointer-events:none;bac
   window.addEventListener('orientationchange',fit);
   window.addEventListener('load',function(){
     fit();
-    if(window.ResizeObserver){
-      var ro=new ResizeObserver(function(){if(natural()!==lastH)fit();});
-      var st=document.querySelector('.stage');if(st)ro.observe(st);
-    }
+    setInterval(function(){if(natural()!==lastH)fit();},600);
   });
 })();
 </script>
@@ -386,12 +383,10 @@ body::after{content:"";position:fixed;inset:0;z-index:55;pointer-events:none;bac
     </div>
     <div class="sill"></div>
   </aside>
-  <img class="aloha" src="aloha.gif" alt="">
+  <div class="pair"><img class="aloha" src="aloha.gif" alt=""><img class="aloha2" src="aloha2.gif" alt=""></div>
   </div>
 
 </div>
-
-<div class="aloha2-wrap"><img class="aloha2" src="aloha2.gif" alt=""></div>
 
 <div id="gate">
   <svg class="petals pt" viewBox="0 0 1880 250" preserveAspectRatio="xMidYMin slice" aria-hidden="true"></svg>
