@@ -11,7 +11,7 @@ document.documentElement.className="gated";
 try { if (sessionStorage.getItem('site_unlocked') === 'true') { location.replace('index.html'); } } catch (e) {}
 </script>
 <style>
-:root{--cell:74px;
+:root{--cell:98px;
   --noise:url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%27160%27%20height%3D%27160%27%3E%3Cfilter%20id%3D%27n%27%3E%3CfeTurbulence%20type%3D%27fractalNoise%27%20baseFrequency%3D%27.85%27%20numOctaves%3D%272%27%20stitchTiles%3D%27stitch%27%2F%3E%3CfeColorMatrix%20values%3D%270%200%200%200%200%20%200%200%200%200%200%20%200%200%200%200%200%20%20.55%200%200%200%20-.1%27%2F%3E%3C%2Ffilter%3E%3Crect%20width%3D%27160%27%20height%3D%27160%27%20filter%3D%27url%28%23n%29%27%2F%3E%3C%2Fsvg%3E");
   --tuft:url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%2780%27%20height%3D%2780%27%20viewBox%3D%270%200%2080%2080%27%3E%0A%3Cdefs%3E%0A%3CradialGradient%20id%3D%27p%27%20cx%3D%27.5%27%20cy%3D%27.5%27%20r%3D%27.5%27%3E%3Cstop%20offset%3D%270%27%20stop-color%3D%27%23ff7a68%27%20stop-opacity%3D%27.34%27%2F%3E%3Cstop%20offset%3D%27.55%27%20stop-color%3D%27%23c4141c%27%20stop-opacity%3D%27.14%27%2F%3E%3Cstop%20offset%3D%271%27%20stop-color%3D%27%23000%27%20stop-opacity%3D%270%27%2F%3E%3C%2FradialGradient%3E%0A%3ClinearGradient%20id%3D%27b%27%20x1%3D%270%27%20y1%3D%270%27%20x2%3D%271%27%20y2%3D%271%27%3E%3Cstop%20offset%3D%270%27%20stop-color%3D%27%239a6a5a%27%2F%3E%3Cstop%20offset%3D%27.3%27%20stop-color%3D%27%236a3a34%27%2F%3E%3Cstop%20offset%3D%27.55%27%20stop-color%3D%27%237a4a3c%27%2F%3E%3Cstop%20offset%3D%27.8%27%20stop-color%3D%27%234a2226%27%2F%3E%3Cstop%20offset%3D%271%27%20stop-color%3D%27%232a1010%27%2F%3E%3C%2FlinearGradient%3E%0A%3CradialGradient%20id%3D%27s%27%20cx%3D%27.5%27%20cy%3D%27.5%27%20r%3D%27.5%27%3E%3Cstop%20offset%3D%270%27%20stop-color%3D%27%23000%27%20stop-opacity%3D%27.7%27%2F%3E%3Cstop%20offset%3D%271%27%20stop-color%3D%27%23000%27%20stop-opacity%3D%270%27%2F%3E%3C%2FradialGradient%3E%0A%3C%2Fdefs%3E%0A%3Cg%20fill%3D%27url%28%23p%29%27%3E%3Ccircle%20cx%3D%2740%27%20cy%3D%270%27%20r%3D%2740%27%2F%3E%3Ccircle%20cx%3D%270%27%20cy%3D%2740%27%20r%3D%2740%27%2F%3E%3Ccircle%20cx%3D%2780%27%20cy%3D%2740%27%20r%3D%2740%27%2F%3E%3Ccircle%20cx%3D%2740%27%20cy%3D%2780%27%20r%3D%2740%27%2F%3E%3C%2Fg%3E%0A%3Cpath%20d%3D%27M0%200L40%2040L80%200M0%2080L40%2040L80%2080%27%20stroke%3D%27%23ff8c78%27%20stroke-opacity%3D%27.2%27%20stroke-width%3D%272%27%20fill%3D%27none%27%20transform%3D%27translate%280%202%29%27%2F%3E%0A%3Cpath%20d%3D%27M0%200L40%2040L80%200M0%2080L40%2040L80%2080%27%20stroke%3D%27%23000%27%20stroke-opacity%3D%27.7%27%20stroke-width%3D%273%27%20fill%3D%27none%27%2F%3E%0A%3Cg%20fill%3D%27url%28%23s%29%27%3E%3Ccircle%20cx%3D%2740%27%20cy%3D%2740%27%20r%3D%2714%27%2F%3E%3Ccircle%20cx%3D%270%27%20cy%3D%270%27%20r%3D%2714%27%2F%3E%3Ccircle%20cx%3D%2780%27%20cy%3D%270%27%20r%3D%2714%27%2F%3E%3Ccircle%20cx%3D%270%27%20cy%3D%2780%27%20r%3D%2714%27%2F%3E%3Ccircle%20cx%3D%2780%27%20cy%3D%2780%27%20r%3D%2714%27%2F%3E%3C%2Fg%3E%0A%3Cg%20stroke%3D%27%23000%27%20stroke-opacity%3D%27.4%27%20stroke-width%3D%271.2%27%3E%3Cpath%20d%3D%27M40%2040L40%2026M40%2040L52%2033M40%2040L52%2047M40%2040L40%2054M40%2040L28%2047M40%2040L28%2033%27%2F%3E%3C%2Fg%3E%0A%3Cg%20fill%3D%27url%28%23b%29%27%20stroke%3D%27%231a0808%27%20stroke-width%3D%271%27%20opacity%3D%27.7%27%3E%3Ccircle%20cx%3D%2740%27%20cy%3D%2740%27%20r%3D%275.6%27%2F%3E%3Ccircle%20cx%3D%270%27%20cy%3D%270%27%20r%3D%275.6%27%2F%3E%3Ccircle%20cx%3D%2780%27%20cy%3D%270%27%20r%3D%275.6%27%2F%3E%3Ccircle%20cx%3D%270%27%20cy%3D%2780%27%20r%3D%275.6%27%2F%3E%3Ccircle%20cx%3D%2780%27%20cy%3D%2780%27%20r%3D%275.6%27%2F%3E%3C%2Fg%3E%0A%3Cg%20fill%3D%27%23e8c0b0%27%20opacity%3D%27.28%27%3E%3Cellipse%20cx%3D%2738.6%27%20cy%3D%2738.4%27%20rx%3D%271.8%27%20ry%3D%271%27%2F%3E%3C%2Fg%3E%0A%3C%2Fsvg%3E");
   --wood:url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%27400%27%20height%3D%27400%27%3E%3Cfilter%20id%3D%27w%27%20x%3D%270%27%20y%3D%270%27%20width%3D%27100%25%27%20height%3D%27100%25%27%3E%3CfeTurbulence%20type%3D%27fractalNoise%27%20baseFrequency%3D%27.004%20.09%27%20numOctaves%3D%274%27%20seed%3D%277%27%20stitchTiles%3D%27stitch%27%2F%3E%3CfeColorMatrix%20values%3D%270%200%200%200%20.06%20%200%200%200%200%20.02%20%200%200%200%200%20.01%20%200%200%200%20-2.4%201.4%27%2F%3E%3C%2Ffilter%3E%3Crect%20width%3D%27400%27%20height%3D%27400%27%20filter%3D%27url%28%23w%29%27%2F%3E%3C%2Fsvg%3E");
@@ -25,10 +25,10 @@ body{margin:0;min-width:1760px;min-height:100vh;color:#f0dcb4;font-family:"Times
 ::-webkit-scrollbar-track{background:#140505;border-left:2px solid #000}
 ::-webkit-scrollbar-thumb{background:#8b0f14;border:4px outset #b5121b}
 
-.stage{width:1620px;margin:0 auto;padding:150px 0 190px;display:flex;align-items:flex-start;justify-content:space-between}
+.stage{width:1840px;margin:0 auto;padding:150px 0 190px;display:flex;align-items:flex-start;justify-content:space-between}
 
 
-.card{position:relative;flex:none;width:840px;padding:76px 54px 96px;text-align:center;
+.card{position:relative;flex:none;width:1120px;padding:76px 54px 96px;text-align:center;
   border:14px ridge #8b0f14;
   box-shadow:0 0 0 4px #000,0 0 0 7px #c98a26,0 0 0 11px #000,24px 24px 0 11px rgba(0,0,0,.88),inset 0 0 70px rgba(0,0,0,.75);
   background:
@@ -38,7 +38,7 @@ body{margin:0;min-width:1760px;min-height:100vh;color:#f0dcb4;font-family:"Times
    #34090d}
 
 .petals{position:absolute;display:block;pointer-events:none;overflow:visible;filter:drop-shadow(0 7px 5px rgba(0,0,0,.75))}
-.card .petals{left:-60px;width:960px;height:170px;z-index:7}
+.card .petals{left:-60px;width:1240px;height:170px;z-index:7}
 .card .pt{top:-96px}
 .card .pb{bottom:-100px}
 #gate .petals{left:0;width:100%;height:250px}
@@ -56,10 +56,10 @@ body{margin:0;min-width:1760px;min-height:100vh;color:#f0dcb4;font-family:"Times
    url("roma.jpg") center/cover no-repeat,
    #4a1814;
   box-shadow:0 0 0 3px #000,0 0 0 5px #c98a26,0 0 0 8px #000,inset 0 0 0 3px #000,inset 0 0 26px rgba(0,0,0,.9),10px 10px 0 8px rgba(0,0,0,.7)}
-.plate .name{display:block;font-size:24px;letter-spacing:.3em;color:#e3a437;text-shadow:0 -1px 0 #fff0b0,2px 2px 0 #000}
+.plate .name{display:block;font-size:32px;letter-spacing:.3em;color:#e3a437;text-shadow:0 -1px 0 #fff0b0,2px 2px 0 #000}
 .plate .row{display:flex;align-items:center;justify-content:center;gap:34px;margin:8px 0 4px}
-.plate h1{margin:0;font-size:112px;line-height:1.05;font-weight:900;letter-spacing:.06em;color:#c4141c;text-shadow:-2px -2px 0 #ff8a66,3px 3px 0 #000,5px 5px 0 #000,7px 7px 0 #3a0508,0 16px 22px rgba(0,0,0,.6)}
-.plate .sub{display:block;font-size:28px;letter-spacing:.2em;color:#e3a437;text-shadow:0 -1px 0 #fff0b0,2px 2px 0 #000}
+.plate h1{margin:0;font-size:150px;line-height:1.05;font-weight:900;letter-spacing:.06em;color:#c4141c;text-shadow:-2px -2px 0 #ff8a66,3px 3px 0 #000,5px 5px 0 #000,7px 7px 0 #3a0508,0 16px 22px rgba(0,0,0,.6)}
+.plate .sub{display:block;font-size:36px;letter-spacing:.2em;color:#e3a437;text-shadow:0 -1px 0 #fff0b0,2px 2px 0 #000}
 .medal{position:relative;flex:none;width:92px;height:92px;border-radius:50%;border:7px solid transparent;background:#000;box-shadow:0 0 0 3px #000,5px 5px 0 3px rgba(0,0,0,.8),inset 0 0 14px #000}
 .medal::before{content:"";position:absolute;inset:-7px;border-radius:50%;pointer-events:none;background:repeating-conic-gradient(#fff0b0 0 12deg,#e2aa3c 12deg 24deg,#8a5a14 24deg 36deg,#3a2008 36deg 48deg);-webkit-mask:radial-gradient(circle,transparent 0 calc(50% - 7px),#000 calc(50% - 7px));mask:radial-gradient(circle,transparent 0 calc(50% - 7px),#000 calc(50% - 7px));animation:medal-ring 5s linear infinite;will-change:transform}
 @keyframes medal-ring{to{transform:rotate(360deg)}}
@@ -67,17 +67,17 @@ body{margin:0;min-width:1760px;min-height:100vh;color:#f0dcb4;font-family:"Times
 .medal::after{content:"";position:absolute;inset:0;border-radius:50%;background:radial-gradient(ellipse 70% 40% at 35% 18%,rgba(255,255,255,.5),transparent 70%),radial-gradient(circle at 60% 90%,transparent 55%,rgba(0,0,0,.55))}
 
 .knives{display:flex;justify-content:center;gap:12px;margin:44px 0;filter:drop-shadow(5px 6px 0 rgba(0,0,0,.85))}
-.kn{display:block;flex:none;width:340px;height:57px}
+.kn{display:block;flex:none;width:480px;height:80px}
 .kn.flip{transform:scaleX(-1)}
 
 
-.banner{position:relative;margin:0 -14px;padding:16px 36px;font-size:27px;font-weight:700;letter-spacing:.05em;line-height:1.4;color:#f6e3b4;text-shadow:0 -1px 0 rgba(255,230,170,.35),2px 2px 0 #000;
+.banner{position:relative;margin:0 -14px;padding:20px 44px;font-size:35px;font-weight:700;letter-spacing:.05em;line-height:1.4;color:#f6e3b4;text-shadow:0 -1px 0 rgba(255,230,170,.35),2px 2px 0 #000;
   background:var(--noise) 0 0/160px,linear-gradient(180deg,#c4141c,#8b0f14 48%,#5a090d);
   border:7px ridge #c98a26;
   box-shadow:0 0 0 3px #000,9px 9px 0 3px rgba(0,0,0,.85),inset 0 2px 0 rgba(255,150,130,.45),inset 0 -8px 14px rgba(0,0,0,.5)}
 
 
-.hint{position:relative;margin:40px 0 10px;padding:26px 34px 28px;text-align:left;font-size:23px;line-height:1.7;color:#f0dcb4;
+.hint{position:relative;margin:40px 0 10px;padding:30px 42px 32px;text-align:left;font-size:29px;line-height:1.7;color:#f0dcb4;
   background:var(--noise) 0 0/160px,linear-gradient(180deg,#1a0a09,#0b0505);
   border:5px inset #4a1a16;border-left:14px solid #b5121b;box-shadow:0 0 0 3px #000,inset 0 0 30px rgba(0,0,0,.8)}
 .hint i{color:#e3a437}
@@ -100,8 +100,8 @@ body{margin:0;min-width:1760px;min-height:100vh;color:#f0dcb4;font-family:"Times
 .chess-queen.lifted{opacity:.35}
 .chess-queen.held{position:relative;z-index:60}
 .chess-queen.whistle-back{transition:transform .25s ease-out}
-#chess-error{display:none;margin:30px auto 0;max-width:600px;padding:12px 20px;font:700 22px "Times New Roman",Georgia,serif;color:#ff8a70;background:#0b0505;border:4px inset #4a1a16}
-.poem{margin:0;font-size:28px;line-height:1.7;font-style:italic;color:#f0dcb4;text-shadow:0 -1px 0 rgba(255,230,170,.25),2px 2px 0 #000}
+#chess-error{display:none;margin:34px auto 0;max-width:780px;padding:12px 20px;font:700 28px "Times New Roman",Georgia,serif;color:#ff8a70;background:#0b0505;border:4px inset #4a1a16}
+.poem{margin:0;font-size:36px;line-height:1.7;font-style:italic;color:#f0dcb4;text-shadow:0 -1px 0 rgba(255,230,170,.25),2px 2px 0 #000}
 
 
 .year{position:absolute;left:50%;bottom:-30px;transform:translateX(-50%);z-index:8;padding:6px 44px;font-size:20px;font-weight:700;letter-spacing:.35em;white-space:nowrap;color:#2a0a04;text-shadow:0 1px 0 rgba(255,240,180,.8),0 -1px 0 rgba(0,0,0,.4);
@@ -109,7 +109,7 @@ body{margin:0;min-width:1760px;min-height:100vh;color:#f0dcb4;font-family:"Times
   border:6px ridge #8b0f14;box-shadow:0 0 0 3px #000,8px 8px 0 3px rgba(0,0,0,.85),inset 0 0 8px rgba(80,40,0,.6)}
 
 
-.aloha2-wrap{width:1760px;margin:0 auto 70px;padding:0 24px}
+.aloha2-wrap{width:1792px;margin:0 auto 70px;padding:0 24px}
 .aloha2{display:block;width:100%;height:800px;object-fit:fill;border:4px solid #000;box-shadow:0 0 0 3px #c98a26,0 0 0 6px #000,12px 12px 0 6px rgba(0,0,0,.8)}
 .rcol{position:sticky;top:30px;flex:none;width:720px;display:flex;flex-direction:column;align-items:center}
 .aloha{display:block;width:500px;max-width:100%;height:500px;object-fit:fill;margin:34px 0 0;border:4px solid #000;box-shadow:0 0 0 3px #c98a26,0 0 0 6px #000,10px 10px 0 6px rgba(0,0,0,.8)}
@@ -169,6 +169,8 @@ body{margin:0;min-width:1760px;min-height:100vh;color:#f0dcb4;font-family:"Times
 .tk-man{position:absolute;left:50%;bottom:0;transform:translateX(-50%);overflow:visible;filter:drop-shadow(0 10px 14px #000)}
 .tk-man .lb{fill:none;stroke-linecap:round;stroke-linejoin:round}.tk-man .lo{stroke:#d8a336;stroke-width:17}.tk-man .li{stroke:#14070a;stroke-width:10}
 .tk-b{position:absolute;left:0;top:0;width:max-content;text-align:center;line-height:1.25;padding:14px 36px;font:900 56px/1.25 "Times New Roman",serif;font-style:italic;border-radius:34px;color:#ffd977;background:#14070a;border:4px solid #d8a336;box-shadow:0 0 0 4px #000,8px 8px 0 4px rgba(0,0,0,.8);opacity:0}
+.tk-man,.tk-b{will-change:transform,opacity}
+.tk-cr{will-change:opacity}
 .tk-tail{position:absolute;left:-4px;top:-4px;overflow:visible;pointer-events:none;filter:drop-shadow(6px 6px 0 rgba(0,0,0,.7))}
 .tk-fl{position:absolute;inset:0;background:#fff;opacity:0}
 .tk-cr{position:absolute;inset:0;width:100%;height:100%;opacity:0}
@@ -907,7 +909,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }catch(e){}}
 
   function shatter(cv,W,H){
-    const dpr=Math.min(window.devicePixelRatio||1,2),rnd=Math.random;
+    const dpr=Math.min(window.devicePixelRatio||1,1.5),rnd=Math.random;
     cv.width=Math.round(W*dpr);cv.height=Math.round(H*dpr);cv.style.opacity=1;
     const ctx=cv.getContext('2d'),off=document.createElement('canvas');off.width=cv.width;off.height=cv.height;
     const g=off.getContext('2d');g.scale(dpr,dpr);g.lineCap='round';g.lineJoin='round';
@@ -987,7 +989,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const fig = $('fig'); fig.style.transformOrigin = (VW/2)+'px '+(VH-10)+'px';
     const an = (e,f,o) => e.animate(f, Object.assign({fill:'forwards',easing:'ease-in-out'}, o));
     const mx = OW/2 - mw/2 + MOUTH.x*mw, my = OH - mh + MOUTH.y*mh, txt = bub.querySelector('span'), tail = bub.querySelector('.tk-tail');
+    let typeIv = 0;
     const set = t => {
+      clearInterval(typeIv); bub.style.width = ''; bub.style.height = '';
       txt.textContent = t;
       const gap = mw*.36, rr = OW-(mx+gap)-24, lr = (mx-gap)-24, right = rr >= lr, room = Math.max(220, right ? rr : lr);
       bub.style.fontSize = room < 440 ? '32px' : room < 700 ? '42px' : '';
@@ -998,20 +1002,23 @@ document.addEventListener("DOMContentLoaded", () => {
       const ty = my-top, by = Math.max(36, Math.min(bh-36, ty)), bx = right ? 0 : bw, tipx = mx-left+(right ? 12 : -12);
       tail.innerHTML = '<polygon points="'+bx+','+(by-18)+' '+bx+','+(by+18)+' '+tipx+','+ty+'" fill="#14070a" stroke="#d8a336" stroke-width="4" stroke-linejoin="round"/><rect x="'+(right ? -5 : bw-6)+'" y="'+(by-14)+'" width="11" height="28" fill="#14070a"/>';
       bub.style.transformOrigin = (right ? '0px ' : bw+'px ')+by+'px';
+      bub.style.width = bw+'px'; bub.style.height = bh+'px'; txt.textContent = '';
+      let n = 0; typeIv = setInterval(() => { txt.textContent = t.slice(0, ++n); if (n >= t.length) clearInterval(typeIv); }, 34);
       an(bub,[{opacity:0,transform:'scale(.5)'},{opacity:1,transform:'scale(1)'}],{duration:240});
     };
-    const hide = () => an(bub,[{opacity:1},{opacity:0}],{duration:150});
+    const hide = () => { clearInterval(typeIv); return an(bub,[{opacity:1},{opacity:0}],{duration:200}); };
     const targets = [document.querySelector('.stage'), document.querySelector('.aloha2-wrap')];
     const shake = (ms,a,rise) => { const n = Math.round(ms/40), f = []; for (let i=0;i<=n;i++){ const k = rise ? i/n : 1-i/n, x = (Math.random()-.5)*2*a*k, y = (Math.random()-.5)*2*a*k; f.push({transform:'translate('+x+'px,'+y+'px) rotate('+(x/70)+'deg)'}); } f.push({transform:'none'}); targets.forEach(e => e && e.animate(f,{duration:ms})); };
     const at = (ms,fn) => setTimeout(fn, ms);
+    const JK = ['Ах, голубчик, какая конфузия! Этак вы и до утра не доберётесь-с.','Фи, mon cher, как это неловко-с… Королеву — да на такую клетку?','Эдакий неуч! Извольте-с ещё раз, да только подумайте наперёд.','Ступайте, душенька, подумайте о своём поведении.','Не беспокойтесь, пустое. Вы ведь, кажется, не умеете.','А пока что — сидите смирно и считайте секунды-с.'], STEP = 3800, JT = JK.length*STEP - 80;
     const rot = (a,b2,o) => an(fig,[{transform:'rotate('+a+'deg)'},{transform:'rotate('+b2+'deg)'}],o);
 
     an(T.querySelector('.tk-dim'),[{opacity:0},{opacity:1}],{duration:350});
     an(man,[{transform:'translateX(-50%) translateY(105%) scaleY(1.25)'},{transform:'translateX(-50%) translateY(-5%) scaleY(.86)',offset:.65},{transform:'translateX(-50%) translateY(0) scaleY(1)'}],{duration:700,easing:'cubic-bezier(.2,.8,.3,1)'});
 
-    at(800, () => { set('Не туда-с, сударь мой!'); an(fig,[{transform:'rotate(-4deg)'},{transform:'rotate(4deg)'},{transform:'rotate(-4deg)'}],{duration:560,iterations:2}); });
-    at(1700, () => { hide(); rot(0,-9,{duration:450,easing:'ease-out'}); });
-    at(2250, () => {
+    at(800, () => { set('Не туда-с, сударь мой! Ну кто же так ходит, помилуйте?'); an(fig,[{transform:'rotate(-4deg)'},{transform:'rotate(4deg)'},{transform:'rotate(-4deg)'}],{duration:800,iterations:4}); });
+    at(4200, () => { hide(); rot(0,-9,{duration:450,easing:'ease-out'}); });
+    at(4800, () => {
       rot(-9,10,{duration:170,easing:'ease-in'});
       at(150, () => {
         $('qh').setAttribute('opacity','0'); $('fq').setAttribute('opacity','1');
@@ -1021,7 +1028,7 @@ document.addEventListener("DOMContentLoaded", () => {
       at(1150, () => {
         thud(); shake(700,42,false);
         T.querySelector('.tk-fl').animate([{opacity:.95},{opacity:0}],{duration:450});
-        const cvs=T.querySelector('.tk-cr');shatter(cvs,OW,OH);glassSnd();an(cvs,[{opacity:1},{opacity:1,offset:.8},{opacity:0}],{duration:7200});
+        const cvs=T.querySelector('.tk-cr');shatter(cvs,OW,OH);glassSnd();an(cvs,[{opacity:1},{opacity:1,offset:.85},{opacity:0}],{duration:JT+700});
         rot(10,0,{duration:400});
         an($('fq'),[{opacity:1},{opacity:1,offset:.4},{opacity:0}],{duration:900});
       });
@@ -1031,9 +1038,9 @@ document.addEventListener("DOMContentLoaded", () => {
         an(T.querySelector('.tk-dim'),[{opacity:1},{opacity:0}],{duration:900});
         an(fig,[{transform:'rotate(-5deg)'},{transform:'rotate(5deg)'}],{duration:520,iterations:Infinity,direction:'alternate'});
         an(man,[{transform:'translateX(-50%) translateY(0)'},{transform:'translateX(-50%) translateY(-1.6%)'}],{duration:520,iterations:Infinity,direction:'alternate'});
-        const jokes = ['Ах, голубчик, какая конфузия!','Фи, mon cher, как это неловко-с…','Эдакий неуч! Извольте-с ещё раз.','Ступайте, душенька, подумайте о поведении.','Не беспокойтесь, пустое. Вы ведь не умеете.'];
-        let k = 0; const iv = setInterval(() => set(jokes[k++ % jokes.length]), 1500); set(jokes[k++]);
-        at(6200, () => { clearInterval(iv); hide(); an(man,[{transform:'translateX(-50%) translateY(0)'},{transform:'translateX(-50%) translateY(-4%)',offset:.25},{transform:'translateX(-50%) translateY(110%)'}],{duration:650,easing:'ease-in'}); at(750, () => T.remove()); });
+        const jokes = JK;
+        let k = 0; const iv = setInterval(() => set(jokes[k++ % jokes.length]), STEP); set(jokes[k++]);
+        at(JT, () => { clearInterval(iv); hide(); an(man,[{transform:'translateX(-50%) translateY(0)'},{transform:'translateX(-50%) translateY(-4%)',offset:.25},{transform:'translateX(-50%) translateY(110%)'}],{duration:650,easing:'ease-in'}); at(750, () => T.remove()); });
       });
     });
   }
