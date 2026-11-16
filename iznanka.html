@@ -168,7 +168,9 @@ body{margin:0;min-width:1760px;min-height:100vh;color:#f0dcb4;font-family:"Times
 
 
 #gate{position:fixed;inset:0;z-index:40;display:flex;align-items:center;justify-content:center;overflow:auto;background:var(--noise) 0 0/160px,var(--tuft) 0 0/80px,#2a080b;transition:opacity .9s ease}
-#gate::before{content:"";position:fixed;inset:0;pointer-events:none;background:radial-gradient(ellipse at 50% 50%,transparent 30%,rgba(0,0,0,.85) 100%)}
+#gate::after{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;background:url("powerwoman.webp") 0 0/340px repeat;opacity:.3;filter:sepia(.55) saturate(1.5) hue-rotate(-22deg) contrast(1.05) brightness(.92)}
+#gate::before{content:"";position:fixed;inset:0;pointer-events:none;background:radial-gradient(ellipse at 50% 50%,transparent 45%,rgba(0,0,0,.5) 100%)}
+body::after{content:"";position:fixed;inset:0;z-index:55;pointer-events:none;background:radial-gradient(ellipse at 50% 50%,transparent 62%,rgba(0,0,0,.4) 100%)}
 #gate.off{opacity:0;pointer-events:none}
 .gate-box{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;width:1120px;padding:250px 0}
 .gate-box .knives{margin:34px 0}
@@ -464,6 +466,15 @@ body{margin:0;min-width:1760px;min-height:100vh;color:#f0dcb4;font-family:"Times
     }
   }
 
+  function buildGate(kp){
+    Array.prototype.forEach.call(document.querySelectorAll('#gate .petals'),function(s){
+      var bot=s.classList.contains('pb');
+      while(s.firstChild)s.removeChild(s.firstChild);
+      s.setAttribute('viewBox','0 0 '+(1880/kp).toFixed(1)+' 250');
+      garland(s,{n:Math.max(17,Math.round(17/kp)),k:1.15,amp:9,edge:bot?186:64,out:bot?-1:1,roseFirst:false});
+    });
+  }
+  window.__iznBuildGate=buildGate;
   Array.prototype.forEach.call(document.querySelectorAll('.petals'),function(s){
     var gate=!!s.closest('#gate'),bot=s.classList.contains('pb');
     if(gate)garland(s,{n:17,k:1.15,amp:9,edge:bot?186:64,out:bot?-1:1,roseFirst:false});
@@ -903,6 +914,46 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 });
+</script>
+<script>
+/* Гейт: вся композиция вписывается в высоту окна (на телефоне всё как есть, на ПК — уменьшается целиком) */
+(function(){
+  var DESIGN_H=4068,lastKp=1,busy=false;
+  var gate=document.getElementById('gate'),box=document.querySelector('#gate .gate-box');
+  if(!gate||!box)return;
+  var pets=gate.querySelectorAll('.petals');
+  function reset(){
+    box.style.zoom='';box.style.paddingTop='';box.style.paddingBottom='';
+    Array.prototype.forEach.call(pets,function(p){p.style.width='';p.style.transform='';p.style.transformOrigin='';});
+    if(lastKp!==1&&window.__iznBuildGate){window.__iznBuildGate(1);lastKp=1;}
+  }
+  function fitGate(){
+    if(busy)return;busy=true;
+    try{
+      var z=parseFloat(document.documentElement.style.zoom)||1;
+      var H=window.innerHeight/z;
+      reset();
+      var C=box.offsetHeight-500;
+      if(C<=0)return;
+      var kp=Math.min(1,H/DESIGN_H),petalH=250*kp;
+      var s=Math.min(1,(H-2*(petalH+24))/C);
+      if(kp>=1&&s>=1)return;
+      if(kp<1&&window.__iznBuildGate){window.__iznBuildGate(kp);lastKp=kp;}
+      Array.prototype.forEach.call(pets,function(p){
+        p.style.width=(100/kp)+'%';p.style.transform='scale('+kp+')';
+        p.style.transformOrigin=p.classList.contains('pb')?'left bottom':'left top';
+      });
+      box.style.zoom=s;
+      var pad=(petalH+24)/s;
+      box.style.paddingTop=pad+'px';box.style.paddingBottom=pad+'px';
+    }finally{busy=false;}
+  }
+  fitGate();
+  window.addEventListener('load',fitGate);
+  window.addEventListener('resize',fitGate);
+  window.addEventListener('orientationchange',fitGate);
+  window.addEventListener('izn-fit',fitGate);
+})();
 </script>
 </body>
 </html>
