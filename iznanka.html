@@ -175,8 +175,8 @@ body{margin:0;min-width:1760px;min-height:100vh;color:#f0dcb4;font-family:"Times
 
 
 #gate{position:fixed;inset:0;z-index:40;display:flex;align-items:center;justify-content:center;overflow:auto;background:var(--noise) 0 0/160px,var(--tuft) 0 0/80px,#2a080b;transition:opacity .9s ease}
-#gate::after{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;background:url("powerwoman.webp") 0 0/340px repeat;opacity:.3;filter:sepia(.55) saturate(1.5) hue-rotate(-22deg) contrast(1.05) brightness(.92)}
-#gate::before{content:"";position:fixed;inset:0;pointer-events:none;background:radial-gradient(ellipse at 50% 50%,transparent 45%,rgba(0,0,0,.5) 100%)}
+#gate::after{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;background:url("powerwoman.webp") 0 0/340px repeat;opacity:.92;filter:sepia(.3) saturate(1.35) hue-rotate(-14deg) contrast(1.08) brightness(1.28)}
+#gate::before{content:"";position:fixed;inset:0;pointer-events:none;background:radial-gradient(ellipse at 50% 50%,transparent 55%,rgba(0,0,0,.32) 100%)}
 body::after{content:"";position:fixed;inset:0;z-index:55;pointer-events:none;background:radial-gradient(ellipse at 50% 50%,transparent 62%,rgba(0,0,0,.4) 100%)}
 #gate.off{opacity:0;pointer-events:none}
 .gate-box{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;width:1120px;padding:250px 0}
@@ -206,9 +206,19 @@ body::after{content:"";position:fixed;inset:0;z-index:55;pointer-events:none;bac
   box-shadow:0 0 0 4px #000,0 0 0 8px #c98a26,0 0 0 12px #000,14px 14px 0 12px rgba(0,0,0,.8),inset 0 3px 0 rgba(255,170,150,.55),inset 0 -10px 16px rgba(0,0,0,.5)}
 #gate button#gate-no{background:linear-gradient(180deg,#34191a,#1c0b0c 50%,#0c0405);border-color:#4a3a36;color:#cdb98f}
 #gate button:active{border-style:inset;transform:translateY(3px)}
+
+.warn{display:flex;align-items:center;gap:34px;text-align:center}
+.warn .wmain{flex:1;min-width:0}
+.warn .verse{position:relative;flex:none;align-self:flex-end;width:430px;margin:0 0 -6px;padding:22px 24px 20px;text-align:justify;hyphens:auto;
+  border:6px ridge #c98a26;background:linear-gradient(rgba(10,2,2,.38),rgba(10,2,2,.38)),url("bubona.gif") 0 0/100% 100% no-repeat,#2a070b;
+  box-shadow:0 0 0 2px #000,inset 0 0 22px rgba(0,0,0,.85),6px 6px 0 3px rgba(0,0,0,.75);
+  font:italic 400 15.5px/1.5 "Times New Roman",Georgia,serif;color:#ecd6a4;text-shadow:1px 1px 0 #000}
+.warn .verse p{margin:0 0 9px;font-size:inherit;line-height:inherit;color:inherit;text-shadow:inherit}
+.warn .verse p:first-child::first-letter{float:left;font:900 italic 46px/.82 "Times New Roman",Georgia,serif;color:#c4141c;padding:4px 6px 0 0;text-shadow:-1px -1px 0 #ff8a66,2px 2px 0 #000}
+.warn .verse em{color:#e3a437;font-weight:700;letter-spacing:.04em}
+.warn .verse .refrain{margin:12px 0 0;text-align:center;font-weight:700;color:#e3a437}
 </style>
 <script>
-/* Фиксированный макет 1880px: на ПК масштабируем всю страницу под ширину окна, как viewport на телефоне */
 (function(){
   var DESIGN=1880, de=document.documentElement;
   function fit(){
@@ -377,10 +387,17 @@ body::after{content:"";position:fixed;inset:0;z-index:55;pointer-events:none;bac
     <img class="gdia" src="pipa1.gif" alt="">
     <div class="knives"><svg class="kn" viewBox="0 0 600 100"><use href="#knife"/></svg><svg class="kn flip" viewBox="0 0 600 100"><use href="#knife"/></svg></div>
     <div class="warn">
+      <div class="wmain">
       <b>Предупреждение</b>
       <p>Дальше опасная зона. Назад дороги не будет.</p>
       <p class="wq">Ты точно уверен что хочешь войти?</p>
       <img class="zash" src="zashita.GIF" alt="">
+      </div>
+      <aside class="verse">
+        <p>Наша <em>nuditas</em> — не ваша обнажённость.</p>
+        <p>С глубоким трепетом и чувством равновесия, наклонившись перед вольно вытянутой ею ногой, с каким-то любопытством незнания, предвкушения прислоняя палец к губе, но не прикасаясь, совершает то же самое, сохраняя лелейное чудо, питая животворяще-благоговейную дистанцию заколдованного очарованья… Волшебные икры её ножки, в которых обручаются пальцы юноши, пресекая возможный хват… Какое преступление будет, завладей он ею! Обернись назад — как всё испарится! О, знали бы вы о нюансах обнажённости!</p>
+        <p class="refrain">Наша <em>nuditas</em> — обнажённость — не ваша обнажённость.</p>
+      </aside>
     </div>
     <div class="gbtns"><button type="button" id="gate-btn">Войти</button><button type="button" id="gate-no">Уйти</button></div>
     <div class="knives"><svg class="kn" viewBox="0 0 600 100"><use href="#knife"/></svg><svg class="kn flip" viewBox="0 0 600 100"><use href="#knife"/></svg></div>
@@ -970,7 +987,6 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 </script>
 <script>
-/* Гейт: вся композиция вписывается в высоту окна (на телефоне всё как есть, на ПК — уменьшается целиком) */
 (function(){
   var DESIGN_H=4068,lastKp=1,busy=false;
   var gate=document.getElementById('gate'),box=document.querySelector('#gate .gate-box');
