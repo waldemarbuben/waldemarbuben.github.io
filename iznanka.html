@@ -109,14 +109,14 @@ body{margin:0;min-width:1760px;min-height:100vh;color:#f0dcb4;font-family:"Times
   border:6px ridge #8b0f14;box-shadow:0 0 0 3px #000,8px 8px 0 3px rgba(0,0,0,.85),inset 0 0 8px rgba(80,40,0,.6)}
 
 
-.aloha2-wrap{position:relative;width:500px;max-width:100%;margin:34px 0 0;filter:drop-shadow(0 10px 12px rgba(0,0,0,.75))}
-.aloha2{display:block;width:500px;max-width:100%;height:500px;object-fit:cover;border:0;box-shadow:none;
+.aloha2-wrap,.aloha3-wrap{position:relative;width:500px;max-width:100%;margin:34px 0 0;filter:drop-shadow(0 10px 12px rgba(0,0,0,.75))}
+.aloha2,.aloha3{display:block;width:500px;max-width:100%;height:500px;object-fit:cover;border:0;box-shadow:none;
   filter:sepia(.55) saturate(1.35) hue-rotate(-16deg) contrast(1.05) brightness(.9);
   -webkit-mask-image:linear-gradient(90deg,transparent,#000 11%,#000 89%,transparent),linear-gradient(180deg,transparent,#000 11%,#000 89%,transparent);
   -webkit-mask-composite:source-in;
   mask-image:linear-gradient(90deg,transparent,#000 11%,#000 89%,transparent),linear-gradient(180deg,transparent,#000 11%,#000 89%,transparent);
   mask-composite:intersect}
-.aloha2-wrap::after{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse at 50% 50%,transparent 55%,rgba(52,9,13,.55) 100%),linear-gradient(rgba(139,15,20,.12),rgba(139,15,20,.12));mix-blend-mode:multiply}
+.aloha2-wrap::after,.aloha3-wrap::after{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse at 50% 50%,transparent 55%,rgba(52,9,13,.55) 100%),linear-gradient(rgba(139,15,20,.12),rgba(139,15,20,.12));mix-blend-mode:multiply}
 .rcol{position:sticky;top:30px;flex:none;width:720px;display:flex;flex-direction:column;align-items:center}
 .aloha{display:block;width:500px;max-width:100%;height:auto;margin:34px 0 0;border:0;box-shadow:none}
 .casement{position:relative;flex:none;width:720px;height:1160px;padding:50px 62px 42px}
@@ -221,6 +221,9 @@ body::after{content:"";position:fixed;inset:0;z-index:55;pointer-events:none;bac
 .warn .verse p:first-child::first-letter{float:left;font:900 italic 64px/.8 "Times New Roman",Georgia,serif;color:#c4141c;padding:5px 8px 0 0;text-shadow:-1px -1px 0 #ff8a66,2px 2px 0 #000}
 .warn .verse em{color:#e3a437;font-weight:700;letter-spacing:.04em}
 .warn .verse .refrain{margin:16px 0 0;text-align:center;text-align-last:center;font-weight:700;color:#e3a437}
+.lcol{flex:none;width:840px;display:flex;flex-direction:column;align-items:center}
+.aloha3-wrap{width:640px;margin:150px 0 0}
+.aloha3{width:640px;height:540px}
 </style>
 <script>
 (function(){
@@ -348,6 +351,7 @@ body::after{content:"";position:fixed;inset:0;z-index:55;pointer-events:none;bac
 
 <div class="stage">
 
+  <div class="lcol">
   <main class="card">
     <svg class="petals pt" viewBox="0 0 960 170" aria-hidden="true"></svg>
     <header class="plate">
@@ -371,6 +375,8 @@ body::after{content:"";position:fixed;inset:0;z-index:55;pointer-events:none;bac
     <div class="year">&bull;1916&bull;</div>
     <svg class="petals pb" viewBox="0 0 960 170" aria-hidden="true"></svg>
   </main>
+  <div class="aloha3-wrap"><img class="aloha3" src="aloha3.gif" alt=""></div>
+  </div>
 
   <div class="rcol">
   <aside class="casement">
@@ -411,8 +417,7 @@ body::after{content:"";position:fixed;inset:0;z-index:55;pointer-events:none;bac
       <aside class="verse">
         <p>Наша <em>nuditas</em> — не ваша обнажённость.</p>
         <p>С глубоким трепетом и чувством равновесия, наклонившись перед вольно вытянутой ею ногой, с каким-то любопытством незнания, предвкушения прислоняя палец к губе, но не прикасаясь, совершает то же самое, сохраняя лелейное чудо, питая животворяще-благоговейную дистанцию заколдованного очарованья… Волшебные икры её ножки, в которых обручаются пальцы юноши, пресекая возможный хват… Какое преступление будет, завладей он ею! Обернись назад — как всё испарится! О, знали бы вы о нюансах обнажённости!</p>
-        <p class="refrain">Наша <em>nuditas</em> — обнажённость — не ваша обнажённость. Сайт утверждает - концентрированный, бескомпромиссный
-метафизический романтизм</p>
+        <p class="refrain">Наша <em>nuditas</em> — обнажённость — не ваша обнажённость.</p>
       </aside>
     </div>
     <div class="gbtns"><button type="button" id="gate-btn">Войти</button><button type="button" id="gate-no">Уйти</button></div>
