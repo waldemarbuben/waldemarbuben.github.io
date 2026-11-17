@@ -710,7 +710,7 @@ body::after{content:"";position:fixed;inset:0;z-index:55;pointer-events:none;bac
 <script>
 (function(){
   var gate=document.getElementById('gate'),btn=document.getElementById('gate-btn'),no=document.getElementById('gate-no');
-  var music=new Audio('ioike.mp3');
+  var music=new Audio('sireni2.mp3');
   music.loop=true;music.preload='auto';
   function keep(){if(music.paused&&gate.classList.contains('off'))music.play().catch(function(){});}
   music.addEventListener('pause',keep);
