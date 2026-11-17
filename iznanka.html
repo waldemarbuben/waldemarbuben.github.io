@@ -109,8 +109,14 @@ body{margin:0;min-width:1760px;min-height:100vh;color:#f0dcb4;font-family:"Times
   border:6px ridge #8b0f14;box-shadow:0 0 0 3px #000,8px 8px 0 3px rgba(0,0,0,.85),inset 0 0 8px rgba(80,40,0,.6)}
 
 
-.aloha2-wrap{width:1760px;margin:0 auto 70px;padding:0 24px}
-.aloha2{display:block;width:100%;height:auto;border:0;box-shadow:none}
+.aloha2-wrap{position:relative;width:500px;max-width:100%;margin:34px 0 0;filter:drop-shadow(0 10px 12px rgba(0,0,0,.75))}
+.aloha2{display:block;width:500px;max-width:100%;height:500px;object-fit:cover;border:0;box-shadow:none;
+  filter:sepia(.55) saturate(1.35) hue-rotate(-16deg) contrast(1.05) brightness(.9);
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 11%,#000 89%,transparent),linear-gradient(180deg,transparent,#000 11%,#000 89%,transparent);
+  -webkit-mask-composite:source-in;
+  mask-image:linear-gradient(90deg,transparent,#000 11%,#000 89%,transparent),linear-gradient(180deg,transparent,#000 11%,#000 89%,transparent);
+  mask-composite:intersect}
+.aloha2-wrap::after{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse at 50% 50%,transparent 55%,rgba(52,9,13,.55) 100%),linear-gradient(rgba(139,15,20,.12),rgba(139,15,20,.12));mix-blend-mode:multiply}
 .rcol{position:sticky;top:30px;flex:none;width:720px;display:flex;flex-direction:column;align-items:center}
 .aloha{display:block;width:500px;max-width:100%;height:auto;margin:34px 0 0;border:0;box-shadow:none}
 .casement{position:relative;flex:none;width:720px;height:1160px;padding:50px 62px 42px}
@@ -220,17 +226,17 @@ body::after{content:"";position:fixed;inset:0;z-index:55;pointer-events:none;bac
 (function(){
   var DESIGN=1880, de=document.documentElement, lastH=0;
   function natural(){
-    var st=document.querySelector('.stage'),wr=document.querySelector('.aloha2-wrap');
-    return (st&&wr)?st.offsetHeight+wr.offsetHeight+70:0;
+    var st=document.querySelector('.stage');
+    return st?st.offsetHeight:0;
   }
   function fit(){
     var coarse=window.matchMedia&&matchMedia('(pointer:coarse)').matches;
     de.style.zoom='1';
     var w=coarse?DESIGN:de.clientWidth, h=de.clientHeight; if(!w||!h)return;
-    var z=w/DESIGN, n=natural();
-    if(n>0)z=Math.min(z,h/n);
+    var z=w/DESIGN;
     de.style.zoom=z.toFixed(4);
-    de.style.overflow='hidden';
+    de.style.overflowX='hidden';
+    de.style.overflowY=de.classList.contains('gated')?'hidden':'auto';
     lastH=natural();
     window.dispatchEvent(new Event('izn-fit'));
   }
@@ -384,11 +390,10 @@ body::after{content:"";position:fixed;inset:0;z-index:55;pointer-events:none;bac
     <div class="sill"></div>
   </aside>
   <img class="aloha" src="aloha.gif" alt="">
+  <div class="aloha2-wrap"><img class="aloha2" src="aloha2.gif" alt=""></div>
   </div>
 
 </div>
-
-<div class="aloha2-wrap"><img class="aloha2" src="aloha2.gif" alt=""></div>
 
 <div id="gate">
   <svg class="petals pt" viewBox="0 0 1880 250" preserveAspectRatio="xMidYMin slice" aria-hidden="true"></svg>
@@ -720,6 +725,7 @@ body::after{content:"";position:fixed;inset:0;z-index:55;pointer-events:none;bac
   btn.addEventListener('click',function(){
     gate.classList.add('off');
     document.documentElement.classList.remove('gated');
+    document.documentElement.style.overflowY='auto';
     music.play().catch(function(){});
     setTimeout(function(){gate.style.display='none';},950);
   });
