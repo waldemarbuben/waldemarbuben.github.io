@@ -190,6 +190,13 @@ body::after{content:"";position:fixed;inset:0;z-index:55;pointer-events:none;bac
 .gbox{display:block;max-width:none;object-fit:fill;border:5px solid #000;box-shadow:0 0 0 3px #c98a26,0 0 0 6px #000,10px 10px 0 6px rgba(0,0,0,.8)}
 .gverh1{width:1330px;height:516px;margin-bottom:100px}
 .gverh2{width:640px;height:550px;margin-top:70px}
+.gside{position:absolute;top:50%;transform:translateY(-50%);width:340px;height:960px;object-fit:cover;pointer-events:none;
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 14%,#000 86%,transparent),linear-gradient(180deg,transparent,#000 8%,#000 92%,transparent);
+  -webkit-mask-composite:source-in;
+  mask-image:linear-gradient(90deg,transparent,#000 14%,#000 86%,transparent),linear-gradient(180deg,transparent,#000 8%,#000 92%,transparent);
+  mask-composite:intersect;filter:drop-shadow(0 10px 12px rgba(0,0,0,.7))}
+.gside.gl{left:-360px}
+.gside.gr{left:1140px}
 .gdia{display:block;width:auto;height:auto;border:0;box-shadow:none}
 .warn .zash{display:block;margin:26px auto 0;max-width:100%;height:auto;image-rendering:pixelated}
 .warn{position:relative;width:100%;padding:28px 40px 30px;text-align:center;border:9px ridge #b5121b;
@@ -404,6 +411,8 @@ body::after{content:"";position:fixed;inset:0;z-index:55;pointer-events:none;bac
 <div id="gate">
   <svg class="petals pt" viewBox="0 0 1880 250" preserveAspectRatio="xMidYMin slice" aria-hidden="true"></svg>
   <div class="gate-box">
+    <img class="gside gl" src="levobub.gif" alt="">
+    <img class="gside gr" src="rightbub.gif" alt="">
     <img class="gbox gverh1" src="verh1.gif" alt="">
     <img class="gdia" src="pipa1.gif" alt="">
     <div class="knives"><svg class="kn" viewBox="0 0 600 100"><use href="#knife"/></svg><svg class="kn flip" viewBox="0 0 600 100"><use href="#knife"/></svg></div>
