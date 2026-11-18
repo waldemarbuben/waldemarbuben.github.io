@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
 <meta charset="utf-8">
-<title>HERMETICUM</title>
+<title>hermeticum</title>
  <meta name="viewport" content="width=1880">
 <meta name="theme-color" content="#070202">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -420,8 +420,8 @@ body::after{content:"";position:fixed;inset:0;z-index:55;pointer-events:none;bac
       <div class="wmain">
       <b>Предупреждение</b>
       <p>Дальше опасная зона. Назад дороги не будет.</p>
-       <p>Сайт утверждает концентрированный, бескомпромиссный
-метафизический романтизм.</p>
+      <p>Сайт утверждает концентрированный, бескомпромиссный
+метафизический романтизм. Сие предупреждение въ полной мѣрѣ относится и къ отдѣльному пространству <em>imaginalis.ru</em>.</p>
       <p class="wq">Ты точно уверен что хочешь войти?</p>
       <img class="zash" src="zashita.GIF" alt="">
       </div>
@@ -431,13 +431,18 @@ body::after{content:"";position:fixed;inset:0;z-index:55;pointer-events:none;bac
         <p class="refrain">Наша <em>nuditas</em> — не ваша обнажённость.</p>
       </aside>
     </div>
-    <div class="gbtns"><button type="button" id="gate-btn">Войти</button><button type="button" id="gate-no">Уйти</button></div>
+    <div class="gbtns">
+      <button type="button" id="gate-btn">Войти</button>
+      <button type="button" id="gate-imaginalis" onclick="window.location.href='https://imaginalis.ru'" title="Перейти на отдельный сайт imaginalis.ru, минуя hermeticum.ru">imaginalis.ru <small style="display:block;font-size:0.75em;opacity:0.8;">(Oтдѣльный Cайтъ)</small></button>
+      <button type="button" id="gate-no">Уйти</button>
+    </div>
     <div class="knives"><svg class="kn" viewBox="0 0 600 100"><use href="#knife"/></svg><svg class="kn flip" viewBox="0 0 600 100"><use href="#knife"/></svg></div>
     <img class="gdia" src="pipa2.gif" alt="">
     <img class="gbox gverh2" src="verh2.gif" alt="">
   </div>
   <svg class="petals pb" viewBox="0 0 1880 250" preserveAspectRatio="xMidYMax slice" aria-hidden="true"></svg>
 </div>
+
 
 <canvas id="fall-all"></canvas>
 
